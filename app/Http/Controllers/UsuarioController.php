@@ -38,5 +38,4 @@ class UsuarioController extends Controller
         return redirect('/');
     }
 /*----------------------------------------FIN LOGIN Y LOGOUT------------------------------------------------------------------------*/
-
 }
