@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Acceder a vista Admin
+Route::get('admin',[UsuarioController::class, 'vistaAdmin']);
+
+//leerJS
+Route::post('leer',[UsuarioController::class,'leer']);
+
+//estadouserJS
+Route::put('estadouser/{id}',[UsuarioController::class,'estadouser']);
