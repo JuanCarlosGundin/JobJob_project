@@ -14,18 +14,44 @@ class UsuarioController extends Controller
     }
 
     public function leer(Request $req) {
-        $empresaquery="";
-        $empresa=DB::select();
-        $trabajador=DB::select("SELECT * FROM tbl_usuarios
-        INNER JOIN tbl_trabajador on tbl_trabajador.id_usuario=tbl_usuarios.id
-        WHERE nombre like ?",[$req['filtro'].'%']);
-        return response()->json(array(
-            'empresa' => $empresa,
-            'trabajador' => $trabajador,
-            'T' => $req['Trabajador'],
-            'E' => $req['Empresa'],
-
-        ));
+        $filtro = $req->input('filtro');
+        $Trabajador = $req->input('Trabajador');
+        $Empresa = $req->input('Empresa');
+        /* $query.=" WHERE nom_emp like '{$filtro}%'"; */
+        if ($Empresa == 'true' && $Trabajador == 'true') {
+            $empresaquery="SELECT * FROM tbl_usuarios
+            INNER JOIN tbl_empresa on tbl_empresa.id_usuario=tbl_usuarios.id WHERE nom_emp like '{$filtro}%'";   
+            $empresa=DB::select($empresaquery);
+            $trabajadorquery="SELECT * FROM tbl_usuarios
+            INNER JOIN tbl_trabajador on tbl_trabajador.id_usuario=tbl_usuarios.id WHERE nombre like '{$filtro}%'";
+            $trabajador=DB::select($trabajadorquery);
+            return response()->json(array(
+                'empresa' => $empresa,
+                'trabajador' => $trabajador,
+    
+            ));
+        } else if ($Empresa == 'true'){
+            $empresaquery="SELECT * FROM tbl_usuarios
+            INNER JOIN tbl_empresa on tbl_empresa.id_usuario=tbl_usuarios.id WHERE nom_emp like '{$filtro}%'";   
+            $empresa=DB::select($empresaquery);
+            return response()->json(array(
+                'empresa' => $empresa,
+    
+            ));
+        } else if ($Trabajador == 'true'){
+            $trabajadorquery="SELECT * FROM tbl_usuarios
+            INNER JOIN tbl_trabajador on tbl_trabajador.id_usuario=tbl_usuarios.id WHERE nombre like '{$filtro}%'";
+            $trabajador=DB::select($trabajadorquery);
+            return response()->json(array(
+                'trabajador' => $trabajador,
+    
+            ));
+        } else{
+            return response()->json(array(
+                'resultado' => 'No has elegido cruck',
+    
+            ));
+        }
     }
 
     public function estadouser($id) {

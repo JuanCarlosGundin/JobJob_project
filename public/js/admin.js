@@ -52,87 +52,86 @@ function leerJS() {
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
-            console.log(respuesta);
-            var empresa = respuesta.empresa;
-            var trabajador = respuesta.trabajador;
-            var recarga = '';
-            recarga += '<h2>Empresas</h2>';
-            recarga += '<thead>';
-            recarga += '<tr>';
-            recarga += '<th>ID</th>';
-            recarga += '<th>Correo</th>';
-            recarga += '<th>Contraseña</th>';
-            recarga += '<th>Nombre</th>';
-            recarga += '<th>Sobre nosotros</th>';
-            recarga += '<th>Sector</th>';
-            recarga += '<th>Busqueda</th>';
-            recarga += '<th>Logo</th>';
-            recarga += '<th>Estado</th>';
-            recarga += '</tr>';
-            recarga += '</thead>';
-            recarga += '<tbody>';
-            for (let i = 0; i < empresa.length; i++) {
+            if (respuesta.hasOwnProperty('empresa')) {
+                var empresa = respuesta.empresa;
+                var recarga = '';
+                recarga += '<h2>Empresas</h2>';
+                recarga += '<thead>';
                 recarga += '<tr>';
-                recarga += '<td>' + empresa[i].id + '</td>';
-                recarga += '<td>' + empresa[i].mail + '</td>';
-                recarga += '<td>' + empresa[i].contra + '</td>';
-                recarga += '<td>' + empresa[i].nom_emp + '</td>';
-                recarga += '<td>' + empresa[i].loc_emp + '</td>';
-                recarga += '<td>' + empresa[i].about_emp + '</td>';
-                recarga += '<td>' + empresa[i].campo_emp + '</td>';
-                recarga += '<td>' + empresa[i].searching + '</td>';
-                recarga += '<td>' + empresa[i].logo_emp + '</td>';
-                if (empresa[i].estado == 1) {
-                    recarga += '<td><button onclick="estadouserJS(' + empresa[i].id + '); return false;">Banear</button></td>';
-                } else {
-                    recarga += '<td><button onclick="estadouserJS(' + empresa[i].id + '); return false;">Reactivar</button></td>';
-                }
+                recarga += '<th>Correo</th>';
+                recarga += '<th>Nombre</th>';
+                recarga += '<th>Localizacion</th>';
+                recarga += '<th>Sobre nosotros</th>';
+                recarga += '<th>Sector</th>';
+                recarga += '<th>Busqueda</th>';
+                recarga += '<th>Logo</th>';
+                recarga += '<th>Estado</th>';
                 recarga += '</tr>';
+                recarga += '</thead>';
+                recarga += '<tbody>';
+                for (let i = 0; i < empresa.length; i++) {
+                    recarga += '<tr>';
+                    recarga += '<td>' + empresa[i].mail + '</td>';
+                    recarga += '<td>' + empresa[i].nom_emp + '</td>';
+                    recarga += '<td>' + empresa[i].loc_emp + '</td>';
+                    recarga += '<td>' + empresa[i].about_emp + '</td>';
+                    recarga += '<td>' + empresa[i].campo_emp + '</td>';
+                    recarga += '<td>' + empresa[i].searching + '</td>';
+                    recarga += '<td>' + empresa[i].logo_emp + '</td>';
+                    if (empresa[i].estado == 1) {
+                        recarga += '<td><button onclick="estadouserJS(' + empresa[i].id + '); return false;">Banear</button></td>';
+                    } else {
+                        recarga += '<td><button onclick="estadouserJS(' + empresa[i].id + '); return false;">Reactivar</button></td>';
+                    }
+                    recarga += '</tr>';
+                }
+                recarga += '</tbody>';
             }
-            recarga += '</tbody>';
-
-            recarga += '<h2>Trabajadores</h2>';
-            recarga += '<thead>';
-            recarga += '<tr>';
-            recarga += '<th>ID</th>';
-            recarga += '<th>Correo</th>';
-            recarga += '<th>Contraseña</th>';
-            recarga += '<th>Nombre</th>';
-            recarga += '<th>Apellido</th>';
-            recarga += '<th>Sector</th>';
-            recarga += '<th>Experiencia</th>';
-            recarga += '<th>Estudios</th>';
-            recarga += '<th>Idiomas</th>';
-            recarga += '<th>Disponibilidad</th>';
-            recarga += '<th>Sobre mi</th>';
-            recarga += '<th>Foto</th>';
-            recarga += '<th>Estado</th>';
-            recarga += '</tr>';
-            recarga += '</thead>';
-            recarga += '<tbody>';
-            for (let i = 0; i < trabajador.length; i++) {
+            if (respuesta.hasOwnProperty('trabajador')) {
+                var trabajador = respuesta.trabajador;
+                recarga += '<h2>Trabajadores</h2>';
+                recarga += '<thead>';
                 recarga += '<tr>';
-                recarga += '<td>' + trabajador[i].id + '</td>';
-                recarga += '<td>' + trabajador[i].mail + '</td>';
-                recarga += '<td>' + trabajador[i].contra + '</td>';
-                recarga += '<td>' + trabajador[i].nombre + '</td>';
-                recarga += '<td>' + trabajador[i].apellido + '</td>';
-                recarga += '<td>' + trabajador[i].campo_user + '</td>';
-                recarga += '<td>' + trabajador[i].experiencia + '</td>';
-                recarga += '<td>' + trabajador[i].estudios + '</td>';
-                recarga += '<td>' + trabajador[i].idiomas + '</td>';
-                recarga += '<td>' + trabajador[i].disponibilidad + '</td>';
-                recarga += '<td>' + trabajador[i].about_user + '</td>';
-                recarga += '<td>' + trabajador[i].foto_perfil + '</td>';
-                if (trabajador[i].estado == 1) {
-                    recarga += '<td><button onclick="estadouserJS(' + trabajador[i].id + '); return false;">Banear</button></td>';
-                } else {
-                    recarga += '<td><button onclick="estadouserJS(' + trabajador[i].id + '); return false;">Reactivar</button></td>';
-                }
+                recarga += '<th>Correo</th>';
+                recarga += '<th>Nombre</th>';
+                recarga += '<th>Apellido</th>';
+                recarga += '<th>Sector</th>';
+                recarga += '<th>Experiencia</th>';
+                recarga += '<th>Estudios</th>';
+                recarga += '<th>Idiomas</th>';
+                recarga += '<th>Disponibilidad</th>';
+                recarga += '<th>Sobre mi</th>';
+                recarga += '<th>Foto</th>';
+                recarga += '<th>Estado</th>';
                 recarga += '</tr>';
+                recarga += '</thead>';
+                recarga += '<tbody>';
+                for (let i = 0; i < trabajador.length; i++) {
+                    recarga += '<tr>';
+                    recarga += '<td>' + trabajador[i].mail + '</td>';
+                    recarga += '<td>' + trabajador[i].nombre + '</td>';
+                    recarga += '<td>' + trabajador[i].apellido + '</td>';
+                    recarga += '<td>' + trabajador[i].campo_user + '</td>';
+                    recarga += '<td>' + trabajador[i].experiencia + '</td>';
+                    recarga += '<td>' + trabajador[i].estudios + '</td>';
+                    recarga += '<td>' + trabajador[i].idiomas + '</td>';
+                    recarga += '<td>' + trabajador[i].disponibilidad + '</td>';
+                    recarga += '<td>' + trabajador[i].about_user + '</td>';
+                    recarga += '<td>' + trabajador[i].foto_perfil + '</td>';
+                    if (trabajador[i].estado == 1) {
+                        recarga += '<td><button onclick="estadouserJS(' + trabajador[i].id + '); return false;">Banear</button></td>';
+                    } else {
+                        recarga += '<td><button onclick="estadouserJS(' + trabajador[i].id + '); return false;">Reactivar</button></td>';
+                    }
+                    recarga += '</tr>';
+                }
+                recarga += '</tbody>';
             }
-            recarga += '</tbody>';
-            tabla.innerHTML = recarga;
+            if (recarga == null) {
+                tabla.innerHTML = respuesta.resultado;
+            } else {
+                tabla.innerHTML = recarga;
+            }
         }
     }
     ajax.send(formData);
