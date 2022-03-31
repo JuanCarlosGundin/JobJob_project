@@ -9,6 +9,10 @@
     <title>Administración</title>
 </head>
 <body>
+    <label>Trabajadores</label>
+    <input type="checkbox" value="Trabajador" id="tbjd" onclick="leerJS()" checked>
+    <label>Empresas</label>
+    <input type="checkbox" value="Empresa" id="emp" onclick="leerJS()" checked>
     <input type="text" onkeyup="leerJS()" id="filtro"><br><br>
     <div>
         <table id="tabla">

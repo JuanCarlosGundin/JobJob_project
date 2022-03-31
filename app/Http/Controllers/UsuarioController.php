@@ -14,10 +14,18 @@ class UsuarioController extends Controller
     }
 
     public function leer(Request $req) {
-        $datos=DB::select("SELECT * FROM tbl_usuarios
-        INNER JOIN tbl_empresa on tbl_empresa.id_usuario=tbl_usuarios.id
-        WHERE nom_emp like ?",[$req['filtro'].'%']);
-        return response()->json($datos);
+        $empresaquery="";
+        $empresa=DB::select();
+        $trabajador=DB::select("SELECT * FROM tbl_usuarios
+        INNER JOIN tbl_trabajador on tbl_trabajador.id_usuario=tbl_usuarios.id
+        WHERE nombre like ?",[$req['filtro'].'%']);
+        return response()->json(array(
+            'empresa' => $empresa,
+            'trabajador' => $trabajador,
+            'T' => $req['Trabajador'],
+            'E' => $req['Empresa'],
+
+        ));
     }
 
     public function estadouser($id) {
