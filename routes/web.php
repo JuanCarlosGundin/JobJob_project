@@ -18,4 +18,7 @@ Route::get('/principal', function () {
 });
 //LEER EL CONTENIDO
 Route::post('mostrar',[AppController::class, 'mostrar']);
+//Positivo
 Route::post('si',[AppController::class, 'si']);
+//negativo
+Route::post('no',[AppController::class, 'no']);
