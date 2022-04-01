@@ -61,7 +61,8 @@ function trabajador() {
        formData.append('clave', valor);
        valor = elemento/s que se pasarán como parámetros: token, method, inputs... */
     var tabla = document.getElementById("main");
-    tabla.innerHTML = ("trabajador")
+    var recarga = '<input class="input_login" type="text" id="correo_usuario" name="correo_usuario" placeholder="Introduce el email...">'
+    tabla.innerHTML = recarga
 }
 
 function empresa() {

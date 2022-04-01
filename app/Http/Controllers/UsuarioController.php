@@ -45,5 +45,30 @@ class UsuarioController extends Controller
         return redirect('/');
     }
 /*----------------------------------------FIN LOGIN Y LOGOUT------------------------------------------------------------------------*/
+/*----------------------------------------REGISTRAR---------------------------------------------------------------------------------*/
+public function registro()
+{
+    return view('registrar');
+}
+
+public function registroPost(Request $request){
+    $datos = $request->except('_token');
+    try{
+        DB::beginTransaction();
+        /*insertar datos en la base de datos*/
+        $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra'])]);
+
+        DB::table('tbl_usuario')->insertGetId(["correo_usuario"=>$datos['correo_usuario'],"password_usuario"=>md5($datos['password_usuario']),"id_rol"=>$datos['id_rol']]);
+        DB::commit();
+        return redirect('login');
+    }catch(\Exception $e){
+        DB::rollBack();
+        return $e->getMessage();
+    }
+}
+/*----------------------------------------FIN REGISTRAR---------------------------------------------------------------------------------*/
+
+
+
 
 }

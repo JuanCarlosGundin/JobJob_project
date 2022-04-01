@@ -33,5 +33,6 @@ Route::get('registrar', function () {
 /*LOGIN Y LOGOUT*/
 Route::post('login', [UsuarioController::class, 'loginP']);
 Route::get('logout', [UsuarioController::class, 'logout']);
-/*leer tipo user*/
-// Route::post('leertipo',[UsuarioController::class, 'leerControlleruser']);
+//Ruta para el registro de usuarios
+Route::get('registro',[UsuarioController::class, 'registro']);
+Route::post('registroPost',[UsuarioController::class, 'registroPost']);
