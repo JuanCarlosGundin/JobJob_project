@@ -14,48 +14,66 @@ $tablet:1200px;
     font-family: 'Inter', sans-serif;
 }
 
-body {
-    margin: 0;
-    background-color: #92AFD7 !important;
-}
-
 ////////////////////////////////MAIN///////////////////////////////////////
 ////////////////////////////////LOGIN//////////////////////////////////////
-
-.logo img {
-    width: 7%;
-    margin-top: 15%;
-    margin-bottom: 10%;
-    border-radius: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.modal-login {
-    background-color: white;
-}
-    h1 {
-        text-align: center;
+.body-login {
+    margin: 0;
+    background-color: $first-color;
+    .logo {
+        display: none;
     }
+    .modal-login {
+        background-color: white;
+        border-radius: 55px;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        margin-top: 10vh;
+        margin-left: 30vh;
+        margin-right: 30vh;
+        .btn-signin {
+            text-align: center;
+            color: #92AFD7;
+            font-weight: bold;
+            background-color: #F0F0F0;
+            border: none;
+        }
+        .btn-register {
+            text-align: center;
+            color: #92AFD7;
+            font-weight: bold;
+            background-color: white;
+            border: none;
+        }
         .modal-content {
             border: white;
-        }
+            text-align: center;
+            width: 80%;
+            margin-left: 10%;
+            margin-right: 10%;
             h2 {
+                margin-top: 8vh;
+                margin-bottom: 7vh;
                 text-align: center;
+                font-weight: bold;
             }
             p {
                 font-weight: bold;
                 color: #C5D1EB;
+                text-align: center;
+                padding-top: 10px;
             }
             .inputlogin {
                 margin-bottom: 1rem;
                 font-size: 15px;
                 border-radius: 15px;
                 border: #92AFD7 solid 1.5px;
+                width: 65%;
+                height: 8vh;
             }
             .inputlogin::placeholder {
                 color: rgb(197, 191, 191);
+                padding-left: 2%;
             }
             .botonlogin {
                 border-radius: 15px;
@@ -64,56 +82,115 @@ body {
                 box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
                 color: white;
                 font-weight: bold;
+                width: 65%;
+                height: 8vh;
             }
             .linea {
                 border-top: 1px solid #CDC0C0;
                 height: 2px;
             }
-
-@media only screen and (max-width: 768px) {
-    .logo {
-        height: 25vh;
-    }
-    .logo img {
-        width: 30%;
-        margin-top: 15%;
-        margin-bottom: 10%;
-        border-radius: 20px;
-    }
-    h1 {
-        padding-top: 6%;
-        color: #92AFD7;
-    }
-    h2 {
-        padding-top: 20%;
-        padding-bottom: 16%;
-    }
-    .modal-login {
-        border-radius: 55px;
-    }
-    .modal-content {
-        padding-left: 15%;
-        padding-right: 15%;
-        height: 61vh;
-    }
-    input {
-        width: 100%;
-        height: 40px;
-    }
-    .botonlogin {
-        width: 100%;
-        height: 40px;
-    }
-    .linea {
-        max-width: 100%;
-        padding: 0;
-        margin-top: 15px;
-        margin-bottom: 15px;
+            .google-login {
+                font-weight: bold;
+                color: white;
+                background-color: #C5D1EB;
+                border: #C5D1EB solid 1.5px;
+                display: block;
+                margin-top: 5vh;
+                margin-bottom: 5vh;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+            .google-img {
+                width: 2.5vh;
+            }
+        }
     }
 }
 
-
-
+@media only screen and (max-width: 768px) {
+    .body-login {
+        .logo {
+            display: block !important;
+        }
+        .logo img {
+            width: 30%;
+            margin-top: 15%;
+            margin-bottom: 10%;
+            border-radius: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .modal-login {
+            width: 100%;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            margin-top: 0vh;
+            margin-bottom: 0vh;
+            margin-left: 0vh;
+            margin-right: 0vh;
+            .botones {
+                text-align: center;
+                height: 9vh;
+                .btn-signin {
+                    padding-top: 10px;
+                    width: 49%;
+                    height: 9vh;
+                    font-size: 25px;
+                    border-top-left-radius: 53px;
+                    border-bottom-right-radius: 60px;
+                }
+                .btn-register {
+                    width: 49%;
+                    height: 9vh;
+                    padding-top: 10px;
+                    font-size: 25px;
+                    border-top-right-radius: 53px;
+                }
+            }
+            .modal-content {
+                width: 80%;
+                height: 68vh;
+                h2 {
+                    margin-top: 0vh;
+                    margin-bottom: 0vh;
+                    font-weight: bold;
+                    padding-top: 30%;
+                    padding-bottom: 16%;
+                }
+                input {
+                    width: 100% !important;
+                    height: 45px !important;
+                }
+                .botonlogin {
+                    width: 100%;
+                    height: 40px;
+                    margin-bottom: 3px;
+                }
+                p {
+                    padding-top: 3px;
+                    text-align: left;
+                }
+                .linea {
+                    max-width: 100%;
+                    padding: 0;
+                    margin-top: 20px;
+                    margin-bottom: 40px;
+                }
+                .google-login {
+                    width: 80%;
+                    padding-top: 4px;
+                    padding-bottom: 7px;
+                }
+                .google-img {
+                    width: 2.5vh;
+                    margin-right: 12px;
+                }
+            }
+        }
+    }
+}
 
 /////////////////////////////////PERFIL////////////////////////////////////
 /////////////////////////////////CHAT/////////////////////////////////////////

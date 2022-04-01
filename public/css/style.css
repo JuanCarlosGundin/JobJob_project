@@ -7,7 +7,209 @@
   font-family: 'Inter', sans-serif;
 }
 
-body {
+.body-login {
   margin: 0;
+  background-color: #92AFD7;
+}
+
+.body-login .logo {
+  display: none;
+}
+
+.body-login .modal-login {
+  background-color: white;
+  border-radius: 55px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  text-align: center;
+  margin-top: 10vh;
+  margin-left: 30vh;
+  margin-right: 30vh;
+}
+
+.body-login .modal-login .btn-signin {
+  text-align: center;
+  color: #92AFD7;
+  font-weight: bold;
+  background-color: #F0F0F0;
+  border: none;
+}
+
+.body-login .modal-login .btn-register {
+  text-align: center;
+  color: #92AFD7;
+  font-weight: bold;
+  background-color: white;
+  border: none;
+}
+
+.body-login .modal-login .modal-content {
+  border: white;
+  text-align: center;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.body-login .modal-login .modal-content h2 {
+  margin-top: 8vh;
+  margin-bottom: 7vh;
+  text-align: center;
+  font-weight: bold;
+}
+
+.body-login .modal-login .modal-content p {
+  font-weight: bold;
+  color: #C5D1EB;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.body-login .modal-login .modal-content .inputlogin {
+  margin-bottom: 1rem;
+  font-size: 15px;
+  border-radius: 15px;
+  border: #92AFD7 solid 1.5px;
+  width: 65%;
+  height: 8vh;
+}
+
+.body-login .modal-login .modal-content .inputlogin::-webkit-input-placeholder {
+  color: #c5bfbf;
+  padding-left: 2%;
+}
+
+.body-login .modal-login .modal-content .inputlogin:-ms-input-placeholder {
+  color: #c5bfbf;
+  padding-left: 2%;
+}
+
+.body-login .modal-login .modal-content .inputlogin::-ms-input-placeholder {
+  color: #c5bfbf;
+  padding-left: 2%;
+}
+
+.body-login .modal-login .modal-content .inputlogin::placeholder {
+  color: #c5bfbf;
+  padding-left: 2%;
+}
+
+.body-login .modal-login .modal-content .botonlogin {
+  border-radius: 15px;
+  background-color: #92AFD7;
+  border: #92AFD7 solid 1.5px;
+  -webkit-box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+          box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+  color: white;
+  font-weight: bold;
+  width: 65%;
+  height: 8vh;
+}
+
+.body-login .modal-login .modal-content .linea {
+  border-top: 1px solid #CDC0C0;
+  height: 2px;
+}
+
+.body-login .modal-login .modal-content .google-login {
+  font-weight: bold;
+  color: white;
+  background-color: #C5D1EB;
+  border: #C5D1EB solid 1.5px;
+  display: block;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.body-login .modal-login .modal-content .google-img {
+  width: 2.5vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .body-login .logo {
+    display: block !important;
+  }
+  .body-login .logo img {
+    width: 30%;
+    margin-top: 15%;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .body-login .modal-login {
+    width: 100%;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+    margin-left: 0vh;
+    margin-right: 0vh;
+  }
+  .body-login .modal-login .botones {
+    text-align: center;
+    height: 9vh;
+  }
+  .body-login .modal-login .botones .btn-signin {
+    padding-top: 10px;
+    width: 49%;
+    height: 9vh;
+    font-size: 25px;
+    border-top-left-radius: 53px;
+    border-bottom-right-radius: 60px;
+  }
+  .body-login .modal-login .botones .btn-register {
+    width: 49%;
+    height: 9vh;
+    padding-top: 10px;
+    font-size: 25px;
+    border-top-right-radius: 53px;
+  }
+  .body-login .modal-login .modal-content {
+    width: 80%;
+    height: 68vh;
+  }
+  .body-login .modal-login .modal-content h2 {
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+    font-weight: bold;
+    padding-top: 30%;
+    padding-bottom: 16%;
+  }
+  .body-login .modal-login .modal-content input {
+    width: 100% !important;
+    height: 45px !important;
+  }
+  .body-login .modal-login .modal-content .botonlogin {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 3px;
+  }
+  .body-login .modal-login .modal-content p {
+    padding-top: 3px;
+    text-align: left;
+  }
+  .body-login .modal-login .modal-content .linea {
+    max-width: 100%;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  .body-login .modal-login .modal-content .google-login {
+    width: 80%;
+    padding-top: 4px;
+    padding-bottom: 7px;
+  }
+  .body-login .modal-login .modal-content .google-img {
+    width: 2.5vh;
+    margin-right: 12px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
