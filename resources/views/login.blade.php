@@ -7,6 +7,14 @@
   {{-- <link rel="stylesheet" href="{!! asset('css/styles.css') !!}"> --}}
 </head>
 <body class="login">
+    <div>
+        <form action="{{url('registrar')}}" method="GET">
+            <div class="form-group">
+                <span><i class="fas fa-sign-out-alt"></i></span>
+                <button type="submit" value="logout" class="botoncPanel">registro</button><br><br>
+            </div>
+        </form>
+    </div>
   <div class="row flex-cv">
     <div class="cuadro_login">
         <form action="{{url('login')}}" method="POST">

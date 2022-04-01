@@ -26,7 +26,12 @@ Route::get('paginatrabajador', function () {
 Route::get('cPanelAdmin', function () {
     return view('cPanelAdmin');
 });
+Route::get('registrar', function () {
+    return view('registrar');
+});
 /*--------------RUTAS DAVID--------------*/
 /*LOGIN Y LOGOUT*/
 Route::post('login', [UsuarioController::class, 'loginP']);
 Route::get('logout', [UsuarioController::class, 'logout']);
+/*leer tipo user*/
+// Route::post('leertipo',[UsuarioController::class, 'leerControlleruser']);

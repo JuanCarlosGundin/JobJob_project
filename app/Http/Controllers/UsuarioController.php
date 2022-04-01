@@ -16,16 +16,23 @@ class UsuarioController extends Controller
         
         if($user->nom_perfil=='Admin'){
            $request->session()->put('nombre_admin',$request->mail);
-           $request->session()->put('administrador',$request->mail);
            return redirect('cPanelAdmin');
         }if($user->nom_perfil=='Trabajador'){
             $request->session()->put('nombre_trabajador',$request->mail);
-            $request->session()->put('trabajador',$request->mail);
+            $datos=DB::select('select * from tbl_usuarios
+            where mail like ?',[$request->mail]);
+            $request->session()->put('id_user',$datos[0]->id);
+            $request->session()->put('id_perfil',$datos[0]->id_perfil);
+            //return $querytrabajador;
+            // $request->session()->put('id_user',$querytrabajador);
             return redirect('paginatrabajador');
         }
         if($user->nom_perfil=='Empresa'){
             $request->session()->put('nombre_empresa',$request->mail);
-            $request->session()->put('empresa',$request->mail);
+            $datos=DB::select('select * from tbl_usuarios
+            where mail like ?',[$request->mail]);
+            $request->session()->put('id_user',$datos[0]->id);
+            $request->session()->put('id_perfil',$datos[0]->id_perfil);
             return redirect('paginaempresa');
         }
         return redirect('/');
