@@ -16,12 +16,18 @@
     <input type="checkbox" value="Trabajador" id="tbjd" onclick="leerJS()" checked>
     <label>Administradores</label>
     <input type="checkbox" value="Admin" id="adm" onclick="leerJS()" checked>
+    <label>Correo</label>
+    <input type="text" onkeyup="leerJS()" id="filcorreo"><br><br>
+    <label>Nombre</label>
     <input type="text" onkeyup="leerJS()" id="filtro"><br><br>
     <div>
         <div id="tablaemp">
             {{-- contenido ajax --}}
         </div>
         <div id="tablatrab">
+            {{-- contenido ajax --}}
+        </div>
+        <div id="tablaadmin">
             {{-- contenido ajax --}}
         </div>
     </div>

@@ -14,53 +14,31 @@ class UsuarioController extends Controller
     }
 
     public function leer(Request $req) {
+        $filcorreo = $req->input('filcorreo');
         $filtro = $req->input('filtro');
         $Empresa = $req->input('Empresa');
         $Trabajador = $req->input('Trabajador');
         $Admin = $req->input('Admin');
         /* $query.=" WHERE nom_emp like '{$filtro}%'"; */
-        if ($Empresa == 'true' && $Trabajador == 'true') {
+        $datos=array('res' => 'OK');
+        if ($Empresa == 'true'){
             $empresaquery="SELECT * FROM tbl_usuarios
-            INNER JOIN tbl_empresa on tbl_empresa.id_usuario=tbl_usuarios.id WHERE nom_emp like '{$filtro}%'";   
+            INNER JOIN tbl_empresa on tbl_empresa.id_usuario=tbl_usuarios.id WHERE mail like '{$filcorreo}%' and nom_emp like '{$filtro}%'";   
             $empresa=DB::select($empresaquery);
-            $trabajadorquery="SELECT * FROM tbl_usuarios
-            INNER JOIN tbl_trabajador on tbl_trabajador.id_usuario=tbl_usuarios.id WHERE nombre like '{$filtro}%'";
-            $trabajador=DB::select($trabajadorquery);
-            return response()->json(array(
-                'empresa' => $empresa,
-                'trabajador' => $trabajador,
-    
-            ));
-        } else if ($Empresa == 'true'){
-            $empresaquery="SELECT * FROM tbl_usuarios
-            INNER JOIN tbl_empresa on tbl_empresa.id_usuario=tbl_usuarios.id WHERE nom_emp like '{$filtro}%'";   
-            $empresa=DB::select($empresaquery);
-            return response()->json(array(
-                'empresa' => $empresa,
-                'resultado' => 'No has elegido trabajador',
-    
-            ));
-        } else if ($Trabajador == 'true'){
-            $trabajadorquery="SELECT * FROM tbl_usuarios
-            INNER JOIN tbl_trabajador on tbl_trabajador.id_usuario=tbl_usuarios.id WHERE nombre like '{$filtro}%'";
-            $trabajador=DB::select($trabajadorquery);
-            return response()->json(array(
-                'trabajador' => $trabajador,
-                'resultado' => 'No has elegido empresa',
-            ));
-        } else if ($Admin == 'true'){
-            $adminquery="SELECT * FROM tbl_usuarios where id_perfil='1' AND nombre like '{$filtro}%'";
-            $admin=DB::select($adminquery);
-            return response()->json(array(
-                'trabajador' => $admin,
-                'resultado' => 'No has elegido empresa',
-            ));
-        } else{
-            return response()->json(array(
-                'resultado' => 'No has elegido nada',
-    
-            ));
+            $datos+=array('empresa' => $empresa);
         }
+        if ($Trabajador == 'true'){
+            $trabajadorquery="SELECT * FROM tbl_usuarios
+            INNER JOIN tbl_trabajador on tbl_trabajador.id_usuario=tbl_usuarios.id WHERE mail like '{$filcorreo}%' and nombre like '{$filtro}%'";
+            $trabajador=DB::select($trabajadorquery);
+            $datos+=array('trabajador' => $trabajador);
+        }
+        if ($Admin == 'true'){
+            $adminquery="SELECT * FROM tbl_usuarios WHERE mail like '{$filcorreo}%' and id_perfil='1'";
+            $admin=DB::select($adminquery);
+            $datos+=array('admin' => $admin);
+        }
+        return response()->json($datos);
     }
 
     public function estadouser($id) {

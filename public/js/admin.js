@@ -42,9 +42,11 @@ function objetoAjax() {
 function leerJS() {
     var tablaemp = document.getElementById("tablaemp");
     var tablatrab = document.getElementById("tablatrab");
+    var tablaadmin = document.getElementById("tablaadmin");
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('filtro', document.getElementById('filtro').value);
+    formData.append('filcorreo', document.getElementById('filcorreo').value);
     formData.append('Empresa', document.getElementById("emp").checked);
     formData.append('Trabajador', document.getElementById("tbjd").checked);
     formData.append('Admin', document.getElementById("adm").checked);
@@ -54,6 +56,7 @@ function leerJS() {
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
+            console.log(respuesta);
             if (respuesta.hasOwnProperty('empresa')) {
                 var empresa = respuesta.empresa;
                 var recargaemp = '';
@@ -149,7 +152,7 @@ function leerJS() {
                 for (let i = 0; i < admin.length; i++) {
                     recargaadmin += '<tr>';
                     recargaadmin += '<td>' + admin[i].mail + '</td>';
-                    if (empresa[i].estado == 1) {
+                    if (admin[i].estado == 1) {
                         recargaadmin += '<td><button onclick="estadouserJS(' + admin[i].id + '); return false;">Banear</button></td>';
                     } else {
                         recargaadmin += '<td><button onclick="estadouserJS(' + admin[i].id + '); return false;">Reactivar</button></td>';
@@ -160,14 +163,19 @@ function leerJS() {
                 recargaadmin += '</table>';
             }
             if (recargaemp == null) {
-                tablaemp.innerHTML = respuesta.resultado;
+                tablaemp.innerHTML = "";
             } else {
                 tablaemp.innerHTML = recargaemp;
             }
             if (recargatrab == null) {
-                tablatrab.innerHTML = respuesta.resultado;
+                tablatrab.innerHTML = "";
             } else {
                 tablatrab.innerHTML = recargatrab;
+            }
+            if (recargaadmin == null) {
+                tablaadmin.innerHTML = "";
+            } else {
+                tablaadmin.innerHTML = recargaadmin;
             }
         }
     }
