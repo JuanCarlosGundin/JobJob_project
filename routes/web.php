@@ -22,3 +22,9 @@ Route::post('leer',[UsuarioController::class,'leer']);
 
 //estadouserJS
 Route::put('estadouser/{id}',[UsuarioController::class,'estadouser']);
+
+//perfiles
+Route::post('perfiles',[UsuarioController::class,'perfiles']);
+
+//crearJS
+Route::post('crear',[UsuarioController::class,'crear']);

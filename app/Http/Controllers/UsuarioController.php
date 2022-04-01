@@ -15,8 +15,9 @@ class UsuarioController extends Controller
 
     public function leer(Request $req) {
         $filtro = $req->input('filtro');
-        $Trabajador = $req->input('Trabajador');
         $Empresa = $req->input('Empresa');
+        $Trabajador = $req->input('Trabajador');
+        $Admin = $req->input('Admin');
         /* $query.=" WHERE nom_emp like '{$filtro}%'"; */
         if ($Empresa == 'true' && $Trabajador == 'true') {
             $empresaquery="SELECT * FROM tbl_usuarios
@@ -36,6 +37,7 @@ class UsuarioController extends Controller
             $empresa=DB::select($empresaquery);
             return response()->json(array(
                 'empresa' => $empresa,
+                'resultado' => 'No has elegido trabajador',
     
             ));
         } else if ($Trabajador == 'true'){
@@ -44,11 +46,18 @@ class UsuarioController extends Controller
             $trabajador=DB::select($trabajadorquery);
             return response()->json(array(
                 'trabajador' => $trabajador,
-    
+                'resultado' => 'No has elegido empresa',
+            ));
+        } else if ($Admin == 'true'){
+            $adminquery="SELECT * FROM tbl_usuarios where id_perfil='1' AND nombre like '{$filtro}%'";
+            $admin=DB::select($adminquery);
+            return response()->json(array(
+                'trabajador' => $admin,
+                'resultado' => 'No has elegido empresa',
             ));
         } else{
             return response()->json(array(
-                'resultado' => 'No has elegido cruck',
+                'resultado' => 'No has elegido nada',
     
             ));
         }
@@ -71,6 +80,24 @@ class UsuarioController extends Controller
         }   catch (\Exception $e) {
             DB::rollback();
             return response()->json(array('resultado'=> 'NOK: '.$e->getMessage()));
+        }
+    }
+
+    public function perfiles(Request $req) {
+        $datos=DB::select("SELECT * FROM tbl_perfiles");
+        return response()->json($datos);
+    }
+
+    public function crear(Request $req) {
+        DB::beginTransaction();
+        try {
+            DB::select("INSERT INTO tbl_usuarios (`mail`, `contra`, `id_perfil`, `estado`)
+            VALUES (?, ?, ?, '1')",[$req['mail'],md5($req['contra']),$req['id_perfil']]);
+            DB::commit();
+            return response()->json(array('resultado'=> 'OK'));
+        }   catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(array('resultado'=> $e->getMessage()));
         }
     }
 

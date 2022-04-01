@@ -40,12 +40,14 @@ function objetoAjax() {
 }
 
 function leerJS() {
-    var tabla = document.getElementById("tabla");
+    var tablaemp = document.getElementById("tablaemp");
+    var tablatrab = document.getElementById("tablatrab");
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('filtro', document.getElementById('filtro').value);
-    formData.append('Trabajador', document.getElementById("tbjd").checked);
     formData.append('Empresa', document.getElementById("emp").checked);
+    formData.append('Trabajador', document.getElementById("tbjd").checked);
+    formData.append('Admin', document.getElementById("adm").checked);
 
     var ajax = objetoAjax();
     ajax.open("POST", "leer", true);
@@ -54,83 +56,118 @@ function leerJS() {
             var respuesta = JSON.parse(this.responseText);
             if (respuesta.hasOwnProperty('empresa')) {
                 var empresa = respuesta.empresa;
-                var recarga = '';
-                recarga += '<h2>Empresas</h2>';
-                recarga += '<thead>';
-                recarga += '<tr>';
-                recarga += '<th>Correo</th>';
-                recarga += '<th>Nombre</th>';
-                recarga += '<th>Localizacion</th>';
-                recarga += '<th>Sobre nosotros</th>';
-                recarga += '<th>Sector</th>';
-                recarga += '<th>Busqueda</th>';
-                recarga += '<th>Logo</th>';
-                recarga += '<th>Estado</th>';
-                recarga += '</tr>';
-                recarga += '</thead>';
-                recarga += '<tbody>';
+                var recargaemp = '';
+                recargaemp += '<h2>Empresas</h2>';
+                recargaemp += '<table>';
+                recargaemp += '<thead>';
+                recargaemp += '<tr>';
+                recargaemp += '<th>Correo</th>';
+                recargaemp += '<th>Nombre</th>';
+                recargaemp += '<th>Localizacion</th>';
+                recargaemp += '<th>Sobre nosotros</th>';
+                recargaemp += '<th>Sector</th>';
+                recargaemp += '<th>Busqueda</th>';
+                recargaemp += '<th>Logo</th>';
+                recargaemp += '<th>Estado</th>';
+                recargaemp += '</tr>';
+                recargaemp += '</thead>';
+                recargaemp += '<tbody>';
                 for (let i = 0; i < empresa.length; i++) {
-                    recarga += '<tr>';
-                    recarga += '<td>' + empresa[i].mail + '</td>';
-                    recarga += '<td>' + empresa[i].nom_emp + '</td>';
-                    recarga += '<td>' + empresa[i].loc_emp + '</td>';
-                    recarga += '<td>' + empresa[i].about_emp + '</td>';
-                    recarga += '<td>' + empresa[i].campo_emp + '</td>';
-                    recarga += '<td>' + empresa[i].searching + '</td>';
-                    recarga += '<td>' + empresa[i].logo_emp + '</td>';
+                    recargaemp += '<tr>';
+                    recargaemp += '<td>' + empresa[i].mail + '</td>';
+                    recargaemp += '<td>' + empresa[i].nom_emp + '</td>';
+                    recargaemp += '<td>' + empresa[i].loc_emp + '</td>';
+                    recargaemp += '<td>' + empresa[i].about_emp + '</td>';
+                    recargaemp += '<td>' + empresa[i].campo_emp + '</td>';
+                    recargaemp += '<td>' + empresa[i].searching + '</td>';
+                    recargaemp += '<td>' + empresa[i].logo_emp + '</td>';
                     if (empresa[i].estado == 1) {
-                        recarga += '<td><button onclick="estadouserJS(' + empresa[i].id + '); return false;">Banear</button></td>';
+                        recargaemp += '<td><button onclick="estadouserJS(' + empresa[i].id + '); return false;">Banear</button></td>';
                     } else {
-                        recarga += '<td><button onclick="estadouserJS(' + empresa[i].id + '); return false;">Reactivar</button></td>';
+                        recargaemp += '<td><button onclick="estadouserJS(' + empresa[i].id + '); return false;">Reactivar</button></td>';
                     }
-                    recarga += '</tr>';
+                    recargaemp += '</tr>';
                 }
-                recarga += '</tbody>';
+                recargaemp += '</tbody>';
+                recargaemp += '</table>';
             }
             if (respuesta.hasOwnProperty('trabajador')) {
                 var trabajador = respuesta.trabajador;
-                recarga += '<h2>Trabajadores</h2>';
-                recarga += '<thead>';
-                recarga += '<tr>';
-                recarga += '<th>Correo</th>';
-                recarga += '<th>Nombre</th>';
-                recarga += '<th>Apellido</th>';
-                recarga += '<th>Sector</th>';
-                recarga += '<th>Experiencia</th>';
-                recarga += '<th>Estudios</th>';
-                recarga += '<th>Idiomas</th>';
-                recarga += '<th>Disponibilidad</th>';
-                recarga += '<th>Sobre mi</th>';
-                recarga += '<th>Foto</th>';
-                recarga += '<th>Estado</th>';
-                recarga += '</tr>';
-                recarga += '</thead>';
-                recarga += '<tbody>';
+                var recargatrab = '';
+                recargatrab += '<h2>Trabajadores</h2>';
+                recargatrab += '<table>';
+                recargatrab += '<thead>';
+                recargatrab += '<tr>';
+                recargatrab += '<th>Correo</th>';
+                recargatrab += '<th>Nombre</th>';
+                recargatrab += '<th>Apellido</th>';
+                recargatrab += '<th>Sector</th>';
+                recargatrab += '<th>Experiencia</th>';
+                recargatrab += '<th>Estudios</th>';
+                recargatrab += '<th>Idiomas</th>';
+                recargatrab += '<th>Disponibilidad</th>';
+                recargatrab += '<th>Sobre mi</th>';
+                recargatrab += '<th>Foto</th>';
+                recargatrab += '<th>Estado</th>';
+                recargatrab += '</tr>';
+                recargatrab += '</thead>';
+                recargatrab += '<tbody>';
                 for (let i = 0; i < trabajador.length; i++) {
-                    recarga += '<tr>';
-                    recarga += '<td>' + trabajador[i].mail + '</td>';
-                    recarga += '<td>' + trabajador[i].nombre + '</td>';
-                    recarga += '<td>' + trabajador[i].apellido + '</td>';
-                    recarga += '<td>' + trabajador[i].campo_user + '</td>';
-                    recarga += '<td>' + trabajador[i].experiencia + '</td>';
-                    recarga += '<td>' + trabajador[i].estudios + '</td>';
-                    recarga += '<td>' + trabajador[i].idiomas + '</td>';
-                    recarga += '<td>' + trabajador[i].disponibilidad + '</td>';
-                    recarga += '<td>' + trabajador[i].about_user + '</td>';
-                    recarga += '<td>' + trabajador[i].foto_perfil + '</td>';
+                    recargatrab += '<tr>';
+                    recargatrab += '<td>' + trabajador[i].mail + '</td>';
+                    recargatrab += '<td>' + trabajador[i].nombre + '</td>';
+                    recargatrab += '<td>' + trabajador[i].apellido + '</td>';
+                    recargatrab += '<td>' + trabajador[i].campo_user + '</td>';
+                    recargatrab += '<td>' + trabajador[i].experiencia + '</td>';
+                    recargatrab += '<td>' + trabajador[i].estudios + '</td>';
+                    recargatrab += '<td>' + trabajador[i].idiomas + '</td>';
+                    recargatrab += '<td>' + trabajador[i].disponibilidad + '</td>';
+                    recargatrab += '<td>' + trabajador[i].about_user + '</td>';
+                    recargatrab += '<td>' + trabajador[i].foto_perfil + '</td>';
                     if (trabajador[i].estado == 1) {
-                        recarga += '<td><button onclick="estadouserJS(' + trabajador[i].id + '); return false;">Banear</button></td>';
+                        recargatrab += '<td><button onclick="estadouserJS(' + trabajador[i].id + '); return false;">Banear</button></td>';
                     } else {
-                        recarga += '<td><button onclick="estadouserJS(' + trabajador[i].id + '); return false;">Reactivar</button></td>';
+                        recargatrab += '<td><button onclick="estadouserJS(' + trabajador[i].id + '); return false;">Reactivar</button></td>';
                     }
-                    recarga += '</tr>';
+                    recargatrab += '</tr>';
                 }
-                recarga += '</tbody>';
+                recargatrab += '</tbody>';
+                recargatrab += '</table>';
             }
-            if (recarga == null) {
-                tabla.innerHTML = respuesta.resultado;
+            if (respuesta.hasOwnProperty('admin')) {
+                var admin = respuesta.admin;
+                var recargaadmin = '';
+                recargaadmin += '<h2>Administradores</h2>';
+                recargaadmin += '<table>';
+                recargaadmin += '<thead>';
+                recargaadmin += '<tr>';
+                recargaadmin += '<th>Correo</th>';
+                recargaadmin += '<th>Estado</th>';
+                recargaadmin += '</tr>';
+                recargaadmin += '</thead>';
+                recargaadmin += '<tbody>';
+                for (let i = 0; i < admin.length; i++) {
+                    recargaadmin += '<tr>';
+                    recargaadmin += '<td>' + admin[i].mail + '</td>';
+                    if (empresa[i].estado == 1) {
+                        recargaadmin += '<td><button onclick="estadouserJS(' + admin[i].id + '); return false;">Banear</button></td>';
+                    } else {
+                        recargaadmin += '<td><button onclick="estadouserJS(' + admin[i].id + '); return false;">Reactivar</button></td>';
+                    }
+                    recargaadmin += '</tr>';
+                }
+                recargaadmin += '</tbody>';
+                recargaadmin += '</table>';
+            }
+            if (recargaemp == null) {
+                tablaemp.innerHTML = respuesta.resultado;
             } else {
-                tabla.innerHTML = recarga;
+                tablaemp.innerHTML = recargaemp;
+            }
+            if (recargatrab == null) {
+                tablatrab.innerHTML = respuesta.resultado;
+            } else {
+                tablatrab.innerHTML = recargatrab;
             }
         }
     }
@@ -150,6 +187,73 @@ function estadouserJS(id) {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
             console.log(respuesta);
+            leerJS();
+        }
+    }
+    ajax.send(formData)
+}
+
+function crearadmin() {
+    var token = document.getElementById('token').getAttribute("content");
+    var sitioform = document.getElementById('sitioform');
+    var formData = new FormData();
+    formData.append('_token', token);
+
+    var ajax = objetoAjax();
+    ajax.open("POST", "perfiles", true);
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4 && ajax.status == 200) {
+            var respuesta = JSON.parse(this.responseText);
+            var recargaform = "";
+            recargaform += '<form method="POST" onsubmit="crearJS(); return false;" id="formcrear" enctype="multipart/form-data">';
+            recargaform += '<div class="form-group">';
+            recargaform += '<label class="col-sm-2 col-form-label">Correo:</label>';
+            recargaform += '<input type="text" class="form-control" id="mail" name="mail" placeholder="Introduce el correo">';
+            recargaform += '</div>';
+            recargaform += '<div class="form-group">';
+            recargaform += '<label class="col-sm-2 col-form-label">Contraseña:</label>';
+            recargaform += '<input type="text" class="form-control" id="contra" name="contra" placeholder="Introduce una contraseña">';
+            recargaform += '</div>';
+            recargaform += '<div class="form-group">';
+            recargaform += '<label class="col-sm-2 col-form-label">Perfil:</label>';
+            recargaform += '<select name="nom_perfil" id="nom_perfil" class="form-control">';
+            for (let i = 0; i < respuesta.length; i++) {
+                recargaform += '<option class="perf" value="' + respuesta[i].id + '">' + respuesta[i].nom_perfil + '</option>';
+            }
+            recargaform += '</select>';
+            recargaform += '</div>';
+            recargaform += '<button type="submit" class="btn btn-primary">Enviar</button>';
+            recargaform += '</form>';
+            sitioform.innerHTML = recargaform;
+        }
+    }
+    ajax.send(formData)
+}
+
+function crearJS() {
+    var message = document.getElementById('message');
+    var mail = document.getElementById('mail').value;
+    var contra = document.getElementById('contra').value;
+    var id_perfil = document.getElementById('nom_perfil').value;
+    console.log(id_perfil);
+    var formData = new FormData();
+    formData.append('_token', document.getElementById('token').getAttribute("content"));
+    formData.append('_method', 'POST');
+    formData.append('mail', mail);
+    formData.append('contra', contra);
+    formData.append('id_perfil', id_perfil);
+
+    var ajax = objetoAjax();
+    ajax.open("POST", "crear", true);
+    ajax.onreadystatechange = function() {
+        console.log(ajax.responseText);
+        if (ajax.readyState == 4 && ajax.status == 200) {
+            var respuesta = JSON.parse(this.responseText);
+            if (respuesta.resultado == "OK") {
+                message.innerHTML = '<p class="green">Nota creada correctamente</p>';
+            } else {
+                message.innerHTML = 'Ha habido un error: ' + respuesta.resultado;
+            }
             leerJS();
         }
     }
