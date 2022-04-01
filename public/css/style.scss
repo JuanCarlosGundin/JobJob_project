@@ -16,9 +16,104 @@ $tablet:1200px;
 
 body {
     margin: 0;
+    background-color: #92AFD7 !important;
 }
 
 ////////////////////////////////MAIN///////////////////////////////////////
 ////////////////////////////////LOGIN//////////////////////////////////////
+
+.logo img {
+    width: 7%;
+    margin-top: 15%;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-login {
+    background-color: white;
+}
+    h1 {
+        text-align: center;
+    }
+        .modal-content {
+            border: white;
+        }
+            h2 {
+                text-align: center;
+            }
+            p {
+                font-weight: bold;
+                color: #C5D1EB;
+            }
+            .inputlogin {
+                margin-bottom: 1rem;
+                font-size: 15px;
+                border-radius: 15px;
+                border: #92AFD7 solid 1.5px;
+            }
+            .inputlogin::placeholder {
+                color: rgb(197, 191, 191);
+            }
+            .botonlogin {
+                border-radius: 15px;
+                background-color: #92AFD7;
+                border: #92AFD7 solid 1.5px;
+                box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+                color: white;
+                font-weight: bold;
+            }
+            .linea {
+                border-top: 1px solid #CDC0C0;
+                height: 2px;
+            }
+
+@media only screen and (max-width: 768px) {
+    .logo {
+        height: 25vh;
+    }
+    .logo img {
+        width: 30%;
+        margin-top: 15%;
+        margin-bottom: 10%;
+        border-radius: 20px;
+    }
+    h1 {
+        padding-top: 6%;
+        color: #92AFD7;
+    }
+    h2 {
+        padding-top: 20%;
+        padding-bottom: 16%;
+    }
+    .modal-login {
+        border-radius: 55px;
+    }
+    .modal-content {
+        padding-left: 15%;
+        padding-right: 15%;
+        height: 61vh;
+    }
+    input {
+        width: 100%;
+        height: 40px;
+    }
+    .botonlogin {
+        width: 100%;
+        height: 40px;
+    }
+    .linea {
+        max-width: 100%;
+        padding: 0;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
 /////////////////////////////////PERFIL////////////////////////////////////
 /////////////////////////////////CHAT/////////////////////////////////////////
