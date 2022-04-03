@@ -59,8 +59,9 @@ public function registroPost(Request $request){
         $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil']]);
         //LO DE ABAJO ES PARA METER EN TABLA TRABAJADOR 
         $selectidusuario = DB::table('tbl_usuarios')->select('id')->where('id','=',$metertablausuario)->first();
+        $selectidusuario=$selectidusuario->id;
         $metertablatrabajador=DB::table('tbl_trabajador')->insert(["id_usuario"=>$selectidusuario],["nombre"=>$datos['nombre']],["apellido"=>$datos['apellido']],["foto_perfil"=>$datos['foto_perfil']],["campo_user"=>$datos['campo_user']],["experiencia"=>$datos['experiencia']],["estudios"=>$datos['estudios']],["idiomas"=>$datos['idiomas']],["disponibilidad"=>$datos['disponibilidad']],["about_user"=>$datos['about_user']],["mostrado"=>$datos['mostrado']]);
-        return $metertablatrabajador;
+        
         DB::commit();
         return redirect('login');
     }catch(\Exception $e){
