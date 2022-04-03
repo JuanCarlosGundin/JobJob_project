@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class UsuarioController extends Controller
 {
@@ -41,32 +42,12 @@ class UsuarioController extends Controller
         return response()->json($datos);
     }
 
-    public function estadouser($id) {
-        $datos=DB::select("SELECT estado FROM tbl_usuarios
-        WHERE id = ?",[$id]);
-        DB::beginTransaction();
-        try{
-            if ($datos[0]->estado == 1){
-                DB::select("UPDATE tbl_usuarios SET estado = '0'
-                WHERE id = ?",[$id]);
-            }else{
-                DB::select("UPDATE tbl_usuarios SET estado = '1'
-                WHERE id = ?",[$id]);
-            }
-            DB::commit();
-            return response()->json(array('resultado'=> 'OK'));
-        }   catch (\Exception $e) {
-            DB::rollback();
-            return response()->json(array('resultado'=> 'NOK: '.$e->getMessage()));
-        }
-    }
-
     public function perfiles(Request $req) {
         $datos=DB::select("SELECT * FROM tbl_perfiles");
         return response()->json($datos);
     }
 
-    public function crear(Request $req) {
+    public function crearuser(Request $req) {
         DB::beginTransaction();
         //añadir logo empresa
         if($req->hasFile('logo_emp')){
@@ -96,5 +77,49 @@ class UsuarioController extends Controller
         }
     }
 
+    public function estadouser($id) {
+        $datos=DB::select("SELECT estado FROM tbl_usuarios
+        WHERE id = ?",[$id]);
+        DB::beginTransaction();
+        try{
+            if ($datos[0]->estado == 1){
+                DB::select("UPDATE tbl_usuarios SET estado = '0'
+                WHERE id = ?",[$id]);
+            }else{
+                DB::select("UPDATE tbl_usuarios SET estado = '1'
+                WHERE id = ?",[$id]);
+            }
+            DB::commit();
+            return response()->json(array('resultado'=> 'OK'));
+        }   catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(array('resultado'=> 'NOK: '.$e->getMessage()));
+        }
+    }
 
+    public function eliminaruser($id, $id_perfil) {
+        try {
+            DB::beginTransaction();
+            if($id_perfil == 2){
+                $foto = DB::table('tbl_trabajador')->select('foto_perfil')->where('id_usuario','=',$id)->first();
+                if ($foto->foto_perfil != null) {
+                    Storage::delete('public/'.$foto->foto_perfil);
+                }
+                DB::table('tbl_trabajador')->where('id_usuario','=',$id)->delete();
+            }
+            if($id_perfil == 3){
+                $logo = DB::table('tbl_empresa')->select('logo_emp')->where('id_usuario','=',$id)->first();
+                if ($logo->logo_emp != null) {
+                    Storage::delete('public/'.$logo->logo_emp);
+                }
+                DB::table('tbl_empresa')->where('id_usuario','=',$id)->delete();
+            }
+            DB::table('tbl_usuarios')->where('id','=',$id)->delete();
+            DB::commit();
+            return response()->json(array('resultado'=> 'OK'));
+        }catch(\Exception $e) {
+            DB::rollback();
+            return response()->json(array('resultado'=> 'NOK: '.$e->getMessage()));
+        }
+    }
 }

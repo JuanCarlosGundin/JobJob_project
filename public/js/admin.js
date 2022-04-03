@@ -56,62 +56,50 @@ function leerJS() {
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
-            console.log(respuesta);
-            if (respuesta.hasOwnProperty('empresa')) {
-                var empresa = respuesta.empresa;
-                var recargaemp = '';
-                recargaemp += '<h2>Empresas</h2>';
-                recargaemp += '<table>';
-                recargaemp += '<thead>';
-                recargaemp += '<tr>';
-                recargaemp += '<th>Correo</th>';
-                recargaemp += '<th>Nombre</th>';
-                recargaemp += '<th>Localizacion</th>';
-                recargaemp += '<th>Sobre nosotros</th>';
-                recargaemp += '<th>Sector</th>';
-                recargaemp += '<th>Busqueda</th>';
-                recargaemp += '<th>Logo</th>';
-                recargaemp += '<th>Estado</th>';
-                recargaemp += '</tr>';
-                recargaemp += '</thead>';
-                recargaemp += '<tbody>';
-                for (let i = 0; i < empresa.length; i++) {
-                    recargaemp += '<tr>';
-                    recargaemp += '<td>' + empresa[i].mail + '</td>';
-                    recargaemp += '<td>' + empresa[i].nom_emp + '</td>';
-                    recargaemp += '<td>' + empresa[i].loc_emp + '</td>';
-                    recargaemp += '<td>' + empresa[i].about_emp + '</td>';
-                    recargaemp += '<td>' + empresa[i].campo_emp + '</td>';
-                    recargaemp += '<td>' + empresa[i].searching + '</td>';
-                    recargaemp += '<td>' + empresa[i].logo_emp + '</td>';
-                    if (empresa[i].estado == 1) {
-                        recargaemp += '<td><button onclick="estadouserJS(' + empresa[i].id + '); return false;">Banear</button></td>';
+            if (respuesta.hasOwnProperty('admin')) {
+                var admin = respuesta.admin;
+                var recargaadmin = '';
+                recargaadmin += '<h2>Administradores</h2>';
+                recargaadmin += '<table class="table table-striped table-hover">';
+                recargaadmin += '<thead>';
+                recargaadmin += '<tr>';
+                recargaadmin += '<th scope="col">Correo</th>';
+                recargaadmin += '<th scope="col">Estado</th>';
+                recargaadmin += '</tr>';
+                recargaadmin += '</thead>';
+                recargaadmin += '<tbody>';
+                for (let i = 0; i < admin.length; i++) {
+                    recargaadmin += '<tr>';
+                    recargaadmin += '<td>' + admin[i].mail + '</td>';
+                    if (admin[i].estado == 1) {
+                        recargaadmin += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + admin[i].id + '); return false;">Banear</button></td>';
                     } else {
-                        recargaemp += '<td><button onclick="estadouserJS(' + empresa[i].id + '); return false;">Reactivar</button></td>';
+                        recargaadmin += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + admin[i].id + '); return false;">Reactivar</button></td>';
                     }
-                    recargaemp += '</tr>';
+                    recargaadmin += '<td><button type="button" class="btn btn-danger" onclick="eliminarJS(\'' + admin[i].id + '\',\'' + admin[i].id_perfil + '\'); return false;">Eliminar</button></td>';
+                    recargaadmin += '</tr>';
                 }
-                recargaemp += '</tbody>';
-                recargaemp += '</table>';
+                recargaadmin += '</tbody>';
+                recargaadmin += '</table>';
             }
             if (respuesta.hasOwnProperty('trabajador')) {
                 var trabajador = respuesta.trabajador;
                 var recargatrab = '';
                 recargatrab += '<h2>Trabajadores</h2>';
-                recargatrab += '<table>';
+                recargatrab += '<table class="table table-striped table-hover">';
                 recargatrab += '<thead>';
                 recargatrab += '<tr>';
-                recargatrab += '<th>Correo</th>';
-                recargatrab += '<th>Nombre</th>';
-                recargatrab += '<th>Apellido</th>';
-                recargatrab += '<th>Sector</th>';
-                recargatrab += '<th>Experiencia</th>';
-                recargatrab += '<th>Estudios</th>';
-                recargatrab += '<th>Idiomas</th>';
-                recargatrab += '<th>Disponibilidad</th>';
-                recargatrab += '<th>Sobre mi</th>';
-                recargatrab += '<th>Foto</th>';
-                recargatrab += '<th>Estado</th>';
+                recargatrab += '<th scope="col">Correo</th>';
+                recargatrab += '<th scope="col">Nombre</th>';
+                recargatrab += '<th scope="col">Apellido</th>';
+                recargatrab += '<th scope="col">Sector</th>';
+                recargatrab += '<th scope="col">Experiencia</th>';
+                recargatrab += '<th scope="col">Estudios</th>';
+                recargatrab += '<th scope="col">Idiomas</th>';
+                recargatrab += '<th scope="col">Disponibilidad</th>';
+                recargatrab += '<th scope="col">Sobre mi</th>';
+                recargatrab += '<th scope="col">Foto</th>';
+                recargatrab += '<th scope="col">Estado</th>';
                 recargatrab += '</tr>';
                 recargatrab += '</thead>';
                 recargatrab += '<tbody>';
@@ -126,79 +114,74 @@ function leerJS() {
                     recargatrab += '<td>' + trabajador[i].idiomas + '</td>';
                     recargatrab += '<td>' + trabajador[i].disponibilidad + '</td>';
                     recargatrab += '<td>' + trabajador[i].about_user + '</td>';
-                    recargatrab += '<td>' + trabajador[i].foto_perfil + '</td>';
+                    recargatrab += '<td style="word-break: break-all">' + trabajador[i].foto_perfil + '</td>';
                     if (trabajador[i].estado == 1) {
-                        recargatrab += '<td><button onclick="estadouserJS(' + trabajador[i].id + '); return false;">Banear</button></td>';
+                        recargatrab += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + trabajador[i].id + '); return false;">Banear</button></td>';
                     } else {
-                        recargatrab += '<td><button onclick="estadouserJS(' + trabajador[i].id + '); return false;">Reactivar</button></td>';
+                        recargatrab += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + trabajador[i].id + '); return false;">Reactivar</button></td>';
                     }
+                    recargatrab += '<td><button type="button" class="btn btn-danger" onclick="eliminarJS(\'' + trabajador[i].id + '\',\'' + trabajador[i].id_perfil + '\'); return false;">Eliminar</button></td>';
                     recargatrab += '</tr>';
                 }
                 recargatrab += '</tbody>';
                 recargatrab += '</table>';
             }
-            if (respuesta.hasOwnProperty('admin')) {
-                var admin = respuesta.admin;
-                var recargaadmin = '';
-                recargaadmin += '<h2>Administradores</h2>';
-                recargaadmin += '<table>';
-                recargaadmin += '<thead>';
-                recargaadmin += '<tr>';
-                recargaadmin += '<th>Correo</th>';
-                recargaadmin += '<th>Estado</th>';
-                recargaadmin += '</tr>';
-                recargaadmin += '</thead>';
-                recargaadmin += '<tbody>';
-                for (let i = 0; i < admin.length; i++) {
-                    recargaadmin += '<tr>';
-                    recargaadmin += '<td>' + admin[i].mail + '</td>';
-                    if (admin[i].estado == 1) {
-                        recargaadmin += '<td><button onclick="estadouserJS(' + admin[i].id + '); return false;">Banear</button></td>';
+            if (respuesta.hasOwnProperty('empresa')) {
+                var empresa = respuesta.empresa;
+                var recargaemp = '';
+                recargaemp += '<h2>Empresas</h2>';
+                recargaemp += '<table class="table table-striped table-hover">';
+                recargaemp += '<thead>';
+                recargaemp += '<tr>';
+                recargaemp += '<th scope="col">Correo</th>';
+                recargaemp += '<th scope="col">Nombre</th>';
+                recargaemp += '<th scope="col">Localizacion</th>';
+                recargaemp += '<th scope="col">Sobre nosotros</th>';
+                recargaemp += '<th scope="col">Sector</th>';
+                recargaemp += '<th scope="col">Busqueda</th>';
+                recargaemp += '<th scope="col">Logo</th>';
+                recargaemp += '<th scope="col">Estado</th>';
+                recargaemp += '</tr>';
+                recargaemp += '</thead>';
+                recargaemp += '<tbody>';
+                for (let i = 0; i < empresa.length; i++) {
+                    recargaemp += '<tr>';
+                    recargaemp += '<td>' + empresa[i].mail + '</td>';
+                    recargaemp += '<td>' + empresa[i].nom_emp + '</td>';
+                    recargaemp += '<td>' + empresa[i].loc_emp + '</td>';
+                    recargaemp += '<td>' + empresa[i].about_emp + '</td>';
+                    recargaemp += '<td>' + empresa[i].campo_emp + '</td>';
+                    recargaemp += '<td>' + empresa[i].searching + '</td>';
+                    recargaemp += '<td style="word-break: break-all">' + empresa[i].logo_emp + '</td>';
+                    if (empresa[i].estado == 1) {
+                        recargaemp += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + empresa[i].id + '); return false;">Banear</button></td>';
                     } else {
-                        recargaadmin += '<td><button onclick="estadouserJS(' + admin[i].id + '); return false;">Reactivar</button></td>';
+                        recargaemp += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + empresa[i].id + '); return false;">Reactivar</button></td>';
                     }
-                    recargaadmin += '</tr>';
+                    recargaemp += '<td><button type="button" class="btn btn-danger" onclick="eliminarJS(\'' + empresa[i].id + '\',\'' + empresa[i].id_perfil + '\'); return false;">Eliminar</button></td>';
+                    recargaemp += '</tr>';
                 }
-                recargaadmin += '</tbody>';
-                recargaadmin += '</table>';
-            }
-            if (recargaemp == null) {
-                tablaemp.innerHTML = "";
-            } else {
-                tablaemp.innerHTML = recargaemp;
-            }
-            if (recargatrab == null) {
-                tablatrab.innerHTML = "";
-            } else {
-                tablatrab.innerHTML = recargatrab;
+                recargaemp += '</tbody>';
+                recargaemp += '</table>';
             }
             if (recargaadmin == null) {
                 tablaadmin.innerHTML = "";
             } else {
                 tablaadmin.innerHTML = recargaadmin;
             }
+            if (recargatrab == null) {
+                tablatrab.innerHTML = "";
+            } else {
+                tablatrab.innerHTML = recargatrab;
+            }
+            if (recargaemp == null) {
+                tablaemp.innerHTML = "";
+            } else {
+                tablaemp.innerHTML = recargaemp;
+            }
         }
     }
     ajax.send(formData);
-}
-
-function estadouserJS(id) {
-    var token = document.getElementById('token').getAttribute("content");
-    var formData = new FormData();
-    formData.append('_token', token);
-    formData.append('_method', 'PUT');
-
-    /* Inicializar un objeto AJAX */
-    var ajax = objetoAjax();
-    ajax.open("POST", "estadouser/" + id, true);
-    ajax.onreadystatechange = function() {
-        if (ajax.readyState == 4 && ajax.status == 200) {
-            var respuesta = JSON.parse(this.responseText);
-            console.log(respuesta);
-            leerJS();
-        }
-    }
-    ajax.send(formData)
 }
 
 function crearadmin() {
@@ -352,9 +335,8 @@ function crearJS(mail, contra, id_perfil) {
     }
 
     var ajax = objetoAjax();
-    ajax.open("POST", "crear", true);
+    ajax.open("POST", "crearuser", true);
     ajax.onreadystatechange = function() {
-        console.log(ajax.responseText);
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
             if (respuesta.resultado == "OK") {
@@ -364,6 +346,39 @@ function crearJS(mail, contra, id_perfil) {
             }
             leerJS();
             document.getElementById('sitioform').innerHTML = "";
+        }
+    }
+    ajax.send(formData)
+}
+
+function estadouserJS(id) {
+    var formData = new FormData();
+    formData.append('_token', document.getElementById('token').getAttribute("content"));
+    formData.append('_method', 'PUT');
+
+    /* Inicializar un objeto AJAX */
+    var ajax = objetoAjax();
+    ajax.open("POST", "estadouser/" + id, true);
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4 && ajax.status == 200) {
+            var respuesta = JSON.parse(this.responseText);
+            leerJS();
+        }
+    }
+    ajax.send(formData)
+}
+
+function eliminarJS(id, id_perfil) {
+    var formData = new FormData();
+    formData.append('_token', document.getElementById('token').getAttribute("content"));
+    formData.append('_method', 'delete');
+
+    /* Inicializar un objeto AJAX */
+    var ajax = objetoAjax();
+    ajax.open("POST", "eliminaruser/" + id + "/" + id_perfil, true);
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4 && ajax.status == 200) {
+            leerJS();
         }
     }
     ajax.send(formData)

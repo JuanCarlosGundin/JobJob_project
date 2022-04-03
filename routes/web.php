@@ -20,11 +20,14 @@ Route::get('admin',[UsuarioController::class, 'vistaAdmin']);
 //leerJS
 Route::post('leer',[UsuarioController::class,'leer']);
 
-//estadouserJS
-Route::put('estadouser/{id}',[UsuarioController::class,'estadouser']);
-
-//perfiles
+//perfilesJS
 Route::post('perfiles',[UsuarioController::class,'perfiles']);
 
 //crearJS
-Route::post('crear',[UsuarioController::class,'crear']);
+Route::post('crearuser',[UsuarioController::class,'crearuser']);
+
+//estadouserJS
+Route::put('estadouser/{id}',[UsuarioController::class,'estadouser']);
+
+//eliminaruserJS
+Route::delete('eliminaruser/{id}/{id_perfil}',[UsuarioController::class,'eliminaruser']);
