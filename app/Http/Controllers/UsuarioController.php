@@ -68,9 +68,26 @@ class UsuarioController extends Controller
 
     public function crear(Request $req) {
         DB::beginTransaction();
+        //añadir logo empresa
+        if($req->hasFile('logo_emp')){
+            $logo_emp = $req->file('logo_emp')->store('logo','public');
+        }else{
+            $logo_emp = NULL;
+        }
+        //añadir foto trabajador
+        if($req->hasFile('foto_perfil')){
+            $foto_perfil = $req->file('foto_perfil')->store('foto','public');
+        }else{
+            $foto_perfil = NULL;
+        }
         try {
-            DB::select("INSERT INTO tbl_usuarios (`mail`, `contra`, `id_perfil`, `estado`)
-            VALUES (?, ?, ?, '1')",[$req['mail'],md5($req['contra']),$req['id_perfil']]);
+            $id=DB::table('tbl_usuarios')->insertGetId(["mail"=>$req['mail'],"contra"=>md5($req['contra']),"id_perfil"=>$req['id_perfil'],"estado"=>'1']);
+            if ($req['id_perfil'] == 2) {
+                $id=DB::table('tbl_trabajador')->insert(["id_usuario"=>$id,"nombre"=>$req['nombre'],"apellido"=>$req['apellido'],"foto_perfil"=>$foto_perfil,"campo_user"=>$req['campo_user'],"experiencia"=>$req['experiencia'],"estudios"=>$req['estudios'],"idiomas"=>$req['idiomas'],"disponibilidad"=>$req['disponibilidad'],"about_user"=>$req['about_user'],"mostrado"=>'1']);
+            }
+            if ($req['id_perfil'] == 3) {
+                $id=DB::table('tbl_empresa')->insert(["id_usuario"=>$id,"nom_emp"=>$req['nom_emp'],"loc_emp"=>$req['loc_emp'],"about_emp"=>$req['about_emp'],"about_emp"=>$req['about_emp'],"campo_emp"=>$req['campo_emp'],"searching"=>$req['searching'],"mostrado"=>'1',"logo_emp"=>$logo_emp]);
+            }
             DB::commit();
             return response()->json(array('resultado'=> 'OK'));
         }   catch (\Exception $e) {

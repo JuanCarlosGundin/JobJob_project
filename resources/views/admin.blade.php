@@ -10,33 +10,30 @@
     <title>Administración</title>
 </head>
 <body>
-    <label>Empresas</label>
-    <input type="checkbox" value="Empresa" id="emp" onclick="leerJS()" checked>
-    <label>Trabajadores</label>
-    <input type="checkbox" value="Trabajador" id="tbjd" onclick="leerJS()" checked>
     <label>Administradores</label>
     <input type="checkbox" value="Admin" id="adm" onclick="leerJS()" checked>
+    <label>Trabajadores</label>
+    <input type="checkbox" value="Trabajador" id="tbjd" onclick="leerJS()" checked>
+    <label>Empresas</label>
+    <input type="checkbox" value="Empresa" id="emp" onclick="leerJS()" checked>
     <label>Correo</label>
-    <input type="text" onkeyup="leerJS()" id="filcorreo"><br><br>
+    <input type="text" onkeyup="leerJS()" id="filcorreo">
     <label>Nombre</label>
-    <input type="text" onkeyup="leerJS()" id="filtro"><br><br>
+    <input type="text" onkeyup="leerJS()" id="filtro">
+    <button onclick="crearadmin()">Crear</button>
+    <div id="sitioform"></div>
+    <div id="message"></div>
     <div>
-        <div id="tablaemp">
+        <div id="tablaadmin">
             {{-- contenido ajax --}}
         </div>
         <div id="tablatrab">
             {{-- contenido ajax --}}
         </div>
-        <div id="tablaadmin">
+        <div id="tablaemp">
             {{-- contenido ajax --}}
         </div>
     </div>
-    <h2>Crear usuarios</h2>
-    <button onclick="crearadmin()">Admin</button>
-    <button>Empresa</button>
-    <button>Trabajador</button>
-    <div id="sitioform"></div>
-    <div id="message"></div>
     <div id="myModal" class="modal">
         <div>
             <span class="close">&times;</span>

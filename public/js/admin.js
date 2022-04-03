@@ -213,10 +213,10 @@ function crearadmin() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
             var recargaform = "";
-            recargaform += '<form method="POST" onsubmit="crearJS(); return false;" id="formcrear" enctype="multipart/form-data">';
+            recargaform += '<form method="POST" onsubmit="opcioncrearJS(); return false;" id="formcrear">';
             recargaform += '<div class="form-group">';
             recargaform += '<label class="col-sm-2 col-form-label">Correo:</label>';
-            recargaform += '<input type="text" class="form-control" id="mail" name="mail" placeholder="Introduce el correo">';
+            recargaform += '<input type="email" class="form-control" id="mail" name="mail" placeholder="Introduce el correo">';
             recargaform += '</div>';
             recargaform += '<div class="form-group">';
             recargaform += '<label class="col-sm-2 col-form-label">Contraseña:</label>';
@@ -233,23 +233,123 @@ function crearadmin() {
             recargaform += '<button type="submit" class="btn btn-primary">Enviar</button>';
             recargaform += '</form>';
             sitioform.innerHTML = recargaform;
+            document.getElementById('message').innerHTML = "";
         }
     }
     ajax.send(formData)
 }
 
-function crearJS() {
-    var message = document.getElementById('message');
+function opcioncrearJS() {
+    var sitioform = document.getElementById('sitioform');
     var mail = document.getElementById('mail').value;
     var contra = document.getElementById('contra').value;
     var id_perfil = document.getElementById('nom_perfil').value;
-    console.log(id_perfil);
+    if (id_perfil == 1) {
+        crearJS(mail, contra, id_perfil);
+    }
+    if (id_perfil == 2) {
+        var recargaform = "";
+        recargaform += '<form method="POST" onsubmit="crearJS(\'' + mail + '\',\'' + contra + '\',\'' + id_perfil + '\'); return false;" id="formcrear" enctype="multipart/form-data">';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Nombre:</label>';
+        recargaform += '<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Introduce el nombre">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Apellido:</label>';
+        recargaform += '<input type="text" class="form-control" id="apellido" name="apellido" placeholder="Introduce un apellido">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Sector:</label>';
+        recargaform += '<input type="text" class="form-control" id="campo_user" name="campo_user" placeholder="Introduce un sector">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Experiencia:</label>';
+        recargaform += '<input type="text" class="form-control" id="experiencia" name="experiencia" placeholder="Introduce tu experiencia">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Estudios:</label>';
+        recargaform += '<input type="text" class="form-control" id="estudios" name="estudios" placeholder="Introduce tus estudios">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Idiomas:</label>';
+        recargaform += '<input type="text" class="form-control" id="idiomas" name="idiomas" placeholder="Introduce idiomas">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Disponibilidad:</label>';
+        recargaform += '<input type="text" class="form-control" id="disponibilidad" name="disponibilidad" placeholder="Introduce tu disponibilidad">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Sobre ti:</label>';
+        recargaform += '<input type="text" class="form-control" id="about_user" name="about_user" placeholder="Sobre ti">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Foto:</label>';
+        recargaform += '<input type="file" class="form-control" id="foto_perfil" name="foto_perfil">';
+        recargaform += '</div>';
+        recargaform += '<button type="submit" class="btn btn-primary">Enviar</button>';
+        recargaform += '</form>';
+        sitioform.innerHTML = recargaform;
+    }
+    if (id_perfil == 3) {
+        var recargaform = "";
+        recargaform += '<form method="POST" onsubmit="crearJS(\'' + mail + '\',\'' + contra + '\',\'' + id_perfil + '\'); return false;" id="formcrear" enctype="multipart/form-data">';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Nombre:</label>';
+        recargaform += '<input type="text" class="form-control" id="nom_emp" name="nom_emp" placeholder="Introduce el nombre">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Localizacion:</label>';
+        recargaform += '<input type="text" class="form-control" id="loc_emp" name="loc_emp" placeholder="Introduce una localizacion">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Sobre nosotros:</label>';
+        recargaform += '<input type="text" class="form-control" id="about_emp" name="about_emp" placeholder="Introduce datos sobre la empresa">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Sector:</label>';
+        recargaform += '<input type="text" class="form-control" id="campo_emp" name="campo_emp" placeholder="Introduce un sector">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Que buscas:</label>';
+        recargaform += '<input type="text" class="form-control" id="searching" name="searching" placeholder="Introduce que necesitas">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Logo:</label>';
+        recargaform += '<input type="file" class="form-control" id="logo_emp" name="logo_emp">';
+        recargaform += '</div>';
+        recargaform += '<button type="submit" class="btn btn-primary">Enviar</button>';
+        recargaform += '</form>';
+        sitioform.innerHTML = recargaform;
+    }
+}
+
+function crearJS(mail, contra, id_perfil) {
+    var message = document.getElementById('message');
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('_method', 'POST');
     formData.append('mail', mail);
     formData.append('contra', contra);
     formData.append('id_perfil', id_perfil);
+    if (id_perfil == 2) {
+        formData.append('nombre', document.getElementById('nombre').value);
+        formData.append('apellido', document.getElementById('apellido').value);
+        formData.append('campo_user', document.getElementById('campo_user').value);
+        formData.append('experiencia', document.getElementById('experiencia').value);
+        formData.append('estudios', document.getElementById('estudios').value);
+        formData.append('idiomas', document.getElementById('idiomas').value);
+        formData.append('disponibilidad', document.getElementById('disponibilidad').value);
+        formData.append('about_user', document.getElementById('about_user').value);
+        formData.append('foto_perfil', document.getElementById('foto_perfil').files[0]);
+    }
+    if (id_perfil == 3) {
+        formData.append('nom_emp', document.getElementById('nom_emp').value);
+        formData.append('loc_emp', document.getElementById('loc_emp').value);
+        formData.append('about_emp', document.getElementById('about_emp').value);
+        formData.append('campo_emp', document.getElementById('campo_emp').value);
+        formData.append('searching', document.getElementById('searching').value);
+        formData.append('logo_emp', document.getElementById('logo_emp').files[0]);
+    }
 
     var ajax = objetoAjax();
     ajax.open("POST", "crear", true);
@@ -263,6 +363,7 @@ function crearJS() {
                 message.innerHTML = 'Ha habido un error: ' + respuesta.resultado;
             }
             leerJS();
+            document.getElementById('sitioform').innerHTML = "";
         }
     }
     ajax.send(formData)
