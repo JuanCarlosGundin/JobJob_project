@@ -29,6 +29,9 @@ Route::get('cPanelAdmin', function () {
 Route::get('registrar', function () {
     return view('registrar');
 });
+Route::get('pruebaregistrar', function () {
+    return view('pruebaregistrar');
+});
 /*--------------RUTAS DAVID--------------*/
 /*LOGIN Y LOGOUT*/
 Route::post('login', [UsuarioController::class, 'loginP']);

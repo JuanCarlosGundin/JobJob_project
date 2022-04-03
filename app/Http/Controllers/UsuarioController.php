@@ -48,7 +48,7 @@ class UsuarioController extends Controller
 /*----------------------------------------REGISTRAR---------------------------------------------------------------------------------*/
 public function registro()
 {
-    return view('registrar');
+    return view('pruebaregistrar');//este es el de prueba luego se tendrá que cambiar a registrar
 }
 
 public function registroPost(Request $request){
@@ -56,9 +56,11 @@ public function registroPost(Request $request){
     try{
         DB::beginTransaction();
         /*insertar datos en la base de datos*/
-        $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra'])]);
-
-        DB::table('tbl_usuario')->insertGetId(["correo_usuario"=>$datos['correo_usuario'],"password_usuario"=>md5($datos['password_usuario']),"id_rol"=>$datos['id_rol']]);
+        $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil']]);
+        //LO DE ABAJO ES PARA METER EN TABLA TRABAJADOR 
+        $selectidusuario = DB::table('tbl_usuarios')->select('id')->where('id','=',$metertablausuario)->first();
+        $metertablatrabajador=DB::table('tbl_trabajador')->insert(["id_usuario"=>$selectidusuario],["nombre"=>$datos['nombre']],["apellido"=>$datos['apellido']],["foto_perfil"=>$datos['foto_perfil']],["campo_user"=>$datos['campo_user']],["experiencia"=>$datos['experiencia']],["estudios"=>$datos['estudios']],["idiomas"=>$datos['idiomas']],["disponibilidad"=>$datos['disponibilidad']],["about_user"=>$datos['about_user']],["mostrado"=>$datos['mostrado']]);
+        return $metertablatrabajador;
         DB::commit();
         return redirect('login');
     }catch(\Exception $e){

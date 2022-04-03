@@ -61,7 +61,25 @@ function trabajador() {
        formData.append('clave', valor);
        valor = elemento/s que se pasarán como parámetros: token, method, inputs... */
     var tabla = document.getElementById("main");
-    var recarga = '<input class="input_login" type="text" id="correo_usuario" name="correo_usuario" placeholder="Introduce el email...">'
+    var recarga = '';
+    recarga += '<form action="{{url("registroPost")}}" method="POST">'
+    recarga += '<input type="text" id="mail" name="mail" placeholder="Introduce el email..."><br><br>'
+    recarga += '<input type="password" id="contra" name="contra" placeholder="Introduce la contraseña..."><br><br>'
+    recarga += '<input type="text" id="nombre" name="nombre" placeholder="Introduce el nombre..."><br><br>'
+    recarga += '<input type="text" id="apellido" name="apellido" placeholder="Introduce el apellido..."><br><br>'
+    recarga += '<input type="file" name="foto_perfil" id="foto_perfil"><br><br>'
+    recarga += '<input type="text" id="campo_user" name="campo_user" placeholder="Introduce tu sector...">'
+    recarga += '<p>Experiencia</p>'
+    recarga += '<textarea name="Text1" cols="30" rows="3" id="experiencia" name="experiencia"></textarea><br>'
+    recarga += '<p>Idiomas</p>'
+    recarga += '<textarea name="Text1" cols="30" rows="3" id="idiomas" name="idiomas"></textarea><br><br>'
+    recarga += '<input type="text" id="disponibilidad" name="disponibilidad" placeholder="Introduce tu disponibilidad...">'
+    recarga += '<p>Sobre mi</p>'
+    recarga += '<textarea name="Text1" cols="30" rows="3" id="about_user" name="about_user"></textarea><br>'
+    recarga += '<p>Quieres que se te muestre a las empresas?(0->Sí,1->No)</p>'
+    recarga += '<input type="text" id="mostrado" name="mostrado" placeholder="mostrarme"><br><br>'
+    recarga += '<input type="submit" value="Registrarme">'
+    recarga += '</form>'
     tabla.innerHTML = recarga
 }
 
