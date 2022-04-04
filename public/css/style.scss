@@ -15,6 +15,66 @@ $tablet:1200px;
 }
 
 ////////////////////////////////MAIN///////////////////////////////////////
+.body-index {
+    margin: 0;
+    background-color: $first-color;
+    text-align: center;
+    .menu-index {
+        text-align: right;
+        .btn-register {
+            border-radius: 12px;
+            background-color: white;
+            border: white solid 1.5px;
+            box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+            color: #090216b0;
+            font-weight: bold;
+            width: 10%;
+            height: 6vh;
+            font-size: 2.3vh;
+            margin-right: 3vh;
+            margin-top: 2.5vh;
+            margin-bottom: 4vh;
+        }
+    }
+    h1 {
+        text-align: center;
+        color: white;
+        font-weight: bold;
+    }
+    h2 {
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        margin-top: 10vh;
+    }
+    .btn-index {
+        border-radius: 15px;
+        background-color: white;
+        border: white solid 1.5px;
+        box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+        color: #090216b0;
+        font-weight: bold;
+        width: 15%;
+        height: 6vh;
+        margin-top: 10vh;
+    }
+    section {
+        width: 0%;
+        background: white;
+    }
+    #wave {
+        bottom: 0;
+        position: absolute;
+        width: 100%;
+    }
+    #wave path {
+        fill: $second-color;
+    }
+    section#content {
+        background: pink;
+    }
+}
+
 ////////////////////////////////LOGIN//////////////////////////////////////
 .body-login {
     margin: 0;
@@ -31,19 +91,33 @@ $tablet:1200px;
         margin-top: 10vh;
         margin-left: 30vh;
         margin-right: 30vh;
-        .btn-signin {
+        box-shadow: 5px 3px 3px rgba(156, 155, 155, 0.591);
+        // botones de login y registrar
+        .botones {
             text-align: center;
-            color: #92AFD7;
-            font-weight: bold;
-            background-color: #F0F0F0;
-            border: none;
-        }
-        .btn-register {
-            text-align: center;
-            color: #92AFD7;
-            font-weight: bold;
-            background-color: white;
-            border: none;
+            .btn-signin {
+                width: 49.8%;
+                height: 8.5vh;
+                text-align: center;
+                color: #92AFD7;
+                font-weight: bold;
+                font-size: 2.5vh;
+                background-color: #F0F0F0;
+                border: none;
+                border-top-left-radius: 53px;
+                border-bottom-right-radius: 60px;
+            }
+            .btn-register {
+                width: 49.8%;
+                height: 8.5vh;
+                text-align: center;
+                color: #92AFD7;
+                font-weight: bold;
+                font-size: 2.5vh;
+                background-color: #FFFFFF;
+                border: none;
+                border-top-right-radius: 53px;
+            }
         }
         .modal-content {
             border: white;
@@ -74,6 +148,7 @@ $tablet:1200px;
             .inputlogin::placeholder {
                 color: rgb(197, 191, 191);
                 padding-left: 2%;
+                font-weight: 440;
             }
             .botonlogin {
                 border-radius: 15px;
@@ -86,16 +161,20 @@ $tablet:1200px;
                 height: 8vh;
             }
             .linea {
+                position: flex;
+                margin: auto;
+                width: 55%;
                 border-top: 1px solid #CDC0C0;
                 height: 2px;
             }
+            /* conectate con google */
             .google-login {
                 font-weight: bold;
                 color: white;
                 background-color: #C5D1EB;
                 border: #C5D1EB solid 1.5px;
                 display: block;
-                margin-top: 5vh;
+                margin-top: 4vh;
                 margin-bottom: 5vh;
                 margin-left: auto;
                 margin-right: auto;
@@ -108,10 +187,12 @@ $tablet:1200px;
     }
 }
 
+// RESPONSIVE MÓVIL
 @media only screen and (max-width: 768px) {
     .body-login {
         .logo {
             display: block !important;
+            height: 25vh;
         }
         .logo img {
             width: 30%;
@@ -136,32 +217,31 @@ $tablet:1200px;
                 .btn-signin {
                     padding-top: 10px;
                     width: 49%;
-                    height: 9vh;
-                    font-size: 25px;
+                    font-size: 22px;
                     border-top-left-radius: 53px;
                     border-bottom-right-radius: 60px;
                 }
                 .btn-register {
                     width: 49%;
-                    height: 9vh;
                     padding-top: 10px;
-                    font-size: 25px;
+                    font-size: 22px;
                     border-top-right-radius: 53px;
                 }
             }
             .modal-content {
                 width: 80%;
-                height: 68vh;
+                height: 60vh;
                 h2 {
                     margin-top: 0vh;
                     margin-bottom: 0vh;
                     font-weight: bold;
-                    padding-top: 30%;
-                    padding-bottom: 16%;
+                    padding-top: 6vh;
+                    padding-bottom: 6vh;
+                    font-size: 3.5vh;
                 }
                 input {
                     width: 100% !important;
-                    height: 45px !important;
+                    height: 42px !important;
                 }
                 .botonlogin {
                     width: 100%;
@@ -171,12 +251,13 @@ $tablet:1200px;
                 p {
                     padding-top: 3px;
                     text-align: left;
+                    font-size: 1.7vh;
                 }
                 .linea {
                     max-width: 100%;
                     padding: 0;
                     margin-top: 20px;
-                    margin-bottom: 40px;
+                    margin-bottom: 10px;
                 }
                 .google-login {
                     width: 80%;
