@@ -12,8 +12,8 @@
 
 <body>
     <div class="region-navbar">
-        <div class="curriculum-navbar active-left">
-            <button class="icon active-icon"><i class="fa-solid fa-file-invoice"></i></button>
+        <div class="curriculum-navbar">
+            <button class="icon" onClick="window.location.href='prueba';"><i class="fa-solid fa-file-invoice"></i></button>
         </div>
         <div class="alerts-navbar">
             <button class="icon" onClick="window.location.href='prueba1';"><i class="fa-solid fa-bell"></i></button>
@@ -24,8 +24,8 @@
         <div class="chat-navbar">
            <button class="icon" onClick="window.location.href='prueba3';"><i class="fa-solid fa-comment-dots"></i></button>
         </div>
-        <div class="profile-navbar">
-            <button class="icon" onClick="window.location.href='prueba4';"><i class="fa-solid fa-user"></i></button>
+        <div class="profile-navbar active-right">
+            <button class="icon active-icon"><i class="fa-solid fa-user"></i></button>
         </div>
     </div>
 </body>

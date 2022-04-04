@@ -11,14 +11,257 @@ $tablet:1200px;
 *:before,
 *:after {
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
 }
 
 body {
     margin: 0;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    background-color: #E5E5E5;
 }
 
-////////////////////////////////MAIN///////////////////////////////////////
+///////////////////////////////NAVBAR//////////////////////////////////////
+.region-navbar {
+    display: flex;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    /*--------------------------------------------------------------- MENU NAV BAR ---------------------------------------------------------------- */
+    /* DIVS NAVBAR*/
+    /* Curriculum */
+    .curriculum-navbar {
+        padding: 1%;
+        width: 20%;
+        background-color: rgb(255, 255, 255);
+    }
+    /* Alertas */
+    .alerts-navbar {
+        padding: 1%;
+        width: 20%;
+        background-color: rgb(255, 255, 255);
+    }
+    .alerts-curve {
+        padding: 1%;
+        width: 20%;
+        border-bottom-left-radius: 30px;
+        background-color: rgb(255, 0, 0);
+    }
+    /* Main */
+    .main-navbar {
+        padding: 1%;
+        width: 20%;
+        height: 10vh;
+        background-color: rgb(255, 255, 255);
+    }
+    /* Chat */
+    .chat-navbar {
+        padding: 1%;
+        width: 20%;
+        background-color: rgb(255, 255, 255);
+    }
+    /* Perfil */
+    .profile-navbar {
+        padding: 1%;
+        width: 20%;
+        background-color: rgb(255, 255, 255);
+    }
+    // DIVS ACTIVE //
+    .active-left {
+        background-color: #E5E5E5;
+        box-shadow: none;
+        border-top-right-radius: 30px;
+    }
+    .active-right {
+        background-color: #E5E5E5;
+        box-shadow: none;
+        border-top-left-radius: 30px;
+    }
+    .active {
+        background-color: #E5E5E5;
+        box-shadow: none;
+        border-top-right-radius: 30px;
+        border-top-left-radius: 30px;
+    }
+    .active-center {
+        background-color: #C5D1EB;
+        box-shadow: none;
+        border-top-right-radius: 30px;
+        border-top-left-radius: 30px;
+    }
+    /* ICONS */
+    .icon {
+        color: #c0c0c0;
+        text-align: center;
+        font-size: 3.5vh;
+        background-color: white;
+        border-width: 0px;
+        width: 100%;
+        height: 100%;
+        border-radius: 50px;
+    }
+    .main-icon {
+        color: #0F084B;
+        font-size: 4vh;
+        background-color: white;
+        text-align: center;
+        border-width: 0px;
+        width: 100%;
+        height: 100%;
+        border-top-right-radius: 30px;
+        border-top-left-radius: 30px;
+    }
+    .active-icon {
+        color: #000000;
+        background-color: #E5E5E5;
+    }
+    .active-icon-center {
+        background-color: #C5D1EB;
+    }
+}
+
+///////////////////////////////NAVBAR//////////////////////////////////////
+.alerts {
+    .filter {
+        margin-top: 2vh;
+        padding: 3%;
+        display: flex;
+        margin-bottom: 1vh;
+        .buscador {
+            float: right;
+            .input-buscar {
+                padding: 2vw;
+                width: 82vw;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                border-color: #92AFD7;
+                height: 7vh;
+            }
+        }
+        .buscador-icon {
+            float: left;
+            padding: 3.5vw;
+            width: 13vw;
+            background-color: #92AFD7;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            color: white;
+        }
+    }
+    .alert {
+        padding: 3%;
+        display: flex;
+        .alert-foto {
+            width: 15vw;
+            .alert-profilefoto {
+                border-radius: 50px;
+                background-color: yellow;
+                height: 7vh;
+                width: 7vh;
+            }
+        }
+        .alert-mensaje {
+            padding: 3.5vw;
+            width: 55vw;
+            .alert-mensaje-text {
+                padding: 0;
+                margin: 0;
+                font-weight: bold;
+            }
+        }
+        .alert-user {
+            padding: 3vw;
+            width: 10vw;
+            .alert-user-btn {
+                background-color: #E5E5E5;
+                border-width: 0;
+                font-size: 3vh;
+            }
+        }
+        .alert-chat {
+            padding: 3vw;
+            width: 10vw;
+            .alert-chat-btn {
+                background-color: #E5E5E5;
+                border-width: 0;
+                font-size: 3vh;
+            }
+        }
+    }
+    .alert-linea {
+        width: 95vw;
+    }
+}
+
+////////////////////////////////HOME///////////////////////////////////////
+.page-home {
+    .region-content {
+        height: 85vh;
+        top: 15vh;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        .card-wrapper {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 20px;
+            justify-content: center;
+            .card {
+                background-color: white;
+                width: 90vw;
+                height: 70vh;
+                border-radius: 30px;
+            }
+        }
+        .botones-home {
+            position: absolute;
+            bottom: 2vh;
+            width: 100%;
+            left: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-evenly;
+            button {
+                border-radius: 50%;
+                background-color: $second-color;
+                border: none;
+            }
+            .boton-cruz,
+            .boton-maletin {
+                >button {
+                    width: 76px;
+                    height: 76px;
+                    i {
+                        font-size: calc(#{"30px + 1vw"});
+                    }
+                }
+            }
+            .boton-info {
+                .icono-info {
+                    width: 56px;
+                    height: 56px;
+                    i {
+                        font-size: calc(#{"20px + 1vw"});
+                    }
+                }
+            }
+            .boton-maletin {
+                .icono-maletin {
+                    i {
+                        color: rgb(165, 95, 42);
+                    }
+                }
+            }
+            .boton-cruz {
+                .icono-cruz {
+                    i {
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+}
+
 ////////////////////////////////LOGIN//////////////////////////////////////
 /////////////////////////////////PERFIL////////////////////////////////////
 /////////////////////////////////CHAT/////////////////////////////////////////
