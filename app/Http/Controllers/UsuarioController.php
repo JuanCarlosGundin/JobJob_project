@@ -48,7 +48,7 @@ class UsuarioController extends Controller
 /*----------------------------------------REGISTRAR TRABAJADOR---------------------------------------------------------------------------------*/
 public function registro()
 {
-    return view('pruebaregistrar');//este es el de prueba luego se tendrá que cambiar a registrar
+    return view('registrar');//este es el de prueba luego se tendrá que cambiar a registrar
 }
 
 public function registroPost(Request $request){
@@ -83,6 +83,7 @@ public function registroEmpresaPost(Request $request){
         DB::beginTransaction();
         /*insertar datos en la base de datos*/
         $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil']]); 
+        return $metertablausuario;
         // $selectidusuario = DB::table('tbl_usuarios')->select('id')->where('id','=',$metertablausuario)->first();
         // $selectidusuario=$selectidusuario->id;
         $metertablaempresa=DB::table('tbl_empresa')->insert(["id_usuario"=>$metertablausuario,"nom_emp"=>$datos['nom_emp'],"loc_emp"=>$datos['loc_emp'],"about_emp"=>$datos['about_emp'],"campo_emp"=>$datos['campo_emp'],"searching"=>$datos['searching'],"mostrado"=>$datos['mostrado'],"logo_emp"=>$datos['logo_emp']]);

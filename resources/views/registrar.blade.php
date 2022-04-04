@@ -10,7 +10,6 @@
 </head>
 <body>
     <div id="main">
-
         <button onclick="trabajador()">Soy un trabajador</button>
         <button onclick="empresa()">Soy una empresa</button>
     </div>

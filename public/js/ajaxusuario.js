@@ -62,24 +62,28 @@ function trabajador() {
        valor = elemento/s que se pasarán como parámetros: token, method, inputs... */
     var tabla = document.getElementById("main");
     var recarga = '';
+    //recarga += '';
+    recarga += '<div>';
     recarga += '<form action="{{url("registroPost")}}" method="POST">'
     recarga += '<input type="text" id="mail" name="mail" placeholder="Introduce el email..."><br><br>'
     recarga += '<input type="password" id="contra" name="contra" placeholder="Introduce la contraseña..."><br><br>'
     recarga += '<input type="text" id="nombre" name="nombre" placeholder="Introduce el nombre..."><br><br>'
     recarga += '<input type="text" id="apellido" name="apellido" placeholder="Introduce el apellido..."><br><br>'
     recarga += '<input type="file" name="foto_perfil" id="foto_perfil"><br><br>'
-    recarga += '<input type="text" id="campo_user" name="campo_user" placeholder="Introduce tu sector...">'
-    recarga += '<p>Experiencia</p>'
-    recarga += '<textarea name="Text1" cols="30" rows="3" id="experiencia" name="experiencia"></textarea><br>'
-    recarga += '<p>Idiomas</p>'
-    recarga += '<textarea name="Text1" cols="30" rows="3" id="idiomas" name="idiomas"></textarea><br><br>'
-    recarga += '<input type="text" id="disponibilidad" name="disponibilidad" placeholder="Introduce tu disponibilidad...">'
-    recarga += '<p>Sobre mi</p>'
-    recarga += '<textarea name="Text1" cols="30" rows="3" id="about_user" name="about_user"></textarea><br>'
-    recarga += '<p>Quieres que se te muestre a las empresas?(0->Sí,1->No)</p>'
-    recarga += '<input type="text" id="mostrado" name="mostrado" placeholder="mostrarme"><br><br>'
+    recarga += '<input type="text" id="campo_user" name="campo_user" placeholder="Introduce tu sector..."><br><br>'
+    recarga += '<input type="text" id="estudios" name="estudios" placeholder="Introduce tus estudios..."><br><br>'
+    recarga += '<input type="text" id="idiomas" name="idiomas" placeholder="idiomas..."><br><br>'
+    recarga += '<input type="text" id="disponibilidad" name="disponibilidad" placeholder="Introduce tu disponibilidad..."><br><br>'
+    recarga += '<p>Quieres que se te muestre a las empresas?</p>'
+    recarga += '<select name="mostrado" id="mostrado">'
+    recarga += '<option value="0" selected>Sí</option>'
+    recarga += '<option value="1">No</option>'
+    recarga += '</select><br><br>'
+    recarga += '<input type="text" id="about_user" name="about_user" placeholder="Sobre mi..."><br><br>'
+    recarga += '<input id="id_perfil" name="id_perfil" type="hidden" value="2">'
     recarga += '<input type="submit" value="Registrarme">'
     recarga += '</form>'
+    recarga += '</div>';
     tabla.innerHTML = recarga
 }
 

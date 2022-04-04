@@ -15,20 +15,15 @@
             <input type="password" id="contra" name="contra" placeholder="Introduce la contraseña..."><br><br>
             <input type="text" id="nom_emp" name="nom_emp" placeholder="Introduce el nombre de empresa..."><br><br>
             <input type="text" id="loc_emp" name="loc_emp" placeholder="Introduce la localización..."><br><br>
-            <input type="file" name="foto_perfil" id="foto_perfil"><br><br>
-            <input type="text" id="campo_user" name="campo_user" placeholder="Introduce tu sector..."><br><br>
-            <input type="text" id="experiencia" name="experiencia" placeholder="Introduce tu experiencia..."><br><br>
-            <input type="text" id="estudios" name="estudios" placeholder="Introduce tus estudios..."><br><br>
-            <input type="text" id="idiomas" name="idiomas" placeholder="idiomas..."><br><br>
-            <input type="text" id="disponibilidad" name="disponibilidad" placeholder="Introduce tu disponibilidad..."><br><br>
-            <p>Quieres que se te muestre a las empresas?</p>
+            <input type="file" name="logo_emp" id="logo_emp"><br><br>
+            <input type="text" id="campo_emp" name="campo_emp" placeholder="Introduce tu sector..."><br><br>
+            <input type="text" id="searching" name="searching" placeholder="Qué buscas para tu empresa?"><br><br>
+            <p>Quieres que se te muestre a los trabajadores?</p>
             <select name="mostrado" id="mostrado">
                 <option value="0" selected>Sí</option>
                 <option value="1">No</option>
               </select><br><br>
-            <input type="text" id="about_user" name="about_user" placeholder="Sobre mi..."><br><br>
-            {{-- <p>Quieres que se te muestre a las empresas?(0->Sí,1->No)</p>
-            <input type="text" id="mostrado" name="mostrado" placeholder="mostrarme"><br><br> --}}
+            <input type="text" id="about_emp" name="about_emp" placeholder="Sobre mi empresa..."><br><br>
             <input id="id_perfil" name="id_perfil" type="hidden" value="3">
             <input type="submit" value="Registrarme">
         </form>
