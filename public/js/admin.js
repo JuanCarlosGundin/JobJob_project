@@ -40,6 +40,7 @@ function objetoAjax() {
 }
 
 function leerJS() {
+    /* ubicacion de las tablas */
     var tablaemp = document.getElementById("tablaemp");
     var tablatrab = document.getElementById("tablatrab");
     var tablaadmin = document.getElementById("tablaadmin");
@@ -56,6 +57,7 @@ function leerJS() {
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
+            /* si respuesta tiene (respuesta.admin) */
             if (respuesta.hasOwnProperty('admin')) {
                 var admin = respuesta.admin;
                 var recargaadmin = '';
@@ -71,18 +73,22 @@ function leerJS() {
                 for (let i = 0; i < admin.length; i++) {
                     recargaadmin += '<tr>';
                     recargaadmin += '<td>' + admin[i].mail + '</td>';
+                    /* Banear o restaurar cuenta */
                     if (admin[i].estado == 1) {
                         recargaadmin += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + admin[i].id + '); return false;">Banear</button></td>';
                     } else {
                         recargaadmin += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + admin[i].id + '); return false;">Reactivar</button></td>';
                     }
+                    /* Actualizar */
                     recargaadmin += '<td><button type="button" class="btn btn-info" onclick="actualizarmodal(\'' + admin[i].id + '\',\'' + admin[i].id_perfil + '\'); return false;">Modificar</button></td>';
+                    /* Eliminar */
                     recargaadmin += '<td><button type="button" class="btn btn-danger" onclick="eliminarJS(\'' + admin[i].id + '\',\'' + admin[i].id_perfil + '\'); return false;">Eliminar</button></td>';
                     recargaadmin += '</tr>';
                 }
                 recargaadmin += '</tbody>';
                 recargaadmin += '</table>';
             }
+            /* si respuesta tiene (respuesta.trabajador) */
             if (respuesta.hasOwnProperty('trabajador')) {
                 var trabajador = respuesta.trabajador;
                 var recargatrab = '';
@@ -115,23 +121,28 @@ function leerJS() {
                     recargatrab += '<td>' + trabajador[i].idiomas + '</td>';
                     recargatrab += '<td>' + trabajador[i].disponibilidad + '</td>';
                     recargatrab += '<td>' + trabajador[i].about_user + '</td>';
+                    /* Si hay una foto, que se muestre */
                     if (trabajador[i].foto_perfil != null) {
                         recargatrab += '<td style="word-break: break-all"><img class="imagen" src="storage/' + trabajador[i].foto_perfil + '"></td>';
                     } else {
                         recargatrab += '<td style="word-break: break-all">' + trabajador[i].foto_perfil + '</td>';
                     }
+                    /* Banear o restaurar cuenta */
                     if (trabajador[i].estado == 1) {
                         recargatrab += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + trabajador[i].id + '); return false;">Banear</button></td>';
                     } else {
                         recargatrab += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + trabajador[i].id + '); return false;">Reactivar</button></td>';
                     }
+                    /* Actualizar */
                     recargatrab += '<td><button type="button" class="btn btn-info" onclick="actualizarmodal(\'' + trabajador[i].id + '\',\'' + trabajador[i].id_perfil + '\'); return false;">Modificar</button></td>';
+                    /* Eliminar */
                     recargatrab += '<td><button type="button" class="btn btn-danger" onclick="eliminarJS(\'' + trabajador[i].id + '\',\'' + trabajador[i].id_perfil + '\'); return false;">Eliminar</button></td>';
                     recargatrab += '</tr>';
                 }
                 recargatrab += '</tbody>';
                 recargatrab += '</table>';
             }
+            /* si respuesta tiene (respuesta.empresa) */
             if (respuesta.hasOwnProperty('empresa')) {
                 var empresa = respuesta.empresa;
                 var recargaemp = '';
@@ -158,33 +169,40 @@ function leerJS() {
                     recargaemp += '<td>' + empresa[i].about_emp + '</td>';
                     recargaemp += '<td>' + empresa[i].campo_emp + '</td>';
                     recargaemp += '<td>' + empresa[i].searching + '</td>';
+                    /* Si hay una foto, que se muestre */
                     if (empresa[i].logo_emp != null) {
                         recargaemp += '<td style="word-break: break-all"><img class="imagen" src="storage/' + empresa[i].logo_emp + '"></td>';
                     } else {
                         recargaemp += '<td style="word-break: break-all">' + empresa[i].logo_emp + '</td>';
                     }
+                    /* Banear o restaurar cuenta */
                     if (empresa[i].estado == 1) {
                         recargaemp += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + empresa[i].id + '); return false;">Banear</button></td>';
                     } else {
                         recargaemp += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + empresa[i].id + '); return false;">Reactivar</button></td>';
                     }
+                    /* Actualizar */
                     recargaemp += '<td><button type="button" class="btn btn-info" onclick="actualizarmodal(\'' + empresa[i].id + '\',\'' + empresa[i].id_perfil + '\'); return false;">Modificar</button></td>';
+                    /* Eliminar */
                     recargaemp += '<td><button type="button" class="btn btn-danger" onclick="eliminarJS(\'' + empresa[i].id + '\',\'' + empresa[i].id_perfil + '\'); return false;">Eliminar</button></td>';
                     recargaemp += '</tr>';
                 }
                 recargaemp += '</tbody>';
                 recargaemp += '</table>';
             }
+            /* si hay contenido de admin, que se muestre */
             if (recargaadmin == null) {
                 tablaadmin.innerHTML = "";
             } else {
                 tablaadmin.innerHTML = recargaadmin;
             }
+            /* si hay contenido de trabajadores, que se muestre */
             if (recargatrab == null) {
                 tablatrab.innerHTML = "";
             } else {
                 tablatrab.innerHTML = recargatrab;
             }
+            /* si hay contenido de empresas, que se muestre */
             if (recargaemp == null) {
                 tablaemp.innerHTML = "";
             } else {
@@ -197,11 +215,13 @@ function leerJS() {
 
 function crearadmin() {
     var token = document.getElementById('token').getAttribute("content");
+    /* Ubicacion del formulario de crear */
     var sitioform = document.getElementById('sitioform');
     var formData = new FormData();
     formData.append('_token', token);
 
     var ajax = objetoAjax();
+    /* Hago una peticion para obtener los tipos de perfiles */
     ajax.open("POST", "perfiles", true);
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
@@ -214,7 +234,7 @@ function crearadmin() {
             recargaform += '</div>';
             recargaform += '<div class="form-group">';
             recargaform += '<label class="col-sm-2 col-form-label">Contraseña:</label>';
-            recargaform += '<input type="text" class="form-control" id="contra" name="contra" placeholder="Introduce una contraseña" required>';
+            recargaform += '<input type="password" class="form-control" id="contra" name="contra" placeholder="Introduce una contraseña" required>';
             recargaform += '</div>';
             recargaform += '<div class="form-group">';
             recargaform += '<label class="col-sm-2 col-form-label">Perfil:</label>';
@@ -234,13 +254,17 @@ function crearadmin() {
 }
 
 function opcioncrearJS() {
+    /* Ubicacion del formulario de crear */
     var sitioform = document.getElementById('sitioform');
+    /* Variables de usuarios */
     var mail = document.getElementById('mail').value;
     var contra = document.getElementById('contra').value;
     var id_perfil = document.getElementById('nom_perfil').value;
+    /* Crear cuenta administrador */
     if (id_perfil == 1) {
         crearJS(mail, contra, id_perfil);
     }
+    /* Continuar formulario trabajador */
     if (id_perfil == 2) {
         var recargaform = "";
         recargaform += '<form method="POST" onsubmit="crearJS(\'' + mail + '\',\'' + contra + '\',\'' + id_perfil + '\'); return false;" id="formcrear" enctype="multipart/form-data">';
@@ -284,6 +308,7 @@ function opcioncrearJS() {
         recargaform += '</form>';
         sitioform.innerHTML = recargaform;
     }
+    /* Continuar formulario empresa */
     if (id_perfil == 3) {
         var recargaform = "";
         recargaform += '<form method="POST" onsubmit="crearJS(\'' + mail + '\',\'' + contra + '\',\'' + id_perfil + '\'); return false;" id="formcrear" enctype="multipart/form-data">';
@@ -322,9 +347,11 @@ function crearJS(mail, contra, id_perfil) {
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('_method', 'POST');
+    /* En los tres casos se envian estos datos */
     formData.append('mail', mail);
     formData.append('contra', contra);
     formData.append('id_perfil', id_perfil);
+    /* Si es trabajador ademas se envia lo siguiente */
     if (id_perfil == 2) {
         formData.append('nombre', document.getElementById('nombre').value);
         formData.append('apellido', document.getElementById('apellido').value);
@@ -336,6 +363,7 @@ function crearJS(mail, contra, id_perfil) {
         formData.append('about_user', document.getElementById('about_user').value);
         formData.append('foto_perfil', document.getElementById('foto_perfil').files[0]);
     }
+    /* Si es empresa ademas se envia lo siguiente */
     if (id_perfil == 3) {
         formData.append('nom_emp', document.getElementById('nom_emp').value);
         formData.append('loc_emp', document.getElementById('loc_emp').value);
@@ -385,12 +413,13 @@ function actualizarmodal(id, id_perfil) {
             recargamodal += '</div>';
             recargamodal += '<div class="form-group">';
             recargamodal += '<label class="col-sm-2 col-form-label">Contraseña:</label>';
-            recargamodal += '<input type="text" class="form-control" id="contra" name="contra" value="' + usuarios.contra + '">';
+            recargamodal += '<input type="password" class="form-control" id="contra" name="contra" value="' + usuarios.contra + '">';
             recargamodal += '</div>';
             recargamodal += '<div class="form-group">';
             recargamodal += '<label class="col-sm-2 col-form-label">Estado:</label>';
             recargamodal += '<input type="number" class="form-control" id="estado" name="estado" value="' + usuarios.estado + '">';
             recargamodal += '</div>';
+            /* si quieres modificar trabajador, añades lo siguiente */
             if (id_perfil == 2) {
                 var trabajador = respuesta.trabajador;
                 recargamodal += '<div class="form-group">';
@@ -434,6 +463,7 @@ function actualizarmodal(id, id_perfil) {
                 recargamodal += '<input type="file" class="form-control" id="foto_perfil" name="foto_perfil">';
                 recargamodal += '</div>';
             }
+            /* si quieres modificar empresa, añades lo siguiente */
             if (id_perfil == 3) {
                 var empresa = respuesta.empresa;
                 recargamodal += '<div class="form-group">';
@@ -481,6 +511,7 @@ function modificarJS(id, id_perfil) {
     formData.append('mail', document.getElementById('mail').value);
     formData.append('contra', document.getElementById('contra').value);
     formData.append('estado', document.getElementById('estado').value);
+    /* modificar trabajador */
     if (id_perfil == 2) {
         formData.append('nombre', document.getElementById('nombre').value);
         formData.append('apellido', document.getElementById('apellido').value);
@@ -493,6 +524,7 @@ function modificarJS(id, id_perfil) {
         formData.append('foto_perfil', document.getElementById('foto_perfil').files[0]);
         formData.append('mostrado', document.getElementById('mostrado').value);
     }
+    /* modificar empresa */
     if (id_perfil == 3) {
         formData.append('nom_emp', document.getElementById('nom_emp').value);
         formData.append('loc_emp', document.getElementById('loc_emp').value);
@@ -515,6 +547,7 @@ function modificarJS(id, id_perfil) {
     modal.style.display = "none";
 }
 
+//si solo quieres banear o restaurar una cuenta
 function estadouserJS(id) {
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
