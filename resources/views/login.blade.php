@@ -19,7 +19,15 @@
         <form action="{{url('pruebaregistrar')}}" method="GET">
             <div class="form-group">
                 <span><i class="fas fa-sign-out-alt"></i></span>
-                <button type="submit" value="logout" class="botoncPanel">prueba registro</button><br><br>
+                <button type="submit" value="logout" class="botoncPanel">prueba registro trabajador</button><br><br>
+            </div>
+        </form>
+    </div>
+    <div>
+        <form action="{{url('pruebaregistrarempresa')}}" method="GET">
+            <div class="form-group">
+                <span><i class="fas fa-sign-out-alt"></i></span>
+                <button type="submit" value="logout" class="botoncPanel">prueba registro empresa</button><br><br>
             </div>
         </form>
     </div>

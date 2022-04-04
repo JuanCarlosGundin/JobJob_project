@@ -45,7 +45,7 @@ class UsuarioController extends Controller
         return redirect('/');
     }
 /*----------------------------------------FIN LOGIN Y LOGOUT------------------------------------------------------------------------*/
-/*----------------------------------------REGISTRAR---------------------------------------------------------------------------------*/
+/*----------------------------------------REGISTRAR TRABAJADOR---------------------------------------------------------------------------------*/
 public function registro()
 {
     return view('pruebaregistrar');//este es el de prueba luego se tendrá que cambiar a registrar
@@ -56,11 +56,10 @@ public function registroPost(Request $request){
     try{
         DB::beginTransaction();
         /*insertar datos en la base de datos*/
-        $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil']]);
-        //LO DE ABAJO ES PARA METER EN TABLA TRABAJADOR 
-        $selectidusuario = DB::table('tbl_usuarios')->select('id')->where('id','=',$metertablausuario)->first();
-        $selectidusuario=$selectidusuario->id;
-        $metertablatrabajador=DB::table('tbl_trabajador')->insert(["id_usuario"=>$selectidusuario],["nombre"=>$datos['nombre']],["apellido"=>$datos['apellido']],["foto_perfil"=>$datos['foto_perfil']],["campo_user"=>$datos['campo_user']],["experiencia"=>$datos['experiencia']],["estudios"=>$datos['estudios']],["idiomas"=>$datos['idiomas']],["disponibilidad"=>$datos['disponibilidad']],["about_user"=>$datos['about_user']],["mostrado"=>$datos['mostrado']]);
+        $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil']]); 
+        // $selectidusuario = DB::table('tbl_usuarios')->select('id')->where('id','=',$metertablausuario)->first();
+        // $selectidusuario=$selectidusuario->id;
+        $metertablatrabajador=DB::table('tbl_trabajador')->insert(["id_usuario"=>$metertablausuario,"nombre"=>$datos['nombre'],"apellido"=>$datos['apellido'],"foto_perfil"=>$datos['foto_perfil'],"campo_user"=>$datos['campo_user'],"experiencia"=>$datos['experiencia'],"estudios"=>$datos['estudios'],"idiomas"=>$datos['idiomas'],"disponibilidad"=>$datos['disponibilidad'],"about_user"=>$datos['about_user'],"mostrado"=>$datos['mostrado']]);
         
         DB::commit();
         return redirect('login');
@@ -69,7 +68,32 @@ public function registroPost(Request $request){
         return $e->getMessage();
     }
 }
-/*----------------------------------------FIN REGISTRAR---------------------------------------------------------------------------------*/
+/*----------------------------------------FIN REGISTRAR TRABAJADOR---------------------------------------------------------------------------------*/
+
+
+/*----------------------------------------REGISTRAR EMPRESA---------------------------------------------------------------------------------*/
+public function registroEmpresa()
+{
+    return view('pruebaregistrarempresa');//este es el de prueba luego se tendrá que cambiar a registrar
+}
+
+public function registroEmpresaPost(Request $request){
+    $datos = $request->except('_token');
+    try{
+        DB::beginTransaction();
+        /*insertar datos en la base de datos*/
+        $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil']]); 
+        // $selectidusuario = DB::table('tbl_usuarios')->select('id')->where('id','=',$metertablausuario)->first();
+        // $selectidusuario=$selectidusuario->id;
+        $metertablaempresa=DB::table('tbl_empresa')->insert(["id_usuario"=>$metertablausuario,"nom_emp"=>$datos['nom_emp'],"loc_emp"=>$datos['loc_emp'],"about_emp"=>$datos['about_emp'],"campo_emp"=>$datos['campo_emp'],"searching"=>$datos['searching'],"mostrado"=>$datos['mostrado'],"logo_emp"=>$datos['logo_emp']]);
+        DB::commit();
+        return redirect('login');
+    }catch(\Exception $e){
+        DB::rollBack();
+        return $e->getMessage();
+    }
+}
+/*----------------------------------------FIN REGISTRAR EMPRESA---------------------------------------------------------------------------------*/
 
 
 
