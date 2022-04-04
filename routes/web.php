@@ -46,5 +46,5 @@ Route::get('logout', [UsuarioController::class, 'logout']);
 // Route::get('registro',[UsuarioController::class, 'registro']);
 Route::post('registroPost',[UsuarioController::class, 'registroPost']);
 //Ruta para el registro de empresas
-Route::get('registroEmpresa',[UsuarioController::class, 'registroEmpresa']);
+// Route::get('registroEmpresa',[UsuarioController::class, 'registroEmpresa']);
 Route::post('registroEmpresaPost',[UsuarioController::class, 'registroEmpresaPost']);
