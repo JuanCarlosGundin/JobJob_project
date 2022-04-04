@@ -35,6 +35,8 @@ class AppController extends Controller
         if($datos[0]->{'count(*)'}==1){
             DB::update('update tbl_interaccion set coincidencia = 1 where id_iniciador=? and id_interactuado=?',
            [$idClient,$id]);
+           DB::insert('insert into tbl_interaccion (id_iniciador,id_interactuado,tipo_interaccion,estado_interaccion,coincidencia) 
+           values (?,?,1,1,1)',[$id,$idClient]);
            return response()->json(1); 
         }else{
             DB::insert('insert into tbl_interaccion (id_iniciador,id_interactuado,tipo_interaccion,estado_interaccion,coincidencia) 

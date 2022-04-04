@@ -13,7 +13,7 @@ use App\Http\Controllers\AppController;
 |
 */
 
-Route::get('/principal', function () {
+Route::get('/', function () {
     return view('principal');
 });
 //LEER EL CONTENIDO
