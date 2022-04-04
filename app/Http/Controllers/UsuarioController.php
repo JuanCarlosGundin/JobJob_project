@@ -67,7 +67,7 @@ class UsuarioController extends Controller
                 $id=DB::table('tbl_trabajador')->insert(["id_usuario"=>$id,"nombre"=>$req['nombre'],"apellido"=>$req['apellido'],"foto_perfil"=>$foto_perfil,"campo_user"=>$req['campo_user'],"experiencia"=>$req['experiencia'],"estudios"=>$req['estudios'],"idiomas"=>$req['idiomas'],"disponibilidad"=>$req['disponibilidad'],"about_user"=>$req['about_user'],"mostrado"=>'1']);
             }
             if ($req['id_perfil'] == 3) {
-                $id=DB::table('tbl_empresa')->insert(["id_usuario"=>$id,"nom_emp"=>$req['nom_emp'],"loc_emp"=>$req['loc_emp'],"about_emp"=>$req['about_emp'],"about_emp"=>$req['about_emp'],"campo_emp"=>$req['campo_emp'],"searching"=>$req['searching'],"mostrado"=>'1',"logo_emp"=>$logo_emp]);
+                $id=DB::table('tbl_empresa')->insert(["id_usuario"=>$id,"nom_emp"=>$req['nom_emp'],"loc_emp"=>$req['loc_emp'],"about_emp"=>$req['about_emp'],"campo_emp"=>$req['campo_emp'],"searching"=>$req['searching'],"mostrado"=>'1',"logo_emp"=>$logo_emp]);
             }
             DB::commit();
             return response()->json(array('resultado'=> 'OK'));
@@ -120,31 +120,43 @@ class UsuarioController extends Controller
     }
 
     public function modificaruser(Request $req, $id, $id_perfil) {
-        if ($req->hasFile('foto_perfil')) {
-            $foto = DB::table('tbl_trabajador')->select('foto_perfil')->where('id_usuario','=',$id)->first();
-            if ($foto->foto_perfil != null) {
-                Storage::delete('public/'.$foto->foto_loc);
-            }
-            $datos['foto_loc'] = $req->file('foto_perfil')->store('foto','public');
-        }else{
-            $foto = DB::table('trabajador')->select('foto_perfil')->where('id_usuario','=',$id)->first();
-            $datos['foto_loc'] = $foto->foto_loc;
-        }
         DB::beginTransaction();
         try{
             $datos=array('res' => 'OK');
             if ($id_perfil == 2){
-                $trabajador = DB::table('tbl_trabajador')->where('id_usuario','=',$id)->first();
-                $datos+=array('trabajador' => $trabajador);
+                if ($req->hasFile('foto_perfil')) {
+                    $foto = DB::table('tbl_trabajador')->select('foto_perfil')->where('id_usuario','=',$id)->first();
+                    if ($foto->foto_perfil != null) {
+                        Storage::delete('public/'.$foto->foto_perfil);
+                    }
+                    $foto_perfil = $req->file('foto_perfil')->store('foto','public');
+                }else{
+                    $foto = DB::table('tbl_trabajador')->select('foto_perfil')->where('id_usuario','=',$id)->first();
+                    $foto_perfil = $foto->foto_perfil;
+                }
+                DB::table('tbl_trabajador')->where('id_usuario','=',$id)->update(["nombre"=>$req['nombre'],"apellido"=>$req['apellido'],"foto_perfil"=>$foto_perfil,"campo_user"=>$req['campo_user'],"experiencia"=>$req['experiencia'],"estudios"=>$req['estudios'],"idiomas"=>$req['idiomas'],"disponibilidad"=>$req['disponibilidad'],"about_user"=>$req['about_user'],"mostrado"=>$req['mostrado']]);
             }
             if ($id_perfil == 3){
-                $empresa = DB::table('tbl_empresa')->where('id_usuario','=',$id)->first();
-                $datos+=array('empresa' => $empresa);
+                if ($req->hasFile('logo_emp')) {
+                    $logo = DB::table('tbl_empresa')->select('logo_emp')->where('id_usuario','=',$id)->first();
+                    if ($logo->logo_emp != null) {
+                        Storage::delete('public/'.$logo->logo_emp);
+                    }
+                    $logo_emp = $req->file('logo_emp')->store('logo','public');
+                }else{
+                    $logo = DB::table('tbl_empresa')->select('logo_emp')->where('id_usuario','=',$id)->first();
+                    $logo_emp = $logo->logo_emp;
+                }
+                DB::table('tbl_empresa')->where('id_usuario','=',$id)->update(["nom_emp"=>$req['nom_emp'],"loc_emp"=>$req['loc_emp'],"about_emp"=>$req['about_emp'],"campo_emp"=>$req['campo_emp'],"searching"=>$req['searching'],"mostrado"=>$req['mostrado'],"logo_emp"=>$logo_emp]);
             }
-            $usuarios = DB::table('tbl_usuarios')->where('id','=',$id)->first();
-            $datos+=array('usuarios' => $usuarios);
+            $uscontra = DB::table('tbl_usuarios')->where('id','=',$id)->select('contra')->first();
+            if ($req['contra'] == $uscontra->contra){
+                DB::table('tbl_usuarios')->where('id','=',$id)->update(["mail"=>$req['mail'],"contra"=>$req['contra'],"estado"=>$req['estado']]);
+            } else{
+                DB::table('tbl_usuarios')->where('id','=',$id)->update(["mail"=>$req['mail'],"contra"=>md5($req['contra']),"estado"=>$req['estado']]);
+            }
             DB::commit();
-            return response()->json($datos);
+            return response()->json(array('resultado'=> 'OK'));
         }   catch (\Exception $e) {
             DB::rollback();
             return response()->json(array('resultado'=> 'NOK: '.$e->getMessage()));

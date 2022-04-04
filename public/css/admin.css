@@ -48,3 +48,8 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.imagen {
+    width: 100px;
+    height: 100px;
+}
