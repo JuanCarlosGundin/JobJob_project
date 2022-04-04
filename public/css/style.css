@@ -132,7 +132,7 @@
   border-top-right-radius: 53px;
 }
 
-.body-login .modal-login .modal-content {
+.body-login .modal-content {
   border: white;
   text-align: center;
   width: 80%;
@@ -141,21 +141,21 @@
   /* conectate con google */
 }
 
-.body-login .modal-login .modal-content h2 {
+.body-login .modal-content h2 {
   margin-top: 8vh;
   margin-bottom: 7vh;
   text-align: center;
   font-weight: bold;
 }
 
-.body-login .modal-login .modal-content p {
+.body-login .modal-content p {
   font-weight: bold;
   color: #C5D1EB;
   text-align: center;
   padding-top: 10px;
 }
 
-.body-login .modal-login .modal-content .inputlogin {
+.body-login .modal-content .inputlogin {
   margin-bottom: 1rem;
   font-size: 15px;
   border-radius: 15px;
@@ -164,31 +164,31 @@
   height: 8vh;
 }
 
-.body-login .modal-login .modal-content .inputlogin::-webkit-input-placeholder {
+.body-login .modal-content .inputlogin::-webkit-input-placeholder {
   color: #c5bfbf;
   padding-left: 2%;
   font-weight: 440;
 }
 
-.body-login .modal-login .modal-content .inputlogin:-ms-input-placeholder {
+.body-login .modal-content .inputlogin:-ms-input-placeholder {
   color: #c5bfbf;
   padding-left: 2%;
   font-weight: 440;
 }
 
-.body-login .modal-login .modal-content .inputlogin::-ms-input-placeholder {
+.body-login .modal-content .inputlogin::-ms-input-placeholder {
   color: #c5bfbf;
   padding-left: 2%;
   font-weight: 440;
 }
 
-.body-login .modal-login .modal-content .inputlogin::placeholder {
+.body-login .modal-content .inputlogin::placeholder {
   color: #c5bfbf;
   padding-left: 2%;
   font-weight: 440;
 }
 
-.body-login .modal-login .modal-content .botonlogin {
+.body-login .modal-content .botonlogin {
   border-radius: 15px;
   background-color: #92AFD7;
   border: #92AFD7 solid 1.5px;
@@ -200,7 +200,7 @@
   height: 8vh;
 }
 
-.body-login .modal-login .modal-content .linea {
+.body-login .modal-content .linea {
   position: flex;
   margin: auto;
   width: 55%;
@@ -208,7 +208,7 @@
   height: 2px;
 }
 
-.body-login .modal-login .modal-content .google-login {
+.body-login .modal-content .google-login {
   font-weight: bold;
   color: white;
   background-color: #C5D1EB;
@@ -221,7 +221,7 @@
   text-align: center;
 }
 
-.body-login .modal-login .modal-content .google-img {
+.body-login .modal-content .google-img {
   width: 2.5vh;
 }
 
