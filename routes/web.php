@@ -29,5 +29,11 @@ Route::post('crearuser',[UsuarioController::class,'crearuser']);
 //estadouserJS
 Route::put('estadouser/{id}',[UsuarioController::class,'estadouser']);
 
+//mostrarmodaluserJS
+Route::post('mostrarmodaluser/{id}/{id_perfil}',[UsuarioController::class,'mostrarmodaluser']);
+
+//modificaruserJS
+Route::put('modificaruser/{id}/{id_perfil}',[UsuarioController::class,'modificaruser']);
+
 //eliminaruserJS
 Route::delete('eliminaruser/{id}/{id_perfil}',[UsuarioController::class,'eliminaruser']);

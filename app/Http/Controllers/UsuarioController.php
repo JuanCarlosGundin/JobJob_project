@@ -42,7 +42,7 @@ class UsuarioController extends Controller
         return response()->json($datos);
     }
 
-    public function perfiles(Request $req) {
+    public function perfiles() {
         $datos=DB::select("SELECT * FROM tbl_perfiles");
         return response()->json($datos);
     }
@@ -91,6 +91,60 @@ class UsuarioController extends Controller
             }
             DB::commit();
             return response()->json(array('resultado'=> 'OK'));
+        }   catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(array('resultado'=> 'NOK: '.$e->getMessage()));
+        }
+    }
+
+    public function mostrarmodaluser($id, $id_perfil) {
+        DB::beginTransaction();
+        try{
+            $datos=array('res' => 'OK');
+            $usuarios = DB::table('tbl_usuarios')->where('id','=',$id)->first();
+            $datos+=array('usuarios' => $usuarios);
+            if ($id_perfil == 2){
+                $trabajador = DB::table('tbl_trabajador')->where('id_usuario','=',$id)->first();
+                $datos+=array('trabajador' => $trabajador);
+            }
+            if ($id_perfil == 3){
+                $empresa = DB::table('tbl_empresa')->where('id_usuario','=',$id)->first();
+                $datos+=array('empresa' => $empresa);
+            }
+            DB::commit();
+            return response()->json($datos);
+        }   catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(array('resultado'=> 'NOK: '.$e->getMessage()));
+        }
+    }
+
+    public function modificaruser(Request $req, $id, $id_perfil) {
+        if ($req->hasFile('foto_perfil')) {
+            $foto = DB::table('tbl_trabajador')->select('foto_perfil')->where('id_usuario','=',$id)->first();
+            if ($foto->foto_perfil != null) {
+                Storage::delete('public/'.$foto->foto_loc);
+            }
+            $datos['foto_loc'] = $req->file('foto_perfil')->store('foto','public');
+        }else{
+            $foto = DB::table('trabajador')->select('foto_perfil')->where('id_usuario','=',$id)->first();
+            $datos['foto_loc'] = $foto->foto_loc;
+        }
+        DB::beginTransaction();
+        try{
+            $datos=array('res' => 'OK');
+            if ($id_perfil == 2){
+                $trabajador = DB::table('tbl_trabajador')->where('id_usuario','=',$id)->first();
+                $datos+=array('trabajador' => $trabajador);
+            }
+            if ($id_perfil == 3){
+                $empresa = DB::table('tbl_empresa')->where('id_usuario','=',$id)->first();
+                $datos+=array('empresa' => $empresa);
+            }
+            $usuarios = DB::table('tbl_usuarios')->where('id','=',$id)->first();
+            $datos+=array('usuarios' => $usuarios);
+            DB::commit();
+            return response()->json($datos);
         }   catch (\Exception $e) {
             DB::rollback();
             return response()->json(array('resultado'=> 'NOK: '.$e->getMessage()));

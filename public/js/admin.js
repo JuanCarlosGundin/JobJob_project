@@ -76,6 +76,7 @@ function leerJS() {
                     } else {
                         recargaadmin += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + admin[i].id + '); return false;">Reactivar</button></td>';
                     }
+                    recargaadmin += '<td><button type="button" class="btn btn-info" onclick="actualizarmodal(\'' + admin[i].id + '\',\'' + admin[i].id_perfil + '\'); return false;">Modificar</button></td>';
                     recargaadmin += '<td><button type="button" class="btn btn-danger" onclick="eliminarJS(\'' + admin[i].id + '\',\'' + admin[i].id_perfil + '\'); return false;">Eliminar</button></td>';
                     recargaadmin += '</tr>';
                 }
@@ -120,6 +121,7 @@ function leerJS() {
                     } else {
                         recargatrab += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + trabajador[i].id + '); return false;">Reactivar</button></td>';
                     }
+                    recargatrab += '<td><button type="button" class="btn btn-info" onclick="actualizarmodal(\'' + trabajador[i].id + '\',\'' + trabajador[i].id_perfil + '\'); return false;">Modificar</button></td>';
                     recargatrab += '<td><button type="button" class="btn btn-danger" onclick="eliminarJS(\'' + trabajador[i].id + '\',\'' + trabajador[i].id_perfil + '\'); return false;">Eliminar</button></td>';
                     recargatrab += '</tr>';
                 }
@@ -158,6 +160,7 @@ function leerJS() {
                     } else {
                         recargaemp += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + empresa[i].id + '); return false;">Reactivar</button></td>';
                     }
+                    recargaemp += '<td><button type="button" class="btn btn-info" onclick="actualizarmodal(\'' + empresa[i].id + '\',\'' + empresa[i].id_perfil + '\'); return false;">Modificar</button></td>';
                     recargaemp += '<td><button type="button" class="btn btn-danger" onclick="eliminarJS(\'' + empresa[i].id + '\',\'' + empresa[i].id_perfil + '\'); return false;">Eliminar</button></td>';
                     recargaemp += '</tr>';
                 }
@@ -346,6 +349,156 @@ function crearJS(mail, contra, id_perfil) {
             }
             leerJS();
             document.getElementById('sitioform').innerHTML = "";
+        }
+    }
+    ajax.send(formData)
+}
+
+function actualizarmodal(id, id_perfil) {
+    document.getElementById('sitioform').innerHTML = "";
+    var modal = document.getElementById("myModal");
+    var modalcontent = document.getElementById("modal-content");
+    var formData = new FormData();
+    formData.append('_token', document.getElementById('token').getAttribute("content"));
+    formData.append('_method', 'POST');
+
+    /* Inicializar un objeto AJAX */
+    var ajax = objetoAjax();
+    ajax.open("POST", "mostrarmodaluser/" + id + "/" + id_perfil, true);
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4 && ajax.status == 200) {
+            var respuesta = JSON.parse(this.responseText);
+            var usuarios = respuesta.usuarios;
+            recargamodal = "";
+            recargamodal += '<form method="POST" onsubmit="modificarJS(\'' + id + '\',\'' + id_perfil + '\'); return false;" id="formcrear" enctype="multipart/form-data">';
+            recargamodal += '<div class="form-group">';
+            recargamodal += '<label class="col-sm-2 col-form-label">Correo:</label>';
+            recargamodal += '<input type="email" class="form-control" id="mail" name="mail" value="' + usuarios.mail + '">';
+            recargamodal += '</div>';
+            recargamodal += '<div class="form-group">';
+            recargamodal += '<label class="col-sm-2 col-form-label">Contraseña:</label>';
+            recargamodal += '<input type="text" class="form-control" id="contra" name="contra" value="' + usuarios.contra + '">';
+            recargamodal += '</div>';
+            recargamodal += '<div class="form-group">';
+            recargamodal += '<label class="col-sm-2 col-form-label">Estado:</label>';
+            recargamodal += '<input type="number" class="form-control" id="estado" name="estado" value="' + usuarios.estado + '">';
+            recargamodal += '</div>';
+            if (id_perfil == 2) {
+                var trabajador = respuesta.trabajador;
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Nombre:</label>';
+                recargamodal += '<input type="text" class="form-control" id="nombre" name="nombre" value="' + trabajador.nombre + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Apellido:</label>';
+                recargamodal += '<input type="text" class="form-control" id="apellido" name="apellido" value="' + trabajador.apellido + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Sector:</label>';
+                recargamodal += '<input type="text" class="form-control" id="campo_user" name="campo_user" value="' + trabajador.campo_user + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Experiencia:</label>';
+                recargamodal += '<input type="text" class="form-control" id="experiencia" name="experiencia" value="' + trabajador.experiencia + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Estudios:</label>';
+                recargamodal += '<input type="text" class="form-control" id="estudios" name="estudios" value="' + trabajador.estudios + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Idiomas:</label>';
+                recargamodal += '<input type="text" class="form-control" id="idiomas" name="idiomas" value="' + trabajador.idiomas + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Disponibilidad:</label>';
+                recargamodal += '<input type="text" class="form-control" id="disponibilidad" name="disponibilidad" value="' + trabajador.disponibilidad + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Sobre ti:</label>';
+                recargamodal += '<input type="text" class="form-control" id="about_user" name="about_user" value="' + trabajador.about_user + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Mostrado:</label>';
+                recargamodal += '<input type="number" class="form-control" id="mostrado" name="mostrado" value="' + trabajador.mostrado + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Foto:</label>';
+                recargamodal += '<input type="file" class="form-control" id="foto_perfil" name="foto_perfil">';
+                recargamodal += '</div>';
+            }
+            if (id_perfil == 3) {
+                var empresa = respuesta.empresa;
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Nombre:</label>';
+                recargamodal += '<input type="text" class="form-control" id="nom_emp" name="nom_emp" value="' + empresa.nom_emp + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Localizacion:</label>';
+                recargamodal += '<input type="text" class="form-control" id="loc_emp" name="loc_emp" value="' + empresa.loc_emp + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Sobre nosotros:</label>';
+                recargamodal += '<input type="text" class="form-control" id="about_emp" name="about_emp" value="' + empresa.about_emp + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Sector:</label>';
+                recargamodal += '<input type="text" class="form-control" id="campo_emp" name="campo_emp" value="' + empresa.campo_emp + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Que buscas:</label>';
+                recargamodal += '<input type="text" class="form-control" id="searching" name="searching" value="' + empresa.searching + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Mostrado:</label>';
+                recargamodal += '<input type="number" class="form-control" id="mostrado" name="mostrado" value="' + empresa.mostrado + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Logo:</label>';
+                recargamodal += '<input type="file" class="form-control" id="logo_emp" name="logo_emp">';
+                recargamodal += '</div>';
+            }
+            recargamodal += '<button type="submit" class="btn btn-primary">Enviar</button>';
+            recargamodal += '</form>';
+            modalcontent.innerHTML = recargamodal;
+            modal.style.display = "block";
+        }
+    }
+    ajax.send(formData)
+}
+
+function modificarJS(id, id_perfil) {
+    var formData = new FormData();
+    formData.append('_token', document.getElementById('token').getAttribute("content"));
+    formData.append('_method', 'PUT');
+    formData.append('mail', document.getElementById('mail').value);
+    formData.append('contra', document.getElementById('contra').value);
+    formData.append('estado', document.getElementById('estado').value);
+    formData.append('mostrado', document.getElementById('mostrado').value);
+    if (id_perfil == 2) {
+        formData.append('nombre', document.getElementById('nombre').value);
+        formData.append('apellido', document.getElementById('apellido').value);
+        formData.append('campo_user', document.getElementById('campo_user').value);
+        formData.append('experiencia', document.getElementById('experiencia').value);
+        formData.append('estudios', document.getElementById('estudios').value);
+        formData.append('idiomas', document.getElementById('idiomas').value);
+        formData.append('disponibilidad', document.getElementById('disponibilidad').value);
+        formData.append('about_user', document.getElementById('about_user').value);
+        formData.append('foto_perfil', document.getElementById('foto_perfil').files[0]);
+    }
+    if (id_perfil == 3) {
+        formData.append('nom_emp', document.getElementById('nom_emp').value);
+        formData.append('loc_emp', document.getElementById('loc_emp').value);
+        formData.append('about_emp', document.getElementById('about_emp').value);
+        formData.append('campo_emp', document.getElementById('campo_emp').value);
+        formData.append('searching', document.getElementById('searching').value);
+        formData.append('logo_emp', document.getElementById('logo_emp').files[0]);
+    }
+    var ajax = objetoAjax();
+    ajax.open("POST", "modificaruser/" + id + "/" + id_perfil, true);
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4 && ajax.status == 200) {
+            var respuesta = JSON.parse(this.responseText);
+            leerJS();
         }
     }
     ajax.send(formData)
