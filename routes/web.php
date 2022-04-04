@@ -9,6 +9,11 @@ Route::get('/', function () {
 Route::get('login', function () {
     return view('login');
 });
+
+Route::get('registro', function () {
+    return view('registro');
+});
+
 Route::get('paginaempresa', function () {
     return view('paginaempresa');
 });

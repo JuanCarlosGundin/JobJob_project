@@ -14,8 +14,8 @@
     </div>
     <div class="modal-login">
         <div class="botones">
-        <button class="btn-signin">Sign In</button>
-        <button class="btn-register">Register</button>
+                <button class="btn-signin">Sign In</button>
+                <button class="btn-register">Register</button>
         </div>
             <div class="modal-content">
             <form action="{{url('login')}}" method="POST">

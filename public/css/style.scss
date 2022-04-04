@@ -11,6 +11,9 @@ $tablet:1200px;
 *:before,
 *:after {
     box-sizing: border-box;
+}
+
+body {
     font-family: 'Inter', sans-serif;
 }
 
@@ -22,15 +25,14 @@ $tablet:1200px;
     .menu-index {
         text-align: right;
         .btn-register {
-            border-radius: 12px;
+            border-radius: 15px;
             background-color: white;
             border: white solid 1.5px;
             box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
             color: #090216b0;
             font-weight: bold;
-            width: 10%;
+            width: 11%;
             height: 6vh;
-            font-size: 2.3vh;
             margin-right: 3vh;
             margin-top: 2.5vh;
             margin-bottom: 4vh;
@@ -75,6 +77,22 @@ $tablet:1200px;
     }
 }
 
+@media only screen and (max-width: $movil) {
+    .body-index {
+        .menu-index {
+            .btn-register {
+                width: 40%;
+            }
+        }
+        h1 {
+            font-size: 5vh;
+        }
+        .btn-index {
+            width: 70%;
+        }
+    }
+}
+
 ////////////////////////////////LOGIN//////////////////////////////////////
 .body-login {
     margin: 0;
@@ -89,6 +107,7 @@ $tablet:1200px;
         align-content: center;
         text-align: center;
         margin-top: 10vh;
+        padding-bottom: 0.2vh;
         margin-left: 30vh;
         margin-right: 30vh;
         box-shadow: 5px 3px 3px rgba(156, 155, 155, 0.591);
@@ -96,7 +115,7 @@ $tablet:1200px;
         .botones {
             text-align: center;
             .btn-signin {
-                width: 49.8%;
+                width: 49.7%;
                 height: 8.5vh;
                 text-align: center;
                 color: #92AFD7;
@@ -108,7 +127,7 @@ $tablet:1200px;
                 border-bottom-right-radius: 60px;
             }
             .btn-register {
-                width: 49.8%;
+                width: 49.7%;
                 height: 8.5vh;
                 text-align: center;
                 color: #92AFD7;
@@ -119,76 +138,99 @@ $tablet:1200px;
                 border-top-right-radius: 53px;
             }
         }
+        .modal-content {
+            border: white;
+            text-align: center;
+            width: 80%;
+            margin-left: 10%;
+            margin-right: 10%;
+            h2 {
+                margin-top: 8vh;
+                margin-bottom: 7vh;
+                text-align: center;
+                font-weight: bold;
+            }
+            p {
+                font-weight: bold;
+                color: #C5D1EB;
+                text-align: center;
+                padding-top: 10px;
+            }
+            .inputlogin {
+                margin-bottom: 1rem;
+                font-size: 15px;
+                border-radius: 15px;
+                border: #92AFD7 solid 1.5px;
+                width: 70%;
+                height: 7vh;
+            }
+            .inputlogin::placeholder {
+                color: rgb(197, 191, 191);
+                padding-left: 2%;
+                font-weight: 440;
+            }
+            .botonlogin {
+                border-radius: 15px;
+                background-color: #92AFD7;
+                border: #92AFD7 solid 1.5px;
+                box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+                color: white;
+                font-weight: bold;
+                width: 70%;
+                height: 7vh;
+            }
+            .linea {
+                position: flex;
+                margin: auto;
+                width: 55%;
+                border-top: 1px solid #CDC0C0;
+                height: 2px;
+            }
+            /* conectate con google */
+            .google-login {
+                font-weight: bold;
+                color: white;
+                background-color: #C5D1EB;
+                border: #C5D1EB solid 1.5px;
+                display: block;
+                margin-top: 4vh;
+                margin-bottom: 10vh;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+            .google-img {
+                width: 2.3vh;
+                margin-right: 4px;
+            }
+        }
     }
-    .modal-content {
-        border: white;
-        text-align: center;
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-        h2 {
-            margin-top: 8vh;
-            margin-bottom: 7vh;
-            text-align: center;
-            font-weight: bold;
-        }
-        p {
-            font-weight: bold;
-            color: #C5D1EB;
-            text-align: center;
-            padding-top: 10px;
-        }
-        .inputlogin {
-            margin-bottom: 1rem;
-            font-size: 15px;
-            border-radius: 15px;
-            border: #92AFD7 solid 1.5px;
-            width: 65%;
-            height: 8vh;
-        }
-        .inputlogin::placeholder {
-            color: rgb(197, 191, 191);
-            padding-left: 2%;
-            font-weight: 440;
-        }
-        .botonlogin {
-            border-radius: 15px;
-            background-color: #92AFD7;
-            border: #92AFD7 solid 1.5px;
-            box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-            color: white;
-            font-weight: bold;
-            width: 65%;
-            height: 8vh;
-        }
-        .linea {
-            position: flex;
-            margin: auto;
-            width: 55%;
-            border-top: 1px solid #CDC0C0;
-            height: 2px;
-        }
-        /* conectate con google */
-        .google-login {
-            font-weight: bold;
-            color: white;
-            background-color: #C5D1EB;
-            border: #C5D1EB solid 1.5px;
-            display: block;
-            margin-top: 4vh;
-            margin-bottom: 5vh;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-        .google-img {
-            width: 2.5vh;
+}
+
+// RESPONSIVE TABLET
+@media only screen and (max-width: $tablet) and (min-width: 769px) {
+    .body-login {
+        .modal-login {
+            margin-top: 10vh;
+            padding-bottom: 0.2vh;
+            margin-left: 20vh;
+            margin-right: 20vh;
+            .botones {
+                text-align: center;
+                height: 9vh;
+                .btn-signin {
+                    width: 49%;
+                }
+                .btn-register {
+                    width: 49%;
+                }
+            }
         }
     }
 }
 
 // RESPONSIVE MÓVIL
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: $movil) {
     .body-login {
         .logo {
             display: block !important;
@@ -230,7 +272,7 @@ $tablet:1200px;
             }
             .modal-content {
                 width: 80%;
-                height: 60vh;
+                height: 66vh;
                 h2 {
                     margin-top: 0vh;
                     margin-bottom: 0vh;
@@ -267,6 +309,132 @@ $tablet:1200px;
                 .google-img {
                     width: 2.5vh;
                     margin-right: 12px;
+                }
+            }
+        }
+    }
+}
+
+////////////////////////////////REGISTRAR//////////////////////////////////////
+.body-login {
+    .modal-content-register {
+        width: 100%;
+        height: 72vh;
+        h2 {
+            margin-top: 0vh;
+            margin-bottom: 0vh;
+            font-weight: bold;
+            padding-top: 6vh;
+            padding-bottom: 6vh;
+            font-size: 3.5vh;
+        }
+        h3 {
+            font-weight: bold;
+            padding-top: 8vh;
+            font-size: 3.5vh;
+        }
+        input {
+            margin-bottom: 1rem;
+            font-size: 15px;
+            border-radius: 15px;
+            border: #92AFD7 solid 1.5px;
+            width: 100% !important;
+            height: 42px !important;
+        }
+        .inputlogin::placeholder {
+            color: rgb(197, 191, 191);
+            padding-left: 2%;
+            font-weight: 440;
+        }
+        .botonregister {
+            border-radius: 15px;
+            background-color: #92AFD7;
+            border: #92AFD7 solid 1.5px;
+            box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+            color: white;
+            font-weight: bold;
+            width: 100%;
+            height: 40px;
+            margin-bottom: 3px;
+        }
+        .linea {
+            max-width: 100%;
+            padding: 0;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .cuadrados {
+            width: 50%;
+            height: 85%;
+            display: flex;
+            float: left;
+            justify-content: center;
+            align-items: center;
+        }
+        .cuadrado {
+            width: 35vh;
+            height: 35vh;
+            background: $second-color;
+            border: $second-color solid 1.5px;
+            box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+            border-radius: 30px;
+            color: white;
+            font-weight: 600;
+        }
+        i {
+            text-align: center;
+            font-size: 13vh;
+        }
+        p {
+            font-size: 3.2vh;
+        }
+        .google-login {
+            font-weight: bold;
+            color: white;
+            background-color: #C5D1EB;
+            border: #C5D1EB solid 1.5px;
+            display: block;
+            margin-top: 4vh;
+            margin-bottom: 10vh;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .google-img {
+            width: 2vh;
+            margin-right: 2px;
+        }
+    }
+}
+
+// // RESPONSIVE TABLET
+// @media only screen and (max-width: 1200px) {
+//     .body-login {
+//         .modal-content-register {
+//             .cuadrado {
+//                 background-color: red;
+//             }
+//         }
+//     }
+// }
+// RESPONSIVE MÓVIL
+@media only screen and (max-width: $movil) {
+    .body-login {
+        .modal-content-register {
+            h3 {
+                font-size: 3vh;
+                margin-bottom: 4vh;
+            }
+            .cuadrados {
+                width: 100%;
+                height: 21vh;
+                .cuadrado {
+                    width: 19vh;
+                    height: 19vh;
+                }
+                i {
+                    padding-top: 3vh;
+                    font-size: 6.5vh;
                 }
             }
         }

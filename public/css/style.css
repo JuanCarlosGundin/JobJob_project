@@ -4,6 +4,9 @@
 *:after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+body {
   font-family: 'Inter', sans-serif;
 }
 
@@ -18,16 +21,15 @@
 }
 
 .body-index .menu-index .btn-register {
-  border-radius: 12px;
+  border-radius: 15px;
   background-color: white;
   border: white solid 1.5px;
   -webkit-box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
           box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
   color: #090216b0;
   font-weight: bold;
-  width: 10%;
+  width: 11%;
   height: 6vh;
-  font-size: 2.3vh;
   margin-right: 3vh;
   margin-top: 2.5vh;
   margin-bottom: 4vh;
@@ -78,6 +80,18 @@
   background: pink;
 }
 
+@media only screen and (max-width: 768px) {
+  .body-index .menu-index .btn-register {
+    width: 40%;
+  }
+  .body-index h1 {
+    font-size: 5vh;
+  }
+  .body-index .btn-index {
+    width: 70%;
+  }
+}
+
 .body-login {
   margin: 0;
   background-color: #92AFD7;
@@ -97,6 +111,7 @@
       align-content: center;
   text-align: center;
   margin-top: 10vh;
+  padding-bottom: 0.2vh;
   margin-left: 30vh;
   margin-right: 30vh;
   -webkit-box-shadow: 5px 3px 3px rgba(156, 155, 155, 0.591);
@@ -108,7 +123,7 @@
 }
 
 .body-login .modal-login .botones .btn-signin {
-  width: 49.8%;
+  width: 49.7%;
   height: 8.5vh;
   text-align: center;
   color: #92AFD7;
@@ -121,7 +136,7 @@
 }
 
 .body-login .modal-login .botones .btn-register {
-  width: 49.8%;
+  width: 49.7%;
   height: 8.5vh;
   text-align: center;
   color: #92AFD7;
@@ -132,7 +147,7 @@
   border-top-right-radius: 53px;
 }
 
-.body-login .modal-content {
+.body-login .modal-login .modal-content {
   border: white;
   text-align: center;
   width: 80%;
@@ -141,54 +156,54 @@
   /* conectate con google */
 }
 
-.body-login .modal-content h2 {
+.body-login .modal-login .modal-content h2 {
   margin-top: 8vh;
   margin-bottom: 7vh;
   text-align: center;
   font-weight: bold;
 }
 
-.body-login .modal-content p {
+.body-login .modal-login .modal-content p {
   font-weight: bold;
   color: #C5D1EB;
   text-align: center;
   padding-top: 10px;
 }
 
-.body-login .modal-content .inputlogin {
+.body-login .modal-login .modal-content .inputlogin {
   margin-bottom: 1rem;
   font-size: 15px;
   border-radius: 15px;
   border: #92AFD7 solid 1.5px;
-  width: 65%;
-  height: 8vh;
+  width: 70%;
+  height: 7vh;
 }
 
-.body-login .modal-content .inputlogin::-webkit-input-placeholder {
+.body-login .modal-login .modal-content .inputlogin::-webkit-input-placeholder {
   color: #c5bfbf;
   padding-left: 2%;
   font-weight: 440;
 }
 
-.body-login .modal-content .inputlogin:-ms-input-placeholder {
+.body-login .modal-login .modal-content .inputlogin:-ms-input-placeholder {
   color: #c5bfbf;
   padding-left: 2%;
   font-weight: 440;
 }
 
-.body-login .modal-content .inputlogin::-ms-input-placeholder {
+.body-login .modal-login .modal-content .inputlogin::-ms-input-placeholder {
   color: #c5bfbf;
   padding-left: 2%;
   font-weight: 440;
 }
 
-.body-login .modal-content .inputlogin::placeholder {
+.body-login .modal-login .modal-content .inputlogin::placeholder {
   color: #c5bfbf;
   padding-left: 2%;
   font-weight: 440;
 }
 
-.body-login .modal-content .botonlogin {
+.body-login .modal-login .modal-content .botonlogin {
   border-radius: 15px;
   background-color: #92AFD7;
   border: #92AFD7 solid 1.5px;
@@ -196,11 +211,11 @@
           box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
   color: white;
   font-weight: bold;
-  width: 65%;
-  height: 8vh;
+  width: 70%;
+  height: 7vh;
 }
 
-.body-login .modal-content .linea {
+.body-login .modal-login .modal-content .linea {
   position: flex;
   margin: auto;
   width: 55%;
@@ -208,21 +223,41 @@
   height: 2px;
 }
 
-.body-login .modal-content .google-login {
+.body-login .modal-login .modal-content .google-login {
   font-weight: bold;
   color: white;
   background-color: #C5D1EB;
   border: #C5D1EB solid 1.5px;
   display: block;
   margin-top: 4vh;
-  margin-bottom: 5vh;
+  margin-bottom: 10vh;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
-.body-login .modal-content .google-img {
-  width: 2.5vh;
+.body-login .modal-login .modal-content .google-img {
+  width: 2.3vh;
+  margin-right: 4px;
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 769px) {
+  .body-login .modal-login {
+    margin-top: 10vh;
+    padding-bottom: 0.2vh;
+    margin-left: 20vh;
+    margin-right: 20vh;
+  }
+  .body-login .modal-login .botones {
+    text-align: center;
+    height: 9vh;
+  }
+  .body-login .modal-login .botones .btn-signin {
+    width: 49%;
+  }
+  .body-login .modal-login .botones .btn-register {
+    width: 49%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -267,7 +302,7 @@
   }
   .body-login .modal-login .modal-content {
     width: 80%;
-    height: 60vh;
+    height: 66vh;
   }
   .body-login .modal-login .modal-content h2 {
     margin-top: 0vh;
@@ -305,6 +340,152 @@
   .body-login .modal-login .modal-content .google-img {
     width: 2.5vh;
     margin-right: 12px;
+  }
+}
+
+.body-login .modal-content-register {
+  width: 100%;
+  height: 72vh;
+}
+
+.body-login .modal-content-register h2 {
+  margin-top: 0vh;
+  margin-bottom: 0vh;
+  font-weight: bold;
+  padding-top: 6vh;
+  padding-bottom: 6vh;
+  font-size: 3.5vh;
+}
+
+.body-login .modal-content-register h3 {
+  font-weight: bold;
+  padding-top: 8vh;
+  font-size: 3.5vh;
+}
+
+.body-login .modal-content-register input {
+  margin-bottom: 1rem;
+  font-size: 15px;
+  border-radius: 15px;
+  border: #92AFD7 solid 1.5px;
+  width: 100% !important;
+  height: 42px !important;
+}
+
+.body-login .modal-content-register .inputlogin::-webkit-input-placeholder {
+  color: #c5bfbf;
+  padding-left: 2%;
+  font-weight: 440;
+}
+
+.body-login .modal-content-register .inputlogin:-ms-input-placeholder {
+  color: #c5bfbf;
+  padding-left: 2%;
+  font-weight: 440;
+}
+
+.body-login .modal-content-register .inputlogin::-ms-input-placeholder {
+  color: #c5bfbf;
+  padding-left: 2%;
+  font-weight: 440;
+}
+
+.body-login .modal-content-register .inputlogin::placeholder {
+  color: #c5bfbf;
+  padding-left: 2%;
+  font-weight: 440;
+}
+
+.body-login .modal-content-register .botonregister {
+  border-radius: 15px;
+  background-color: #92AFD7;
+  border: #92AFD7 solid 1.5px;
+  -webkit-box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+          box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 3px;
+}
+
+.body-login .modal-content-register .linea {
+  max-width: 100%;
+  padding: 0;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.body-login .modal-content-register .cuadrados {
+  width: 50%;
+  height: 85%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: left;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.body-login .modal-content-register .cuadrado {
+  width: 35vh;
+  height: 35vh;
+  background: #C5D1EB;
+  border: #C5D1EB solid 1.5px;
+  -webkit-box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+          box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+  border-radius: 30px;
+  color: white;
+  font-weight: 600;
+}
+
+.body-login .modal-content-register i {
+  text-align: center;
+  font-size: 13vh;
+}
+
+.body-login .modal-content-register p {
+  font-size: 3.2vh;
+}
+
+.body-login .modal-content-register .google-login {
+  font-weight: bold;
+  color: white;
+  background-color: #C5D1EB;
+  border: #C5D1EB solid 1.5px;
+  display: block;
+  margin-top: 4vh;
+  margin-bottom: 10vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.body-login .modal-content-register .google-img {
+  width: 2vh;
+  margin-right: 2px;
+}
+
+@media only screen and (max-width: 768px) {
+  .body-login .modal-content-register h3 {
+    font-size: 3vh;
+    margin-bottom: 4vh;
+  }
+  .body-login .modal-content-register .cuadrados {
+    width: 100%;
+    height: 21vh;
+  }
+  .body-login .modal-content-register .cuadrados .cuadrado {
+    width: 19vh;
+    height: 19vh;
+  }
+  .body-login .modal-content-register .cuadrados i {
+    padding-top: 3vh;
+    font-size: 6.5vh;
   }
 }
 /*# sourceMappingURL=style.css.map */
