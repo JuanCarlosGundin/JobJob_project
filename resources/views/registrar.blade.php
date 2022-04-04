@@ -8,14 +8,10 @@
     <meta name="csrf-token" id="token" content="{{ csrf_token() }}">
 </head>
 <body>
-    {{-- <form action="{{url("registroPost")}}" method="POST">
-        @csrf
-        {{method_field('POST')}} --}}
     <div id="main">
         <button onclick="trabajador()">Soy un trabajador</button>
         <button onclick="empresa()">Soy una empresa</button>
     </div>
-    {{-- </form> --}}
     <script src="js/ajaxusuario.js"></script>
 </body>
 </html>

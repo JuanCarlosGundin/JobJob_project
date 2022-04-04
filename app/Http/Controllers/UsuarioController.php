@@ -46,10 +46,10 @@ class UsuarioController extends Controller
     }
 /*----------------------------------------FIN LOGIN Y LOGOUT------------------------------------------------------------------------*/
 /*----------------------------------------REGISTRAR TRABAJADOR---------------------------------------------------------------------------------*/
-public function registro()
-{
-    return view('registrar');//este es el de prueba luego se tendrá que cambiar a registrar
-}
+// public function registro()
+// {
+//     return view('registrar');//este es el de prueba luego se tendrá que cambiar a registrar
+// }
 
 public function registroPost(Request $request){
     $datos = $request->except('_token');
@@ -62,7 +62,9 @@ public function registroPost(Request $request){
         $metertablatrabajador=DB::table('tbl_trabajador')->insert(["id_usuario"=>$metertablausuario,"nombre"=>$datos['nombre'],"apellido"=>$datos['apellido'],"foto_perfil"=>$datos['foto_perfil'],"campo_user"=>$datos['campo_user'],"experiencia"=>$datos['experiencia'],"estudios"=>$datos['estudios'],"idiomas"=>$datos['idiomas'],"disponibilidad"=>$datos['disponibilidad'],"about_user"=>$datos['about_user'],"mostrado"=>$datos['mostrado']]);
         
         DB::commit();
-        return redirect('login');
+        return response()->json(array('resultado'=> 'OK'));
+        // return redirect('login');
+        
     }catch(\Exception $e){
         DB::rollBack();
         return $e->getMessage();
