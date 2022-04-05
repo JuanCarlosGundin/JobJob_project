@@ -6,6 +6,7 @@ use App\Models\Usuario;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\storage;
 use Illuminate\Http\Request;
+use Session;
 
 class UsuarioController extends Controller
 {
@@ -103,8 +104,11 @@ public function registroEmpresaPost(Request $request){
 }
 /*----------------------------------------FIN REGISTRAR EMPRESA---------------------------------------------------------------------------------*/
 /*----------------------------------------LEER TRABAJADOR--------------------------------------------------------------------------*/
+
 public function leertrabajadorController(Request $request){
-    $datos=DB::select('SELECT * FROM `tbl_ubicacion` INNER JOIN `tbl_tipo` ON tbl_ubicacion.id_tipo = tbl_tipo.id_tipo where nombre_ubicacion like ?',['%'.$request->input('filtro').'%']);
+
+    $var =session()->get('id_user');
+    $datos=DB::select('SELECT * FROM `tbl_trabajador` INNER JOIN `tbl_usuarios` ON tbl_trabajador.id_usuario = tbl_usuarios.id WHERE tbl_usuarios.id=?',[$var]);
     return response()->json($datos);
 }
 /*----------------------------------------FIN LEER TRABAJADOR--------------------------------------------------------------------------*/

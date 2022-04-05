@@ -190,6 +190,47 @@ function crearempresaJS() {
     ajax.send(formData)
 }
 
+
+//--------------------------------EMPEZAMOS A HACER EL MODIFICAR PERFIL-----------------------------------------------------
+function leerJS() {
+    /* Si hace falta obtenemos el elemento HTML donde introduciremos la recarga (datos o mensajes) */
+    /* Usar el objeto FormData para guardar los parámetros que se enviarán:
+       formData.append('clave', valor);
+       valor = elemento/s que se pasarán como parámetros: token, method, inputs... */
+    var tabla = document.getElementById("main");
+    var formData = new FormData();
+    formData.append('_token', document.getElementById('token').getAttribute("content"));
+
+    /* Inicializar un objeto AJAX */
+    var ajax = objetoAjax();
+
+    ajax.open("POST", "leertrabajador", true);
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4 && ajax.status == 200) {
+            var respuesta = JSON.parse(this.responseText);
+            var recarga = '';
+            recarga += '<tr><td>EMAIL</td><td>CONTRA</td><td>DESCRIPCION</td><td>DIRECCION</td><td>FOTO</td><td>TIPO</td><td>ELIMINAR</td><td>MODIFICAR</td></tr>';
+            /* Leerá la respuesta que es devuelta por el controlador: */
+            for (let i = 0; i < respuesta.length; i++) {
+                recarga += '<tr>';
+                recarga += '<td>' + respuesta[i].id_ubicacion + '</td>'
+                recarga += '<td>' + respuesta[i].nombre_ubicacion + '</td>'
+                recarga += '<td>' + respuesta[i].descripcion_ubicacion + '</td>'
+                recarga += '<td>' + respuesta[i].direccion_ubicacion + '</td>'
+                recarga += '<td><img src="storage/' + respuesta[i].foto_ubicacion + '" style="width:15px;"></td>'
+                recarga += '<td>' + respuesta[i].nombre_tipo + '</td>'
+                recarga += '<td><button onclick="eliminarJS(' + respuesta[i].id_ubicacion + ')">Eliminar</button></td>'
+                recarga += '<td><button type="submit" value="Modificar" onclick="abrirModal(' + respuesta[i].id_ubicacion + ',\'' + respuesta[i].nombre_ubicacion + '\',\'' + respuesta[i].descripcion_ubicacion + '\',\'' + respuesta[i].direccion_ubicacion + '\',\'' + respuesta[i].foto_ubicacion + '\');return false;">Modificar</button></td>'
+                recarga += '</tr>';
+
+            }
+            tabla.innerHTML = recarga;
+        }
+    }
+
+    ajax.send(formData);
+}
+
 function editartrabajadorJS() { /* Si hace falta obtenemos el elemento HTML donde introduciremos la recarga (datos o mensajes) */
     /* Usar el objeto FormData para guardar los parámetros que se enviarán:
        formData.append('clave', valor);
