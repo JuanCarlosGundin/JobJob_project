@@ -31,30 +31,20 @@ body .region-navbar {
   /* ICONS */
 }
 
-body .region-navbar .curriculum-navbar {
-  padding: 1%;
-  width: 20%;
-}
-
 body .region-navbar .alerts-navbar {
   padding: 1%;
-  width: 20%;
+  width: 30%;
 }
 
 body .region-navbar .main-navbar {
   padding: 1%;
-  width: 20%;
+  width: 40%;
   height: 10vh;
-}
-
-body .region-navbar .chat-navbar {
-  padding: 1%;
-  width: 20%;
 }
 
 body .region-navbar .profile-navbar {
   padding: 1%;
-  width: 20%;
+  width: 30%;
 }
 
 body .region-navbar .active-left {
@@ -177,6 +167,8 @@ body .alerts .alert {
 
 body .alerts .alert .alert-foto {
   width: 15vw;
+  -ms-flex-line-pack: right;
+      align-content: right;
 }
 
 body .alerts .alert .alert-foto .alert-profilefoto {
@@ -193,11 +185,12 @@ body .alerts .alert .alert-mensaje {
 body .alerts .alert .alert-mensaje .alert-mensaje-text {
   padding: 0;
   margin: 0;
-  font-weight: bold;
+  font-size: 1.75vh;
 }
 
 body .alerts .alert .alert-user {
   width: 10vw;
+  text-align: right;
 }
 
 body .alerts .alert .alert-user .alert-user-btn {
@@ -207,6 +200,7 @@ body .alerts .alert .alert-user .alert-user-btn {
 }
 
 body .alerts .alert .alert-chat {
+  text-align: right;
   width: 10vw;
 }
 
@@ -313,7 +307,7 @@ body .curriculum .curriculum-title {
 }
 
 body .user-edit {
-  padding: 5vh;
+  padding: 3vh;
 }
 
 body .user-edit .user-edit-foto {
@@ -337,11 +331,18 @@ body .user-edit .user-edit-foto .user-edit-profilefoto {
 
 body .user-edit .edit-foto {
   position: absolute;
+  margin: 50vw;
 }
 
 body .user-edit .user-input {
   margin-top: 2vh;
   width: 100%;
+}
+
+body .user-edit .user-input .user-input-name {
+  width: 90vw;
+  border-radius: 2vw;
+  background-color: #92AFD7;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -353,23 +354,35 @@ body .user-edit .user-input {
           align-items: center;
 }
 
-body .user-edit .user-input .user-input-name {
-  height: 3vh;
-  width: 90vw;
-  background-color: #92AFD7;
+body .user-edit .user-input .user-input-name .user-icon-name {
+  width: 5vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-body .user-edit .user-input .user-input-name .input-name {
+body .user-edit .user-input .user-input-name .inputs-name .input-name {
   margin-left: 5vw;
   width: 25vw;
+  height: 3vh;
 }
 
-body .user-edit .user-input .user-input-name .input-surname {
+body .user-edit .user-input .user-input-name .inputs-name .input-surname {
   width: 25vw;
 }
 
-body .user-edit .user-input .user-input-name .input-age {
+body .user-edit .user-input .user-input-name .inputs-name .input-age {
   margin-left: 5vw;
   width: 15vw;
+}
+
+body .user-edit .eliminar_cuenta_edit {
+  bottom: 0;
 }
 /*# sourceMappingURL=style.css.map */
