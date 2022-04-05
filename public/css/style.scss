@@ -28,14 +28,14 @@ body {
         /*--------------------------------------------------------------- MENU NAV BAR ---------------------------------------------------------------- */
         /* DIVS NAVBAR*/
         /* Curriculum */
-        .curriculum-navbar {
-            padding: 1%;
-            width: 20%;
-        }
+        // .curriculum-navbar {
+        //     padding: 1%;
+        //     width: 20%;
+        // }
         /* Alertas */
         .alerts-navbar {
             padding: 1%;
-            width: 20%;
+            width: 30%;
         }
         // .alerts-navbar::before {
         //     content: "";
@@ -49,18 +49,18 @@ body {
         /* Main */
         .main-navbar {
             padding: 1%;
-            width: 20%;
+            width: 40%;
             height: 10vh;
         }
         /* Chat */
-        .chat-navbar {
-            padding: 1%;
-            width: 20%;
-        }
+        // .chat-navbar {
+        //     padding: 1%;
+        //     width: 20%;
+        // }
         /* Perfil */
         .profile-navbar {
             padding: 1%;
-            width: 20%;
+            width: 30%;
         }
         // DIVS ACTIVE //
         .active-left {
@@ -155,6 +155,7 @@ body {
             align-items: center;
             .alert-foto {
                 width: 15vw;
+                align-content: right;
                 .alert-profilefoto {
                     border-radius: 50px;
                     height: 7vh;
@@ -167,11 +168,12 @@ body {
                 .alert-mensaje-text {
                     padding: 0;
                     margin: 0;
-                    font-weight: bold;
+                    font-size: 1.75vh;
                 }
             }
             .alert-user {
                 width: 10vw;
+                text-align: right;
                 .alert-user-btn {
                     background-color: #E5E5E5;
                     border-width: 0;
@@ -179,6 +181,7 @@ body {
                 }
             }
             .alert-chat {
+                text-align: right;
                 width: 10vw;
                 .alert-chat-btn {
                     background-color: #E5E5E5;
@@ -274,7 +277,7 @@ body {
     ////////////////////////////////LOGIN//////////////////////////////////////
     /////////////////////////////////PERFIL-EDITAR////////////////////////////////////
     .user-edit {
-        padding: 5vh;
+        padding: 3vh;
         .user-edit-foto {
             width: 100%;
             justify-content: center;
@@ -294,26 +297,37 @@ body {
             margin-top: 2vh;
             width: 100%;
             .user-input-name {
-                height: 3vh;
                 width: 90vw;
-                padding: 5vw;
+                border-radius: 2vw;
                 background-color: #92AFD7;
+                justify-content: center;
+                display: flex;
+                align-items: center;
                 .user-icon-name {
-                    width: 6vw;
+                    width: 5vw;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
                 }
-                .input-name {
-                    margin-left: 5vw;
-                    width: 25vw;
-                }
-                .input-surname {
-                    width: 25vw;
-                }
-                .input-age {
-                    margin-left: 5vw;
-                    width: 15vw;
+                .inputs-name {
+                    .input-name {
+                        margin-left: 5vw;
+                        width: 25vw;
+                        height: 3vh;
+                    }
+                    .input-surname {
+                        width: 25vw;
+                    }
+                    .input-age {
+                        margin-left: 5vw;
+                        width: 15vw;
+                    }
                 }
             }
         }
-        // .user-inputs {}
+        .eliminar_cuenta_edit {
+            bottom: 0;
+            .eliminar_cuenta_btn {}
+        }
     }
 }
