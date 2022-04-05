@@ -120,10 +120,24 @@ body {
 
 .body-login .modal-login .botones {
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.body-login .modal-login .botones form {
+  width: 50%;
+}
+
+.body-login .modal-login .botones form button {
+  width: 100%;
 }
 
 .body-login .modal-login .botones .btn-signin {
-  width: 49.7%;
+  width: 100%;
   height: 8.5vh;
   text-align: center;
   color: #92AFD7;
@@ -136,7 +150,7 @@ body {
 }
 
 .body-login .modal-login .botones .btn-register {
-  width: 49.7%;
+  width: 100%;
   height: 8.5vh;
   text-align: center;
   color: #92AFD7;
@@ -253,10 +267,10 @@ body {
     height: 9vh;
   }
   .body-login .modal-login .botones .btn-signin {
-    width: 49%;
+    width: 100%;
   }
   .body-login .modal-login .botones .btn-register {
-    width: 49%;
+    width: 100%;
   }
 }
 
@@ -289,13 +303,13 @@ body {
   }
   .body-login .modal-login .botones .btn-signin {
     padding-top: 10px;
-    width: 49%;
+    width: 100%;
     font-size: 22px;
     border-top-left-radius: 53px;
     border-bottom-right-radius: 60px;
   }
   .body-login .modal-login .botones .btn-register {
-    width: 49%;
+    width: 100%;
     padding-top: 10px;
     font-size: 22px;
     border-top-right-radius: 53px;
@@ -343,82 +357,21 @@ body {
   }
 }
 
-.body-login .modal-content-register {
+.body-login .modal-content-register-cuadrados {
   width: 100%;
   height: 72vh;
 }
 
-.body-login .modal-content-register h2 {
-  margin-top: 0vh;
-  margin-bottom: 0vh;
-  font-weight: bold;
-  padding-top: 6vh;
-  padding-bottom: 6vh;
-  font-size: 3.5vh;
-}
-
-.body-login .modal-content-register h3 {
+.body-login .modal-content-register-cuadrados h3 {
   font-weight: bold;
   padding-top: 8vh;
+  padding-bottom: 8vh;
   font-size: 3.5vh;
 }
 
-.body-login .modal-content-register input {
-  margin-bottom: 1rem;
-  font-size: 15px;
-  border-radius: 15px;
-  border: #92AFD7 solid 1.5px;
-  width: 100% !important;
-  height: 42px !important;
-}
-
-.body-login .modal-content-register .inputlogin::-webkit-input-placeholder {
-  color: #c5bfbf;
-  padding-left: 2%;
-  font-weight: 440;
-}
-
-.body-login .modal-content-register .inputlogin:-ms-input-placeholder {
-  color: #c5bfbf;
-  padding-left: 2%;
-  font-weight: 440;
-}
-
-.body-login .modal-content-register .inputlogin::-ms-input-placeholder {
-  color: #c5bfbf;
-  padding-left: 2%;
-  font-weight: 440;
-}
-
-.body-login .modal-content-register .inputlogin::placeholder {
-  color: #c5bfbf;
-  padding-left: 2%;
-  font-weight: 440;
-}
-
-.body-login .modal-content-register .botonregister {
-  border-radius: 15px;
-  background-color: #92AFD7;
-  border: #92AFD7 solid 1.5px;
-  -webkit-box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-          box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-  color: white;
-  font-weight: bold;
-  width: 100%;
-  height: 40px;
-  margin-bottom: 3px;
-}
-
-.body-login .modal-content-register .linea {
-  max-width: 100%;
-  padding: 0;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-.body-login .modal-content-register .cuadrados {
+.body-login .modal-content-register-cuadrados .cuadrados {
   width: 50%;
-  height: 85%;
+  height: 45%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -431,9 +384,9 @@ body {
           align-items: center;
 }
 
-.body-login .modal-content-register .cuadrado {
-  width: 35vh;
-  height: 35vh;
+.body-login .modal-content-register-cuadrados .cuadrado {
+  width: 34vh;
+  height: 34vh;
   background: #C5D1EB;
   border: #C5D1EB solid 1.5px;
   -webkit-box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
@@ -443,49 +396,161 @@ body {
   font-weight: 600;
 }
 
-.body-login .modal-content-register i {
+.body-login .modal-content-register-cuadrados i {
   text-align: center;
   font-size: 13vh;
 }
 
-.body-login .modal-content-register p {
+.body-login .modal-content-register-cuadrados p {
   font-size: 3.2vh;
 }
 
-.body-login .modal-content-register .google-login {
-  font-weight: bold;
-  color: white;
-  background-color: #C5D1EB;
-  border: #C5D1EB solid 1.5px;
-  display: block;
-  margin-top: 4vh;
-  margin-bottom: 10vh;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+.body-login .scrollbar {
+  width: 100%;
+  height: 72vh;
+  overflow-y: scroll;
 }
 
-.body-login .modal-content-register .google-img {
-  width: 2vh;
-  margin-right: 2px;
+.body-login .modal-content-register {
+  width: 100%;
+  height: auto;
+}
+
+.body-login .modal-content-register h3 {
+  font-weight: bold;
+  padding-top: 8vh;
+  padding-bottom: 6vh;
+  font-size: 3.5vh;
+}
+
+.body-login .modal-content-register .column-2 {
+  width: 50%;
+  float: left;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.body-login .modal-content-register .column-2 p {
+  font-size: 2.5vh !important;
+  font-weight: 600;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.594);
+}
+
+.body-login .modal-content-register .column-2 .inputregister {
+  margin-bottom: 1rem;
+  font-size: 15px;
+  border-radius: 15px;
+  border: #92AFD7 solid 2px;
+  width: 100% !important;
+  height: 42px !important;
+}
+
+.body-login .modal-content-register .column-2 .inputregister::-webkit-input-placeholder {
+  color: #c5bfbf;
+  padding-left: 2%;
+  font-weight: 440;
+}
+
+.body-login .modal-content-register .column-2 .inputregister:-ms-input-placeholder {
+  color: #c5bfbf;
+  padding-left: 2%;
+  font-weight: 440;
+}
+
+.body-login .modal-content-register .column-2 .inputregister::-ms-input-placeholder {
+  color: #c5bfbf;
+  padding-left: 2%;
+  font-weight: 440;
+}
+
+.body-login .modal-content-register .column-2 .inputregister::placeholder {
+  color: #c5bfbf;
+  padding-left: 2%;
+  font-weight: 440;
+}
+
+.body-login .modal-content-register .column-2 .foto {
+  width: 80%;
+  float: left;
+  margin-bottom: 1rem;
+}
+
+.body-login .modal-content-register .column-2 select {
+  border-radius: 15px;
+  border: #92AFD7 solid 2px;
+  width: 15% !important;
+  height: 42px !important;
+  margin-bottom: 1rem;
+}
+
+.body-login .modal-content-register .botonregister {
+  border-radius: 15px;
+  background-color: #92AFD7 !important;
+  border: #92AFD7 solid 1.5px;
+  -webkit-box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+          box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+  color: white;
+  font-weight: bold;
+  width: 40%;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .body-login .modal-content-register-cuadrados h3 {
+    font-size: 3vh;
+    margin-bottom: 4vh;
+  }
+  .body-login .modal-content-register-cuadrados .cuadrados {
+    width: 100%;
+    height: 21vh;
+  }
+  .body-login .modal-content-register-cuadrados .cuadrados .cuadrado {
+    width: 19vh;
+    height: 19vh;
+  }
+  .body-login .modal-content-register-cuadrados .cuadrados i {
+    padding-top: 3vh;
+    font-size: 6.5vh;
+  }
 }
 
 @media only screen and (max-width: 768px) {
   .body-login .modal-content-register h3 {
     font-size: 3vh;
-    margin-bottom: 4vh;
+    padding-bottom: 4vh;
   }
-  .body-login .modal-content-register .cuadrados {
+  .body-login .modal-content-register .column-2 {
     width: 100%;
-    height: 21vh;
+    padding-left: 5%;
+    padding-right: 5%;
   }
-  .body-login .modal-content-register .cuadrados .cuadrado {
-    width: 19vh;
-    height: 19vh;
+  .body-login .modal-content-register .column-2 .inputregister {
+    height: 6vh !important;
   }
-  .body-login .modal-content-register .cuadrados i {
-    padding-top: 3vh;
-    font-size: 6.5vh;
+  .body-login .modal-content-register .column-2 .inputregister::-webkit-input-placeholder {
+    font-size: 2.2vh;
+  }
+  .body-login .modal-content-register .column-2 .inputregister:-ms-input-placeholder {
+    font-size: 2.2vh;
+  }
+  .body-login .modal-content-register .column-2 .inputregister::-ms-input-placeholder {
+    font-size: 2.2vh;
+  }
+  .body-login .modal-content-register .column-2 .inputregister::placeholder {
+    font-size: 2.2vh;
+  }
+  .body-login .modal-content-register .column-2 .select {
+    font-size: 2.2vh !important;
+  }
+  .body-login .modal-content-register .column-2 .foto {
+    padding-bottom: 1rem;
+  }
+  .body-login .botonregister {
+    width: 70% !important;
+    font-size: 2.1vh;
+    height: 5vh !important;
   }
 }
 /*# sourceMappingURL=style.css.map */

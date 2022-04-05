@@ -19,7 +19,7 @@
         <button class="btn-signin">Sign In</button>
         <button class="btn-register">Register</button>
         </div>
-            <div class="modal-content-register">
+            <div class="modal-content-register-cuadrados">
                 <h3>¿Cómo vas a usar JobJob?</h3>
                 <div class="cuadrados">
                 <button class="cuadrado" onclick="trabajador()"><i class="fa-solid fa-user"></i><br><br><p>Usuario</p></button>

@@ -14,13 +14,18 @@
     </div>
     <div class="modal-login">
         <div class="botones">
+            <form action="{{url('login')}}" method="POST">
+                @csrf
                 <button class="btn-signin">Sign In</button>
+            </form>
+            <form action="{{url('registro')}}" method="POST">
                 <button class="btn-register">Register</button>
+            </form>
         </div>
             <div class="modal-content">
             <form action="{{url('login')}}" method="POST">
                 @csrf
-                <h2>JobJob es innovador</h2>
+                <h2>Bienvenido a JobJob</h2>
                     <input class="inputlogin" type="text" name="mail" placeholder="Introduce tu correo"><br>
                     <input class="inputlogin" type="password" name="contra" placeholder="Introduce tu contraseña"><br>
                     <button class= "botonlogin" type="submit" value="register">Iniciar Sesión</button>

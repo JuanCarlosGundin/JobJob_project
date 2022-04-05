@@ -14,6 +14,11 @@ Route::get('registro', function () {
     return view('registro');
 });
 
+Route::get('registroPost', function () {
+    return view('registroPost');
+});
+
+
 Route::get('paginaempresa', function () {
     return view('paginaempresa');
 });
