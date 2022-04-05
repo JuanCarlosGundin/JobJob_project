@@ -3,17 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('index');
 });
@@ -38,7 +27,7 @@ Route::get('editarperfil', function () {
 /*--------------RUTAS DAVID--------------*/
 /*LOGIN Y LOGOUT*/
 Route::post('login', [UsuarioController::class, 'loginP']);
-Route::get('logout', [UsuarioController::class, 'logout']);
+Route::get('logout', [UsuarioController::class, 'logout']); 
 //Ruta para el registro de trabajadores
 // Route::get('registro',[UsuarioController::class, 'registro']);
 Route::post('registroPost',[UsuarioController::class, 'registroPost']);
@@ -54,3 +43,4 @@ Route::put('modificartrabajador',[UsuarioController::class, 'modificartrabajador
 // ruta para eliminar trabajador.
 Route::delete('eliminartrabajador/{id}', [UsuarioController::class, 'eliminartrabajadorController']);
 /*FIN EDITAR PERFIL*/
+

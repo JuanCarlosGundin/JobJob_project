@@ -11,6 +11,7 @@
 <body class="body-index">
     <div class="menu-index">
         <form action="{{url('login')}}" method="GET">
+
             <button class="btn-register">Iniciar sesión</button>
         </form>
     </div>
