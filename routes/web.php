@@ -15,7 +15,7 @@ use App\Http\Controllers\UsuarioController;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('index');
 });
 Route::get('login', function () {
     return view('login');
@@ -32,11 +32,8 @@ Route::get('cPanelAdmin', function () {
 Route::get('registrar', function () {
     return view('registrar');
 });
-Route::get('pruebaregistrar', function () {
-    return view('pruebaregistrar');
-});
-Route::get('pruebaregistrarempresa', function () {
-    return view('pruebaregistrarempresa');
+Route::get('editarperfil', function () {
+    return view('editarperfil');
 });
 /*--------------RUTAS DAVID--------------*/
 /*LOGIN Y LOGOUT*/
@@ -48,3 +45,12 @@ Route::post('registroPost',[UsuarioController::class, 'registroPost']);
 //Ruta para el registro de empresas
 // Route::get('registroEmpresa',[UsuarioController::class, 'registroEmpresa']);
 Route::post('registroEmpresaPost',[UsuarioController::class, 'registroEmpresaPost']);
+
+/*EDITAR PERFIL*/
+// ruta para modificar perfil trabajador.
+Route::post('leertrabajador',[UsuarioController::class, 'leertrabajadorController']);
+// ruta para modificar trabajador.
+Route::put('modificartrabajador',[UsuarioController::class, 'modificartrabajadorController']);
+// ruta para eliminar trabajador.
+Route::delete('eliminartrabajador/{id}', [UsuarioController::class, 'eliminartrabajadorController']);
+/*FIN EDITAR PERFIL*/

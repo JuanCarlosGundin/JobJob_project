@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
+
 /*----------------------------------------LOGIN Y LOGOUT------------------------------------------------------------------------*/
     public function loginP(Request $request){
         $datos= $request->except('_token','_method');
@@ -101,8 +102,37 @@ public function registroEmpresaPost(Request $request){
     }
 }
 /*----------------------------------------FIN REGISTRAR EMPRESA---------------------------------------------------------------------------------*/
+/*----------------------------------------LEER TRABAJADOR--------------------------------------------------------------------------*/
+public function leertrabajadorController(Request $request){
+    $datos=DB::select('SELECT * FROM `tbl_ubicacion` INNER JOIN `tbl_tipo` ON tbl_ubicacion.id_tipo = tbl_tipo.id_tipo where nombre_ubicacion like ?',['%'.$request->input('filtro').'%']);
+    return response()->json($datos);
+}
+/*----------------------------------------FIN LEER TRABAJADOR--------------------------------------------------------------------------*/
 
-
+/*----------------------------------------MODIFICAR TRABAJADOR---------------------------------------------------------------------*/
+public function modificartrabajadorController(Request $request){
+    $datos=$request->except('_token','_method');
+    if ($request->hasFile('foto_perfil')) {
+        $foto = DB::table('tbl_trabajador')->select('foto_perfil')->where('id_usuario','=',$request['id_usuario'])->first();
+        if ($foto->foto_perfil != null) {
+            Storage::delete('public/'.$foto->foto_perfil);
+        }
+        $datos['foto_perfil'] = $request->file('foto_perfil')->store('uploads','public');
+    }else{
+        $foto = DB::table('tbl_trabajador')->select('foto_perfil')->where('id_usuario','=',$request['id_usuario'])->first();
+        $datos['foto_perfil'] = $foto->foto_perfil;
+    }
+    try {
+        DB::beginTransaction();
+        $path=$request->file('foto_perfil')->store('uploads','public');
+        DB::update('update tbl_ubicacion set nombre_ubicacion = ?, descripcion_ubicacion = ?, direccion_ubicacion = ?, foto_ubicacion = ? where id_ubicacion = ?', [$request->input('nombre_ubicacion'),$request->input('descripcion_ubicacion'),$request->input('direccion_ubicacion'),$path,$request->input('id_ubicacion')]);
+        DB::commit();
+        return response()->json(array('resultado'=> 'OK')); 
+    } catch (\Throwable $th) {
+        return response()->json(array('resultado'=> 'NOK: '.$th->getMessage()));
+    } 
+}
+/*----------------------------------------FIN MODIFICAR TRABAJADOR---------------------------------------------------------------------*/
 
 
 }
