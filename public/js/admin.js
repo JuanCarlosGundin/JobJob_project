@@ -100,7 +100,9 @@ function leerJS() {
                 recargatrab += '<th scope="col">Nombre</th>';
                 recargatrab += '<th scope="col">Apellido</th>';
                 recargatrab += '<th scope="col">Sector</th>';
+                recargatrab += '<th scope="col">Localizacion</th>';
                 recargatrab += '<th scope="col">Experiencia</th>';
+                recargatrab += '<th scope="col">Edad</th>';
                 recargatrab += '<th scope="col">Estudios</th>';
                 recargatrab += '<th scope="col">Idiomas</th>';
                 recargatrab += '<th scope="col">Disponibilidad</th>';
@@ -116,7 +118,9 @@ function leerJS() {
                     recargatrab += '<td>' + trabajador[i].nombre + '</td>';
                     recargatrab += '<td>' + trabajador[i].apellido + '</td>';
                     recargatrab += '<td>' + trabajador[i].campo_user + '</td>';
+                    recargatrab += '<td>' + trabajador[i].loc_trabajador + '</td>';
                     recargatrab += '<td>' + trabajador[i].experiencia + '</td>';
+                    recargatrab += '<td>' + trabajador[i].edad + '</td>';
                     recargatrab += '<td>' + trabajador[i].estudios + '</td>';
                     recargatrab += '<td>' + trabajador[i].idiomas + '</td>';
                     recargatrab += '<td>' + trabajador[i].disponibilidad + '</td>';
@@ -156,6 +160,7 @@ function leerJS() {
                 recargaemp += '<th scope="col">Sobre nosotros</th>';
                 recargaemp += '<th scope="col">Sector</th>';
                 recargaemp += '<th scope="col">Busqueda</th>';
+                recargaemp += '<th scope="col">Vacante</th>';
                 recargaemp += '<th scope="col">Logo</th>';
                 recargaemp += '<th scope="col">Estado</th>';
                 recargaemp += '</tr>';
@@ -169,6 +174,7 @@ function leerJS() {
                     recargaemp += '<td>' + empresa[i].about_emp + '</td>';
                     recargaemp += '<td>' + empresa[i].campo_emp + '</td>';
                     recargaemp += '<td>' + empresa[i].searching + '</td>';
+                    recargaemp += '<td>' + empresa[i].vacante + '</td>';
                     /* Si hay una foto, que se muestre */
                     if (empresa[i].logo_emp != null) {
                         recargaemp += '<td style="word-break: break-all"><img class="imagen" src="storage/' + empresa[i].logo_emp + '"></td>';
@@ -244,7 +250,7 @@ function crearadmin() {
             }
             recargaform += '</select>';
             recargaform += '</div>';
-            recargaform += '<button type="submit" class="btn btn-primary">Enviar</button>';
+            recargaform += '<button type="submit" class="btn btn-primary">Crear</button>';
             recargaform += '</form>';
             sitioform.innerHTML = recargaform;
             document.getElementById('message').innerHTML = "";
@@ -281,8 +287,16 @@ function opcioncrearJS() {
         recargaform += '<input type="text" class="form-control" id="campo_user" name="campo_user" placeholder="Introduce un sector">';
         recargaform += '</div>';
         recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Localizacion:</label>';
+        recargaform += '<input type="text" class="form-control" id="loc_trabajador" name="loc_trabajador" placeholder="Introduce un localizacion">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
         recargaform += '<label class="col-sm-2 col-form-label">Experiencia:</label>';
         recargaform += '<input type="text" class="form-control" id="experiencia" name="experiencia" placeholder="Introduce tu experiencia">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Edad:</label>';
+        recargaform += '<input type="text" class="form-control" id="edad" name="edad" placeholder="Introduce tu edad">';
         recargaform += '</div>';
         recargaform += '<div class="form-group">';
         recargaform += '<label class="col-sm-2 col-form-label">Estudios:</label>';
@@ -333,6 +347,10 @@ function opcioncrearJS() {
         recargaform += '<input type="text" class="form-control" id="searching" name="searching" placeholder="Introduce que necesitas">';
         recargaform += '</div>';
         recargaform += '<div class="form-group">';
+        recargaform += '<label class="col-sm-2 col-form-label">Vacante:</label>';
+        recargaform += '<input type="text" class="form-control" id="vacante" name="vacante" placeholder="Introduce el vacante">';
+        recargaform += '</div>';
+        recargaform += '<div class="form-group">';
         recargaform += '<label class="col-sm-2 col-form-label">Logo:</label>';
         recargaform += '<input type="file" class="form-control" id="logo_emp" name="logo_emp">';
         recargaform += '</div>';
@@ -356,7 +374,9 @@ function crearJS(mail, contra, id_perfil) {
         formData.append('nombre', document.getElementById('nombre').value);
         formData.append('apellido', document.getElementById('apellido').value);
         formData.append('campo_user', document.getElementById('campo_user').value);
+        formData.append('loc_trabajador', document.getElementById('loc_trabajador').value);
         formData.append('experiencia', document.getElementById('experiencia').value);
+        formData.append('edad', document.getElementById('edad').value);
         formData.append('estudios', document.getElementById('estudios').value);
         formData.append('idiomas', document.getElementById('idiomas').value);
         formData.append('disponibilidad', document.getElementById('disponibilidad').value);
@@ -370,6 +390,7 @@ function crearJS(mail, contra, id_perfil) {
         formData.append('about_emp', document.getElementById('about_emp').value);
         formData.append('campo_emp', document.getElementById('campo_emp').value);
         formData.append('searching', document.getElementById('searching').value);
+        formData.append('vacante', document.getElementById('vacante').value);
         formData.append('logo_emp', document.getElementById('logo_emp').files[0]);
     }
 
@@ -435,8 +456,16 @@ function actualizarmodal(id, id_perfil) {
                 recargamodal += '<input type="text" class="form-control" id="campo_user" name="campo_user" value="' + trabajador.campo_user + '">';
                 recargamodal += '</div>';
                 recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Localizacion:</label>';
+                recargamodal += '<input type="text" class="form-control" id="loc_trabajador" name="loc_trabajador" value="' + trabajador.loc_trabajador + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
                 recargamodal += '<label class="col-sm-2 col-form-label">Experiencia:</label>';
                 recargamodal += '<input type="text" class="form-control" id="experiencia" name="experiencia" value="' + trabajador.experiencia + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Edad:</label>';
+                recargamodal += '<input type="text" class="form-control" id="edad" name="edad" value="' + trabajador.edad + '">';
                 recargamodal += '</div>';
                 recargamodal += '<div class="form-group">';
                 recargamodal += '<label class="col-sm-2 col-form-label">Estudios:</label>';
@@ -487,6 +516,10 @@ function actualizarmodal(id, id_perfil) {
                 recargamodal += '<input type="text" class="form-control" id="searching" name="searching" value="' + empresa.searching + '">';
                 recargamodal += '</div>';
                 recargamodal += '<div class="form-group">';
+                recargamodal += '<label class="col-sm-2 col-form-label">Vacante:</label>';
+                recargamodal += '<input type="text" class="form-control" id="vacante" name="vacante" value="' + empresa.vacante + '">';
+                recargamodal += '</div>';
+                recargamodal += '<div class="form-group">';
                 recargamodal += '<label class="col-sm-2 col-form-label">Mostrado:</label>';
                 recargamodal += '<input type="number" class="form-control" id="mostrado" name="mostrado" value="' + empresa.mostrado + '">';
                 recargamodal += '</div>';
@@ -495,7 +528,7 @@ function actualizarmodal(id, id_perfil) {
                 recargamodal += '<input type="file" class="form-control" id="logo_emp" name="logo_emp">';
                 recargamodal += '</div>';
             }
-            recargamodal += '<button type="submit" class="btn btn-primary">Enviar</button>';
+            recargamodal += '<button type="submit" class="btn btn-primary">Modificar</button>';
             recargamodal += '</form>';
             modalcontent.innerHTML = recargamodal;
             modal.style.display = "block";
@@ -516,7 +549,9 @@ function modificarJS(id, id_perfil) {
         formData.append('nombre', document.getElementById('nombre').value);
         formData.append('apellido', document.getElementById('apellido').value);
         formData.append('campo_user', document.getElementById('campo_user').value);
+        formData.append('loc_trabajador', document.getElementById('loc_trabajador').value);
         formData.append('experiencia', document.getElementById('experiencia').value);
+        formData.append('edad', document.getElementById('edad').value);
         formData.append('estudios', document.getElementById('estudios').value);
         formData.append('idiomas', document.getElementById('idiomas').value);
         formData.append('disponibilidad', document.getElementById('disponibilidad').value);
@@ -531,6 +566,7 @@ function modificarJS(id, id_perfil) {
         formData.append('about_emp', document.getElementById('about_emp').value);
         formData.append('campo_emp', document.getElementById('campo_emp').value);
         formData.append('searching', document.getElementById('searching').value);
+        formData.append('vacante', document.getElementById('vacante').value);
         formData.append('logo_emp', document.getElementById('logo_emp').files[0]);
         formData.append('mostrado', document.getElementById('mostrado').value);
     }
