@@ -246,19 +246,21 @@ class UsuarioController extends Controller
     //leernotificaciones
     public function leernotificaciones(Request $req) {
         $id=4;
-        $perfil=3;
+        $perfil=2;
+        //si el cliente es trabajador, mira ofertas de empresas
         if($perfil==2){
-        $datos=DB::select('select * from tbl_usuarios 
+        $empresas=DB::select('select * from tbl_usuarios 
         left join tbl_empresa on tbl_usuarios.id=tbl_empresa.id_usuario
         left join tbl_interaccion on tbl_usuarios.id=tbl_interaccion.id_interactuado
-        where tbl_usuarios.id_perfil=3 and (tbl_interaccion.id_iniciador is null or (tbl_interaccion.id_iniciador <> ? and tbl_interaccion.tipo_interaccion <> 2 and tbl_interaccion.coincidencia like 0))',[$id]);
-        return response()->json($datos);
+        where tbl_usuarios.id_perfil=3 and nom_emp like ? and (tbl_interaccion.id_iniciador is null or (tbl_interaccion.id_iniciador <> ? and tbl_interaccion.tipo_interaccion <> 2 and tbl_interaccion.coincidencia like 0))',[$req['filter']."%",$id]);
+        return response()->json(array('empresas'=> $empresas));
         }else{
-        $datos=DB::select('select * from tbl_usuarios 
+            //si el cliente es empresa, mira ofertas de trabajador
+        $trabajadores=DB::select('select * from tbl_usuarios 
         inner join tbl_trabajador on tbl_usuarios.id=tbl_trabajador.id_usuario
         inner join tbl_interaccion on tbl_usuarios.id=tbl_interaccion.id_interactuado
         where tbl_usuarios.id_perfil=2 and nombre like ? and (tbl_interaccion.id_iniciador is null or (tbl_interaccion.id_iniciador <> ? and tbl_interaccion.tipo_interaccion <> 2 and tbl_interaccion.coincidencia like 0 ))',[$req['filter']."%",$id]);
-        return response()->json($datos);
+        return response()->json(array('trabajadores'=> $trabajadores));
         }
     }
 

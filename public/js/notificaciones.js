@@ -32,28 +32,55 @@ function leernotificacionesJS() {
             var respuesta = JSON.parse(this.responseText);
             var recarga = "";
             console.log(respuesta);
-            for (let i = 0; i < respuesta.length; i++) {
-                recarga += '<div class="alert">';
-                recarga += '<div class="alert-foto">';
-                recarga += '<img class="alert-profilefoto" src="storage/' + respuesta[i].foto_perfil + '">';
-                recarga += '</div>';
-                recarga += '<div class="alert-mensaje">';
-                recarga += '<p class="alert-mensaje-text">¡Le interesas a ' + respuesta[i].nombre + '!</p>';
-                recarga += '</div>';
-                recarga += '<div class="alert-user">';
-                recarga += '<button class="alert-user-btn">';
-                recarga += '<i class="fa-solid fa-user"></i>';
-                recarga += '</button>';
-                recarga += '</div>';
-                recarga += '<div class="alert-chat">';
-                recarga += '<button class="alert-chat-btn">';
-                recarga += '<i class="fa-solid fa-comments"></i>';
-                recarga += '</button>';
-                recarga += '</div>';
-                recarga += '</div>';
-                recarga += '<hr class="alert-linea"></hr>';
-                zonaalerts.innerHTML = recarga;
+            if (respuesta.hasOwnProperty('empresas')) {
+                var empresas = respuesta.empresas;
+                for (let i = 0; i < empresas.length; i++) {
+                    recarga += '<div class="alert">';
+                    recarga += '<div class="alert-foto">';
+                    recarga += '<img class="alert-profilefoto" src="storage/' + empresas[i].logo_emp + '">';
+                    recarga += '</div>';
+                    recarga += '<div class="alert-mensaje">';
+                    recarga += '<p class="alert-mensaje-text">¡Le interesas a ' + empresas[i].nom_emp + '!</p>';
+                    recarga += '</div>';
+                    recarga += '<div class="alert-user">';
+                    recarga += '<button class="alert-user-btn">';
+                    recarga += '<i class="fa-solid fa-user"></i>';
+                    recarga += '</button>';
+                    recarga += '</div>';
+                    recarga += '<div class="alert-chat">';
+                    recarga += '<button class="alert-chat-btn">';
+                    recarga += '<i class="fa-solid fa-comments"></i>';
+                    recarga += '</button>';
+                    recarga += '</div>';
+                    recarga += '</div>';
+                    recarga += '<hr class="alert-linea"></hr>';
+                }
             }
+            if (respuesta.hasOwnProperty('trabajadores')) {
+                var trabajadores = respuesta.trabajadores;
+                for (let i = 0; i < trabajadores.length; i++) {
+                    recarga += '<div class="alert">';
+                    recarga += '<div class="alert-foto">';
+                    recarga += '<img class="alert-profilefoto" src="storage/' + trabajadores[i].foto_perfil + '">';
+                    recarga += '</div>';
+                    recarga += '<div class="alert-mensaje">';
+                    recarga += '<p class="alert-mensaje-text">¡Le interesas a ' + trabajadores[i].nombre + '!</p>';
+                    recarga += '</div>';
+                    recarga += '<div class="alert-user">';
+                    recarga += '<button class="alert-user-btn">';
+                    recarga += '<i class="fa-solid fa-user"></i>';
+                    recarga += '</button>';
+                    recarga += '</div>';
+                    recarga += '<div class="alert-chat">';
+                    recarga += '<button class="alert-chat-btn">';
+                    recarga += '<i class="fa-solid fa-comments"></i>';
+                    recarga += '</button>';
+                    recarga += '</div>';
+                    recarga += '</div>';
+                    recarga += '<hr class="alert-linea"></hr>';
+                }
+            }
+            zonaalerts.innerHTML = recarga;
         }
     }
     ajax.send(formData);
