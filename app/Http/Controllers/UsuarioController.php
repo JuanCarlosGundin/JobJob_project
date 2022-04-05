@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class UsuarioController extends Controller
 {
-    //Zona Administrador
+    ///ZONA ADMINISTRADOR
     public function vistaAdmin() {
         return view("admin");
     }
@@ -201,6 +201,7 @@ class UsuarioController extends Controller
             return response()->json(array('resultado'=> 'NOK: '.$e->getMessage()));
         }
     }
+    ///ZONA ADMINISTRADOR
 
     /*----------------------INDEX--------------------------------*/
 
@@ -236,4 +237,30 @@ class UsuarioController extends Controller
         return redirect('/');
     }
     /*----------------------------------------FIN LOGIN Y LOGOUT------------------------------------------------------------------------*/
+
+    ///ZONA NOTIFICACIONES
+    public function vistaNotificaciones() {
+        return view("notificaciones");
+    }
+
+    //leernotificaciones
+    public function leernotificaciones(Request $req) {
+        $id=4;
+        $perfil=3;
+        if($perfil==2){
+        $datos=DB::select('select * from tbl_usuarios 
+        left join tbl_empresa on tbl_usuarios.id=tbl_empresa.id_usuario
+        left join tbl_interaccion on tbl_usuarios.id=tbl_interaccion.id_interactuado
+        where tbl_usuarios.id_perfil=3 and (tbl_interaccion.id_iniciador is null or (tbl_interaccion.id_iniciador <> ? and tbl_interaccion.tipo_interaccion <> 2 and tbl_interaccion.coincidencia like 0))',[$id]);
+        return response()->json($datos);
+        }else{
+        $datos=DB::select('select * from tbl_usuarios 
+        inner join tbl_trabajador on tbl_usuarios.id=tbl_trabajador.id_usuario
+        inner join tbl_interaccion on tbl_usuarios.id=tbl_interaccion.id_interactuado
+        where tbl_usuarios.id_perfil=2 and nombre like ? and (tbl_interaccion.id_iniciador is null or (tbl_interaccion.id_iniciador <> ? and tbl_interaccion.tipo_interaccion <> 2 and tbl_interaccion.coincidencia like 0 ))',[$req['filter']."%",$id]);
+        return response()->json($datos);
+        }
+    }
+
+    ///ZONA NOTIFICACIONES
 }

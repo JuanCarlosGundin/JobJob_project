@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" id="token" content="{{ csrf_token() }}">
     <script src="https://kit.fontawesome.com/15d3106c42.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
-    <title>JobJob</title>
+    <title>Notificaciones</title>
 </head>
 
 <body>
@@ -31,32 +32,17 @@
     <div class="alerts">
         <div class="filter">
             <div class="buscador">
-                <input class="input-buscar" type="text" id="filter" name="filter" placeholder="Buscar">
+                <input class="input-buscar" type="search" id="filter" name="filter" onkeyup="leernotificacionesJS()" placeholder="Buscar por nombre">
             </div>
             <div class="buscador-icon">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
         </div>
-        <div class="alert">
-            <div class="alert-foto">
-                <img class="alert-profilefoto" src="https://www.altheis.es/wp-content/uploads/2019/01/massada-men.jpg">
-            </div>
-            <div class="alert-mensaje">
-                <p class="alert-mensaje-text">¡Le interesas a rodrigo!</p>
-            </div>
-            <div class="alert-user">
-                <button class="alert-user-btn">
-                    <i class="fa-solid fa-user"></i>
-                </button>
-            </div>
-            <div class="alert-chat">
-                <button class="alert-chat-btn">
-                    <i class="fa-solid fa-comments"></i>
-                </button>
-            </div>
+        <div id="zonaalerts">
+            {{-- Alertas ajax --}}
         </div>
-        <hr class="alert-linea">
     </div>
+    <script src="js/notificaciones.js"></script>
 </body>
 
 </html>

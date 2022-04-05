@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
-
+///ZONA ADMINISTRADOR
 //Acceder a vista Admin
 Route::get('admin',[UsuarioController::class, 'vistaAdmin']);
 
@@ -26,6 +26,16 @@ Route::put('modificaruser/{id}/{id_perfil}',[UsuarioController::class,'modificar
 
 //eliminaruserJS
 Route::delete('eliminaruser/{id}/{id_perfil}',[UsuarioController::class,'eliminaruser']);
+///ZONA ADMINISTRADOR
+
+///ZONA NOTIFICACIONES
+//Acceder a vista Notificaciones
+Route::get('notificaciones',[UsuarioController::class, 'vistaNotificaciones']);
+
+//leernotificacionesJS
+Route::post('leernotificaciones',[UsuarioController::class, 'leernotificaciones']);
+
+///ZONA NOTIFICACIONES
 
 ////////
 Route::get('/', function () {
@@ -41,9 +51,9 @@ Route::get('prueba', function () {
     return view('home');
 });
 
-Route::get('prueba1', function () {
+/* Route::get('prueba1', function () {
     return view('home1');
-});
+}); */
 
 Route::get('prueba2', function () {
     return view('home2');
