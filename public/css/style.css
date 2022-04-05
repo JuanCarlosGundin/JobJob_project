@@ -145,7 +145,7 @@ body {
   color: #92AFD7;
   font-weight: bold;
   font-size: 2.5vh;
-  background-color: #F0F0F0;
+  background-color: white;
   border: none;
   border-top-left-radius: 53px;
   border-bottom-right-radius: 60px;
@@ -158,9 +158,12 @@ body {
   color: #92AFD7;
   font-weight: bold;
   font-size: 2.5vh;
-  background-color: #FFFFFF;
+  background-color: #F0F0F0;
+  -webkit-box-shadow: inset 0px 0px 5px #cecdcd;
+          box-shadow: inset 0px 0px 5px #cecdcd;
   border: none;
   border-top-right-radius: 53px;
+  border-bottom-left-radius: 60px;
 }
 
 .body-login .modal-login .modal-content {
@@ -357,6 +360,52 @@ body {
     width: 2.5vh;
     margin-right: 12px;
   }
+}
+
+.body-login .botones-registrar {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.body-login .botones-registrar form {
+  width: 50%;
+}
+
+.body-login .botones-registrar form button {
+  width: 100%;
+}
+
+.body-login .botones-registrar .btn-signin {
+  width: 100%;
+  height: 8.5vh;
+  text-align: center;
+  color: #92AFD7;
+  font-weight: bold;
+  font-size: 2.5vh;
+  background-color: #F0F0F0;
+  -webkit-box-shadow: inset 0px 0px 5px #cecdcd;
+          box-shadow: inset 0px 0px 5px #cecdcd;
+  border: none;
+  border-top-left-radius: 53px;
+  border-bottom-right-radius: 60px;
+}
+
+.body-login .botones-registrar .btn-register {
+  width: 100%;
+  height: 8.5vh;
+  text-align: center;
+  color: #92AFD7;
+  font-weight: bold;
+  font-size: 2.5vh;
+  background-color: white;
+  border: none;
+  border-top-right-radius: 53px;
+  border-bottom-left-radius: 60px;
 }
 
 .body-login .modal-content-register-cuadrados {

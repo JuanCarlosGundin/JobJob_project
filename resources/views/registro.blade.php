@@ -15,9 +15,14 @@
         <img src="storage/uploads/icon.jpg">
     </div>
     <div class="modal-login">
-        <div class="botones">
-        <button class="btn-signin">Sign In</button>
-        <button class="btn-register">Register</button>
+        <div class="botones-registrar">
+            <form action="{{url('login')}}" method="GET">
+                <button class="btn-registrar-signin">Sign In</button>
+            </form>
+            <form action="{{url('registrar')}}" method="GET">
+                <button class="btn-registrar-register">Register</button>
+            </form>
+        <button class="btn-register-registrar">Register</button>
         </div>
             <div class="modal-content-register-cuadrados">
                 <h3>¿Cómo vas a usar JobJob?</h3>

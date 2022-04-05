@@ -14,7 +14,6 @@
         <div class="modal-login">
             <div class="botones">
                 <form action="{{url('login')}}" method="GET">
-                    
                     <button class="btn-signin">Sign In</button>
                 </form>
                 <form action="{{url('registrar')}}" method="GET">
