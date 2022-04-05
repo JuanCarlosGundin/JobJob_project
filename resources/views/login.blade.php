@@ -10,7 +10,7 @@
 </head>
 <body class="body-login">
     <div class="logo">
-        <img src="storage/uploads/icon.jpg">
+        <img src="storage/uploads/jobjob_logo.png">
     </div>
     <div class="modal-login">
         <div class="botones">
