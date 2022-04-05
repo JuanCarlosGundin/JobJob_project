@@ -28,6 +28,41 @@
             <button class="icon active-icon"><i class="fa-solid fa-user"></i></button>
         </div>
     </div>
+    <div class="user-edit">
+        <div class="edit-foto">
+            <button>
+                <i class="fa-solid fa-pen"></i>
+            </button>
+        </div>
+        <div class="user-edit-foto">
+            <img class="user-edit-profilefoto" src="https://www.altheis.es/wp-content/uploads/2019/01/massada-men.jpg">   
+        </div>
+        <div class="user-input">
+            <div class="user-input-name">
+                <div class="user-icon-name">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <input class="input-name" type="text">
+                <input class="input-surname" type="text">
+                <input class="input-age" type="number">
+            </div>
+            {{-- <div class="user-input-name">
+                <input class="input-name" type="text">
+                <input class="input-surname" type="text">
+                <input class="input-age" type="number">
+            </div>
+            <div class="user-input-name">
+                <input class="input-name" type="text">
+                <input class="input-surname" type="text">
+                <input class="input-age" type="number">
+            </div>
+            <div class="user-input-name">
+                <input class="input-name" type="text">
+                <input class="input-surname" type="text">
+                <input class="input-age" type="number">
+            </div> --}}
+        </div>
+    </div>
 </body>
 
 </html>

@@ -18,250 +18,302 @@ body {
     position: relative;
     font-family: 'Inter', sans-serif;
     background-color: #E5E5E5;
-}
-
-///////////////////////////////NAVBAR//////////////////////////////////////
-.region-navbar {
-    display: flex;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    /*--------------------------------------------------------------- MENU NAV BAR ---------------------------------------------------------------- */
-    /* DIVS NAVBAR*/
-    /* Curriculum */
-    .curriculum-navbar {
-        padding: 1%;
-        width: 20%;
+    ///////////////////////////////NAVBAR//////////////////////////////////////
+    .region-navbar {
         background-color: rgb(255, 255, 255);
-    }
-    /* Alertas */
-    .alerts-navbar {
-        padding: 1%;
-        width: 20%;
-        background-color: rgb(255, 255, 255);
-    }
-    .alerts-curve {
-        padding: 1%;
-        width: 20%;
-        border-bottom-left-radius: 30px;
-        background-color: rgb(255, 0, 0);
-    }
-    /* Main */
-    .main-navbar {
-        padding: 1%;
-        width: 20%;
+        display: flex;
         height: 10vh;
-        background-color: rgb(255, 255, 255);
-    }
-    /* Chat */
-    .chat-navbar {
-        padding: 1%;
-        width: 20%;
-        background-color: rgb(255, 255, 255);
-    }
-    /* Perfil */
-    .profile-navbar {
-        padding: 1%;
-        width: 20%;
-        background-color: rgb(255, 255, 255);
-    }
-    // DIVS ACTIVE //
-    .active-left {
-        background-color: #E5E5E5;
-        box-shadow: none;
-        border-top-right-radius: 30px;
-    }
-    .active-right {
-        background-color: #E5E5E5;
-        box-shadow: none;
-        border-top-left-radius: 30px;
-    }
-    .active {
-        background-color: #E5E5E5;
-        box-shadow: none;
-        border-top-right-radius: 30px;
-        border-top-left-radius: 30px;
-    }
-    .active-center {
-        background-color: #C5D1EB;
-        box-shadow: none;
-        border-top-right-radius: 30px;
-        border-top-left-radius: 30px;
-    }
-    /* ICONS */
-    .icon {
-        color: #c0c0c0;
-        text-align: center;
-        font-size: 3.5vh;
-        background-color: white;
-        border-width: 0px;
-        width: 100%;
-        height: 100%;
-        border-radius: 50px;
-    }
-    .main-icon {
-        color: #0F084B;
-        font-size: 4vh;
-        background-color: white;
-        text-align: center;
-        border-width: 0px;
-        width: 100%;
-        height: 100%;
-        border-top-right-radius: 30px;
-        border-top-left-radius: 30px;
-    }
-    .active-icon {
-        color: #000000;
-        background-color: #E5E5E5;
-    }
-    .active-icon-center {
-        background-color: #C5D1EB;
-    }
-}
-
-///////////////////////////////NAVBAR//////////////////////////////////////
-.alerts {
-    .filter {
-        margin-top: 2vh;
-        padding: 3%;
-        display: flex;
-        margin-bottom: 1vh;
-        .buscador {
-            float: right;
-            .input-buscar {
-                padding: 2vw;
-                width: 82vw;
-                border-top-left-radius: 10px;
-                border-bottom-left-radius: 10px;
-                border-color: #92AFD7;
-                height: 7vh;
-            }
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        /*--------------------------------------------------------------- MENU NAV BAR ---------------------------------------------------------------- */
+        /* DIVS NAVBAR*/
+        /* Curriculum */
+        .curriculum-navbar {
+            padding: 1%;
+            width: 20%;
         }
-        .buscador-icon {
-            float: left;
-            padding: 3.5vw;
-            width: 13vw;
-            background-color: #92AFD7;
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
-            color: white;
+        /* Alertas */
+        .alerts-navbar {
+            padding: 1%;
+            width: 20%;
         }
-    }
-    .alert {
-        padding: 3%;
-        display: flex;
-        .alert-foto {
-            width: 15vw;
-            .alert-profilefoto {
-                border-radius: 50px;
-                background-color: yellow;
-                height: 7vh;
-                width: 7vh;
-            }
+        // .alerts-navbar::before {
+        //     content: "";
+        //     position: absolute;
+        //     margin-top: 6vh;
+        //     width: 20px;
+        //     height: 20px;
+        //     background-color: blue;
+        //     box-shadow: 0px -10px 0 0 black;
+        // }
+        /* Main */
+        .main-navbar {
+            padding: 1%;
+            width: 20%;
+            height: 10vh;
         }
-        .alert-mensaje {
-            padding: 3.5vw;
-            width: 55vw;
-            .alert-mensaje-text {
-                padding: 0;
-                margin: 0;
-                font-weight: bold;
-            }
+        /* Chat */
+        .chat-navbar {
+            padding: 1%;
+            width: 20%;
         }
-        .alert-user {
-            padding: 3vw;
-            width: 10vw;
-            .alert-user-btn {
-                background-color: #E5E5E5;
-                border-width: 0;
-                font-size: 3vh;
-            }
+        /* Perfil */
+        .profile-navbar {
+            padding: 1%;
+            width: 20%;
         }
-        .alert-chat {
-            padding: 3vw;
-            width: 10vw;
-            .alert-chat-btn {
-                background-color: #E5E5E5;
-                border-width: 0;
-                font-size: 3vh;
-            }
+        // DIVS ACTIVE //
+        .active-left {
+            background-color: #E5E5E5;
+            box-shadow: none;
+            border-top-right-radius: 30px;
         }
-    }
-    .alert-linea {
-        width: 95vw;
-    }
-}
-
-////////////////////////////////HOME///////////////////////////////////////
-.page-home {
-    .region-content {
-        height: 85vh;
-        top: 15vh;
-        position: absolute;
-        left: 0;
-        width: 100%;
-        .card-wrapper {
+        .active-right {
+            background-color: #E5E5E5;
+            box-shadow: none;
+            border-top-left-radius: 30px;
+        }
+        .active {
+            background-color: #E5E5E5;
+            box-shadow: none;
+            border-top-right-radius: 30px;
+            border-top-left-radius: 30px;
+        }
+        .active-center {
+            background-color: #C5D1EB;
+            box-shadow: none;
+            border-top-right-radius: 30px;
+            border-top-left-radius: 30px;
+        }
+        /* ICONS */
+        .icon {
+            color: #c0c0c0;
+            text-align: center;
+            font-size: 3.5vh;
+            background-color: white;
+            border-width: 0px;
             width: 100%;
+            height: 100%;
+            border-radius: 50px;
+        }
+        .main-icon {
+            color: #0F084B;
+            font-size: 4vh;
+            background-color: white;
+            text-align: center;
+            border-width: 0px;
+            width: 100%;
+            height: 100%;
+            border-top-right-radius: 30px;
+            border-top-left-radius: 30px;
+        }
+        .active-icon {
+            color: #000000;
+            background-color: #E5E5E5;
+            font-size: 4.5vh;
+        }
+        .active-icon-center {
+            background-color: #C5D1EB;
+            font-size: 4.5vh;
+        }
+    }
+    ///////////////////////////////NOTIFICACIONES//////////////////////////////////////
+    .alerts {
+        .filter {
+            margin-top: 2vh;
+            padding: 3%;
             display: flex;
-            align-items: flex-start;
-            padding-top: 20px;
+            margin-bottom: 1vh;
+            .buscador {
+                float: right;
+                .input-buscar {
+                    padding: 1vh;
+                    width: 82vw;
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                    border-color: #92AFD7;
+                    border-width: 1px;
+                    height: 5vh;
+                }
+            }
+            .buscador-icon {
+                float: left;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                width: 13vw;
+                background-color: #92AFD7;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                color: white;
+                height: 5vh;
+            }
+        }
+        .alert {
             justify-content: center;
-            .card {
-                background-color: white;
-                width: 90vw;
-                height: 70vh;
-                border-radius: 30px;
+            display: flex;
+            align-items: center;
+            .alert-foto {
+                width: 15vw;
+                .alert-profilefoto {
+                    border-radius: 50px;
+                    height: 7vh;
+                    width: 7vh;
+                }
+            }
+            .alert-mensaje {
+                width: 55vw;
+                margin-left: 2vw;
+                .alert-mensaje-text {
+                    padding: 0;
+                    margin: 0;
+                    font-weight: bold;
+                }
+            }
+            .alert-user {
+                width: 10vw;
+                .alert-user-btn {
+                    background-color: #E5E5E5;
+                    border-width: 0;
+                    font-size: 3vh;
+                }
+            }
+            .alert-chat {
+                width: 10vw;
+                .alert-chat-btn {
+                    background-color: #E5E5E5;
+                    border-width: 0;
+                    font-size: 3vh;
+                }
             }
         }
-        .botones-home {
+        .alert-linea {
+            width: 95vw;
+        }
+    }
+    ////////////////////////////////HOME///////////////////////////////////////
+    .page-home {
+        .region-content {
+            height: 85vh;
+            top: 15vh;
             position: absolute;
-            bottom: 2vh;
-            width: 100%;
             left: 0;
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-evenly;
-            button {
-                border-radius: 50%;
-                background-color: $second-color;
-                border: none;
-            }
-            .boton-cruz,
-            .boton-maletin {
-                >button {
-                    width: 76px;
-                    height: 76px;
-                    i {
-                        font-size: calc(#{"30px + 1vw"});
-                    }
+            width: 100%;
+            .card-wrapper {
+                width: 100%;
+                display: flex;
+                align-items: flex-start;
+                padding-top: 20px;
+                justify-content: center;
+                .card {
+                    background-color: white;
+                    width: 90vw;
+                    height: 70vh;
+                    border-radius: 30px;
                 }
             }
-            .boton-info {
-                .icono-info {
-                    width: 56px;
-                    height: 56px;
-                    i {
-                        font-size: calc(#{"20px + 1vw"});
+            .botones-home {
+                position: absolute;
+                bottom: 2vh;
+                width: 100%;
+                left: 0;
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-evenly;
+                button {
+                    border-radius: 50%;
+                    background-color: $second-color;
+                    border: none;
+                }
+                .boton-cruz,
+                .boton-maletin {
+                    >button {
+                        width: 76px;
+                        height: 76px;
+                        i {
+                            font-size: calc(#{"30px + 1vw"});
+                        }
                     }
                 }
-            }
-            .boton-maletin {
-                .icono-maletin {
-                    i {
-                        color: rgb(165, 95, 42);
+                .boton-info {
+                    .icono-info {
+                        width: 56px;
+                        height: 56px;
+                        i {
+                            font-size: calc(#{"20px + 1vw"});
+                        }
                     }
                 }
-            }
-            .boton-cruz {
-                .icono-cruz {
-                    i {
-                        color: red;
+                .boton-maletin {
+                    .icono-maletin {
+                        i {
+                            color: rgb(165, 95, 42);
+                        }
+                    }
+                }
+                .boton-cruz {
+                    .icono-cruz {
+                        i {
+                            color: red;
+                        }
                     }
                 }
             }
         }
     }
+    /////////////////////////////////CURRICULUM/////////////////////////////////////////
+    .curriculum {
+        display: flex;
+        padding: 10vh;
+        .curriculum-title {
+            font-size: 3vh;
+            font-weight: bolder;
+            text-align: center;
+        }
+    }
+    ////////////////////////////////LOGIN//////////////////////////////////////
+    /////////////////////////////////PERFIL-EDITAR////////////////////////////////////
+    .user-edit {
+        padding: 5vh;
+        .user-edit-foto {
+            width: 100%;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            .user-edit-profilefoto {
+                border-radius: 60px;
+                height: 14vh;
+                width: 14vh;
+            }
+        }
+        .edit-foto {
+            position: absolute;
+            margin: 50vw;
+        }
+        .user-input {
+            margin-top: 2vh;
+            width: 100%;
+            .user-input-name {
+                height: 3vh;
+                width: 90vw;
+                padding: 5vw;
+                background-color: #92AFD7;
+                .user-icon-name {
+                    width: 6vw;
+                }
+                .input-name {
+                    margin-left: 5vw;
+                    width: 25vw;
+                }
+                .input-surname {
+                    width: 25vw;
+                }
+                .input-age {
+                    margin-left: 5vw;
+                    width: 15vw;
+                }
+            }
+        }
+        // .user-inputs {}
+    }
 }
-
-////////////////////////////////LOGIN//////////////////////////////////////
-/////////////////////////////////PERFIL////////////////////////////////////
-/////////////////////////////////CHAT/////////////////////////////////////////

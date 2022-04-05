@@ -28,6 +28,9 @@
             <button class="icon" onClick="window.location.href='prueba4';"><i class="fa-solid fa-user"></i></button>
         </div>
     </div>
+    <div class="curriculum">
+        <h1 class="curriculum-title">COMMING SOON...</h1>
+    </div>
 </body>
 
 </html>
