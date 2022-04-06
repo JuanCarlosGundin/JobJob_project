@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Login</title>
     <link rel="stylesheet" href="{!! asset('css/style.css') !!}"></head>
+    <meta name="csrf-token" id="token" content="{{ csrf_token() }}">
     <body class="body-login">
         <div class="logo">
             <img src="storage/uploads/jobjob_logo.png">
