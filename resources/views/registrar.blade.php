@@ -16,12 +16,12 @@
         <img src="storage/uploads/jobjob_logo.png">
     </div>
     <div id="main" class="modal-login">
-        <div class="botones">
+        {{-- <div class="botones">
                 <button class="btn-signin" onclick="login()">Sign In</button>
                 <button class="btn-register" onclick="registrar()">Register</button>
         </div>
             <div id="main" class="modal-content-register-cuadrados">
-    </div>
+    </div> --}}
     <script src="js/ajaxusuario.js"></script>
 </body>
 </html>

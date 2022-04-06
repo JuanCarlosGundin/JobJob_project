@@ -29,10 +29,10 @@ function login() {
     recarga += '<button style="background-color: #F0F0F0; box-shadow: inset 0px 0px 5px rgb(206, 205, 205);" class="btn-register" onclick="registrar()">Register</button>'
     recarga += '</div>'
     recarga += '<div class="modal-content">'
-    recarga += '<form method="POST" onsubmit="loginP(); id="loginP" return false;">'
+    recarga += '<form method="POST" onsubmit="loginP(); return false;"  id="loginP">'
     recarga += '<h2>Bienvenido a JobJob</h2>'
-    recarga += '<input class="inputlogin" type="text" name="mail" placeholder="Introduce tu correo"><br></br>'
-    recarga += '<input class="inputlogin" type="password" name="contra" placeholder="Introduce tu contraseña"><br>'
+    recarga += '<input class="inputlogin" type="text" name="mail" id="mail_login" placeholder="Introduce tu correo"><br></br>'
+    recarga += '<input class="inputlogin" type="password" name="contra" id="contra_login" placeholder="Introduce tu contraseña"><br>'
     recarga += '<button class= "botonlogin" type="submit" value="register">Iniciar Sesión</button>'
     recarga += '<p class="contraseña">¿contraseña olvidada?</p>'
     recarga += '<div class="linea"></div>'
@@ -207,15 +207,21 @@ function loginP() {
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('_method', 'POST');
-    formData.append('mail', document.getElementById('mail').value);
-    formData.append('contra', document.getElementById('contra').value);
+    formData.append('mail', document.getElementById('mail_login').value);
+    formData.append('contra', document.getElementById('contra_login').value);
     var ajax = objetoAjax();
     ajax.open("POST", "loginP", true);
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
-            if (respuesta.resultado == "OK") {
+            if (respuesta.resultado == "admin") {
+                window.location.href = 'cPanelAdmin';
+            }
+            else if (respuesta.resultado == "trabajador") {
                 window.location.href = 'paginatrabajador';
+            }
+            else if (respuesta.resultado == "empresa") {
+                window.location.href = 'paginaempresa';
             } else {
                 alert("tonto")
                     // message.innerHTML = 'Ha habido un error: ' + respuesta.resultado;
