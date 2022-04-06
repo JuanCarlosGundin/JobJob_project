@@ -29,6 +29,11 @@
             <button class="icon" onClick="window.location.href='prueba4';"><i class="fa-solid fa-user"></i></button>
         </div>
     </div>
+    <form action="{{url('logout')}}" method="GET">
+        <div class="form-group">
+            <button type="submit" class="botoncPanel">LOGOUT</button><br><br>
+        </div>
+    </form>
     <div class="alerts">
         <div class="filter">
             <div class="buscador">
@@ -42,6 +47,8 @@
             {{-- Alertas ajax --}}
         </div>
     </div>
+    <input type="text" id="mail">
+    <button onclick="enviar(); return false;">Enviar mail</button>
     <script src="js/notificaciones.js"></script>
 </body>
 

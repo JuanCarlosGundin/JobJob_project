@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 ///ZONA ADMINISTRADOR
 //Acceder a vista Admin
-Route::get('admin',[UsuarioController::class, 'vistaAdmin']);
+Route::get('cPanelAdmin',[UsuarioController::class, 'vistaAdmin']);
 
 //leerJS
 Route::post('leer',[UsuarioController::class,'leer']);
@@ -75,9 +76,6 @@ Route::get('paginatrabajador', function () {
     return view('paginatrabajador');
 });
 
-Route::get('cPanelAdmin', function () {
-    return view('cPanelAdmin');
-});
 Route::get('registrar', function () {
     return view('registrar');
 });
@@ -104,3 +102,8 @@ Route::put('modificartrabajador',[UsuarioController::class, 'modificartrabajador
 // ruta para eliminar trabajador.
 Route::delete('eliminartrabajador/{id}', [UsuarioController::class, 'eliminartrabajadorController']);
 /*FIN EDITAR PERFIL*/
+
+
+
+///mandar correo
+Route::post('mandar', [MailController::class, 'sending']);

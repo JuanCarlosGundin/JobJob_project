@@ -12,7 +12,7 @@ class UsuarioController extends Controller
 {
     ///ZONA ADMINISTRADOR
     public function vistaAdmin() {
-        return view("admin");
+        return view('cPanelAdmin');
     }
 
     public function leer(Request $req) {
@@ -343,22 +343,22 @@ class UsuarioController extends Controller
 
     //leernotificaciones
     public function leernotificaciones(Request $req) {
-        $id=4;
-        $perfil=2;
+        $id=session()->get('id_user');
+        $id_perfil=session()->get('id_perfil');
         //si el cliente es trabajador, mira ofertas de empresas
-        if($perfil==2){
+        if($id_perfil==2){
         $empresas=DB::select('select * from tbl_usuarios 
-        left join tbl_empresa on tbl_usuarios.id=tbl_empresa.id_usuario
-        left join tbl_interaccion on tbl_usuarios.id=tbl_interaccion.id_interactuado
-        where tbl_usuarios.id_perfil=3 and nom_emp like ? and (tbl_interaccion.id_iniciador is null or (tbl_interaccion.id_iniciador <> ? and tbl_interaccion.tipo_interaccion <> 2 and tbl_interaccion.coincidencia like 0))',[$req['filter']."%",$id]);
-        return response()->json(array('empresas'=> $empresas));
+        inner join tbl_empresa on tbl_usuarios.id=tbl_empresa.id_usuario
+        inner join tbl_interaccion on tbl_usuarios.id=tbl_interaccion.id_interactuado
+        where tbl_usuarios.id_perfil=3 and nom_emp like ? and (tbl_interaccion.id_iniciador = ? and tbl_interaccion.tipo_interaccion <> 2)',[$req['filter']."%",$id]);
+        return response()->json(array('empresas'=> $empresas, 'id'=>$id, 'id_perfil' =>$id_perfil));
         }else{
             //si el cliente es empresa, mira ofertas de trabajador
         $trabajadores=DB::select('select * from tbl_usuarios 
         inner join tbl_trabajador on tbl_usuarios.id=tbl_trabajador.id_usuario
         inner join tbl_interaccion on tbl_usuarios.id=tbl_interaccion.id_interactuado
-        where tbl_usuarios.id_perfil=2 and nombre like ? and (tbl_interaccion.id_iniciador is null or (tbl_interaccion.id_iniciador <> ? and tbl_interaccion.tipo_interaccion <> 2 and tbl_interaccion.coincidencia like 0 ))',[$req['filter']."%",$id]);
-        return response()->json(array('trabajadores'=> $trabajadores));
+        where tbl_usuarios.id_perfil=2 and nombre like ? and (tbl_interaccion.id_iniciador = ? and tbl_interaccion.tipo_interaccion <> 2)',[$req['filter']."%",$id]);
+        return response()->json(array('trabajadores'=> $trabajadores, 'id'=>$id, 'id_perfil' =>$id_perfil));
         }
     }
 
