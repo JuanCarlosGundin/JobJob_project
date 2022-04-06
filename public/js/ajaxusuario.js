@@ -1,39 +1,5 @@
 window.onload = function() {
-    // empresa();
-
-    // leertipo();
-    // document.getElementById("nombre_usuario").focus();
-    /*CODIGO MODAL*/
-
-    //     // Get the modal
-    //     modal = document.getElementById("myModal");
-
-    //     // Get the <span> element that closes the modal
-    //     span = document.getElementsByClassName("close")[0];
-
-
-
-    //     // When the user clicks on <span> (x), close the modal
-    //     span.onclick = function() {
-    //         modal.style.display = "none";
-    //     }
-
-    //     // When the user clicks anywhere outside of the modal, close it
-    //     window.onclick = function(event) {
-    //         if (event.target == modal) {
-    //             modal.style.display = "none";
-    //         }
-    //     }
-    // }
-
-    // function abrirModal(id_usuario, nombre_usuario, apellido_usuario, correo_usuario, password_usuario) {
-    //     modal.style.display = "block";
-    //     document.getElementById('idModificar').value = id_usuario;
-    //     document.getElementById('modnombreuser').value = nombre_usuario;
-    //     document.getElementById('modapellido').value = apellido_usuario;
-    //     document.getElementById('modcorreo').value = correo_usuario;
-    //     document.getElementById('modpassword').value = password_usuario;
-    // }
+    login();
 
 }
 
@@ -54,16 +20,21 @@ function objetoAjax() {
     return xmlhttp;
 }
 
-function login(){
+function login() {
+
     var tabla = document.getElementById("main");
     var recarga = '';
+    recarga += '<div class="botones">'
+    recarga += '<button style="background-color: white;" class="btn-signin" onclick="login()">Sign In</button>'
+    recarga += '<button style="background-color: #F0F0F0; box-shadow: inset 0px 0px 5px rgb(206, 205, 205);" class="btn-register" onclick="registrar()">Register</button>'
+    recarga += '</div>'
     recarga += '<div class="modal-content">'
     recarga += '<form method="POST" onsubmit="loginP(); id="loginP" return false;">'
     recarga += '<h2>Bienvenido a JobJob</h2>'
     recarga += '<input class="inputlogin" type="text" name="mail" placeholder="Introduce tu correo"><br></br>'
     recarga += '<input class="inputlogin" type="password" name="contra" placeholder="Introduce tu contraseña"><br>'
     recarga += '<button class= "botonlogin" type="submit" value="register">Iniciar Sesión</button>'
-    recarga += '<p>¿contraseña olvidada?</p>'
+    recarga += '<p class="contraseña">¿contraseña olvidada?</p>'
     recarga += '<div class="linea"></div>'
     recarga += '<button class="google-login"><img class="google-img" src="storage/uploads/google.png">Conéctate con Google</button>'
     recarga += '</form>'
@@ -71,16 +42,20 @@ function login(){
     tabla.innerHTML = recarga
 }
 
-function registrar(){
+function registrar() {
     var tabla = document.getElementById("main");
     var recarga = '';
+    recarga += '<div class="botones">'
+    recarga += '<button style="background-color: #F0F0F0; box-shadow: inset 0px 0px 5px rgb(206, 205, 205);" class="btn-signin" onclick="login()">Sign In</button>'
+    recarga += '<button style="background-color: white;" class="btn-register" onclick="registrar()">Register</button>'
+    recarga += '</div>'
     recarga += '<div id="main" class="modal-content-register-cuadrados">'
     recarga += '<h3>¿Cómo vas a usar JobJob?</h3>'
     recarga += '<div class="cuadrados">'
-    recarga += '<button class="cuadrado" onclick="trabajador()"><i class="fa-solid fa-user"></i><br><br><p>Usuario</p></button>'
+    recarga += '<button class="cuadrado" onclick="trabajador()"><i class="fa-solid fa-user"></i><br><br><p class="user-empresa">Usuario</p></button>'
     recarga += '</div>'
     recarga += '<div class="cuadrados">'
-    recarga += '<button class="cuadrado" onclick="empresa()"><i class="fa-solid fa-building"></i><br><br><p>Empresa</p></button>'
+    recarga += '<button class="cuadrado" onclick="empresa()"><i class="fa-solid fa-building"></i><br><br><p class="user-empresa">Empresa</p></button>'
     recarga += '</div>'
     recarga += '</div>'
     tabla.innerHTML = recarga
@@ -95,6 +70,10 @@ function trabajador() {
     var tabla = document.getElementById("main");
     var recarga = '';
     //recarga += ''
+    recarga += '<div class="botones">'
+    recarga += '<button style="background-color: #F0F0F0; box-shadow: inset 0px 0px 5px rgb(206, 205, 205);" class="btn-signin" onclick="login()">Sign In</button>'
+    recarga += '<button style="background-color: white;" class="btn-register" onclick="registrar()">Register</button>'
+    recarga += '</div>'
     recarga += '<div class="modal-content-register"><div class="scrollbar"><h3>¡Regístrate en JobJob!</h3>'
     recarga += '<form method="POST" onsubmit="creartrabajadorJS(); return false;" id="formregistro" enctype="multipart/form-data">'
     recarga += '<div class="column-2">'
@@ -138,6 +117,10 @@ function empresa() {
     var recarga = '';
     //recarga += '';
     // recarga += '<div>';
+    recarga += '<div class="botones">'
+    recarga += '<button style="background-color: #F0F0F0; box-shadow: inset 0px 0px 5px rgb(206, 205, 205);" class="btn-signin" onclick="login()">Sign In</button>'
+    recarga += '<button style="background-color: white;" class="btn-register" onclick="registrar()">Register</button>'
+    recarga += '</div>'
     recarga += '<div class="modal-content-register"><div class="scrollbar"><h3>¡Regístrate en JobJob!</h3>'
     recarga += '<form method="POST" onsubmit="crearempresaJS(); return false;" id="formregistroempresa" enctype="multipart/form-data">'
     recarga += '<div class="column-2">'

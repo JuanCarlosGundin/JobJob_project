@@ -15,20 +15,12 @@
     <div class="logo">
         <img src="storage/uploads/jobjob_logo.png">
     </div>
-    <div class="modal-login">
-        <div class="botones-registrar">
+    <div id="main" class="modal-login">
+        <div class="botones">
                 <button class="btn-signin" onclick="login()">Sign In</button>
                 <button class="btn-register" onclick="registrar()">Register</button>
         </div>
             <div id="main" class="modal-content-register-cuadrados">
-                <h3>¿Cómo vas a usar JobJob?</h3>
-                <div class="cuadrados">
-                <button class="cuadrado" onclick="trabajador()"><i class="fa-solid fa-user"></i><br><br><p>Usuario</p></button>
-                </div>
-                <div class="cuadrados">
-                <button class="cuadrado" onclick="empresa()"><i class="fa-solid fa-building"></i><br><br><p>Empresa</p></button>
-                </div>
-            </div>
     </div>
     <script src="js/ajaxusuario.js"></script>
 </body>
