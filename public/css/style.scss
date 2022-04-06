@@ -1,294 +1,565 @@
-/////////////////////////////////MIXINS-IMPORTS////////////////////////////////
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-$first-color:#92AFD7;
-$second-color: #C5D1EB;
-$third-color:#5A7684;
-$fourth-color:#0F084B;
-$fifth-color: #0D0221;
-$movil:768px;
-$tablet:1200px;
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
+    /////////////////////////////////MIXINS-IMPORTS////////////////////////////////
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    $first-color:#92AFD7;
+    $second-color: #C5D1EB;
+    $third-color:#5A7684;
+    $fourth-color:#0F084B;
+    $fifth-color: #0D0221;
+    $movil:768px;
+    $tablet:1200px;
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
 
-body {
-    font-family: 'Inter', sans-serif;
-}
+    body {
+        font-family: 'Inter', sans-serif;
+    }
 
-////////////////////////////////MAIN///////////////////////////////////////
-.body-index {
-    margin: 0;
-    background-color: $first-color;
-    text-align: center;
-    .menu-index {
-        text-align: right;
-        .btn-register {
+    ////////////////////////////////MAIN///////////////////////////////////////
+    .body-index {
+        margin: 0;
+        background-color: $first-color;
+        text-align: center;
+        .menu-index {
+            text-align: right;
+            ///botón inicio de sesión///
+            .btn-register {
+                border-radius: 15px;
+                background-color: white;
+                border: white solid 1.5px;
+                box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+                color: #090216b0;
+                font-weight: bold;
+                width: 11%;
+                height: 6vh;
+                margin-right: 3vh;
+                margin-top: 2.5vh;
+                margin-bottom: 4vh;
+            }
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+        h2 {
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            margin-top: 10vh;
+        }
+
+        ///boton registro
+        .btn-index {
             border-radius: 15px;
             background-color: white;
             border: white solid 1.5px;
             box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
             color: #090216b0;
             font-weight: bold;
-            width: 11%;
+            width: 15%;
             height: 6vh;
             margin-right: 3vh;
-            margin-top: 2.5vh;
+            margin-top: 5.5vh;
             margin-bottom: 4vh;
         }
-    }
-    h1 {
-        text-align: center;
-        color: white;
-        font-weight: bold;
-    }
-    h2 {
-        text-align: center;
-        color: white;
-        font-weight: bold;
-        margin-top: 10vh;
-    }
-    .btn-index {
-        border-radius: 15px;
-        background-color: white;
-        border: white solid 1.5px;
-        box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-        color: #090216b0;
-        font-weight: bold;
-        width: 15%;
-        height: 6vh;
-        margin-top: 10vh;
-    }
-    section {
-        width: 0%;
-        background: white;
-      }
 
-      #wave {
-        bottom: 0;
+        ///CSS DE LA OLA////
+        section {
+            width: 0%;
+            background: white;
+        }
+        #wave {
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+        }
+        #wave path {
+            fill: $second-color;
+        }
+        section#content {
+            background: pink;
+        }
     }
-    #wave path {
-        fill: $second-color;
-    }
-    section#content {
-        background: pink;
-    }
-}
 
-@media only screen and (max-width: $movil) {
-    .body-index {
-        .menu-index {
-            .btn-register {
-                width: 40%;
+    ///RESPONSIVE INDEX
+    @media only screen and (max-width: $movil) {
+        .body-index {
+            .menu-index {
+                .btn-register {
+                    width: 40%;
+                }
+            }
+            h1 {
+                font-size: 5vh;
+            }
+            .btn-index {
+                width: 70%;
             }
         }
-        h1 {
-            font-size: 5vh;
-        }
-        .btn-index {
-            width: 70%;
-        }
     }
-}
 
-////////////////////////////////LOGIN//////////////////////////////////////
-.body-login {
-    margin: 0;
-    background-color: $first-color;
-        display: none;
-    }
-    .modal-login {
-        background-color: white;
-        border-radius: 55px;
-        align-items: center;
-        align-content: center;
-        text-align: center;
-        margin-top: 10vh;
-        padding-bottom: 0.2vh;
-        margin-left: 30vh;
-        margin-right: 30vh;
-        box-shadow: 5px 3px 3px rgba(156, 155, 155, 0.591);
-
-        // botones de login y registrar
-        .botones {
-            text-align: center;
-        .btn-signin {
-            width: 49.8%;
-            height: 8.5vh;
-            text-align: center;
-            color: #92AFD7;
-            font-weight: bold;
-            font-size: 2.5vh;
-            background-color: #F0F0F0;
-            border: none;
-            border-top-left-radius: 53px;
-            border-bottom-right-radius: 60px;
+    ////////////////////////////////LOGIN/////////////////////////////////////
+    .body-login {
+        background-color: $first-color;
+        .logo {
+            display: none;
         }
-        .btn-register {
-            width: 49.8%;
-            height: 8.5vh;
+        .modal-login {
+            background-color: white;
+            border-radius: 55px;
+            align-items: center;
+            align-content: center;
             text-align: center;
-            color: #92AFD7;
-            font-weight: bold;
-            font-size: 2.5vh;
-            background-color: #FFFFFF;
-            border: none;
-        }
-    }
-        .modal-content {
-            border: white;
-            text-align: center;
-            width: 80%;
-            margin-left: 10%;
-            margin-right: 10%;
-            h2 {
-                margin-top: 8vh;
-                margin-bottom: 7vh;
+            margin-top: 10vh;
+            padding-bottom: 0.2vh;
+            margin-left: 30vh;
+            margin-right: 30vh;
+            box-shadow: 5px 3px 3px rgba(156, 155, 155, 0.591);
+            ///// botones de login y registrar
+            .botones {
                 text-align: center;
+                display: flex;
+                justify-content: center;
+                form {
+                    width: 50%;
+                    button {
+                        width: 100%;
+                    }
+                }
+                .btn-signin {
+                    width: 100%;
+                    height: 8.5vh;
+                    text-align: center;
+                    color: #92AFD7;
+                    font-weight: bold;
+                    font-size: 2.5vh;
+                    background-color: white;
+                    border: none;
+                    border-top-left-radius: 53px;
+                    border-bottom-right-radius: 60px;
+                }
+                .btn-register {
+                    width: 100%;
+                    height: 8.5vh;
+                    text-align: center;
+                    color: #92AFD7;
+                    font-weight: bold;
+                    font-size: 2.5vh;
+                    background-color: #F0F0F0;
+                    box-shadow: inset 0px 0px 5px rgb(206, 205, 205);
+                    border: none;
+                    border-top-right-radius: 53px;
+                    border-bottom-left-radius: 60px;
+                }
+            }
+            ///contenido del modal
+            .modal-content {
+                border: white;
+                text-align: center;
+                width: 80%;
+                margin-left: 10%;
+                margin-right: 10%;
+                h2 {
+                    margin-top: 8vh;
+                    margin-bottom: 7vh;
+                    text-align: center;
+                    font-weight: bold;
+                }
+                p {
+                    font-weight: bold;
+                    color: #C5D1EB;
+                    text-align: center;
+                    padding-top: 10px;
+                }
+                .inputlogin {
+                    font-size: 15px;
+                    border-radius: 15px;
+                    border: #92AFD7 solid 1.5px;
+                    width: 70%;
+                    height: 7vh;
+                }
+                .inputlogin::placeholder {
+                    color: rgb(197, 191, 191);
+                    padding-left: 2%;
+                    font-weight: 440;
+                }
+                .botonlogin {
+                    border-radius: 15px;
+                    background-color: #92AFD7;
+                    border: #92AFD7 solid 1.5px;
+                    box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+                    color: white;
+                    font-weight: bold;
+                    width: 70%;
+                    height: 7vh;
+                    margin-top: 1rem;
+                }
+                .linea {
+                    position: flex;
+                    margin: auto;
+                    width: 55%;
+                    border-top: 1px solid #CDC0C0;
+                    height: 2px;
+                }
+                ////conectate con google
+                .google-login {
+                    font-weight: bold;
+                    color: white;
+                    background-color: #C5D1EB;
+                    border: #C5D1EB solid 1.5px;
+                    display: block;
+                    margin-top: 4vh;
+                    margin-bottom: 10vh;
+                    margin-left: auto;
+                    margin-right: auto;
+                    text-align: center;
+                }
+                .google-img {
+                    width: 2.3vh;
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+
+    // RESPONSIVE TABLET
+    @media only screen and (max-width: $tablet) and (min-width: 769px) {
+        .body-login {
+            .modal-login {
+                margin-top: 10vh;
+                padding-bottom: 0.2vh;
+                margin-left: 20vh;
+                margin-right: 20vh;
+                .botones {
+                    text-align: center;
+                    height: 9vh;
+                    .btn-signin {
+                        width: 100%;
+                    }
+                    .btn-register {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    // RESPONSIVE MÓVIL
+    @media only screen and (max-width: $movil) {
+        .body-login {
+            .logo {
+                display: block !important;
+                height: 25vh;
+            }
+            .logo img {
+                width: 30%;
+                margin-top: 15%;
+                margin-bottom: 10%;
+                border-radius: 20px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .modal-login {
+                width: 100%;
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+                margin-top: 0vh;
+                margin-bottom: 0vh;
+                margin-left: 0vh;
+                margin-right: 0vh;
+                ///// botones de login y registrar
+                .botones {
+                    text-align: center;
+                    height: 9vh;
+                    .btn-signin {
+                        padding-top: 10px;
+                        width: 100%;
+                        font-size: 22px;
+                        border-top-left-radius: 53px;
+                        border-bottom-right-radius: 60px;
+                    }
+                    .btn-register {
+                        width: 100%;
+                        padding-top: 10px;
+                        font-size: 22px;
+                        border-top-right-radius: 53px;
+                    }
+                }
+                ///contenido del modal
+                .modal-content {
+                    width: 80%;
+                    height: 66vh;
+                    h2 {
+                        margin-top: 0vh;
+                        margin-bottom: 0vh;
+                        font-weight: bold;
+                        padding-top: 6vh;
+                        padding-bottom: 6vh;
+                        font-size: 3.5vh;
+                    }
+                    .inputlogin {
+                        width: 100% !important;
+                        height: 42px !important;
+                    }
+                    .botonlogin {
+                        width: 100%;
+                        height: 40px;
+                        margin-bottom: 3px;
+                    }
+                    p {
+                        padding-top: 3px;
+                        text-align: left;
+                        font-size: 1.7vh;
+                    }
+                    .linea {
+                        max-width: 100%;
+                        padding: 0;
+                        margin-top: 20px;
+                        margin-bottom: 10px;
+                    }
+                    .google-login {
+                        width: 80%;
+                        padding-top: 4px;
+                        padding-bottom: 7px;
+                    }
+                    .google-img {
+                        width: 2.5vh;
+                        margin-right: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    ////////////////////////////////REGISTRAR//////////////////////////////////////
+    //PÁGINA TRABAJADOR-EMPRESA
+    .body-login {
+        .botones-registrar {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            ///// botones de login y registrar
+            form {
+                width: 50%;
+                button {
+                    width: 100%;
+                }
+            }
+            .btn-signin {
+                width: 100%;
+                height: 8.5vh;
+                text-align: center;
+                color: #92AFD7;
                 font-weight: bold;
+                font-size: 2.5vh;
+                background-color: #F0F0F0;
+                box-shadow: inset 0px 0px 5px rgb(206, 205, 205);
+                border: none;
+                border-top-left-radius: 53px;
+                border-bottom-right-radius: 60px;
+            }
+            .btn-register {
+                width: 100%;
+                height: 8.5vh;
+                text-align: center;
+                color: #92AFD7;
+                font-weight: bold;
+                font-size: 2.5vh;
+                background-color: white;
+                border: none;
+                border-top-right-radius: 53px;
+                border-bottom-left-radius: 60px;
+            }
+        }
+        ///contenido del modal
+        .modal-content-register-cuadrados {
+            width: 100%;
+            height: 72vh;
+            h3 {
+                font-weight: bold;
+                padding-top: 8vh;
+                padding-bottom: 8vh;
+                font-size: 3.5vh;
+            }
+            ///colocación y tamaño de los dos cuadrados (empresa y usuario)
+            .cuadrados {
+                width: 50%;
+                height: 45%;
+                display: flex;
+                float: left;
+                justify-content: center;
+                align-items: center;
+            }
+            .cuadrado {
+                width: 34vh;
+                height: 34vh;
+                background: $second-color;
+                border: $second-color solid 1.5px;
+                box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+                border-radius: 30px;
+                color: white;
+                font-weight: 600;
+            }
+            //iconos
+            i {
+                text-align: center;
+                font-size: 13vh;
             }
             p {
+                font-size: 3.2vh;
+            }
+        }
+    }
+
+    ////PAGINA INPUTS REGISTRAR TRABAJADOR-EMPRESA
+    .body-login {
+        //barra de scroll del modal
+        .scrollbar {
+            width: 100%;
+            height: 72vh;
+            overflow-y: scroll;
+        }
+        //contenido del modal
+        .modal-content-register {
+            width: 100%;
+            height: auto;
+            h3 {
                 font-weight: bold;
-                color: #C5D1EB;
-                text-align: center;
-                padding-top: 10px;
+                padding-top: 8vh;
+                padding-bottom: 6vh;
+                font-size: 3.5vh;
             }
-            .inputlogin {
-                margin-bottom: 1rem;
-                font-size: 15px;
+            //poner inputs en dos columnas distintas
+            .column-2 {
+                width: 50%;
+                float: left;
+                padding-left: 5%;
+                padding-right: 5%;
+                p {
+                    font-size: 2.5vh !important;
+                    font-weight: 600;
+                    text-align: left;
+                    color: rgba(0, 0, 0, 0.594);
+                }
+                //estilos inputs
+                .inputregister {
+                    margin-bottom: 1rem;
+                    font-size: 15px;
+                    border-radius: 15px;
+                    border: #92AFD7 solid 2px;
+                    width: 100% !important;
+                    height: 42px !important;
+                }
+                .inputregister::placeholder {
+                    color: rgb(197, 191, 191);
+                    padding-left: 2%;
+                    font-weight: 440;
+                }
+                //estilos input foto
+                .foto {
+                    width: 80%;
+                    float: left;
+                    margin-bottom: 1rem;
+                }
+                //estilos input select
+                select {
+                    border-radius: 15px;
+                    border: #92AFD7 solid 2px;
+                    width: 15% !important;
+                    height: 42px !important;
+                    margin-bottom: 1rem;
+                }
+            }
+            .botonregister {
                 border-radius: 15px;
-                border: #92AFD7 solid 1.5px;
-                height: 7vh;
-            }
-            .inputlogin::placeholder {
-                color: rgb(197, 191, 191);
-                padding-left: 2%;
-                font-weight: 440;
-            }
-            .botonlogin {
-                border-radius: 15px;
-                background-color: #92AFD7;
+                background-color: #92AFD7 !important;
                 border: #92AFD7 solid 1.5px;
                 box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
                 color: white;
                 font-weight: bold;
-                width: 70%;
-                height: 7vh;
-            }
-            .linea {
-                position: flex;
-                margin: auto;
-                width: 55%;
-                border-top: 1px solid #CDC0C0;
-                height: 2px;
-            }
-            /* conectate con google */
-            .google-login {
-                font-weight: bold;
-                color: white;
-                background-color: #C5D1EB;
-                border: #C5D1EB solid 1.5px;
-                display: block;
-                margin-top: 4vh;
-                margin-bottom: 10vh;
-                margin-left: auto;
-                margin-right: auto;
-                text-align: center;
-            }
-            .google-img {
-                width: 2.3vh;
-                margin-right: 4px;
+                width: 40%;
+                height: 40px;
+                margin-bottom: 20px;
             }
         }
     }
 
-// RESPONSIVE MÓVIL
-@media only screen and (max-width: 768px) {
-// RESPONSIVE TABLET
-@media only screen and (max-width: $tablet) and (min-width: 769px) {
-    .body-login {
-        .modal-login {
-            margin-top: 10vh;
-            padding-bottom: 0.2vh;
-            margin-left: 20vh;
-            margin-right: 20vh;
-            .botones {
-                text-align: center;
-                height: 9vh;
-                .btn-signin {
-                    width: 49%;
-                }
-                .btn-register {
-                    width: 49%;
-                }
-            }
-        }
-    }
-}
+    // // RESPONSIVE TABLET
+    // @media only screen and (max-width: 1200px) {
+    //     .body-login {
+    //         .modal-content-register {
+    //             .cuadrado {
+    //                 background-color: red;
+    //             }
+    //         }
+    //     }
+    // }
 
-// RESPONSIVE MÓVIL
-@media only screen and (max-width: $movil) {
-        }
-        .cuadrado {
-            width: 35vh;
-            height: 35vh;
-            background: $second-color;
-            border: $second-color solid 1.5px;
-            box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-            border-radius: 30px;
-            color: white;
-            font-weight: 600;
-        }
-        i {
-            font-weight: bold;
-            background-color: #C5D1EB;
-            border: #C5D1EB solid 1.5px;
-            display: block;
-            margin-top: 4vh;
-            margin-bottom: 10vh;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-        .google-img {
-            width: 2vh;
-            margin-right: 2px;
-        }
-    }
-// // RESPONSIVE TABLET
-// @media only screen and (max-width: 1200px) {
-//     .body-login {
-//         .modal-content-register {
-//             .cuadrado {
-//                 background-color: red;
-//             }
-//         }
-//     }
-// }
-// RESPONSIVE MÓVIL
-@media only screen and (max-width: $movil) {
-    .body-login {
-        .modal-content-register {
-            h3 {
-                font-size: 3vh;
-                margin-bottom: 4vh;
-            }
-            .cuadrados {
-                width: 100%;
-                height: 21vh;
-                .cuadrado {
-                    width: 19vh;
-                    height: 19vh;
+    // RESPONSIVE MÓVIL
+    //PAGINA USUARIO-EMPRESA
+    @media only screen and (max-width: $movil) {
+        .body-login {
+            height: 60vh;
+            .modal-content-register-cuadrados {
+                h3 {
+                    font-size: 3vh;
+                    margin-bottom: 4vh;
+                    padding-top: 5vh;
+                    padding-bottom: 0vh;
                 }
-                i {
-                    padding-top: 3vh;
-                    font-size: 6.5vh;
+                .cuadrados {
+                    width: 100%;
+                    height: 21vh;
+                    .cuadrado {
+                        width: 19vh;
+                        height: 19vh;
+                    }
+                    i {
+                        padding-top: 3vh;
+                        font-size: 6.5vh;
+                    }
                 }
             }
         }
     }
-}
 
-/////////////////////////////////PERFIL////////////////////////////////////
-/////////////////////////////////CHAT/////////////////////////////////////////
+    //PAGINA INPUTS
+    @media only screen and (max-width: $movil) {
+        .body-login {
+            .modal-content-register {
+                h3 {
+                    font-size: 3vh;
+                    padding-bottom: 4vh;
+                }
+                .column-2 {
+                    width: 100%;
+                    padding-left: 5%;
+                    padding-right: 5%;
+                    .inputregister {
+                        height: 6vh !important;
+                    }
+                    .inputregister::placeholder {
+                        font-size: 2.2vh;
+                    }
+                    .select {
+                        font-size: 2.2vh !important;
+                    }
+                    .foto {
+                        padding-bottom: 1rem;
+                    }
+                }
+            }
+            .botonregister {
+                width: 70% !important;
+                font-size: 2.1vh;
+                height: 5vh !important;
+            }
+        }
+    }
+
+    /////////////////////////////////PERFIL////////////////////////////////////
+    /////////////////////////////////CHAT/////////////////////////////////////////
