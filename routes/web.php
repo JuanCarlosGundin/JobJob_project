@@ -3,6 +3,7 @@
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\AppController;
 ///ZONA ADMINISTRADOR
 //Acceder a vista Admin
 Route::get('cPanelAdmin',[UsuarioController::class, 'vistaAdmin']);
@@ -107,3 +108,10 @@ Route::delete('eliminartrabajador/{id}', [UsuarioController::class, 'eliminartra
 
 ///mandar correo
 Route::post('mandar', [MailController::class, 'sending']);
+
+//LEER EL CONTENIDO
+Route::post('mostrar',[AppController::class, 'mostrar']);
+//Positivo
+Route::post('si',[AppController::class, 'si']);
+//negativo
+Route::post('no',[AppController::class, 'no']);
