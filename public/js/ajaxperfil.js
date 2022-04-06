@@ -23,13 +23,17 @@ window.onload = function() {
     }
 }
 
-function abrirModal(id_ubicacion, nombre_ubicacion, descripcion_ubicacion, direccion_ubicacion, foto_ubicacion) {
+function abrirModal(id_usuario, nombre, apellido, campo_user, experiencia, estudios, idiomas, disponibilidad, about_user) {
     modal.style.display = "block";
-    document.getElementById('idModificar').value = id_ubicacion;
-    document.getElementById('modnombre').value = nombre_ubicacion;
-    document.getElementById('moddescripcion').value = descripcion_ubicacion;
-    document.getElementById('moddireccion').value = direccion_ubicacion;
-    document.getElementById('modfoto').value = foto_ubicacion;
+    document.getElementById('modid').value = id_usuario;
+    document.getElementById('modnombre').value = nombre;
+    document.getElementById('modapellido').value = apellido;
+    document.getElementById('modcampo_user').value = campo_user;
+    document.getElementById('modexperiencia').value = experiencia;
+    document.getElementById('modestudios').value = estudios;
+    document.getElementById('modidiomas').value = idiomas;
+    document.getElementById('moddisponibilidad').value = disponibilidad;
+    document.getElementById('modabout_user').value = about_user;
 }
 
 function objetoAjax() {
@@ -85,7 +89,9 @@ function leerJS() {
                 recarga += '<td>' + respuesta[i].campo_user + '</td>'
 
                 // recarga += '<td><button onclick="eliminarJS(' + respuesta[i].id_ubicacion + ')">Eliminar</button></td>'
-                // recarga += '<td><button type="submit" value="Modificar" onclick="abrirModal(' + respuesta[i].id_ubicacion + ',\'' + respuesta[i].nombre_ubicacion + '\',\'' + respuesta[i].descripcion_ubicacion + '\',\'' + respuesta[i].direccion_ubicacion + '\',\'' + respuesta[i].foto_ubicacion + '\');return false;">Modificar</button></td>'
+                recarga += '<td><button type="submit" value="Modificar" onclick="abrirModal(' + respuesta[i].id_usuario + ',\'' + respuesta[i].nombre + '\',\'' + respuesta[i].apellido + '\',\'' + respuesta[i].campo_user + '\',\'' + respuesta[i].experiencia + '\',\'' + respuesta[i].estudios + '\',\'' + respuesta[i].idiomas + '\',\'' + respuesta[i].disponibilidad + '\',\'' + respuesta[i].about_user + '\');return false;">Modificar</button></td>'
+                    // recarga += '<td><button type="submit" value="Modificar" onclick="abrirModal(' + respuesta[i].id_usuario + ',\'' + respuesta[i].nombre + ',\'' + respuesta[i].apellido + '\',\'' + respuesta[i].campo_user + '\',\'' + respuesta[i].experiencia + '\',\'' + respuesta[i].estudios + '\');return false;">Modificar</button></td>'
+
                 recarga += '</tr>';
 
             }
@@ -124,7 +130,7 @@ function eliminarJS(id) {
     ajax.send(formData);
 }
 //EDITAR
-function editarJS() {
+function editartrabajadorJS() {
     /* Si hace falta obtenemos el elemento HTML donde introduciremos la recarga (datos o mensajes) */
     /* Usar el objeto FormData para guardar los parámetros que se enviarán:
        formData.append('clave', valor);
@@ -132,15 +138,22 @@ function editarJS() {
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('_method', "PUT");
-    formData.append('id_ubicacion', document.getElementById('idModificar').value);
-    formData.append('nombre_ubicacion', document.getElementById('modnombre').value);
-    formData.append('descripcion_ubicacion', document.getElementById('moddescripcion').value);
-    formData.append('direccion_ubicacion', document.getElementById('moddireccion').value);
-    formData.append('foto_ubicacion', document.getElementById('modfoto').files[0]);
+    formData.append('id_usuario', document.getElementById('modid').value);
+    // formData.append('id_perfil', document.getElementById('modid_perfil').value);
+    formData.append('nombre', document.getElementById('modnombre').value);
+    formData.append('apellido', document.getElementById('modapellido').value);
+    formData.append('campo_user', document.getElementById('modcampo_user').value);
+    formData.append('experiencia', document.getElementById('modexperiencia').value);
+    formData.append('estudios', document.getElementById('modestudios').value);
+    // formData.append('mostrado', document.getElementById('modmostrado').value);
+    formData.append('idiomas', document.getElementById('modidiomas').value);
+    formData.append('disponibilidad', document.getElementById('moddisponibilidad').value);
+    formData.append('about_user', document.getElementById('modabout_user').value);
+    // formData.append('foto_perfil', document.getElementById('modfoto_perfil').files[0]);
     /* Inicializar un objeto AJAX */
     var ajax = objetoAjax();
 
-    ajax.open("POST", "modificar", true);
+    ajax.open("POST", "modificartrabajador", true);
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);

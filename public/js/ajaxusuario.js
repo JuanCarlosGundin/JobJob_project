@@ -1,39 +1,5 @@
 window.onload = function() {
-    // empresa();
 
-    // leertipo();
-    // document.getElementById("nombre_usuario").focus();
-    /*CODIGO MODAL*/
-
-    //     // Get the modal
-    //     modal = document.getElementById("myModal");
-
-    //     // Get the <span> element that closes the modal
-    //     span = document.getElementsByClassName("close")[0];
-
-
-
-    //     // When the user clicks on <span> (x), close the modal
-    //     span.onclick = function() {
-    //         modal.style.display = "none";
-    //     }
-
-    //     // When the user clicks anywhere outside of the modal, close it
-    //     window.onclick = function(event) {
-    //         if (event.target == modal) {
-    //             modal.style.display = "none";
-    //         }
-    //     }
-    // }
-
-    // function abrirModal(id_usuario, nombre_usuario, apellido_usuario, correo_usuario, password_usuario) {
-    //     modal.style.display = "block";
-    //     document.getElementById('idModificar').value = id_usuario;
-    //     document.getElementById('modnombreuser').value = nombre_usuario;
-    //     document.getElementById('modapellido').value = apellido_usuario;
-    //     document.getElementById('modcorreo').value = correo_usuario;
-    //     document.getElementById('modpassword').value = password_usuario;
-    // }
 
 }
 
