@@ -6,9 +6,15 @@ use App\Http\Controllers\UsuarioController;
 Route::get('/', function () {
     return view('index');
 });
+
 Route::get('login', function () {
     return view('login');
 });
+
+Route::get('registro', function () {
+    return view('registro');
+});
+
 Route::get('paginaempresa', function () {
     return view('paginaempresa');
 });

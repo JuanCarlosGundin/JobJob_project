@@ -10,13 +10,16 @@
 </head>
 <body class="body-index">
     <div class="menu-index">
-        <button class="btn-register">Regístrate</button>
+        <form action="{{url('login')}}" method="POST">
+            @csrf
+            <button class="btn-register">Iniciar sesión</button>
+        </form>
     </div>
     <h1>JobJob</h1>
     <h2>Encuentra trabajo con tan solo deslizar</h2>
     <button class="btn-index">Empezar</button>
     <section>
-  <svg id="wave" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 358.67"><path class="cls-1" d="M0,200s394-357,683,0,683,0,683,0V400H0Z" transform="translate(0 -41.33)"/></svg>
+  <svg id="wave" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 358.67"><path class="cls-1" d="M0,200s300-140,683,-10,683,0,683,0V400H0Z" transform="translate(0 -41.33)"/></svg>
 </section>
 <section id="content">
 </section>

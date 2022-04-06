@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 class UsuarioController extends Controller
 {
 
+/*----------------------INDEX--------------------------------*/
+
     public function index(){
         return view ('index');
     }

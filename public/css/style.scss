@@ -11,6 +11,9 @@ $tablet:1200px;
 *:before,
 *:after {
     box-sizing: border-box;
+}
+
+body {
     font-family: 'Inter', sans-serif;
 }
 
@@ -28,8 +31,8 @@ $tablet:1200px;
             box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
             color: #090216b0;
             font-weight: bold;
-            width: 8%;
-            height: 5vh;
+            width: 11%;
+            height: 6vh;
             margin-right: 3vh;
             margin-top: 2.5vh;
             margin-bottom: 4vh;
@@ -64,23 +67,35 @@ $tablet:1200px;
 
       #wave {
         bottom: 0;
-        position: absolute;
-        width: 100%;
-      }
-
-      #wave path {
+    }
+    #wave path {
         fill: $second-color;
-      }
-
-      section#content {
+    }
+    section#content {
         background: pink;
-      }
+    }
 }
+
+@media only screen and (max-width: $movil) {
+    .body-index {
+        .menu-index {
+            .btn-register {
+                width: 40%;
+            }
+        }
+        h1 {
+            font-size: 5vh;
+        }
+        .btn-index {
+            width: 70%;
+        }
+    }
+}
+
 ////////////////////////////////LOGIN//////////////////////////////////////
 .body-login {
     margin: 0;
     background-color: $first-color;
-    .logo {
         display: none;
     }
     .modal-login {
@@ -90,6 +105,7 @@ $tablet:1200px;
         align-content: center;
         text-align: center;
         margin-top: 10vh;
+        padding-bottom: 0.2vh;
         margin-left: 30vh;
         margin-right: 30vh;
         box-shadow: 5px 3px 3px rgba(156, 155, 155, 0.591);
@@ -118,7 +134,6 @@ $tablet:1200px;
             font-size: 2.5vh;
             background-color: #FFFFFF;
             border: none;
-            border-top-right-radius: 53px;
         }
     }
         .modal-content {
@@ -144,8 +159,7 @@ $tablet:1200px;
                 font-size: 15px;
                 border-radius: 15px;
                 border: #92AFD7 solid 1.5px;
-                width: 65%;
-                height: 8vh;
+                height: 7vh;
             }
             .inputlogin::placeholder {
                 color: rgb(197, 191, 191);
@@ -159,8 +173,8 @@ $tablet:1200px;
                 box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
                 color: white;
                 font-weight: bold;
-                width: 65%;
-                height: 8vh;
+                width: 70%;
+                height: 7vh;
             }
             .linea {
                 position: flex;
@@ -169,7 +183,6 @@ $tablet:1200px;
                 border-top: 1px solid #CDC0C0;
                 height: 2px;
             }
-
             /* conectate con google */
             .google-login {
                 font-weight: bold;
@@ -178,98 +191,99 @@ $tablet:1200px;
                 border: #C5D1EB solid 1.5px;
                 display: block;
                 margin-top: 4vh;
-                margin-bottom: 5vh;
+                margin-bottom: 10vh;
                 margin-left: auto;
                 margin-right: auto;
                 text-align: center;
             }
             .google-img {
-                width: 2.5vh;
+                width: 2.3vh;
+                margin-right: 4px;
+            }
+        }
+    }
+
+// RESPONSIVE MÓVIL
+@media only screen and (max-width: 768px) {
+// RESPONSIVE TABLET
+@media only screen and (max-width: $tablet) and (min-width: 769px) {
+    .body-login {
+        .modal-login {
+            margin-top: 10vh;
+            padding-bottom: 0.2vh;
+            margin-left: 20vh;
+            margin-right: 20vh;
+            .botones {
+                text-align: center;
+                height: 9vh;
+                .btn-signin {
+                    width: 49%;
+                }
+                .btn-register {
+                    width: 49%;
+                }
             }
         }
     }
 }
 
 // RESPONSIVE MÓVIL
-@media only screen and (max-width: 768px) {
-    .body-login {
-        .logo {
-            display: block !important;
-            height: 25vh;
+@media only screen and (max-width: $movil) {
         }
-        .logo img {
-            width: 30%;
-            margin-top: 15%;
-            margin-bottom: 10%;
-            border-radius: 20px;
+        .cuadrado {
+            width: 35vh;
+            height: 35vh;
+            background: $second-color;
+            border: $second-color solid 1.5px;
+            box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+            border-radius: 30px;
+            color: white;
+            font-weight: 600;
+        }
+        i {
+            font-weight: bold;
+            background-color: #C5D1EB;
+            border: #C5D1EB solid 1.5px;
             display: block;
+            margin-top: 4vh;
+            margin-bottom: 10vh;
             margin-left: auto;
             margin-right: auto;
+            text-align: center;
         }
-        .modal-login {
-            width: 100%;
-            border-bottom-left-radius: 0px;
-            border-bottom-right-radius: 0px;
-            margin-top: 0vh;
-            margin-bottom: 0vh;
-            margin-left: 0vh;
-            margin-right: 0vh;
-            .botones {
-                text-align: center;
-                height: 9vh;
-                .btn-signin {
-                    padding-top: 10px;
-                    width: 49%;
-                    font-size: 22px;
-                    border-top-left-radius: 53px;
-                    border-bottom-right-radius: 60px;
-                }
-                .btn-register {
-                    width: 49%;
-                    padding-top: 10px;
-                    font-size: 22px;
-                    border-top-right-radius: 53px;
-                }
+        .google-img {
+            width: 2vh;
+            margin-right: 2px;
+        }
+    }
+// // RESPONSIVE TABLET
+// @media only screen and (max-width: 1200px) {
+//     .body-login {
+//         .modal-content-register {
+//             .cuadrado {
+//                 background-color: red;
+//             }
+//         }
+//     }
+// }
+// RESPONSIVE MÓVIL
+@media only screen and (max-width: $movil) {
+    .body-login {
+        .modal-content-register {
+            h3 {
+                font-size: 3vh;
+                margin-bottom: 4vh;
             }
-            .modal-content {
-                width: 80%;
-                height: 60vh;
-                h2 {
-                    margin-top: 0vh;
-                    margin-bottom: 0vh;
-                    font-weight: bold;
-                    padding-top: 6vh;
-                    padding-bottom: 6vh;
-                    font-size: 3.5vh;
+            .cuadrados {
+                width: 100%;
+                height: 21vh;
+                .cuadrado {
+                    width: 19vh;
+                    height: 19vh;
                 }
-                input {
-                    width: 100% !important;
-                    height: 42px !important;
-                }
-                .botonlogin {
-                    width: 100%;
-                    height: 40px;
-                    margin-bottom: 3px;
-                }
-                p {
-                    padding-top: 3px;
-                    text-align: left;
-                    font-size: 1.7vh;
-                }
-                .linea {
-                    max-width: 100%;
-                    padding: 0;
-                    margin-top: 20px;
-                    margin-bottom: 10px;
-                }
-                .google-login {
-                    width: 80%;
-                    padding-top: 4px;
-                    padding-bottom: 7px;
-                }
-                .google-img {
-                    width: 2.5vh;
-                    margin-right: 12px;
+                i {
+                    padding-top: 3vh;
+                    font-size: 6.5vh;
                 }
             }
         }
