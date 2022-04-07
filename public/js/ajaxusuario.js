@@ -187,19 +187,44 @@ function creartrabajadorJS() {
     var formData = new FormData(document.getElementById("formregistro"));
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('_method', 'POST');
-    // formData.append('mail', document.getElementById('mail').value);
-    // formData.append('contra', document.getElementById('contra').value);
-    // formData.append('id_perfil', document.getElementById('id_perfil').value);
-    // formData.append('nombre', document.getElementById('nombre').value);
-    // formData.append('apellido', document.getElementById('apellido').value);
-    // formData.append('campo_user', document.getElementById('campo_user').value);
-    // formData.append('experiencia', document.getElementById('experiencia').value);
-    // formData.append('estudios', document.getElementById('estudios').value);
-    // formData.append('mostrado', document.getElementById('mostrado').value);
-    // formData.append('idiomas', document.getElementById('idiomas').value);
-    // formData.append('disponibilidad', document.getElementById('disponibilidad').value);
-    // formData.append('about_user', document.getElementById('about_user').value);
-    // formData.append('foto_perfil', document.getElementById('foto_perfil').files[0]);
+    //VALIDACIONES TRABAJADOR
+    if (mail == '' || contra == '' || nombre == '' || apellido == '' || campo_user == '' || experiencia == '' || estudios == '' || mostrado == '' || idiomas == '' || disponibilidad == '' || about_user == '' || foto_perfil == '') {
+        swal.fire({
+            title: "Error",
+            text: "Tienes que rellenar todos los datos",
+            icon: "error",
+        });
+        return false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
+        swal.fire({
+            title: "Error",
+            text: "Introduce un email correcto",
+            icon: "error",
+        });
+        return false;
+    } else if (contra.length > 50) {
+        swal.fire({
+            title: "Error",
+            text: "La contraseña no puede ser más larga de 50 caracteres",
+            icon: "error",
+        });
+        return false;
+    } else if (contra.length < 8) {
+        swal.fire({
+            title: "Error",
+            text: "La contraseña debe tener mas de 8 caracteres",
+            icon: "error",
+        });
+        return false;
+    } else if (mail.length > 100) {
+        swal.fire({
+            title: "Error",
+            text: "El email no puede ser más largo de 100 caracteres",
+            icon: "error",
+        });
+        return false;
+    }
+    //FIN VALIDACIONES
     var ajax = objetoAjax();
     ajax.open("POST", "registroPost", true);
     ajax.onreadystatechange = function() {
@@ -209,32 +234,8 @@ function creartrabajadorJS() {
                 window.location.href = 'login';
             } else {
                 alert("error")
-            }
-        }
 
-        if (mail == '' || contra == '' || nombre == '' || apellido == '' || campo_user == '' || experiencia == '' || estudios == '' || mostrado == '' || idiomas == '' || disponibilidad == '' || about_user == '' || foto_perfil == '') {
-            swal.fire({
-                title: "Error",
-                text: "Tienes que rellenar todos los datos",
-                icon: "error",
-            });
-            return false;
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
-            swal.fire({
-                title: "Error",
-                text: "Introduce un email correcto",
-                icon: "error",
-            });
-            return false;
-        } else if (mail.length > 100) {
-            swal.fire({
-                title: "Error",
-                text: "El email no puede ser más largo de 100 caracteres",
-                icon: "error",
-            });
-            return false;
-        } else {
-            return true;
+            }
         }
     }
     ajax.send(formData)
@@ -248,6 +249,44 @@ function loginP() {
     formData.append('_method', 'POST');
     formData.append('mail', document.getElementById('mail_login').value);
     formData.append('contra', document.getElementById('contra_login').value);
+    //VALIDACIONES LOGIN
+    if (mail_login == '' || contra_login == '') {
+        swal.fire({
+            title: "Error",
+            text: "Tienes que rellenar todos los datos",
+            icon: "error",
+        });
+        return false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail_login)) {
+        swal.fire({
+            title: "Error",
+            text: "Introduce un email correcto",
+            icon: "error",
+        });
+        return false;
+    } else if (contra_login.length > 50) {
+        swal.fire({
+            title: "Error",
+            text: "La contraseña no puede ser más larga de 50 caracteres",
+            icon: "error",
+        });
+        return false;
+    } else if (contra_login.length < 8) {
+        swal.fire({
+            title: "Error",
+            text: "La contraseña debe tener mas de 8 caracteres",
+            icon: "error",
+        });
+        return false;
+    } else if (mail_login.length > 100) {
+        swal.fire({
+            title: "Error",
+            text: "El email no puede ser más largo de 100 caracteres",
+            icon: "error",
+        });
+        return false;
+    }
+    //FIN VALIDACIONES
     var ajax = objetoAjax();
     ajax.open("POST", "loginP", true);
     ajax.onreadystatechange = function() {
@@ -255,55 +294,28 @@ function loginP() {
             var respuesta = JSON.parse(this.responseText);
             if (respuesta.resultado == "admin") {
                 window.location.href = 'cPanelAdmin';
-            }
-            else if (respuesta.resultado == "trabajador") {
+            } else if (respuesta.resultado == "trabajador") {
                 window.location.href = 'paginatrabajador';
-            }
-            else if (respuesta.resultado == "empresa") {
+            } else if (respuesta.resultado == "empresa") {
                 window.location.href = 'paginaempresa';
             } else {
                 alert("tonto")
                     // message.innerHTML = 'Ha habido un error: ' + respuesta.resultado;
             }
         }
-
-        //VALIDACIONES LOGIN
-        if (mail_login == '' || contra_login == '') {
-            swal.fire({
-                title: "Error",
-                text: "Tienes que rellenar todos los datos",
-                icon: "error",
-            });
-            return false;
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail_login)) {
-            swal.fire({
-                title: "Error",
-                text: "Introduce un email correcto",
-                icon: "error",
-            });
-            return false;
-        }else if(contra_login.length > 50){
-            swal.fire({
-                title: "Error",
-                text: "La contraseña no puede ser más larga de 50 caracteres",
-                icon: "error",
-            });
-            return false;
-        }else if(mail_login.length > 100){
-            swal.fire({
-                title: "Error",
-                text: "El email no puede ser más largo de 100 caracteres",
-                icon: "error",
-            });
-            return false;
-        } else {
-            return true;
-        }
     }
     ajax.send(formData)
 }
 
 function crearempresaJS() {
+    let mail = document.getElementById('mail').value;
+    let contra = document.getElementById('contra').value;
+    let nom_emp = document.getElementById('nom_emp').value;
+    let loc_emp = document.getElementById('loc_emp').value;
+    let campo_emp = document.getElementById('campo_emp').value;
+    let mostrado = document.getElementById('mostrado').value;
+    let about_emp = document.getElementById('about_emp').value;
+    let logo_emp = document.getElementById('logo_emp').value;
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('_method', 'POST');
@@ -317,6 +329,43 @@ function crearempresaJS() {
     formData.append('mostrado', document.getElementById('mostrado').value);
     formData.append('about_emp', document.getElementById('about_emp').value);
     formData.append('logo_emp', document.getElementById('logo_emp').files[0]);
+    //VALIDACIONES EMPRESA
+    if (mail == '' || contra == '' || nom_emp == '' || loc_emp == '' || campo_emp == '' || mostrado == '' || about_emp == '' || logo_emp == '') {
+        swal.fire({
+            title: "Error",
+            text: "Tienes que rellenar todos los datos",
+            icon: "error",
+        });
+        return false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
+        swal.fire({
+            title: "Error",
+            text: "Introduce un email correcto",
+            icon: "error",
+        });
+        return false;
+    } else if (mail.length > 100) {
+        swal.fire({
+            title: "Error",
+            text: "El email no puede ser más largo de 100 caracteres",
+            icon: "error",
+        });
+        return false;
+    } else if (contra.length < 8) {
+        swal.fire({
+            title: "Error",
+            text: "La contraseña debe tener mas de 8 caracteres",
+            icon: "error",
+        });
+        return false;
+    } else if (contra.length > 100) {
+        swal.fire({
+            title: "Error",
+            text: "La contraseña debe tener menos de 100 caracteres",
+            icon: "error",
+        });
+        return false;
+    }
     var ajax = objetoAjax();
     ajax.open("POST", "registroEmpresaPost", true);
     ajax.onreadystatechange = function() {

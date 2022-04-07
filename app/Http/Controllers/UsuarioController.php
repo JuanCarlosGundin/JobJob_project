@@ -14,6 +14,11 @@ class UsuarioController extends Controller
     public function loginP(Request $request){
         $datos= $request->except('_token','_method');
         $user=DB::table("tbl_perfiles")->join('tbl_usuarios', 'tbl_perfiles.id', '=', 'tbl_usuarios.id_perfil')->where('mail','=',$datos['mail'])->where('contra','=',md5($datos['contra']))->first();
+        $request->validate([
+            'mail'=>'required|unique:tbl_usuarios,email|string|max:100',
+            'contra'=>'required|string|min:8|max:100',
+            // 'passwordvalidar'=>'required|same:password'
+        ]);
 
         if($user->nom_perfil=='Admin'){
            $request->session()->put('nombre_admin',$request->mail);
@@ -102,7 +107,7 @@ public function registroEmpresaPost(Request $request){
         // return redirect('login');
     }catch(\Exception $e){
         DB::rollBack();
-        return $e->getMessage();
+        return response()->json(array('resultado'=> 'NO'));
     }
 }
 /*----------------------------------------FIN REGISTRAR EMPRESA---------------------------------------------------------------------------------*/
