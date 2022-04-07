@@ -154,7 +154,7 @@ body {
             display: flex;
             align-items: center;
             .alert-foto {
-                width: 15vw;
+                width: 15%;
                 align-content: right;
                 .alert-profilefoto {
                     border-radius: 50px;
@@ -163,7 +163,7 @@ body {
                 }
             }
             .alert-mensaje {
-                width: 55vw;
+                width: 55%;
                 margin-left: 2vw;
                 .alert-mensaje-text {
                     padding: 0;
@@ -172,7 +172,7 @@ body {
                 }
             }
             .alert-user {
-                width: 10vw;
+                width: 10%;
                 text-align: right;
                 .alert-user-btn {
                     background-color: #E5E5E5;
@@ -182,11 +182,22 @@ body {
             }
             .alert-chat {
                 text-align: right;
-                width: 10vw;
+                width: 10%;
                 .alert-chat-btn {
                     background-color: #E5E5E5;
                     border-width: 0;
                     font-size: 3vh;
+                }
+            }
+            .alert-nada {
+                width: 10%;
+                text-align: right;
+                color: transparent;
+                .alert-nada-btn {
+                    background-color: #E5E5E5;
+                    border-width: 0;
+                    font-size: 3vh;
+                    color: transparent;
                 }
             }
         }
@@ -277,57 +288,472 @@ body {
     ////////////////////////////////LOGIN//////////////////////////////////////
     /////////////////////////////////PERFIL-EDITAR////////////////////////////////////
     .user-edit {
-        padding: 3vh;
-        .user-edit-foto {
-            width: 100%;
-            justify-content: center;
-            display: flex;
-            align-items: center;
-            .user-edit-profilefoto {
-                border-radius: 60px;
-                height: 14vh;
-                width: 14vh;
-            }
-        }
-        .edit-foto {
-            position: absolute;
-            margin: 50vw;
-        }
+        padding: 2vh;
+        // .user-edit-foto {
+        //     width: 100%;
+        //     justify-content: center;
+        //     display: flex;
+        //     align-items: center;
+        //     .user-edit-profilefoto {
+        //         border-radius: 60px;
+        //         height: 14vh;
+        //         width: 14vh;
+        //     }
+        // }
+        // .edit-foto {
+        //     position: absolute;
+        //     margin: 50vw;
+        // }
         .user-input {
             margin-top: 2vh;
             width: 100%;
             .user-input-name {
+                width: 89vw;
+                border-radius: 2vw;
+                background-color: #92AFD7;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                margin-bottom: 2vh;
+                .user-icon-name {
+                    width: 10%;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    float: left;
+                    margin-left: 1vw;
+                }
+                .inputs-name {
+                    float: left;
+                    width: 90%;
+                    .input-name {
+                        margin-left: 1vw;
+                        width: 35%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                    }
+                    .input-surname {
+                        width: 35%;
+                        margin-left: 1vw;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                    }
+                    .input-age {
+                        width: 18%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                        float: right;
+                    }
+                }
+            }
+            .user-input-house {
+                width: 89vw;
+                border-radius: 2vw;
+                background-color: #92AFD7;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                margin-bottom: 2vh;
+                .user-icon-house {
+                    width: 10%;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    float: left;
+                    margin-left: 1vw;
+                }
+                .inputs-house {
+                    float: right;
+                    width: 90%;
+                    .input-house {
+                        margin-left: 1vw;
+                        width: 100%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                    }
+                }
+            }
+            .user-input-studies {
+                width: 89vw;
+                border-radius: 2vw;
+                background-color: #92AFD7;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                margin-bottom: 2vh;
+                .user-icon-studies {
+                    width: 10%;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    float: left;
+                    margin-left: 1vw;
+                }
+                .inputs-studies {
+                    float: left;
+                    width: 90%;
+                    .input-studies {
+                        margin-left: 1vw;
+                        width: 100%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                    }
+                }
+            }
+            .user-input-experience {
                 width: 90vw;
                 border-radius: 2vw;
                 background-color: #92AFD7;
                 justify-content: center;
                 display: flex;
                 align-items: center;
-                .user-icon-name {
-                    width: 5vw;
+                margin-bottom: 2vh;
+                .user-icon-experience {
+                    width: 10%;
                     justify-content: center;
                     display: flex;
                     align-items: center;
+                    float: left;
+                    margin-left: 1vw;
                 }
-                .inputs-name {
-                    .input-name {
-                        margin-left: 5vw;
-                        width: 25vw;
-                        height: 3vh;
+                .inputs-experience {
+                    float: left;
+                    width: 90%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .input-experience {
+                        margin-left: 1vw;
+                        width: 50%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                        float: left;
                     }
-                    .input-surname {
-                        width: 25vw;
+                    .p-tiempo {
+                        margin-left: 1vw;
+                        width: 30%;
+                        color: white;
+                        font-weight: bold;
                     }
-                    .input-age {
-                        margin-left: 5vw;
-                        width: 15vw;
+                    .input-years {
+                        width: 20%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                        float: right;
+                    }
+                }
+            }
+            .user-input-conocimientos {
+                width: 90vw;
+                border-radius: 2vw;
+                background-color: #92AFD7;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                margin-bottom: 2vh;
+                .user-icon-conocimientos {
+                    width: 10%;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    float: left;
+                    margin-left: 1vw;
+                }
+                .inputs-conocimientos {
+                    float: left;
+                    width: 90%;
+                    .input-conocimientos {
+                        margin-left: 1vw;
+                        width: 100%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                    }
+                }
+            }
+            .user-input-idioma {
+                width: 90vw;
+                border-radius: 2vw;
+                background-color: #92AFD7;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                margin-bottom: 2vh;
+                .user-icon-idioma {
+                    width: 10%;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    float: left;
+                    margin-left: 1vw;
+                }
+                .inputs-idioma {
+                    float: left;
+                    width: 90%;
+                    .input-idioma {
+                        margin-left: 1vw;
+                        width: 100%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                    }
+                }
+            }
+            .user-input-desc {
+                width: 90vw;
+                border-radius: 2vw;
+                background-color: #92AFD7;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                margin-bottom: 2vh;
+                .user-icon-desc {
+                    width: 30%;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    float: left;
+                    margin-left: 1vw;
+                    color: white;
+                    font-weight: bolder;
+                }
+                .inputs-desc {
+                    float: left;
+                    width: 90%;
+                    .input-desc {
+                        float: left;
+                        margin-left: 1vw;
+                        width: 100%;
+                        height: 10vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
                     }
                 }
             }
         }
-        .eliminar_cuenta_edit {
+        .eliminar-cuenta-edit {
             bottom: 0;
-            .eliminar_cuenta_btn {}
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            .eliminar-cuenta-btn {
+                padding: 0;
+                border-width: 0px;
+                cursor: pointer;
+                padding: 0;
+                margin: 0;
+                color: rgb(151, 0, 0);
+                background-color: transparent;
+            }
         }
+        .contenedor {
+            display: flex;
+            text-align: center;
+        }
+        .user-icon-more {
+            float: right;
+            position: absolute;
+            right: 1vh;
+            opacity: 0;
+            .user-icon-more-button {
+                padding: 0;
+                opacity: 0;
+                background-color: none;
+                border-width: 0px;
+                cursor: pointer;
+            }
+        }
+    }
+    .empresa-edit {
+        .empresa-input {
+            margin-top: 2vh;
+            width: 100%;
+            .user-input-name {
+                width: 89vw;
+                border-radius: 2vw;
+                background-color: #92AFD7;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                margin-bottom: 2vh;
+                .user-icon-name {
+                    width: 10%;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    float: left;
+                    margin-left: 1vw;
+                }
+                .inputs-name {
+                    float: left;
+                    width: 90%;
+                    .input-name {
+                        margin-left: 1vw;
+                        width: 35%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                    }
+                    .input-surname {
+                        width: 35%;
+                        margin-left: 1vw;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                    }
+                    .input-age {
+                        width: 18%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                        float: right;
+                    }
+                }
+            }
+        }
+        .eliminar-empresa-edit {
+            bottom: 0;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            .eliminar-empresa-btn {
+                padding: 0;
+                border-width: 0px;
+                cursor: pointer;
+                padding: 0;
+                margin: 0;
+                color: rgb(151, 0, 0);
+                background-color: transparent;
+            }
+        }
+    }
+    .modal-eliminar-user {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    .modal-content {
+        background-color: #ffffff;
+        margin: auto;
+        padding: 10px;
+        width: 80%;
+        height: 15vh;
+        .modal-title {
+            color: #000000;
+            font-weight: bolder;
+            font-size: 2vh;
+        }
+        .eliminar-user-butons {
+            width: 100%;
+            .cancelar-eliminar {
+                width: 49%;
+                background-color: #92AFD7;
+                color: white;
+                border-width: 0;
+                padding: 1vh;
+                font-weight: bolder;
+                cursor: pointer;
+                border-radius: 2vw;
+                &:hover {
+                    background-color: #758cad;
+                }
+            }
+            .aceptar-eliminar {
+                width: 49%;
+                background-color: rgb(151, 0, 0);
+                color: white;
+                border-width: 0;
+                padding: 1vh;
+                font-weight: bolder;
+                cursor: pointer;
+                border-radius: 2vw;
+                &:hover {
+                    background-color: rgb(199, 0, 0);
+                }
+            }
+        }
+    }
+    .close-modal-eliminar-empresa {
+        color: #000000;
+        float: right;
+        font-size: 2vh;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .modal-eliminar-empresa {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    .modal-content {
+        background-color: #ffffff;
+        margin: auto;
+        padding: 10px;
+        width: 80%;
+        height: 15vh;
+        .modal-title {
+            color: #000000;
+            font-weight: bolder;
+            font-size: 2vh;
+        }
+        .eliminar-empresa-butons {
+            width: 100%;
+            .cancelar-eliminar {
+                width: 49%;
+                background-color: #92AFD7;
+                color: white;
+                border-width: 0;
+                padding: 1vh;
+                font-weight: bolder;
+                cursor: pointer;
+                border-radius: 2vw;
+                &:hover {
+                    background-color: #758cad;
+                }
+            }
+            .aceptar-eliminar {
+                width: 49%;
+                background-color: rgb(151, 0, 0);
+                color: white;
+                border-width: 0;
+                padding: 1vh;
+                font-weight: bolder;
+                cursor: pointer;
+                border-radius: 2vw;
+                &:hover {
+                    background-color: rgb(199, 0, 0);
+                }
+            }
+        }
+    }
+    .close-modal-eliminar-empresa {
+        color: #000000;
+        float: right;
+        font-size: 2vh;
+        font-weight: bold;
+        cursor: pointer;
     }
 }
