@@ -166,7 +166,7 @@ body .alerts .alert {
 }
 
 body .alerts .alert .alert-foto {
-  width: 15vw;
+  width: 15%;
   -ms-flex-line-pack: right;
       align-content: right;
 }
@@ -178,7 +178,7 @@ body .alerts .alert .alert-foto .alert-profilefoto {
 }
 
 body .alerts .alert .alert-mensaje {
-  width: 55vw;
+  width: 55%;
   margin-left: 2vw;
 }
 
@@ -189,7 +189,7 @@ body .alerts .alert .alert-mensaje .alert-mensaje-text {
 }
 
 body .alerts .alert .alert-user {
-  width: 10vw;
+  width: 10%;
   text-align: right;
 }
 
@@ -201,7 +201,7 @@ body .alerts .alert .alert-user .alert-user-btn {
 
 body .alerts .alert .alert-chat {
   text-align: right;
-  width: 10vw;
+  width: 10%;
 }
 
 body .alerts .alert .alert-chat .alert-chat-btn {
@@ -307,11 +307,18 @@ body .curriculum .curriculum-title {
 }
 
 body .user-edit {
-  padding: 3vh;
+  padding: 2vh;
 }
 
-body .user-edit .user-edit-foto {
+body .user-edit .user-input {
+  margin-top: 2vh;
   width: 100%;
+}
+
+body .user-edit .user-input .user-input-name {
+  width: 89vw;
+  border-radius: 2vw;
+  background-color: #92AFD7;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -321,25 +328,142 @@ body .user-edit .user-edit-foto {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 2vh;
 }
 
-body .user-edit .user-edit-foto .user-edit-profilefoto {
-  border-radius: 60px;
-  height: 14vh;
-  width: 14vh;
+body .user-edit .user-input .user-input-name .user-icon-name {
+  width: 10%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: left;
+  margin-left: 1vw;
 }
 
-body .user-edit .edit-foto {
-  position: absolute;
-  margin: 50vw;
+body .user-edit .user-input .user-input-name .inputs-name {
+  float: left;
+  width: 90%;
 }
 
-body .user-edit .user-input {
-  margin-top: 2vh;
+body .user-edit .user-input .user-input-name .inputs-name .input-name {
+  margin-left: 1vw;
+  width: 35%;
+  height: 5vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
+}
+
+body .user-edit .user-input .user-input-name .inputs-name .input-surname {
+  width: 35%;
+  margin-left: 1vw;
+  height: 5vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
+}
+
+body .user-edit .user-input .user-input-name .inputs-name .input-age {
+  width: 18%;
+  height: 5vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
+  float: right;
+}
+
+body .user-edit .user-input .user-input-house {
+  width: 89vw;
+  border-radius: 2vw;
+  background-color: #92AFD7;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2vh;
+}
+
+body .user-edit .user-input .user-input-house .user-icon-house {
+  width: 10%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: left;
+  margin-left: 1vw;
+}
+
+body .user-edit .user-input .user-input-house .inputs-house {
+  float: right;
+  width: 90%;
+}
+
+body .user-edit .user-input .user-input-house .inputs-house .input-house {
+  margin-left: 1vw;
   width: 100%;
+  height: 5vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
 }
 
-body .user-edit .user-input .user-input-name {
+body .user-edit .user-input .user-input-studies {
+  width: 89vw;
+  border-radius: 2vw;
+  background-color: #92AFD7;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2vh;
+}
+
+body .user-edit .user-input .user-input-studies .user-icon-studies {
+  width: 10%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: left;
+  margin-left: 1vw;
+}
+
+body .user-edit .user-input .user-input-studies .inputs-studies {
+  float: left;
+  width: 90%;
+}
+
+body .user-edit .user-input .user-input-studies .inputs-studies .input-studies {
+  margin-left: 1vw;
+  width: 100%;
+  height: 5vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
+}
+
+body .user-edit .user-input .user-input-experience {
   width: 90vw;
   border-radius: 2vw;
   background-color: #92AFD7;
@@ -352,10 +476,199 @@ body .user-edit .user-input .user-input-name {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 2vh;
 }
 
-body .user-edit .user-input .user-input-name .user-icon-name {
-  width: 5vw;
+body .user-edit .user-input .user-input-experience .user-icon-experience {
+  width: 10%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: left;
+  margin-left: 1vw;
+}
+
+body .user-edit .user-input .user-input-experience .inputs-experience {
+  float: left;
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .user-edit .user-input .user-input-experience .inputs-experience .input-experience {
+  margin-left: 1vw;
+  width: 50%;
+  height: 5vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
+  float: left;
+}
+
+body .user-edit .user-input .user-input-experience .inputs-experience .p-tiempo {
+  margin-left: 1vw;
+  width: 30%;
+  color: white;
+  font-weight: bold;
+}
+
+body .user-edit .user-input .user-input-experience .inputs-experience .input-years {
+  width: 20%;
+  height: 5vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
+  float: right;
+}
+
+body .user-edit .user-input .user-input-conocimientos {
+  width: 90vw;
+  border-radius: 2vw;
+  background-color: #92AFD7;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2vh;
+}
+
+body .user-edit .user-input .user-input-conocimientos .user-icon-conocimientos {
+  width: 10%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: left;
+  margin-left: 1vw;
+}
+
+body .user-edit .user-input .user-input-conocimientos .inputs-conocimientos {
+  float: left;
+  width: 90%;
+}
+
+body .user-edit .user-input .user-input-conocimientos .inputs-conocimientos .input-conocimientos {
+  margin-left: 1vw;
+  width: 100%;
+  height: 5vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
+}
+
+body .user-edit .user-input .user-input-idioma {
+  width: 90vw;
+  border-radius: 2vw;
+  background-color: #92AFD7;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2vh;
+}
+
+body .user-edit .user-input .user-input-idioma .user-icon-idioma {
+  width: 10%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: left;
+  margin-left: 1vw;
+}
+
+body .user-edit .user-input .user-input-idioma .inputs-idioma {
+  float: left;
+  width: 90%;
+}
+
+body .user-edit .user-input .user-input-idioma .inputs-idioma .input-idioma {
+  margin-left: 1vw;
+  width: 100%;
+  height: 5vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
+}
+
+body .user-edit .user-input .user-input-desc {
+  width: 90vw;
+  border-radius: 2vw;
+  background-color: #92AFD7;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2vh;
+}
+
+body .user-edit .user-input .user-input-desc .user-icon-desc {
+  width: 30%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: left;
+  margin-left: 1vw;
+  color: white;
+  font-weight: bolder;
+}
+
+body .user-edit .user-input .user-input-desc .inputs-desc {
+  float: left;
+  width: 90%;
+}
+
+body .user-edit .user-input .user-input-desc .inputs-desc .input-desc {
+  float: left;
+  margin-left: 1vw;
+  width: 100%;
+  height: 10vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
+}
+
+body .user-edit .eliminar-cuenta-edit {
+  bottom: 0;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -367,22 +680,263 @@ body .user-edit .user-input .user-input-name .user-icon-name {
           align-items: center;
 }
 
-body .user-edit .user-input .user-input-name .inputs-name .input-name {
-  margin-left: 5vw;
-  width: 25vw;
-  height: 3vh;
+body .user-edit .eliminar-cuenta-edit .eliminar-cuenta-btn {
+  padding: 0;
+  border-width: 0px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  color: #970000;
+  background-color: transparent;
 }
 
-body .user-edit .user-input .user-input-name .inputs-name .input-surname {
-  width: 25vw;
+body .user-edit .contenedor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
 }
 
-body .user-edit .user-input .user-input-name .inputs-name .input-age {
-  margin-left: 5vw;
-  width: 15vw;
+body .user-edit .user-icon-more {
+  float: right;
+  position: absolute;
+  right: 1vh;
+  opacity: 0;
 }
 
-body .user-edit .eliminar_cuenta_edit {
+body .user-edit .user-icon-more .user-icon-more-button {
+  padding: 0;
+  opacity: 0;
+  background-color: none;
+  border-width: 0px;
+  cursor: pointer;
+}
+
+body .empresa-edit .empresa-input {
+  margin-top: 2vh;
+  width: 100%;
+}
+
+body .empresa-edit .empresa-input .user-input-name {
+  width: 89vw;
+  border-radius: 2vw;
+  background-color: #92AFD7;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2vh;
+}
+
+body .empresa-edit .empresa-input .user-input-name .user-icon-name {
+  width: 10%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: left;
+  margin-left: 1vw;
+}
+
+body .empresa-edit .empresa-input .user-input-name .inputs-name {
+  float: left;
+  width: 90%;
+}
+
+body .empresa-edit .empresa-input .user-input-name .inputs-name .input-name {
+  margin-left: 1vw;
+  width: 35%;
+  height: 5vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
+}
+
+body .empresa-edit .empresa-input .user-input-name .inputs-name .input-surname {
+  width: 35%;
+  margin-left: 1vw;
+  height: 5vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
+}
+
+body .empresa-edit .empresa-input .user-input-name .inputs-name .input-age {
+  width: 18%;
+  height: 5vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
+  float: right;
+}
+
+body .empresa-edit .eliminar-empresa-edit {
   bottom: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .empresa-edit .eliminar-empresa-edit .eliminar-empresa-btn {
+  padding: 0;
+  border-width: 0px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  color: #970000;
+  background-color: transparent;
+}
+
+body .modal-eliminar-user {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+body .modal-content {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 10px;
+  width: 80%;
+  height: 15vh;
+}
+
+body .modal-content .modal-title {
+  color: #000000;
+  font-weight: bolder;
+  font-size: 2vh;
+}
+
+body .modal-content .eliminar-user-butons {
+  width: 100%;
+}
+
+body .modal-content .eliminar-user-butons .cancelar-eliminar {
+  width: 49%;
+  background-color: #92AFD7;
+  color: white;
+  border-width: 0;
+  padding: 1vh;
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 2vw;
+}
+
+body .modal-content .eliminar-user-butons .cancelar-eliminar:hover {
+  background-color: #758cad;
+}
+
+body .modal-content .eliminar-user-butons .aceptar-eliminar {
+  width: 49%;
+  background-color: #970000;
+  color: white;
+  border-width: 0;
+  padding: 1vh;
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 2vw;
+}
+
+body .modal-content .eliminar-user-butons .aceptar-eliminar:hover {
+  background-color: #c70000;
+}
+
+body .close-modal-eliminar-empresa {
+  color: #000000;
+  float: right;
+  font-size: 2vh;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+body .modal-eliminar-empresa {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+body .modal-content {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 10px;
+  width: 80%;
+  height: 15vh;
+}
+
+body .modal-content .modal-title {
+  color: #000000;
+  font-weight: bolder;
+  font-size: 2vh;
+}
+
+body .modal-content .eliminar-empresa-butons {
+  width: 100%;
+}
+
+body .modal-content .eliminar-empresa-butons .cancelar-eliminar {
+  width: 49%;
+  background-color: #92AFD7;
+  color: white;
+  border-width: 0;
+  padding: 1vh;
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 2vw;
+}
+
+body .modal-content .eliminar-empresa-butons .cancelar-eliminar:hover {
+  background-color: #758cad;
+}
+
+body .modal-content .eliminar-empresa-butons .aceptar-eliminar {
+  width: 49%;
+  background-color: #970000;
+  color: white;
+  border-width: 0;
+  padding: 1vh;
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 2vw;
+}
+
+body .modal-content .eliminar-empresa-butons .aceptar-eliminar:hover {
+  background-color: #c70000;
+}
+
+body .close-modal-eliminar-empresa {
+  color: #000000;
+  float: right;
+  font-size: 2vh;
+  font-weight: bold;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

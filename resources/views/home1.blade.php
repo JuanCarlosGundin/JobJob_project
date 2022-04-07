@@ -56,6 +56,25 @@
             </div>
         </div>
         <hr class="alert-linea">
+        <div class="alert">
+            <div class="alert-foto">
+                <img class="alert-profilefoto" src="https://www.altheis.es/wp-content/uploads/2019/01/massada-men.jpg">
+            </div>
+            <div class="alert-mensaje">
+                <p class="alert-mensaje-text">¡Le interesas a manolo!</p>
+            </div>
+            <div class="alert-user">
+                <button class="alert-user-btn">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+            </div>
+            <div class="alert-none">
+                <button class="alert-chat-btn">
+                    <i class="fa-solid fa-comments"></i>
+                </button>
+            </div>
+        </div>
+        <hr class="alert-linea">
     </div>
 </body>
 
