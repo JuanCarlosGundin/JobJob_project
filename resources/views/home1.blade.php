@@ -68,10 +68,8 @@
                     <i class="fa-solid fa-user"></i>
                 </button>
             </div>
-            <div class="alert-none">
-                <button class="alert-chat-btn">
-                    <i class="fa-solid fa-comments"></i>
-                </button>
+            <div class="alert-nada">
+                <i class="fa-solid fa-comments"></i>
             </div>
         </div>
         <hr class="alert-linea">

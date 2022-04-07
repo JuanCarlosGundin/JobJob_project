@@ -189,13 +189,15 @@ body {
                     font-size: 3vh;
                 }
             }
-            .alert-none {
+            .alert-nada {
                 width: 10%;
                 text-align: right;
-                .alert-none-btn {
+                color: transparent;
+                .alert-nada-btn {
                     background-color: #E5E5E5;
                     border-width: 0;
                     font-size: 3vh;
+                    color: transparent;
                 }
             }
         }

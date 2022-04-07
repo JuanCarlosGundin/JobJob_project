@@ -210,6 +210,19 @@ body .alerts .alert .alert-chat .alert-chat-btn {
   font-size: 3vh;
 }
 
+body .alerts .alert .alert-nada {
+  width: 10%;
+  text-align: right;
+  color: transparent;
+}
+
+body .alerts .alert .alert-nada .alert-nada-btn {
+  background-color: #E5E5E5;
+  border-width: 0;
+  font-size: 3vh;
+  color: transparent;
+}
+
 body .alerts .alert-linea {
   width: 95vw;
 }
