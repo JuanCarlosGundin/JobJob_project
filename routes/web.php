@@ -96,12 +96,10 @@ Route::post('registroPost',[UsuarioController::class, 'registroPost']);
 Route::post('registroEmpresaPost',[UsuarioController::class, 'registroEmpresaPost']);
 
 /*EDITAR PERFIL*/
-// ruta para modificar perfil trabajador.
-Route::post('leertrabajador',[UsuarioController::class, 'leertrabajadorController']);
-// ruta para modificar trabajador.
-Route::put('modificartrabajador',[UsuarioController::class, 'modificartrabajadorController']);
-// ruta para eliminar trabajador.
-Route::delete('eliminartrabajador/{id}', [UsuarioController::class, 'eliminartrabajadorController']);
+// mostrarperfil.
+Route::post('leerperfil',[UsuarioController::class, 'leerperfiledit']);
+// editarperfil
+Route::put('editarperfil/{id}/{id_perfil}',[UsuarioController::class, 'editarperfil']);
 /*FIN EDITAR PERFIL*/
 
 

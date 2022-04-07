@@ -1,39 +1,5 @@
 window.onload = function() {
-    leerJS();
-    /*CODIGO MODAL*/
-
-    // Get the modal
-    modal = document.getElementById("myModal");
-
-    // Get the <span> element that closes the modal
-    span = document.getElementsByClassName("close")[0];
-
-
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-}
-
-function abrirModal(id_usuario, nombre, apellido, campo_user, experiencia, estudios, idiomas, disponibilidad, about_user) {
-    modal.style.display = "block";
-    document.getElementById('modid').value = id_usuario;
-    document.getElementById('modnombre').value = nombre;
-    document.getElementById('modapellido').value = apellido;
-    document.getElementById('modcampo_user').value = campo_user;
-    document.getElementById('modexperiencia').value = experiencia;
-    document.getElementById('modestudios').value = estudios;
-    document.getElementById('modidiomas').value = idiomas;
-    document.getElementById('moddisponibilidad').value = disponibilidad;
-    document.getElementById('modabout_user').value = about_user;
+    leerperfilJS();
 }
 
 function objetoAjax() {
@@ -53,120 +19,174 @@ function objetoAjax() {
     return xmlhttp;
 }
 
-/* Función implementada con AJAX */
-function leerJS() {
-    /* Si hace falta obtenemos el elemento HTML donde introduciremos la recarga (datos o mensajes) */
-    /* Usar el objeto FormData para guardar los parámetros que se enviarán:
-       formData.append('clave', valor);
-       valor = elemento/s que se pasarán como parámetros: token, method, inputs... */
-    var tabla = document.getElementById("main");
+function leerperfilJS() {
+    var zonaperfil = document.getElementById("zonaperfil");
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
-
-    /* Inicializar un objeto AJAX */
     var ajax = objetoAjax();
-
-    ajax.open("POST", "leertrabajador", true);
+    ajax.open("POST", "leerperfil", true);
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
+            var id_perfil = respuesta.id_perfil;
+            console.log(respuesta);
             var recarga = '';
-            recarga += '<tr><td>EMAIL</td><td>CONTRASEÑA</td><td>NOMBRE</td><td>APELLIDO</td><td>FOTO</td><td>CAMPO</td><td>EXPERIENCIA</td><td>ESTUDIOS</td><td>IDIOMAS</td><td>DISPONIBILIDAD</td><td>SOBRE MI</td></tr>';
-            /* Leerá la respuesta que es devuelta por el controlador: */
-            for (let i = 0; i < respuesta.length; i++) {
-                recarga += '<tr>';
-                recarga += '<td>' + respuesta[i].mail + '</td>'
-                recarga += '<td>' + respuesta[i].contra + '</td>'
-                recarga += '<td>' + respuesta[i].nombre + '</td>'
-                recarga += '<td>' + respuesta[i].apellido + '</td>'
-                recarga += '<td><img src="storage/' + respuesta[i].foto_perfil + '" style="width:15px;"></td>'
-                recarga += '<td>' + respuesta[i].campo_user + '</td>'
-                recarga += '<td>' + respuesta[i].experiencia + '</td>'
-                recarga += '<td>' + respuesta[i].estudios + '</td>'
-                recarga += '<td>' + respuesta[i].idiomas + '</td>'
-                recarga += '<td>' + respuesta[i].disponibilidad + '</td>'
-                recarga += '<td>' + respuesta[i].about_user + '</td>'
-                recarga += '<td>' + respuesta[i].campo_user + '</td>'
-
-                // recarga += '<td><button onclick="eliminarJS(' + respuesta[i].id_ubicacion + ')">Eliminar</button></td>'
-                recarga += '<td><button type="submit" value="Modificar" onclick="abrirModal(' + respuesta[i].id_usuario + ',\'' + respuesta[i].nombre + '\',\'' + respuesta[i].apellido + '\',\'' + respuesta[i].campo_user + '\',\'' + respuesta[i].experiencia + '\',\'' + respuesta[i].estudios + '\',\'' + respuesta[i].idiomas + '\',\'' + respuesta[i].disponibilidad + '\',\'' + respuesta[i].about_user + '\');return false;">Modificar</button></td>'
-                    // recarga += '<td><button type="submit" value="Modificar" onclick="abrirModal(' + respuesta[i].id_usuario + ',\'' + respuesta[i].nombre + ',\'' + respuesta[i].apellido + '\',\'' + respuesta[i].campo_user + '\',\'' + respuesta[i].experiencia + '\',\'' + respuesta[i].estudios + '\');return false;">Modificar</button></td>'
-
-                recarga += '</tr>';
-
+            if (id_perfil == 2) {
+                var trabajador = respuesta.trabajador[0];
+                recarga += '<form method="POST" onsubmit="editarperfilJS(\'' + trabajador.id + '\',\'' + id_perfil + '\'); return false;" id="formeditar" enctype="multipart/form-data">';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Correo:</label>';
+                recarga += '<input type="email" class="form-control" id="mail" name="mail" value="' + trabajador.mail + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Contraseña:</label>';
+                recarga += '<input type="password" class="form-control" id="contra" name="contra" value="' + trabajador.contra + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Nombre:</label>';
+                recarga += '<input type="text" class="form-control" id="nombre" name="nombre" value="' + trabajador.nombre + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Apellido:</label>';
+                recarga += '<input type="text" class="form-control" id="apellido" name="apellido" value="' + trabajador.apellido + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Sector:</label>';
+                recarga += '<input type="text" class="form-control" id="campo_user" name="campo_user" value="' + trabajador.campo_user + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Localizacion:</label>';
+                recarga += '<input type="text" class="form-control" id="loc_trabajador" name="loc_trabajador" value="' + trabajador.loc_trabajador + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Experiencia:</label>';
+                recarga += '<input type="text" class="form-control" id="experiencia" name="experiencia" value="' + trabajador.experiencia + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Edad:</label>';
+                recarga += '<input type="text" class="form-control" id="edad" name="edad" value="' + trabajador.edad + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Estudios:</label>';
+                recarga += '<input type="text" class="form-control" id="estudios" name="estudios" value="' + trabajador.estudios + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Idiomas:</label>';
+                recarga += '<input type="text" class="form-control" id="idiomas" name="idiomas" value="' + trabajador.idiomas + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Disponibilidad:</label>';
+                recarga += '<input type="text" class="form-control" id="disponibilidad" name="disponibilidad" value="' + trabajador.disponibilidad + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Sobre ti:</label>';
+                recarga += '<input type="text" class="form-control" id="about_user" name="about_user" value="' + trabajador.about_user + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Mostrado:</label>';
+                recarga += '<input type="number" class="form-control" id="mostrado" name="mostrado" value="' + trabajador.mostrado + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Foto:</label>';
+                recarga += '<input type="file" class="form-control" id="foto_perfil" name="foto_perfil">';
+                recarga += '</div>';
+                recarga += '<button type="submit" class="btn btn-primary">Modificar</button>';
+                recarga += '</form>';
             }
-            tabla.innerHTML = recarga;
+            if (id_perfil == 3) {
+                var empresa = respuesta.empresa[0];
+                recarga += '<form method="POST" onsubmit="editarperfilJS(\'' + empresa.id + '\',\'' + id_perfil + '\'); return false;" id="formeditar" enctype="multipart/form-data">';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Correo:</label>';
+                recarga += '<input type="email" class="form-control" id="mail" name="mail" value="' + empresa.mail + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Contraseña:</label>';
+                recarga += '<input type="password" class="form-control" id="contra" name="contra" value="' + empresa.contra + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Nombre:</label>';
+                recarga += '<input type="text" class="form-control" id="nom_emp" name="nom_emp" value="' + empresa.nom_emp + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Localizacion:</label>';
+                recarga += '<input type="text" class="form-control" id="loc_emp" name="loc_emp" value="' + empresa.loc_emp + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Sobre nosotros:</label>';
+                recarga += '<input type="text" class="form-control" id="about_emp" name="about_emp" value="' + empresa.about_emp + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Sector:</label>';
+                recarga += '<input type="text" class="form-control" id="campo_emp" name="campo_emp" value="' + empresa.campo_emp + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Que buscas:</label>';
+                recarga += '<input type="text" class="form-control" id="searching" name="searching" value="' + empresa.searching + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Vacante:</label>';
+                recarga += '<input type="text" class="form-control" id="vacante" name="vacante" value="' + empresa.vacante + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Mostrado:</label>';
+                recarga += '<input type="number" class="form-control" id="mostrado" name="mostrado" value="' + empresa.mostrado + '">';
+                recarga += '</div>';
+                recarga += '<div class="form-group">';
+                recarga += '<label class="col-sm-2 col-form-label">Logo:</label>';
+                recarga += '<input type="file" class="form-control" id="logo_emp" name="logo_emp">';
+                recarga += '</div>';
+                recarga += '<button type="submit" class="btn btn-primary">Modificar</button>';
+                recarga += '</form>';
+            }
+            zonaperfil.innerHTML = recarga;
         }
     }
 
     ajax.send(formData);
 }
-//BORRAR
-function eliminarJS(id) {
-    /* Si hace falta obtenemos el elemento HTML donde introduciremos la recarga (datos o mensajes) */
-    /* Usar el objeto FormData para guardar los parámetros que se enviarán:
-       formData.append('clave', valor);
-       valor = elemento/s que se pasarán como parámetros: token, method, inputs... */
-    var formData = new FormData();
-    formData.append('_token', document.getElementById('token').getAttribute("content"));
-    formData.append('_method', 'DELETE');
-    formData.append('id_ubicacion', id);
-    /* Inicializar un objeto AJAX */
-    var ajax = objetoAjax();
-    ajax.open("POST", "eliminar/" + id, true);
-    ajax.onreadystatechange = function() {
-        if (ajax.readyState == 4 && ajax.status == 200) {
-            var respuesta = JSON.parse(this.responseText);
-            /* Leerá la respuesta que es devuelta por el controlador: */
-            if (respuesta.resultado == 'OK') {
-                document.getElementById('mensaje').innerHTML = "eliminado correctamente."
-            } else {
-                document.getElementById('mensaje').innerHTML = "Fallo eliminando " + respuesta.resultado;
-            }
-            leerJS();
-        }
-    }
 
-    ajax.send(formData);
-}
+
 //EDITAR
-function editartrabajadorJS() {
-    /* Si hace falta obtenemos el elemento HTML donde introduciremos la recarga (datos o mensajes) */
-    /* Usar el objeto FormData para guardar los parámetros que se enviarán:
-       formData.append('clave', valor);
-       valor = elemento/s que se pasarán como parámetros: token, method, inputs... */
+function editarperfilJS(id, id_perfil) {
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
-    formData.append('_method', "PUT");
-    formData.append('id_usuario', document.getElementById('modid').value);
-    // formData.append('id_perfil', document.getElementById('modid_perfil').value);
-    formData.append('nombre', document.getElementById('modnombre').value);
-    formData.append('apellido', document.getElementById('modapellido').value);
-    formData.append('campo_user', document.getElementById('modcampo_user').value);
-    formData.append('experiencia', document.getElementById('modexperiencia').value);
-    formData.append('estudios', document.getElementById('modestudios').value);
-    // formData.append('mostrado', document.getElementById('modmostrado').value);
-    formData.append('idiomas', document.getElementById('modidiomas').value);
-    formData.append('disponibilidad', document.getElementById('moddisponibilidad').value);
-    formData.append('about_user', document.getElementById('modabout_user').value);
-    // formData.append('foto_perfil', document.getElementById('modfoto_perfil').files[0]);
-    /* Inicializar un objeto AJAX */
+    formData.append('_method', 'PUT');
+    formData.append('mail', document.getElementById('mail').value);
+    formData.append('contra', document.getElementById('contra').value);
+    /* modificar trabajador */
+    if (id_perfil == 2) {
+        formData.append('nombre', document.getElementById('nombre').value);
+        formData.append('apellido', document.getElementById('apellido').value);
+        formData.append('campo_user', document.getElementById('campo_user').value);
+        formData.append('loc_trabajador', document.getElementById('loc_trabajador').value);
+        formData.append('experiencia', document.getElementById('experiencia').value);
+        formData.append('edad', document.getElementById('edad').value);
+        formData.append('estudios', document.getElementById('estudios').value);
+        formData.append('idiomas', document.getElementById('idiomas').value);
+        formData.append('disponibilidad', document.getElementById('disponibilidad').value);
+        formData.append('about_user', document.getElementById('about_user').value);
+        formData.append('foto_perfil', document.getElementById('foto_perfil').files[0]);
+        formData.append('mostrado', document.getElementById('mostrado').value);
+    }
+    /* modificar empresa */
+    if (id_perfil == 3) {
+        formData.append('nom_emp', document.getElementById('nom_emp').value);
+        formData.append('loc_emp', document.getElementById('loc_emp').value);
+        formData.append('about_emp', document.getElementById('about_emp').value);
+        formData.append('campo_emp', document.getElementById('campo_emp').value);
+        formData.append('searching', document.getElementById('searching').value);
+        formData.append('vacante', document.getElementById('vacante').value);
+        formData.append('logo_emp', document.getElementById('logo_emp').files[0]);
+        formData.append('mostrado', document.getElementById('mostrado').value);
+    }
     var ajax = objetoAjax();
-
-    ajax.open("POST", "modificartrabajador", true);
+    ajax.open("POST", "editarperfil/" + id + "/" + id_perfil, true);
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
-            /* Leerá la respuesta que es devuelta por el controlador: */
-            if (respuesta.resultado == 'OK') {
-                document.getElementById('mensaje').innerHTML = "editado correctamente."
-            } else {
-                document.getElementById('mensaje').innerHTML = "Fallo editando " + respuesta.resultado;
-            }
-            leerJS();
+            leerperfilJS();
         }
     }
-
     ajax.send(formData);
-    modal.style.display = "none";
 }
