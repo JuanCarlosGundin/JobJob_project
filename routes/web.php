@@ -80,9 +80,6 @@ Route::get('paginatrabajador', function () {
 Route::get('registrar', function () {
     return view('registrar');
 });
-Route::get('editarperfil', function () {
-    return view('editarperfil');
-});
 /*--------------RUTAS DAVID--------------*/
 
 /*LOGIN Y LOGOUT*/
@@ -96,6 +93,8 @@ Route::post('registroPost',[UsuarioController::class, 'registroPost']);
 Route::post('registroEmpresaPost',[UsuarioController::class, 'registroEmpresaPost']);
 
 /*EDITAR PERFIL*/
+//Vista perfil
+Route::get('perfil',[UsuarioController::class, 'vistaPerfil']);
 // mostrarperfil.
 Route::post('leerperfil',[UsuarioController::class, 'leerperfiledit']);
 // editarperfil

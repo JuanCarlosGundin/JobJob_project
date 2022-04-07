@@ -344,7 +344,12 @@ class UsuarioController extends Controller
     }
 
     ///ZONA NOTIFICACIONES
-    /*----------------------------------------editarperfil--------------------------------------------------------------------------*/
+    ///ZONA PERFIL
+
+    public function vistaPerfil(){
+        return view('perfil');
+    }
+
     public function leerperfiledit(){
         $id=session()->get('id_user');
         $id_perfil=session()->get('id_perfil');
@@ -407,5 +412,5 @@ class UsuarioController extends Controller
             return response()->json(array('resultado'=> 'NOK: '.$e->getMessage()));
         }
     }
-    /*----------------------------------------editar perfil---------------------------------------------------------------------*/
+    ///ZONA PERFIL
 }
