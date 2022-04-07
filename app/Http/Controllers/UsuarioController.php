@@ -28,6 +28,8 @@ class UsuarioController extends Controller
             $adminquery="SELECT * FROM tbl_usuarios WHERE mail like '{$filcorreo}%' and id_perfil='1'";
             $admin=DB::select($adminquery);
             $datos+=array('admin' => $admin);
+            /* $idadmin = session()->get('id_user');
+            $datos+=array('idadmin' => $idadmin); */
         }
         /* si se ha seleccionado trabajador en el checkbox */
         if ($Trabajador == 'true'){

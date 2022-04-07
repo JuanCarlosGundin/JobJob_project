@@ -57,6 +57,7 @@ function leerJS() {
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
+            console.log(respuesta);
             /* si respuesta tiene (respuesta.admin) */
             if (respuesta.hasOwnProperty('admin')) {
                 var admin = respuesta.admin;
@@ -73,6 +74,9 @@ function leerJS() {
                 for (let i = 0; i < admin.length; i++) {
                     recargaadmin += '<tr>';
                     recargaadmin += '<td>' + admin[i].mail + '</td>';
+                    /* if (admin[i].id == respuesta.idadmin) {
+                        alert("hola");
+                    } */
                     /* Banear o restaurar cuenta */
                     if (admin[i].estado == 1) {
                         recargaadmin += '<td><button type="button" class="btn btn-warning" onclick="estadouserJS(' + admin[i].id + '); return false;">Banear</button></td>';
@@ -427,7 +431,7 @@ function actualizarmodal(id, id_perfil) {
             var respuesta = JSON.parse(this.responseText);
             var usuarios = respuesta.usuarios;
             recargamodal = "";
-            recargamodal += '<form method="POST" onsubmit="modificarJS(\'' + id + '\',\'' + id_perfil + '\'); return false;" id="formcrear" enctype="multipart/form-data">';
+            recargamodal += '<form method="POST" onsubmit="modificarJS(\'' + id + '\',\'' + id_perfil + '\'); return false;" id="formactualizar" enctype="multipart/form-data">';
             recargamodal += '<div class="form-group">';
             recargamodal += '<label class="col-sm-2 col-form-label">Correo:</label>';
             recargamodal += '<input type="email" class="form-control" id="mail" name="mail" value="' + usuarios.mail + '">';
