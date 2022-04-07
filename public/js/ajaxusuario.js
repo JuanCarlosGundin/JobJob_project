@@ -164,6 +164,10 @@ function empresa() {
     recarga += '<p>Sobre la empresa</p>'
     recarga += '<input type="text" class="inputregister" id="about_emp" name="about_emp" placeholder="Sobre mi empresa..."><br><br>'
     recarga += '</div>'
+    recarga += '<div class="column-2">'
+    recarga += '<p>Vacante</p>'
+    recarga += '<input type="text" class="inputregister" id="vacante" name="vacante" placeholder="Qué buscamos..."><br><br>'
+    recarga += '</div>'
     recarga += '<input id="id_perfil" name="id_perfil" type="hidden" value="3">'
     recarga += '<input type="submit" class="botonregister" value="Registrarme">'
     recarga += '</form>'
@@ -322,6 +326,7 @@ function crearempresaJS() {
     formData.append('searching', document.getElementById('searching').value);
     formData.append('mostrado', document.getElementById('mostrado').value);
     formData.append('about_emp', document.getElementById('about_emp').value);
+    formData.append('vacante', document.getElementById('vacante').value);
     formData.append('logo_emp', document.getElementById('logo_emp').files[0]);
     var ajax = objetoAjax();
     ajax.open("POST", "registroEmpresaPost", true);
@@ -329,7 +334,13 @@ function crearempresaJS() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
             if (respuesta.resultado == "OK") {
-                window.location.href = 'login';
+                swal.fire({
+                    title: "Registrado",
+                    text: "Comprueba tu correo para verificarte.",
+                    showConfirmButton: false,
+                    icon: "success",
+                });
+                setTimeout(() => { window.location.href = 'login'; }, 2000);
 
             } else {
                 alert("tonto")
