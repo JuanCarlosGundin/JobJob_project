@@ -913,13 +913,15 @@ body .user-edit .aceptar-cuenta-edit {
 }
 
 body .user-edit .aceptar-cuenta-edit .aceptar-cuenta-btn {
+  border-radius: 5vh;
+  width: 50%;
   padding: 0;
   border-width: 0px;
   cursor: pointer;
   padding: 0;
   margin: 0;
-  color: #278a00;
-  background-color: transparent;
+  color: white;
+  background-color: #278a00;
 }
 
 body .user-edit .contenedor {
