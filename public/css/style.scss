@@ -286,7 +286,7 @@ body {
         }
     }
     ////////////////////////////////LOGIN//////////////////////////////////////
-    /////////////////////////////////vER-PERFIL////////////////////////////////////
+    /////////////////////////////////VER-PERFIL////////////////////////////////////
     .user-vista {
         width: 100;
         padding: 2vh;
@@ -330,31 +330,26 @@ body {
                 display: flex;
                 align-items: center;
                 margin-bottom: 2vh;
-                .user-icon-name {
-                    width: 10%;
-                    justify-content: center;
-                    display: flex;
-                    align-items: center;
-                    float: right;
-                    margin-left: 1vw;
-                }
                 .divs-name {
                     float: left;
-                    width: 90%;
+                    width: 100%;
                     .p-name {
-                        margin-left: 1vw;
                         width: 35%;
                         height: 5vh;
+                        font-size: 3vh;
+                        font-weight: bolder;
                     }
                     .p-surname {
                         width: 35%;
-                        margin-left: 1vw;
                         height: 5vh;
+                        font-size: 3vh;
+                        font-weight: bolder;
                     }
-                    .ps-age {
+                    .p-age {
                         width: 18%;
                         height: 5vh;
-                        float: right;
+                        font-size: 3vh;
+                        font-weight: bolder;
                     }
                 }
             }
@@ -364,6 +359,7 @@ body {
                 justify-content: center;
                 display: flex;
                 align-items: center;
+                margin-top: 2vh;
                 margin-bottom: 2vh;
                 .user-icon-house {
                     width: 10%;
@@ -412,7 +408,7 @@ body {
             }
         }
     }
-    /////////////////////////////////PERFIL-EDITAR////////////////////////////////////
+    /////////////////////////////////EDITAR-PERFIL////////////////////////////////////
     .user-edit {
         width: 100;
         padding: 2vh;
@@ -897,5 +893,116 @@ body {
         font-size: 2vh;
         font-weight: bold;
         cursor: pointer;
+    }
+    ///////////////////////////////VER-EMPRESA//////////////////////////////////////
+    .empresa-vista {
+        width: 100;
+        padding: 2vh;
+        .empresa-ver-foto {
+            width: 100%;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+            .empresa-profilefoto {
+                border-radius: 60px;
+                height: 14vh;
+                width: 14vh;
+            }
+            .empresa-edit-div {
+                float: left;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                .empresa-edit-btn {
+                    height: 5vh;
+                    width: 5vh;
+                    padding: 0;
+                    border-width: 0px;
+                    cursor: pointer;
+                    padding: 0;
+                    margin: 0;
+                    border-radius: 60px;
+                    color: white;
+                    background-color: $third-color;
+                    font-size: 2vh;
+                }
+            }
+        }
+        .empresa-ver {
+            margin-top: 2vh;
+            width: 100%;
+            .empresa-div-name {
+                width: 89vw;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                margin-bottom: 2vh;
+                margin-top: 2vh;
+                .divs-name {
+                    float: left;
+                    width: 100%;
+                    .p-name {
+                        width: 35%;
+                        height: 5vh;
+                        font-size: 3vh;
+                        font-weight: bolder;
+                    }
+                }
+            }
+            .empresa-div-house {
+                width: 89vw;
+                border-radius: 2vw;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                margin-bottom: 2vh;
+                margin-top: 2vh;
+                .empresa-icon-house {
+                    width: 10%;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    float: left;
+                    margin-left: 1vw;
+                }
+                .divs-house {
+                    float: right;
+                    width: 90%;
+                    .p-house {
+                        margin-left: 1vw;
+                        width: 100%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                    }
+                }
+            }
+            .empresa-div-desc {
+                width: 89vw;
+                border-radius: 2vw;
+                margin-bottom: 2vh;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                .empresa-icon-desc {
+                    width: 25%;
+                    float: left;
+                    margin-left: 1vw;
+                    .sobre-mi-desc {
+                        font-weight: bolder;
+                    }
+                }
+                .divs-desc {
+                    float: right;
+                    width: 75%;
+                    .p-desc {
+                        margin-left: 1vw;
+                        width: 100%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                    }
+                }
+            }
+        }
     }
 }

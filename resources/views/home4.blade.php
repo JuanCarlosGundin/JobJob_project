@@ -31,31 +31,25 @@
 
     {{------------------------------------------------- VER USUARIO --------------------------------------------}}
 
-    {{-- Foto --}}
-
     <div class="user-vista">
+        {{-- Foto --}}
         <div class="user-ver-foto">
-            <div class="container-foto">
-                <img class="user-profilefoto" src="https://www.altheis.es/wp-content/uploads/2019/01/massada-men.jpg">
-                <div class="user-edit-div">
-                    <button class="user-edit-btn"><i class="fa-solid fa-pen"></i></button>
-                </div>
+            <img class="user-profilefoto" src="https://www.altheis.es/wp-content/uploads/2019/01/massada-men.jpg">
+            <div class="user-edit-div">
+                <button class="user-edit-btn"><i class="fa-solid fa-pen"></i></button>
             </div>
         </div>
         {{-- Inputs para editar el usuario --}}
         <div class="user-ver">
             {{-- Nombre, apellido y edad --}}
             <div class="user-div-name">
-                <div class="user-icon-name">
-                    <i class="fa-solid fa-user"></i>
-                </div>
                 <div class="divs-name">
                     <span class="p-name">Juan</span>
-                    <span class="p-surname">Garcia</span>
-                    <i class="fa-solid fa-cake-candles"></i>
+                    <span class="p-surname">Garcia,</span>
                     <span class="p-age"> 23</span>
                 </div>
             </div>
+            <hr>
             {{-- Correo --}}
             <div class="user-div-house">
                 <div class="user-icon-name">
@@ -129,6 +123,7 @@
                 </div>
             </div>
             {{-- Descripcion --}}
+            <hr>
             <div class="user-div-desc">
                 <div class="user-icon-desc">
                     <span class="sobre-mi-desc">Sobre mi:</span>
@@ -352,78 +347,72 @@
         </div>
     </div>
       
+    {{------------------------------------------------- VER EMPRESA --------------------------------------------}}
 
-    <hr>
-    {{------------------------------------------------- EDITAR EMPRESA --------------------------------------------}}
-    <hr>
-
-    <div class="empresa-edit">
-        <form>
-            {{-- Inputs para editar empresa --}}
-            <div class="empresa-input">
-                {{-- Nombre de la empresa --}}
-                <div class="empresa-input-name">
-                    <div class="empresa-icon-name">
-                        <i class="fa-solid fa-user-tie"></i>
-                    </div>
-                    <div class="inputs-name">
-                        <input class="input-name" type="text">
-                    </div>
-                </div>
-                {{-- Ubicacion --}}
-                <div class="user-input-ubi">
-                    <div class="user-icon-ubi">
-                        <i class="fa-solid fa-house-chimney"></i>
-                    </div>
-                    <div class="inputs-ubi">
-                        <input class="input-ubi" type="text">
-                    </div>
-                </div>
-                {{-- Tipo --}}
-                <div class="contenedor">
-                    <div class="user-input-tipo">
-                        <div class="user-icon-tipo">
-                            <i class="fa-solid fa-book-open"></i>
-                        </div>
-                        <div class="inputs-tipo">
-                            <input class="input-tipo" type="text">
-                        </div>
-                    </div>
-                    <div class="user-icon-more">
-                        <button class="user-icon-more-button">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-                    </div>
-                </div>
-                {{-- Descripcion --}}
-                <div class="user-input-desc">
-                    <div class="user-icon-desc">
-                        <span class="sobre-mi">Sobre mi</span>
-                    </div>
-                    <div class="inputs-desc">
-                        <input class="input-desc" type="text">
-                    </div>
-                </div>
-            </div>
-        </form>
-        {{-- Eliminar empresa --}}
-        <div class="eliminar-empresa-edit">
-            <button class="eliminar-empresa-btn">
-                <p><i class="fa-solid fa-trash-can"></i>Eliminar cuenta</p>
-            </button>
-        </div>
-    </div>
-
-    {{-- Eliminar cuenta empresa --}}
-    <div id="modal-eliminar-empresa" class="modal-eliminar-empresa">
-        <div class="modal-content">
-            <span class="close-modal-eliminar-empresa">&times;</span>
-            <h2 class="modal-title">¿Seguro que quieres eliminar la empresa?</h2>
-            <div class="eliminar-empresa-butons">
-                <button class="cancelar-eliminar">Cancelar</button>
-                <button class="aceptar-eliminar">Eliminar</button>
+    <div class="empresa-vista">
+        {{-- Logo --}}
+        <div class="empresa-ver-foto">
+            <img class="empresa-profilefoto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWQFl_RA0jVMP-_Bxb8xScQ7wyLRTWkoGq04dvJtR4mEc4Tn4xLJTrtGWtyUlCeoIDB8I&usqp=CAU">
+            <div class="empresa-edit-div">
+                <button class="empresa-edit-btn"><i class="fa-solid fa-pen"></i></button>
             </div>
         </div>
+        {{-- Ver empresa --}}
+        <div class="empresa-ver">
+            {{-- Nombre --}}
+            <div class="empresa-div-name">
+                <div class="divs-name">
+                    <span class="p-name">Samsung</span>
+                </div>
+            </div>
+            {{-- Sede --}}
+            <hr>
+            <div class="empresa-div-house">
+                <div class="empresa-icon-name">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+                <div class="divs-house">
+                    <span class="p-house">Barcelona</span>
+                </div>
+            </div>
+            {{-- Campo --}}
+            <div class="empresa-div-house">
+                <div class="empresa-icon-name">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div class="divs-house">
+                    <span class="p-house">Tecnologia</span>
+                </div>
+            </div>
+            {{-- Que busca --}}
+            <div class="empresa-div-house">
+                <div class="empresa-icon-name">
+                    <i class="fa-solid fa-file-signature"></i>
+                </div>
+                <div class="divs-house">
+                    <span class="p-house">Buscamos informatico</span>
+                </div>
+            </div>
+            {{-- Vacante --}}
+            <div class="empresa-div-house">
+                <div class="empresa-icon-name">
+                    <i class="fa-solid fa-handshake"></i>
+                </div>
+                <div class="divs-house">
+                    <span class="p-house">Vacante</span>
+                </div>
+            </div>
+            <hr>
+            {{-- Descripcion --}}
+            <div class="empresa-div-desc">
+                <div class="empresa-icon-desc">
+                    <span class="sobre-mi-desc">Acerca de:</span>
+                </div>
+                <div class="divs-desc">
+                    <span class="p-desc">Empresa dedicada a la tecnologia</span>
+                </div>
+            </div>
+        </div> 
     </div>
 
 </body>
