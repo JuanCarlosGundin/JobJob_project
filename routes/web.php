@@ -109,6 +109,9 @@ Route::delete('eliminartrabajador/{id}', [UsuarioController::class, 'eliminartra
 ///mandar correo
 Route::post('mandar', [MailController::class, 'sending']);
 
+
+//ir a contenido principal
+Route::get('principal',[AppController::class, 'vistaPrincipal']);
 //LEER EL CONTENIDO
 Route::post('mostrar',[AppController::class, 'mostrar']);
 //Positivo

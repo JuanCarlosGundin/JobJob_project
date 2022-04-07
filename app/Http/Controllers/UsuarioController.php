@@ -347,18 +347,30 @@ class UsuarioController extends Controller
         $id_perfil=session()->get('id_perfil');
         //si el cliente es trabajador, mira ofertas de empresas
         if($id_perfil==2){
-        $empresas=DB::select('select * from tbl_usuarios 
-        inner join tbl_empresa on tbl_usuarios.id=tbl_empresa.id_usuario
-        inner join tbl_interaccion on tbl_usuarios.id=tbl_interaccion.id_interactuado
-        where tbl_usuarios.id_perfil=3 and nom_emp like ? and (tbl_interaccion.id_iniciador = ? and tbl_interaccion.tipo_interaccion <> 2)',[$req['filter']."%",$id]);
-        return response()->json(array('empresas'=> $empresas, 'id'=>$id, 'id_perfil' =>$id_perfil));
+            try {
+                DB::beginTransaction();
+                $empresas=DB::select('select * from tbl_usuarios
+                inner join tbl_interaccion on tbl_usuarios.id=tbl_interaccion.id_interactuado
+                inner join tbl_empresa on tbl_interaccion.id_iniciador=tbl_empresa.id_usuario
+                where tbl_empresa.nom_emp like ? and tbl_interaccion.id_interactuado = ? and tbl_interaccion.tipo_interaccion <> 2',[$req['filter']."%",$id]);
+                DB::commit();
+                return response()->json(array('empresas'=> $empresas, 'id'=>$id, 'id_perfil' =>$id_perfil));
+            } catch (\Exception $e) {
+                return response()->json(array('resultado'=> 'NOK: '.$e->getMessage()));
+            }
         }else{
             //si el cliente es empresa, mira ofertas de trabajador
-        $trabajadores=DB::select('select * from tbl_usuarios 
-        inner join tbl_trabajador on tbl_usuarios.id=tbl_trabajador.id_usuario
-        inner join tbl_interaccion on tbl_usuarios.id=tbl_interaccion.id_interactuado
-        where tbl_usuarios.id_perfil=2 and nombre like ? and (tbl_interaccion.id_iniciador = ? and tbl_interaccion.tipo_interaccion <> 2)',[$req['filter']."%",$id]);
-        return response()->json(array('trabajadores'=> $trabajadores, 'id'=>$id, 'id_perfil' =>$id_perfil));
+            try {
+                DB::beginTransaction();
+                $trabajadores=DB::select('select * from tbl_usuarios
+                inner join tbl_interaccion on tbl_usuarios.id=tbl_interaccion.id_interactuado
+                inner join tbl_trabajador on tbl_interaccion.id_iniciador=tbl_trabajador.id_usuario
+                where tbl_trabajador.nombre like ?  and tbl_interaccion.id_interactuado = ? and tbl_interaccion.tipo_interaccion <> 2',[$req['filter']."%",$id]);
+                DB::commit();
+                return response()->json(array('trabajadores'=> $trabajadores, 'id'=>$id, 'id_perfil' =>$id_perfil));
+            } catch (\Exception $e) {
+                return response()->json(array('resultado'=> 'NOK: '.$e->getMessage()));
+            }
         }
     }
 

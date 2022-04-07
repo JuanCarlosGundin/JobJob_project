@@ -8,9 +8,14 @@ use Illuminate\Support\Facades\DB;
 
 class AppController extends Controller
 {
+
+    function vistaPrincipal() {
+        return view('principal');
+    }
+
     function mostrar(Request $request){
-        $id=3;
-        $perfil=3;
+        $id=session()->get('id_user');
+        $perfil=session()->get('id_perfil');
         if($perfil==2){
         $datos=DB::select('select * from tbl_usuarios 
         left join tbl_empresa on tbl_usuarios.id=tbl_empresa.id_usuario
@@ -27,7 +32,7 @@ class AppController extends Controller
     }
 
     function si(Request $request){
-        $id=3;
+        $id=session()->get('id_user');
         $idClient = $request->input('idClient');
         $datos=DB::select('select count(*) from tbl_interaccion
         where id_iniciador=? and id_interactuado=?',[$idClient,$id]);
@@ -50,7 +55,7 @@ class AppController extends Controller
     }
 
     function no(Request $request){
-        $id=3;
+        $id=session()->get('id_user');
         $idClient = $request->input('idClient');
         $datos=DB::select('select count(*) from tbl_interaccion
         where id_iniciador=? and id_interactuado=?',[$idClient,$id]);
