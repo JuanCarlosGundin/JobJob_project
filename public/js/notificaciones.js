@@ -44,25 +44,28 @@ function leernotificacionesJS() {
                         recarga += '<img class="alert-profilefoto" src="storage/img/usuario.png">';
                     }
                     recarga += '</div>';
-                    recarga += '<div class="alert-mensaje">';
                     if (empresas[i].coincidencia == 1) {
+                        recarga += '<div class="alert-mensaje">';
                         recarga += '<p class="alert-mensaje-text">¡Tienes un match con ' + empresas[i].nom_emp + '!</p>';
-                    } else {
-                        recarga += '<p class="alert-mensaje-text">¡Le interesas a ' + empresas[i].nom_emp + '!</p>';
-                    }
-                    recarga += '</div>';
-                    recarga += '<div class="alert-user">';
-                    recarga += '<button class="alert-user-btn">';
-                    recarga += '<i class="fa-solid fa-user"></i>';
-                    recarga += '</button>';
-                    recarga += '</div>';
-                    if (empresas[i].coincidencia == 1) {
+                        recarga += '</div>';
                         recarga += '<div class="alert-chat">';
                         recarga += '<button onclick="chat(' + empresas[i].id_iniciador + '); return false;" class="alert-chat-btn">';
                         recarga += '<i class="fa-solid fa-comments"></i>';
                         recarga += '</button>';
                         recarga += '</div>';
+                    } else {
+                        recarga += '<div class="alert-mensaje">';
+                        recarga += '<p class="alert-mensaje-text">¡Le interesas a ' + empresas[i].nom_emp + '!</p>';
+                        recarga += '</div>';
+                        recarga += '<div class="alert-nada">';
+                        recarga += '<i class="fa-solid fa-comments"></i>';
+                        recarga += '</div>';
                     }
+                    recarga += '<div class="alert-user">';
+                    recarga += '<button class="alert-user-btn">';
+                    recarga += '<i class="fa-solid fa-user"></i>';
+                    recarga += '</button>';
+                    recarga += '</div>';
                     recarga += '</div>';
                     recarga += '<hr class="alert-linea"></hr>';
                 }
@@ -79,25 +82,28 @@ function leernotificacionesJS() {
                         recarga += '<img class="alert-profilefoto" src="storage/img/usuario.png">';
                     }
                     recarga += '</div>';
-                    recarga += '<div class="alert-mensaje">';
                     if (trabajadores[i].coincidencia == 1) {
+                        recarga += '<div class="alert-mensaje">';
                         recarga += '<p class="alert-mensaje-text">¡Tienes un match con ' + trabajadores[i].nombre + '!</p>';
-                    } else {
-                        recarga += '<p class="alert-mensaje-text">¡Le interesas a ' + trabajadores[i].nombre + '!</p>';
-                    }
-                    recarga += '</div>';
-                    recarga += '<div class="alert-user">';
-                    recarga += '<button class="alert-user-btn">';
-                    recarga += '<i class="fa-solid fa-user"></i>';
-                    recarga += '</button>';
-                    recarga += '</div>';
-                    if (trabajadores[i].coincidencia == 1) {
+                        recarga += '</div>';
                         recarga += '<div class="alert-chat">';
                         recarga += '<button onclick="chat(' + trabajadores[i].id_iniciador + '); return false;" class="alert-chat-btn">';
                         recarga += '<i class="fa-solid fa-comments"></i>';
                         recarga += '</button>';
                         recarga += '</div>';
+                    } else {
+                        recarga += '<div class="alert-mensaje">';
+                        recarga += '<p class="alert-mensaje-text">¡Le interesas a ' + trabajadores[i].nombre + '!</p>';
+                        recarga += '</div>';
+                        recarga += '<div class="alert-nada">';
+                        recarga += '<i class="fa-solid fa-comments"></i>';
+                        recarga += '</div>';
                     }
+                    recarga += '<div class="alert-user">';
+                    recarga += '<button class="alert-user-btn">';
+                    recarga += '<i class="fa-solid fa-user"></i>';
+                    recarga += '</button>';
+                    recarga += '</div>';
                     recarga += '</div>';
                     recarga += '<hr class="alert-linea"></hr>';
                 }
