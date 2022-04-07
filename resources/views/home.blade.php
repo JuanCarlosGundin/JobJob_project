@@ -15,24 +15,25 @@
 <body class="page-home">
   <div class="region-navbar">
     {{-- <div class="curriculum-navbar active-left">
-        <button class="icon active-icon"><i class="fa-solid fa-file-invoice"></i></button>
+        <button id="navbar-curriculum-icon" class="icon active-icon"><i class="fa-solid fa-file-invoice"></i></button>
     </div> --}}
     <div class="alerts-navbar">
-        <button class="icon" onClick="window.location.href='prueba1';"><i class="fa-solid fa-bell"></i></button>
+        <button id="navbar-alerts-icon" class="icon"><i class="fa-solid fa-bell"></i></button>
     </div>
-    <div class="main-navbar">
-        <button class="main-icon" onClick="window.location.href='prueba2';"><i class="fa-solid fa-briefcase"></i></button>
+    <div class="main-navbar active">
+        <button id="navbar-main-icon" class="main-icon active-icon" ><i class="fa-solid fa-briefcase"></i></button>
     </div>
     {{-- <div class="chat-navbar">
-       <button class="icon" onClick="window.location.href='prueba3';"><i class="fa-solid fa-comment-dots"></i></button>
+       <button id="navbar-chat-icon" class="icon" onClick="window.location.href='prueba3';"><i class="fa-solid fa-comment-dots"></i></button>
     </div> --}}
     <div class="profile-navbar">
-        <button class="icon" onClick="window.location.href='prueba4';"><i class="fa-solid fa-user"></i></button>
+        <button id="navbar-profile-icon" class="icon"><i class="fa-solid fa-user"></i></button>
     </div>
+
+    {{-- <div class="curriculum">
+        <h1 class="curriculum-title">COMING SOON...</h1>
+    </div> --}}
   </div>
-{{-- <div class="curriculum">
-    <h1 class="curriculum-title">COMMING SOON...</h1>
-</div> --}}
     <div class="region-content row">
         {{-- EMPIEZA TINDER --}}
         <div class="swiper">

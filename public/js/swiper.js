@@ -1,3 +1,21 @@
+////////////////////////////REDIRECCIONES/////////////////////////////////
+var navbarProfile = document.getElementById("navbar-profile-icon");
+var navbarMain = document.getElementById("navbar-main-icon");
+var navbarAlerts = document.getElementById("navbar-alerts-icon");
+
+navbarProfile.onclick = function() {
+    window.location.href = "./login";
+}
+navbarAlerts.onclick = function() {
+    window.location.href = "./alerts";
+}
+navbarMain.onclick = function() {
+    window.location.href = "./";
+}
+
+////////////////////////////////////////////////////////////////////////
+
+
 function reload() {
     'use strict';
 

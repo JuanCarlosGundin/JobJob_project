@@ -5,7 +5,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\AppController;
 
 Route::get('/', function () {
-    return view('index');
+    return view('home');
 });
 Route::get('login', function () {
     return view('login');
