@@ -219,7 +219,8 @@ class UsuarioController extends Controller
         if($user->nom_perfil=='Admin'){
            $request->session()->put('nombre_admin',$request->mail);
            return redirect('cPanelAdmin');
-        }if($user->nom_perfil=='Trabajador'){
+        }
+        if($user->nom_perfil=='Trabajador'){
             $request->session()->put('nombre_trabajador',$request->mail);
             $datos=DB::select('select * from tbl_usuarios
             where mail like ?',[$request->mail]);
@@ -313,30 +314,30 @@ class UsuarioController extends Controller
     }
     /*----------------------------------------FIN LEER TRABAJADOR--------------------------------------------------------------------------*/
 
-    /*----------------------------------------MODIFICAR TRABAJADOR---------------------------------------------------------------------*/
-    public function modificartrabajadorController(Request $request){
-        $datos=$request->except('_token','_method');
-        if ($request->hasFile('foto_perfil')) {
-            $foto = DB::table('tbl_trabajador')->select('foto_perfil')->where('id_usuario','=',$request['id_usuario'])->first();
-            if ($foto->foto_perfil != null) {
-                Storage::delete('public/'.$foto->foto_perfil);
-            }
-            $datos['foto_perfil'] = $request->file('foto_perfil')->store('uploads','public');
-        }else{
-            $foto = DB::table('tbl_trabajador')->select('foto_perfil')->where('id_usuario','=',$request['id_usuario'])->first();
-            $datos['foto_perfil'] = $foto->foto_perfil;
-        }
-        try {
-            DB::beginTransaction();
-            $path=$request->file('foto_perfil')->store('uploads','public');
-            DB::update('update tbl_ubicacion set nombre_ubicacion = ?, descripcion_ubicacion = ?, direccion_ubicacion = ?, foto_ubicacion = ? where id_ubicacion = ?', [$request->input('nombre_ubicacion'),$request->input('descripcion_ubicacion'),$request->input('direccion_ubicacion'),$path,$request->input('id_ubicacion')]);
-            DB::commit();
-            return response()->json(array('resultado'=> 'OK')); 
-        } catch (\Throwable $th) {
-            return response()->json(array('resultado'=> 'NOK: '.$th->getMessage()));
-        } 
-    }
-    /*----------------------------------------FIN MODIFICAR TRABAJADOR---------------------------------------------------------------------*/
+/*----------------------------------------MODIFICAR TRABAJADOR---------------------------------------------------------------------*/
+public function modificartrabajadorController(Request $request){
+    $datos=$request->except('_token','_method');
+    // if ($request->hasFile('foto_perfil')) {
+    //     $foto = DB::table('tbl_trabajador')->select('foto_perfil')->where('id_usuario','=',$request['id_usuario'])->first();
+    //     if ($foto->foto_perfil != null) {
+    //         Storage::delete('public/'.$foto->foto_perfil);
+    //     }
+    //     $datos['foto_perfil'] = $request->file('foto_perfil')->store('uploads','public');
+    // }else{
+    //     $foto = DB::table('tbl_trabajador')->select('foto_perfil')->where('id_usuario','=',$request['id_usuario'])->first();
+    //     $datos['foto_perfil'] = $foto->foto_perfil;
+    // }
+    try {
+        DB::beginTransaction();
+        // $path=$request->file('foto_perfil')->store('uploads','public');
+        DB::update('update tbl_trabajador set nombre = ?, apellido = ?, campo_user = ?, experiencia = ?, estudios = ?, idiomas = ?, disponibilidad = ?, about_user = ? where id_usuario = ?', [$request->input('nombre'),$request->input('apellido'),$request->input('campo_user'),$request->input('experiencia'),$request->input('estudios'),$request->input('idiomas'),$request->input('disponibilidad'),$request->input('about_user'),$request->input('id_usuario')]);
+        DB::commit();
+        return response()->json(array('resultado'=> 'OK')); 
+    } catch (\Throwable $th) {
+        return response()->json(array('resultado'=> 'NOK: '.$th->getMessage()));
+    } 
+}
+/*----------------------------------------FIN MODIFICAR TRABAJADOR---------------------------------------------------------------------*/
 
     ///ZONA NOTIFICACIONES
     public function vistaNotificaciones() {
@@ -375,8 +376,6 @@ class UsuarioController extends Controller
             }
         }
     }
-
-
-
+    
     ///ZONA NOTIFICACIONES
 }
