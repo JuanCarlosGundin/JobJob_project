@@ -12,18 +12,19 @@
     *:after {
         box-sizing: border-box;
     }
-    
+
     body {
         font-family: 'Inter', sans-serif;
     }
-    
-    ////////////////////////////////MAIN///////////////////////////////////////
+
+    //////////////////////////////////////////////////////MAIN///////////////////////////////////////
     .body-index {
         margin: 0;
         background-color: $first-color;
         text-align: center;
         .menu-index {
             text-align: right;
+            ///botón inicio de sesión///
             .btn-register {
                 border-radius: 15px;
                 background-color: white;
@@ -49,6 +50,7 @@
             font-weight: bold;
             margin-top: 10vh;
         }
+        ///boton registro
         .btn-index {
             border-radius: 15px;
             background-color: white;
@@ -62,6 +64,7 @@
             margin-top: 5.5vh;
             margin-bottom: 4vh;
         }
+        ///CSS DE LA OLA////
         section {
             width: 0%;
             background: white;
@@ -78,7 +81,11 @@
             background: pink;
         }
     }
-    
+
+    ///RESPONSIVE TABLET
+    @media only screen and (max-width: $tablet) {}
+
+    ///RESPONSIVE MOVIL
     @media only screen and (max-width: $movil) {
         .body-index {
             .menu-index {
@@ -94,10 +101,9 @@
             }
         }
     }
-    
-    ////////////////////////////////LOGIN//////////////////////////////////////
+
+    ///////////////////////////////////////////////////////LOGIN///////////////////////////////////////
     .body-login {
-        margin: 0;
         background-color: $first-color;
         .logo {
             display: none;
@@ -113,61 +119,41 @@
             margin-left: 30vh;
             margin-right: 30vh;
             box-shadow: 5px 3px 3px rgba(156, 155, 155, 0.591);
-            // botones de login y registrar
+            ///// botones de login y registrar
             .botones {
                 text-align: center;
                 display: flex;
                 justify-content: center;
-                form {
-                    width: 50%;
-                    button {
-                        width: 100%;
-                    }
-                }
-                .btn-signin {
-                    width: 100%;
-                    height: 8.5vh;
-                    text-align: center;
-                    color: #92AFD7;
-                    font-weight: bold;
-                    font-size: 2.5vh;
-                    background-color: #F0F0F0;
-                    border: none;
-                    border-top-left-radius: 53px;
-                    border-bottom-right-radius: 60px;
-                }
-                .btn-register {
-                    width: 100%;
-                    height: 8.5vh;
-                    text-align: center;
-                    color: #92AFD7;
-                    font-weight: bold;
-                    font-size: 2.5vh;
-                    background-color: #FFFFFF;
-                    border: none;
-                    border-top-right-radius: 53px;
-                }
             }
+            ///contenido del modal
             .modal-content {
                 border: white;
                 text-align: center;
                 width: 80%;
                 margin-left: 10%;
                 margin-right: 10%;
+                height: 70vh;
                 h2 {
                     margin-top: 8vh;
                     margin-bottom: 7vh;
                     text-align: center;
                     font-weight: bold;
+                    font-size: 3.5vh;
                 }
-                p {
+                .user-empresa {
                     font-weight: bold;
-                    color: #C5D1EB;
+                    color: white !important;
+                    text-align: center;
+                    padding-top: 10px;
+                }
+                .contraseña {
+                    font-weight: bold;
+                    font-size: 2.5vh;
+                    color: $second-color !important;
                     text-align: center;
                     padding-top: 10px;
                 }
                 .inputlogin {
-                    margin-bottom: 1rem;
                     font-size: 15px;
                     border-radius: 15px;
                     border: #92AFD7 solid 1.5px;
@@ -188,6 +174,7 @@
                     font-weight: bold;
                     width: 70%;
                     height: 7vh;
+                    margin-top: 1rem;
                 }
                 .linea {
                     position: flex;
@@ -196,7 +183,7 @@
                     border-top: 1px solid #CDC0C0;
                     height: 2px;
                 }
-                /* conectate con google */
+                ////conectate con google
                 .google-login {
                     font-weight: bold;
                     color: white;
@@ -216,7 +203,7 @@
             }
         }
     }
-    
+
     // RESPONSIVE TABLET
     @media only screen and (max-width: $tablet) and (min-width: 769px) {
         .body-login {
@@ -238,7 +225,7 @@
             }
         }
     }
-    
+
     // RESPONSIVE MÓVIL
     @media only screen and (max-width: $movil) {
         .body-login {
@@ -263,23 +250,12 @@
                 margin-bottom: 0vh;
                 margin-left: 0vh;
                 margin-right: 0vh;
+                ///// botones de login y registrar
                 .botones {
                     text-align: center;
                     height: 9vh;
-                    .btn-signin {
-                        padding-top: 10px;
-                        width: 100%;
-                        font-size: 22px;
-                        border-top-left-radius: 53px;
-                        border-bottom-right-radius: 60px;
-                    }
-                    .btn-register {
-                        width: 100%;
-                        padding-top: 10px;
-                        font-size: 22px;
-                        border-top-right-radius: 53px;
-                    }
                 }
+                ///contenido del modal
                 .modal-content {
                     width: 80%;
                     height: 66vh;
@@ -291,7 +267,7 @@
                         padding-bottom: 6vh;
                         font-size: 3.5vh;
                     }
-                    input {
+                    .inputlogin {
                         width: 100% !important;
                         height: 42px !important;
                     }
@@ -324,10 +300,37 @@
             }
         }
     }
-    
-    ////////////////////////////////REGISTRAR//////////////////////////////////////
-    //PÁGINA USUARIO-EMPRESA
+
+    //////////////////////////////////////////////////////////REGISTRAR//////////////////////////////////////
+    //////////////////////////////////////////////////PÁGINA TRABAJADOR-EMPRESA//////////////////////////////
     .body-login {
+        .botones {
+            ///// botones de login y registrar
+            .btn-signin {
+                width: 100%;
+                height: 8.5vh;
+                text-align: center;
+                color: #92AFD7;
+                font-weight: bold;
+                font-size: 2.5vh;
+                border: none;
+                border-top-left-radius: 53px;
+                border-bottom-right-radius: 60px;
+            }
+            .btn-register {
+                width: 100%;
+                height: 8.5vh;
+                text-align: center;
+                color: #92AFD7;
+                font-weight: bold;
+                font-size: 2.5vh;
+                background-color: white;
+                border: none;
+                border-top-right-radius: 53px;
+                border-bottom-left-radius: 60px;
+            }
+        }
+        ///contenido del modal
         .modal-content-register-cuadrados {
             width: 100%;
             height: 72vh;
@@ -337,6 +340,7 @@
                 padding-bottom: 8vh;
                 font-size: 3.5vh;
             }
+            ///colocación y tamaño de los dos cuadrados (empresa y usuario)
             .cuadrados {
                 width: 50%;
                 height: 45%;
@@ -355,6 +359,7 @@
                 color: white;
                 font-weight: 600;
             }
+            //iconos
             i {
                 text-align: center;
                 font-size: 13vh;
@@ -364,14 +369,43 @@
             }
         }
     }
-    
-    //PAGINA INPUTS
+
+    /// RESPONSIVE MÓVIL
+    @media only screen and (max-width: $movil) {
+        .body-login {
+            height: 60vh;
+            .modal-content-register-cuadrados {
+                h3 {
+                    font-size: 3vh;
+                    margin-bottom: 4vh;
+                    padding-top: 5vh;
+                    padding-bottom: 0vh;
+                }
+                .cuadrados {
+                    width: 100%;
+                    height: 21vh;
+                    .cuadrado {
+                        width: 19vh;
+                        height: 19vh;
+                    }
+                    i {
+                        padding-top: 3vh;
+                        font-size: 6.5vh;
+                    }
+                }
+            }
+        }
+    }
+
+    ///////////////////////////////FORNULARIO REGISTRAR TRABAJADOR-EMPRESA////////////////////////////
     .body-login {
+        //barra de scroll del modal
         .scrollbar {
             width: 100%;
             height: 72vh;
             overflow-y: scroll;
         }
+        //contenido del modal
         .modal-content-register {
             width: 100%;
             height: auto;
@@ -381,6 +415,7 @@
                 padding-bottom: 6vh;
                 font-size: 3.5vh;
             }
+            //poner inputs en dos columnas distintas
             .column-2 {
                 width: 50%;
                 float: left;
@@ -392,6 +427,7 @@
                     text-align: left;
                     color: rgba(0, 0, 0, 0.594);
                 }
+                //estilos inputs
                 .inputregister {
                     margin-bottom: 1rem;
                     font-size: 15px;
@@ -405,11 +441,13 @@
                     padding-left: 2%;
                     font-weight: 440;
                 }
+                //estilos input foto
                 .foto {
                     width: 80%;
                     float: left;
                     margin-bottom: 1rem;
                 }
+                //estilos input select
                 select {
                     border-radius: 15px;
                     border: #92AFD7 solid 2px;
@@ -431,43 +469,8 @@
             }
         }
     }
-    
-    // // RESPONSIVE TABLET
-    // @media only screen and (max-width: 1200px) {
-    //     .body-login {
-    //         .modal-content-register {
-    //             .cuadrado {
-    //                 background-color: red;
-    //             }
-    //         }
-    //     }
-    // }
-    // RESPONSIVE MÓVIL
-    //PAGINA USUARIO-EMPRESA
-    @media only screen and (max-width: $movil) {
-        .body-login {
-            .modal-content-register-cuadrados {
-                h3 {
-                    font-size: 3vh;
-                    margin-bottom: 4vh;
-                }
-                .cuadrados {
-                    width: 100%;
-                    height: 21vh;
-                    .cuadrado {
-                        width: 19vh;
-                        height: 19vh;
-                    }
-                    i {
-                        padding-top: 3vh;
-                        font-size: 6.5vh;
-                    }
-                }
-            }
-        }
-    }
-    
-    //PAGINA INPUTS
+
+    //RESPONSIVE MOVIL
     @media only screen and (max-width: $movil) {
         .body-login {
             .modal-content-register {
@@ -500,6 +503,3 @@
             }
         }
     }
-    
-    /////////////////////////////////PERFIL////////////////////////////////////
-    /////////////////////////////////CHAT/////////////////////////////////////////
