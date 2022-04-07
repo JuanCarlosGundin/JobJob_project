@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <script src="https://kit.fontawesome.com/15d3106c42.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -13,7 +13,26 @@
     <title>Home</title>
 </head>
 <body class="page-home">
-    <div class="region-navbar"></div>
+  <div class="region-navbar">
+    {{-- <div class="curriculum-navbar active-left">
+        <button class="icon active-icon"><i class="fa-solid fa-file-invoice"></i></button>
+    </div> --}}
+    <div class="alerts-navbar">
+        <button class="icon" onClick="window.location.href='prueba1';"><i class="fa-solid fa-bell"></i></button>
+    </div>
+    <div class="main-navbar">
+        <button class="main-icon" onClick="window.location.href='prueba2';"><i class="fa-solid fa-briefcase"></i></button>
+    </div>
+    {{-- <div class="chat-navbar">
+       <button class="icon" onClick="window.location.href='prueba3';"><i class="fa-solid fa-comment-dots"></i></button>
+    </div> --}}
+    <div class="profile-navbar">
+        <button class="icon" onClick="window.location.href='prueba4';"><i class="fa-solid fa-user"></i></button>
+    </div>
+  </div>
+{{-- <div class="curriculum">
+    <h1 class="curriculum-title">COMMING SOON...</h1>
+</div> --}}
     <div class="region-content row">
         {{-- EMPIEZA TINDER --}}
         <div class="swiper">
@@ -93,4 +112,5 @@
     <script src="js/swiper.js"></script>
     {{-- <script src="js/principal.js"></script> --}}
 </body>
+
 </html>
