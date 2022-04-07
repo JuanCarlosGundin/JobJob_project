@@ -17,47 +17,12 @@
         <div id="main" class="modal-login">
             <div class="modal-content">
                 <form method="POST" onsubmit="verificar(); return false;"  id="loginP">
-                    <h2>Verifícate</h2>
+                    <h2>Introduce tus datos para verificar tu cuenta</h2>
                     <input class="inputlogin" type="text" name="mail" id="mail_login" placeholder="Introduce tu correo"><br><br>
                     <input class="inputlogin" type="password" name="contra" id="contra_login" placeholder="Introduce tu contraseña"><br>
                     <button class= "botonlogin" type="submit" value="register">Verificar</button>
         </div>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script> function verificar() {
-            let mail_login = document.getElementById('mail_login').value;
-            let contra_login = document.getElementById('contra_login').value;
-
-            if (mail_login == '' || contra_login == '') {
-                swal.fire({
-                    title: "Error",
-                    text: "Tienes que rellenar todos los datos",
-                    icon: "error",
-                });
-                return false;
-            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail_login)) {
-                swal.fire({
-                    title: "Error",
-                    text: "Introduce un email correcto",
-                    icon: "error",
-                });
-                return false;
-            }else if(contra_login.length > 50){
-                swal.fire({
-                    title: "Error",
-                    text: "La contraseña no puede ser más larga de 50 caracteres",
-                    icon: "error",
-                });
-                return false;
-            }else if(mail_login.length > 100){
-                swal.fire({
-                    title: "Error",
-                    text: "El email no puede ser más largo de 100 caracteres",
-                    icon: "error",
-                });
-                return false;
-            } else {
-                return true;
-            }
-        }</script>
+        <script src="js/verificar.js"> </script>
     </body>
 </html>

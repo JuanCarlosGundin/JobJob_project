@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('verificacion', function () {
+Route::get('verificar', function () {
     return view('verificacion');
 });
 
@@ -32,6 +32,8 @@ Route::get('editarperfil', function () {
 /*--------------RUTAS DAVID--------------*/
 /*LOGIN Y LOGOUT*/
 Route::post('login', [UsuarioController::class, 'loginP']);
+
+
 Route::get('logout', [UsuarioController::class, 'logout']);
 //Ruta para el registro de trabajadores
 // Route::get('registro',[UsuarioController::class, 'registro']);
@@ -51,3 +53,7 @@ Route::put('modificartrabajador',[UsuarioController::class, 'modificartrabajador
 Route::delete('eliminartrabajador/{id}', [UsuarioController::class, 'eliminartrabajadorController']);
 /*FIN EDITAR PERFIL*/
 
+//Verificar//
+
+
+Route::post('verificarController', [UsuarioController::class, 'ActivateACC']);
