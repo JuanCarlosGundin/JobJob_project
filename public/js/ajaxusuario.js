@@ -78,28 +78,28 @@ function trabajador() {
     recarga += '<form method="POST" onsubmit="creartrabajadorJS(); return false;" id="formregistro" enctype="multipart/form-data">'
     recarga += '<div class="column-2">'
     recarga += '<p>Email</p>'
-    recarga += '<input type="text" class="inputregister" id="mail" name="mail" placeholder="Introduce el email..." required><br><br>'
+    recarga += '<input type="text" class="inputregister" id="mail" name="mail" placeholder="Introduce el email..."><br><br>'
     recarga += '</div>'
     recarga += '<div class="column-2">'
     recarga += '<p>Contraseña</p>'
-    recarga += '<input type="password" class="inputregister" id="contra" name="contra" placeholder="Introduce la contraseña..." required><br><br>'
+    recarga += '<input type="password" class="inputregister" id="contra" name="contra" placeholder="Introduce la contraseña..."><br><br>'
     recarga += '</div>'
     recarga += '<div class="column-2">'
     recarga += '<p>Nombre</p>'
-    recarga += '<input type="text" class="inputregister" id="nombre" name="nombre" placeholder="Introduce el nombre..." required><br><br>'
+    recarga += '<input type="text" class="inputregister" id="nombre" name="nombre" placeholder="Introduce el nombre..."><br><br>'
     recarga += '</div>'
     recarga += '<div class="column-2">'
     recarga += '<p>Apellido</p>'
-    recarga += '<input type="text" class="inputregister" id="apellido" name="apellido" placeholder="Introduce el apellido..." required><br><br>'
+    recarga += '<input type="text" class="inputregister" id="apellido" name="apellido" placeholder="Introduce el apellido..."><br><br>'
     recarga += '</div>'
-    recarga += '<div class="column-2"><p>Foto</p><input type="file" class="foto" name="foto_perfil" id="foto_perfil" required><br><br></div>'
-    recarga += '<div class="column-2"><p>Sector</p><input type="text" class="inputregister" id="campo_user" name="campo_user" placeholder="Introduce tu sector..." required><br><br></div>'
-    recarga += '<div class="column-2"><p>Experiencia</p><input type="text" class="inputregister" id="experiencia" name="experiencia" placeholder="Introduce tu experiencia..." required><br><br></div>'
-    recarga += '<div class="column-2"><p>Estudios</p><input type="text" class="inputregister" id="estudios" name="estudios" placeholder="Introduce tus estudios..." required><br><br></div>'
-    recarga += '<div class="column-2"><p>Idiomas</p><input type="text" class="inputregister" id="idiomas" name="idiomas" placeholder="idiomas..." required><br><br></div>'
-    recarga += '<div class="column-2"><p>Disponibilidad</p><input type="text" class="inputregister" id="disponibilidad" name="disponibilidad" placeholder="Introduce tu disponibilidad..." required><br><br></div>'
-    recarga += '<div class="column-2"><p>Quieres que se te muestre a las empresas?</p><select name="mostrado" id="mostrado" required><option value="0" selected>Sí</option><option value="1">No</option></select><br><br></div>'
-    recarga += '<div class="column-2"><p>Introduce más información sobre tí</p><input type="text" class="inputregister" id="about_user" name="about_user" placeholder="Sobre mi..." required><br><br><input id="id_perfil" name="id_perfil" type="hidden" value="2"></div>'
+    recarga += '<div class="column-2"><p>Foto</p><input type="file" class="foto" name="foto_perfil" id="foto_perfil"><br><br></div>'
+    recarga += '<div class="column-2"><p>Sector</p><input type="text" class="inputregister" id="campo_user" name="campo_user" placeholder="Introduce tu sector..."><br><br></div>'
+    recarga += '<div class="column-2"><p>Experiencia</p><input type="text" class="inputregister" id="experiencia" name="experiencia" placeholder="Introduce tu experiencia..."><br><br></div>'
+    recarga += '<div class="column-2"><p>Estudios</p><input type="text" class="inputregister" id="estudios" name="estudios" placeholder="Introduce tus estudios..."><br><br></div>'
+    recarga += '<div class="column-2"><p>Idiomas</p><input type="text" class="inputregister" id="idiomas" name="idiomas" placeholder="idiomas..."><br><br></div>'
+    recarga += '<div class="column-2"><p>Disponibilidad</p><input type="text" class="inputregister" id="disponibilidad" name="disponibilidad" placeholder="Introduce tu disponibilidad..."><br><br></div>'
+    recarga += '<div class="column-2"><p>Quieres que se te muestre a las empresas?</p><select name="mostrado" id="mostrado"><option value="0" selected>Sí</option><option value="1">No</option></select><br><br></div>'
+    recarga += '<div class="column-2"><p>Introduce más información sobre tí</p><input type="text" class="inputregister" id="about_user" name="about_user" placeholder="Sobre mi..."><br><br><input id="id_perfil" name="id_perfil" type="hidden" value="2"></div>'
     recarga += '<input id="id_perfil" name="id_perfil" type="hidden" value="2">'
     recarga += '<input type="submit" class="botonregister" value="Registrarme">'
     recarga += '</form>'
@@ -172,6 +172,18 @@ function empresa() {
 }
 
 function creartrabajadorJS() {
+    let mail = document.getElementById('mail').value;
+    let contra = document.getElementById('contra').value;
+    let nombre = document.getElementById('nombre').value;
+    let apellido = document.getElementById('apellido').value;
+    let campo_user = document.getElementById('campo_user').value;
+    let experiencia = document.getElementById('experiencia').value;
+    let estudios = document.getElementById('estudios').value;
+    let mostrado = document.getElementById('mostrado').value;
+    let idiomas = document.getElementById('idiomas').value;
+    let disponibilidad = document.getElementById('disponibilidad').value;
+    let about_user = document.getElementById('about_user').value;
+    let foto_perfil = document.getElementById('foto_perfil').value;
     var formData = new FormData(document.getElementById("formregistro"));
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('_method', 'POST');
@@ -196,14 +208,41 @@ function creartrabajadorJS() {
             if (respuesta.resultado == "OK") {
                 window.location.href = 'login';
             } else {
-                // message.innerHTML = 'Ha habido un error: ' + respuesta.resultado;
+                alert("error")
             }
+        }
+
+        if (mail == '' || contra == '' || nombre == '' || apellido == '' || campo_user == '' || experiencia == '' || estudios == '' || mostrado == '' || idiomas == '' || disponibilidad == '' || about_user == '' || foto_perfil == '') {
+            swal.fire({
+                title: "Error",
+                text: "Tienes que rellenar todos los datos",
+                icon: "error",
+            });
+            return false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
+            swal.fire({
+                title: "Error",
+                text: "Introduce un email correcto",
+                icon: "error",
+            });
+            return false;
+        } else if (mail.length > 100) {
+            swal.fire({
+                title: "Error",
+                text: "El email no puede ser más largo de 100 caracteres",
+                icon: "error",
+            });
+            return false;
+        } else {
+            return true;
         }
     }
     ajax.send(formData)
 }
 
 function loginP() {
+    let mail_login = document.getElementById('mail_login').value;
+    let contra_login = document.getElementById('contra_login').value;
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('_method', 'POST');
@@ -226,6 +265,39 @@ function loginP() {
                 alert("tonto")
                     // message.innerHTML = 'Ha habido un error: ' + respuesta.resultado;
             }
+        }
+
+        //VALIDACIONES LOGIN
+        if (mail_login == '' || contra_login == '') {
+            swal.fire({
+                title: "Error",
+                text: "Tienes que rellenar todos los datos",
+                icon: "error",
+            });
+            return false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail_login)) {
+            swal.fire({
+                title: "Error",
+                text: "Introduce un email correcto",
+                icon: "error",
+            });
+            return false;
+        }else if(contra_login.length > 50){
+            swal.fire({
+                title: "Error",
+                text: "La contraseña no puede ser más larga de 50 caracteres",
+                icon: "error",
+            });
+            return false;
+        }else if(mail_login.length > 100){
+            swal.fire({
+                title: "Error",
+                text: "El email no puede ser más largo de 100 caracteres",
+                icon: "error",
+            });
+            return false;
+        } else {
+            return true;
         }
     }
     ajax.send(formData)

@@ -23,5 +23,6 @@
             <div id="main" class="modal-content-register-cuadrados">
     </div> --}}
     <script src="js/ajaxusuario.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
