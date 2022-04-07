@@ -14,8 +14,25 @@ body {
   background-color: #E5E5E5;
 }
 
+.page-home .swal-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page-home .swal-footer .swal-button-container {
+  width: 50%;
+}
+
 .page-home .region-content {
   height: 90vh;
+  height: calc(var(--vh, 1vh) * 90);
   top: 10vh;
   position: absolute;
   left: 0;
@@ -128,7 +145,22 @@ body {
   font-size: 14px !important;
 }
 
+.page-home .region-content .swiper .swiper--cards .swiper--card .content--card.content--final {
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.page-home .region-content .swiper .swiper--cards .swiper--card .content--card.content--final img {
+  max-width: 300px;
+}
+
 .page-home .region-content .swiper .swiper--cards .swiper--card .content--card .titulo--card {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -145,6 +177,10 @@ body {
   pointer-events: none;
 }
 
+.page-home .region-content .swiper .swiper--cards .swiper--card .content--card .misc--card {
+  width: 100%;
+}
+
 .page-home .region-content .swiper .swiper--cards .swiper--card .content--card .misc--card .vacante--empresa {
   text-align: left;
   margin-bottom: 0;
@@ -155,6 +191,7 @@ body {
 }
 
 .page-home .region-content .swiper .swiper--cards .swiper--card .content--card .cv--card {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -173,6 +210,20 @@ body {
 
 .page-home .region-content .swiper .swiper--cards .swiper--card .content--card .cv--card h2 {
   text-align: left;
+}
+
+.page-home .region-content .swiper .swiper--cards .swiper--card .content--card .cv--card > div {
+  width: 100%;
+}
+
+.page-home .region-content .swiper .swiper--cards .swiper--card .content--card .img--card {
+  max-height: 20%;
+}
+
+.page-home .region-content .swiper .swiper--cards .swiper--card .content--card .img--card img {
+  max-height: none;
+  height: 100%;
+  border-radius: 50px;
 }
 
 .page-home .region-content .swiper .swiper--cards .swiper--card .content--card h2 {
@@ -326,6 +377,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   height: 10vh;
+  height: calc(var(--vh, 1vh) * 10);
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   /*--------------------------------------------------------------- MENU NAV BAR ---------------------------------------------------------------- */

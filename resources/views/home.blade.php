@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <script src="https://kit.fontawesome.com/15d3106c42.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js" integrity="sha512-qRj8N7fxOHxPkKjnQ9EJgLJ8Ng1OK7seBn1uk8wkqaXpa7OA13LO6txQ7+ajZonyc9Ts4K/ugXljevkFTUGBcw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <meta name="csrf-token" id="token" content="{{ csrf_token() }}">
@@ -60,7 +61,7 @@
                 </div>
               </div> --}}
               <div class="swiper--card" id="mainCard">
-                <div class="content--card content--trabajador">
+                {{-- <div class="content--card content--trabajador">
                   <input type="hidden" id="userID" value="2">
                   <div class="cv--card">
                     <div class="objetivo--card">
@@ -80,18 +81,18 @@
                     <h2 class="nombreEdad--usuario">Juan Pérez, 23</h2>
                     <h5 class="ubicacion--usuario">Barcelona</h5>
                   </div>
-                </div>
+                </div> --}}
               </div>
-              <div class="swiper--card">
+              <div class="swiper--card no-swipe">
                 <img src="img/jobjob_tarjeta.png">
               </div>
-              <div class="swiper--card">
+              <div class="swiper--card no-swipe">
                 <img src="img/jobjob_tarjeta.png">
               </div>
-              <div class="swiper--card">
+              <div class="swiper--card no-swipe">
                 <img src="img/jobjob_tarjeta.png">
               </div>
-              <div class="swiper--card">
+              <div class="swiper--card no-swipe">
                 <img src="img/jobjob_tarjeta.png">
               </div>
             </div>

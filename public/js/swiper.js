@@ -1,10 +1,12 @@
+////////////////////////////GENERAL///////////////////////////////////////
+
 ////////////////////////////REDIRECCIONES/////////////////////////////////
 var navbarProfile = document.getElementById("navbar-profile-icon");
 var navbarMain = document.getElementById("navbar-main-icon");
 var navbarAlerts = document.getElementById("navbar-alerts-icon");
 
 navbarProfile.onclick = function() {
-    window.location.href = "./login";
+    window.location.href = "./profile";
 }
 navbarAlerts.onclick = function() {
     window.location.href = "./alerts";
@@ -20,10 +22,7 @@ function reload() {
     'use strict';
 
     var swiperContainer = document.querySelector('.swiper');
-    var allCards = document.querySelectorAll('.swiper--card');
-    allCards.forEach(function(card, index) {
-        //console.log(card);
-    });
+    var allCards = document.querySelectorAll('.swiper--card:not(.no-swipe)');
     var swiperCards = document.querySelector('.swiper--cards');
     var nope = document.getElementById('nope');
     var love = document.getElementById('love');
@@ -43,14 +42,14 @@ function reload() {
 
     initCards();
 
-    function restartCards(card, index) {
-        var cards = document.querySelectorAll('.swiper--card');
+    // function restartCards(card, index) {
+    //     var cards = document.querySelectorAll('.swiper--card');
 
-        cards.forEach(function(card, index) {
-            card.classList.remove('removed');
-        });
-    }
-
+    //     cards.forEach(function(card, index) {
+    //         card.classList.remove('removed');
+    //     });
+    // }
+    //console.log(document.getElementById('userID').value)
     allCards.forEach(function(el) {
         var hammertime = new Hammer(el);
 
@@ -111,21 +110,20 @@ function reload() {
                 setTimeout(function() {
                     //var carta = mostrar()
                     //console.log(carta)
-                    alert('primero entra estructura')
+                    // alert('primero entra estructura')
                     swiperCards.innerHTML = `
-                    <div class="swiper--card mainCard">
-                        <img src="https://placeimg.com/600/300/people">
+                    <div class="swiper--card mainCard" id="mainCard">
                     </div>
-                    <div class="swiper--card">
+                    <div class="swiper--card no-swipe">
                         <img src="img/jobjob_tarjeta.png">
                     </div>
-                    <div class="swiper--card">
+                    <div class="swiper--card no-swipe">
                         <img src="img/jobjob_tarjeta.png">
                     </div>
-                    <div class="swiper--card">
+                    <div class="swiper--card no-swipe">
                         <img src="img/jobjob_tarjeta.png">
                     </div>
-                    <div class="swiper--card">
+                    <div class="swiper--card no-swipe">
                         <img src="img/jobjob_tarjeta.png">
                     </div>
                     `;
@@ -159,17 +157,18 @@ function reload() {
             initCards();
             setTimeout(function() {
                 swiperCards.innerHTML = `
-                <div class="swiper--card mainCard">
+                <div class="swiper--card mainCard" id="mainCard">
                 </div>
-                <div class="swiper--card">
+                <div class="swiper--card no-swipe">
                 </div>
-                <div class="swiper--card">
+                <div class="swiper--card no-swipe">
                 </div>
-                <div class="swiper--card">
+                <div class="swiper--card no-swipe">
                 </div>
-                <div class="swiper--card">
+                <div class="swiper--card no-swipe">
                 </div>
                     `;
+                mostrar()
                 reload()
             }, 500);
 
@@ -185,6 +184,10 @@ function reload() {
 }
 
 window.onload = function() {
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
     reload();
     mostrar()
 }
@@ -219,50 +222,65 @@ function mostrar() {
             var respuesta = JSON.parse(this.responseText);
             console.log(respuesta)
             var recarga = '';
-            if (respuesta[0].id_perfil == 3) {
-                alert('primero entra empresa')
-                recarga += `
-                <input type="hidden" id="userID" value="${respuesta[0].id_usuario}">
-                <img src="https://www.enter.co/wp-content/uploads/2012/08/logoms_660.jpg">
-                <div class="content--card content--empresa">
-                  <div class="misc--card">
-                    <h2 class="vacante--empresa">${respuesta[0].vacante}</h2>
-                    <h5 class="campo--empresa">${respuesta[0].campo_emp}</h5>
-                  </div>
-                  <div class="cuerpo--card">
-                    <p class="searching--empresa">${respuesta[0].searching}</p>
-                  </div>
-                  <div class="titulo--card">
-                    <h3 class="nombre--usuario">${respuesta[0].nom_emp}</h3>
-                    <h5 class="ubicacion--usuario">${respuesta[0].loc_emp}</h5>
-                  </div>
-                </div>
-                `
+            if (respuesta.length > 0) {
+                if (respuesta[0].id_perfil == 3) {
+                    // alert('primero entra empresa')
+                    recarga += `
+                    <input type="hidden" id="userID" value="${respuesta[0].id_usuario}">
+                    <img src="https://www.enter.co/wp-content/uploads/2012/08/logoms_660.jpg">
+                    <div class="content--card content--empresa">
+                      <div class="misc--card">
+                        <h2 class="vacante--empresa">${respuesta[0].vacante}</h2>
+                        <h5 class="campo--empresa">${respuesta[0].campo_emp}</h5>
+                      </div>
+                      <div class="cuerpo--card">
+                        <p class="searching--empresa">${respuesta[0].searching}</p>
+                      </div>
+                      <div class="titulo--card">
+                        <h3 class="nombre--usuario">${respuesta[0].nom_emp}</h3>
+                        <h5 class="ubicacion--usuario">${respuesta[0].loc_emp}</h5>
+                      </div>
+                    </div>
+                    `
+                } else if (respuesta[0].id_perfil == 2) {
+                    // alert('primero entra trabajador')
+                    recarga += `
+                    <input type="hidden" id="userID" value="${respuesta[0].id_usuario}">
+                    <div class="content--card content--trabajador">
+                        <div class="img--card">
+                            <img class="img--trabajador" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+                        </div>
+                        <div class="cv--card">
+                            <div class="objetivo--card">
+                                <h2 class="titulo--objetivo">Objetivo Profesional</h2>
+                                <p class="content--objetivo">${respuesta[0].about_user}</p>
+                            </div>
+                            <div class="formacion--card">
+                                <h2 class="titulo--formacion">Formación</h2>
+                                <p class="content--formacion">${respuesta[0].estudios}</p>
+                            </div>
+                            <div class="experiencia--card">
+                                <h2 class="titulo--experiencia">Experiencia</h2>
+                                <p class="content--experiencia">${respuesta[0].experiencia}</p>
+                            </div>
+                        </div>
+                        <div class="titulo--card">
+                            <h2 class="nombreEdad--usuario">${respuesta[0].nombre} ${respuesta[0].apellido}, ${respuesta[0].edad}</h2>
+                            <h5 class="ubicacion--usuario">${respuesta[0].loc_trabajador}</h5>
+                        </div>
+                    </div>
+                    `
+                }
             } else {
-                alert('primero entra trabajador')
                 recarga += `
-                <input type="hidden" id="userID" value="${respuesta[0].id_usuario}">
-                <div class="content--card content--trabajador">
-                    <div class="cv--card">
-                    <div class="objetivo--card">
-                        <h2 class="titulo--objetivo">Objetivo Profesional</h2>
-                        <p class="content--objetivo">${respuesta[0].about_user}</p>
-                    </div>
-                    <div class="formacion--card">
-                        <h2 class="titulo--formacion">Formación</h2>
-                        <p class="content--formacion">${respuesta[0].estudios}</p>
-                    </div>
-                    <div class="experiencia--card">
-                        <h2 class="titulo--experiencia">Experiencia</h2>
-                        <p class="content--experiencia">${respuesta[0].experiencia}</p>
-                    </div>
-                    </div>
-                    <div class="titulo--card">
-                        <h2 class="nombreEdad--usuario">${respuesta[0].nombre} ${respuesta[0].apellido}, ${respuesta[0].edad}</h2>
-                        <h5 class="ubicacion--usuario">${respuesta[0].loc_trabajador}</h5>
-                    </div>
+                <input type="hidden" id="userID" value="false">
+                <div class="content--card content--final">
+                    <img src='https://acegif.com/wp-content/uploads/2022/4hv9xm/crying-emoji-9.gif'></img>
+                    <h2>¡OH! Has agotado los usuarios, ¡Vuelve más tarde!</h2>
                 </div>
                 `
+                contenedor.classList.add('no-swipe');
+                contenedor.style.pointerEvents = "none";
             }
         }
         contenedor.innerHTML = recarga;
@@ -282,7 +300,26 @@ function yes() {
             var respuesta = JSON.parse(this.responseText);
             console.log(respuesta)
             if (respuesta == 1) {
-                alert("Es un match")
+                swal("¡MATCH! ¿Qué quieres hacer ahora?", {
+                        icon: "success",
+                        buttons: {
+                            cancel: "Seguir swipeando",
+                            catch: {
+                                text: "Revisar matches",
+                                value: "chat",
+                            }
+                        },
+                    })
+                    .then((value) => {
+                        switch (value) {
+
+                            case "chat":
+                                window.location.href = "./alerts";
+                                break;
+
+                            default:
+                        }
+                    });
             }
 
         }

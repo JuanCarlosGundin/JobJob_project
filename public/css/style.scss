@@ -30,8 +30,17 @@ body {
 // }
 ////////////////////////////////HOME///////////////////////////////////////
 .page-home {
+    .swal-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .swal-button-container {
+            width: 50%;
+        }
+    }
     .region-content {
         height: 90vh;
+        height: #{"calc(var(--vh, 1vh) * 90)"};
         top: 10vh;
         position: absolute;
         left: 0;
@@ -106,7 +115,16 @@ body {
                                 font-size: 14px!important;
                             }
                         }
+                        &.content--final {
+                            justify-content: center!important;
+                            align-items: center;
+                            height: 100%;
+                            img {
+                                max-width: 300px;
+                            }
+                        }
                         .titulo--card {
+                            width: 100%;
                             display: flex;
                             flex-direction: column;
                             justify-content: flex-start;
@@ -114,6 +132,7 @@ body {
                             pointer-events: none;
                         }
                         .misc--card {
+                            width: 100%;
                             .vacante--empresa {
                                 text-align: left;
                                 margin-bottom: 0;
@@ -123,6 +142,7 @@ body {
                             }
                         }
                         .cv--card {
+                            width: 100%;
                             display: flex;
                             flex-direction: column;
                             justify-content: space-between;
@@ -130,6 +150,17 @@ body {
                             align-items: center;
                             h2 {
                                 text-align: left;
+                            }
+                            >div {
+                                width: 100%;
+                            }
+                        }
+                        .img--card {
+                            max-height: 20%;
+                            img {
+                                max-height: none;
+                                height: 100%;
+                                border-radius: 50px;
                             }
                         }
                         h2 {
@@ -271,6 +302,7 @@ body {
     background-color: rgb(255, 255, 255);
     display: flex;
     height: 10vh;
+    height: #{"calc(var(--vh, 1vh) * 10)"};
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     /*--------------------------------------------------------------- MENU NAV BAR ---------------------------------------------------------------- */
