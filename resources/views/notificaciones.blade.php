@@ -47,8 +47,6 @@
             {{-- Alertas ajax --}}
         </div>
     </div>
-    <input type="text" id="mail">
-    <button onclick="enviar(); return false;">Enviar mail</button>
     <script src="js/notificaciones.js"></script>
 </body>
 

@@ -28,7 +28,6 @@ function leernotificacionesJS() {
     var ajax = objetoAjax();
     ajax.open("POST", "leernotificaciones", true);
     ajax.onreadystatechange = function() {
-        console.log(ajax.responseText);
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
             console.log(respuesta);
@@ -55,7 +54,7 @@ function leernotificacionesJS() {
                     recarga += '</div>';
                     if (empresas[i].coincidencia == 1) {
                         recarga += '<div class="alert-chat">';
-                        recarga += '<button class="alert-chat-btn">';
+                        recarga += '<button onclick="chat(' + empresas[i].id_iniciador + '); return false;" class="alert-chat-btn">';
                         recarga += '<i class="fa-solid fa-comments"></i>';
                         recarga += '</button>';
                         recarga += '</div>';
@@ -86,7 +85,7 @@ function leernotificacionesJS() {
                     recarga += '</div>';
                     if (trabajadores[i].coincidencia == 1) {
                         recarga += '<div class="alert-chat">';
-                        recarga += '<button class="alert-chat-btn">';
+                        recarga += '<button onclick="chat(' + trabajadores[i].id_iniciador + '); return false;" class="alert-chat-btn">';
                         recarga += '<i class="fa-solid fa-comments"></i>';
                         recarga += '</button>';
                         recarga += '</div>';
@@ -101,11 +100,17 @@ function leernotificacionesJS() {
     ajax.send(formData);
 }
 
-function enviar() {
-    mail = document.getElementById("mail").value
+function chat(id_receptor) {
+    var zonaalerts = document.getElementById("zonaalerts");
+    zonaalerts.innerHTML = '<input type="text" id="mensajecorreo"><button onclick="enviar(' + id_receptor + '); return false;">Enviar mail</button><button onclick="leernotificacionesJS(); return false;">Volver</button>';
+}
+
+function enviar(id_receptor) {
+    mail = document.getElementById("mensajecorreo").value
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('mail', mail);
+    formData.append('id_receptor', id_receptor);
     //formData.append('body', body);
     var ajax = objetoAjax();
     ajax.open("POST", "mandar", true);

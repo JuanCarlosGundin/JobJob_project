@@ -354,7 +354,7 @@ class UsuarioController extends Controller
                 inner join tbl_empresa on tbl_interaccion.id_iniciador=tbl_empresa.id_usuario
                 where tbl_empresa.nom_emp like ? and tbl_interaccion.id_interactuado = ? and tbl_interaccion.tipo_interaccion <> 2',[$req['filter']."%",$id]);
                 DB::commit();
-                return response()->json(array('empresas'=> $empresas, 'id'=>$id, 'id_perfil' =>$id_perfil));
+                return response()->json(array('empresas'=> $empresas));
             } catch (\Exception $e) {
                 return response()->json(array('resultado'=> 'NOK: '.$e->getMessage()));
             }
@@ -367,7 +367,7 @@ class UsuarioController extends Controller
                 inner join tbl_trabajador on tbl_interaccion.id_iniciador=tbl_trabajador.id_usuario
                 where tbl_trabajador.nombre like ?  and tbl_interaccion.id_interactuado = ? and tbl_interaccion.tipo_interaccion <> 2',[$req['filter']."%",$id]);
                 DB::commit();
-                return response()->json(array('trabajadores'=> $trabajadores, 'id'=>$id, 'id_perfil' =>$id_perfil));
+                return response()->json(array('trabajadores'=> $trabajadores));
             } catch (\Exception $e) {
                 return response()->json(array('resultado'=> 'NOK: '.$e->getMessage()));
             }
