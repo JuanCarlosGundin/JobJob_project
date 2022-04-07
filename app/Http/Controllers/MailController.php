@@ -2,9 +2,6 @@
 namespace App\Http\Controllers;
  
 use App\Http\Controllers\Controller;
-use App\Mail\DemoEmail;
-use App\Mail\TestMail;
-//use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

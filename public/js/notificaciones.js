@@ -38,7 +38,11 @@ function leernotificacionesJS() {
                 for (let i = 0; i < empresas.length; i++) {
                     recarga += '<div class="alert">';
                     recarga += '<div class="alert-foto">';
-                    recarga += '<img class="alert-profilefoto" src="storage/' + empresas[i].logo_emp + '">';
+                    if (empresas[i].logo_emp != null) {
+                        recarga += '<img class="alert-profilefoto" src="storage/' + empresas[i].logo_emp + '">';
+                    } else {
+                        recarga += '<img class="alert-profilefoto" src="storage/img/usuario.png">';
+                    }
                     recarga += '</div>';
                     recarga += '<div class="alert-mensaje">';
                     if (empresas[i].coincidencia == 1) {
@@ -69,7 +73,11 @@ function leernotificacionesJS() {
                 for (let i = 0; i < trabajadores.length; i++) {
                     recarga += '<div class="alert">';
                     recarga += '<div class="alert-foto">';
-                    recarga += '<img class="alert-profilefoto" src="storage/' + trabajadores[i].foto_perfil + '">';
+                    if (trabajadores[i].foto_perfil != null) {
+                        recarga += '<img class="alert-profilefoto" src="storage/' + trabajadores[i].foto_perfil + '">';
+                    } else {
+                        recarga += '<img class="alert-profilefoto" src="storage/img/usuario.png">';
+                    }
                     recarga += '</div>';
                     recarga += '<div class="alert-mensaje">';
                     if (trabajadores[i].coincidencia == 1) {
@@ -111,7 +119,6 @@ function enviar(id_receptor) {
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('mail', mail);
     formData.append('id_receptor', id_receptor);
-    //formData.append('body', body);
     var ajax = objetoAjax();
     ajax.open("POST", "mandar", true);
     ajax.onreadystatechange = function() {

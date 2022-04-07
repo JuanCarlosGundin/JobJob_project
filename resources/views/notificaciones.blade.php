@@ -29,11 +29,6 @@
             <button class="icon" onClick="window.location.href='prueba4';"><i class="fa-solid fa-user"></i></button>
         </div>
     </div>
-    <form action="{{url('logout')}}" method="GET">
-        <div class="form-group">
-            <button type="submit" class="botoncPanel">LOGOUT</button><br><br>
-        </div>
-    </form>
     <div class="alerts">
         <div class="filter">
             <div class="buscador">
