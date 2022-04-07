@@ -211,8 +211,8 @@ body .alerts .alert .alert-chat .alert-chat-btn {
 }
 
 body .alerts .alert .alert-nada {
-  width: 10%;
   text-align: right;
+  width: 10%;
   color: transparent;
 }
 
@@ -319,8 +319,215 @@ body .curriculum .curriculum-title {
   text-align: center;
 }
 
-body .user-edit {
+body .user-vista {
+  width: 100;
   padding: 2vh;
+}
+
+body .user-vista .user-ver-foto {
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+body .user-vista .user-ver-foto .user-profilefoto {
+  border-radius: 60px;
+  height: 14vh;
+  width: 14vh;
+}
+
+body .user-vista .user-ver-foto .user-edit-div {
+  float: left;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+body .user-vista .user-ver-foto .user-edit-div .user-edit-btn {
+  height: 5vh;
+  width: 5vh;
+  padding: 0;
+  border-width: 0px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border-radius: 60px;
+  color: white;
+  background-color: #5A7684;
+  font-size: 2vh;
+}
+
+body .user-vista .user-ver {
+  margin-top: 2vh;
+  width: 100%;
+}
+
+body .user-vista .user-ver .user-div-name {
+  width: 89vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2vh;
+}
+
+body .user-vista .user-ver .user-div-name .user-icon-name {
+  width: 10%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: right;
+  margin-left: 1vw;
+}
+
+body .user-vista .user-ver .user-div-name .divs-name {
+  float: left;
+  width: 90%;
+}
+
+body .user-vista .user-ver .user-div-name .divs-name .p-name {
+  margin-left: 1vw;
+  width: 35%;
+  height: 5vh;
+}
+
+body .user-vista .user-ver .user-div-name .divs-name .p-surname {
+  width: 35%;
+  margin-left: 1vw;
+  height: 5vh;
+}
+
+body .user-vista .user-ver .user-div-name .divs-name .ps-age {
+  width: 18%;
+  height: 5vh;
+  float: right;
+}
+
+body .user-vista .user-ver .user-div-house {
+  width: 89vw;
+  border-radius: 2vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2vh;
+}
+
+body .user-vista .user-ver .user-div-house .user-icon-house {
+  width: 10%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: left;
+  margin-left: 1vw;
+}
+
+body .user-vista .user-ver .user-div-house .divs-house {
+  float: right;
+  width: 90%;
+}
+
+body .user-vista .user-ver .user-div-house .divs-house .p-house {
+  margin-left: 1vw;
+  width: 100%;
+  height: 5vh;
+  border-radius: 2vw;
+}
+
+body .user-vista .user-ver .user-div-desc {
+  width: 89vw;
+  border-radius: 2vw;
+  margin-bottom: 2vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .user-vista .user-ver .user-div-desc .user-icon-desc {
+  width: 25%;
+  float: left;
+  margin-left: 1vw;
+}
+
+body .user-vista .user-ver .user-div-desc .user-icon-desc .sobre-mi-desc {
+  font-weight: bolder;
+}
+
+body .user-vista .user-ver .user-div-desc .divs-desc {
+  float: right;
+  width: 75%;
+}
+
+body .user-vista .user-ver .user-div-desc .divs-desc .p-desc {
+  margin-left: 1vw;
+  width: 100%;
+  height: 5vh;
+  border-radius: 2vw;
+}
+
+body .user-edit {
+  width: 100;
+  padding: 2vh;
+}
+
+body .user-edit .user-edit-foto {
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .user-edit .user-edit-foto .user-edit-profilefoto {
+  border-radius: 60px;
+  height: 14vh;
+  width: 14vh;
+}
+
+body .user-edit .edit-foto {
+  position: absolute;
+  margin: 50vw;
 }
 
 body .user-edit .user-input {
@@ -700,6 +907,29 @@ body .user-edit .eliminar-cuenta-edit .eliminar-cuenta-btn {
   padding: 0;
   margin: 0;
   color: #970000;
+  background-color: transparent;
+}
+
+body .user-edit .aceptar-cuenta-edit {
+  bottom: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .user-edit .aceptar-cuenta-edit .aceptar-cuenta-btn {
+  padding: 0;
+  border-width: 0px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  color: #278a00;
   background-color: transparent;
 }
 
