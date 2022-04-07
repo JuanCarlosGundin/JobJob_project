@@ -22,6 +22,14 @@
             </div>
         </form>
     </div>
+    <div>
+        <form action="{{url('editarperfil')}}" method="GET">
+            <div class="form-group">
+                <span><i class="fas fa-sign-out-alt"></i></span>
+                <button type="submit" value="logout" class="botoncPanel">editar perfil</button><br><br>
+            </div>
+        </form>
+    </div>
     
 </body>
 </html>
