@@ -242,6 +242,35 @@ function creartrabajadorJS() {
 function loginP() {
     let mail_login = document.getElementById('mail_login').value;
     let contra_login = document.getElementById('contra_login').value;
+    if (mail_login == '' || contra_login == '') {
+        swal.fire({
+            title: "Error",
+            text: "Tienes que rellenar todos los datos",
+            icon: "error",
+        });
+        return false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail_login)) {
+        swal.fire({
+            title: "Error",
+            text: "Introduce un email correcto",
+            icon: "error",
+        });
+        return false;
+    } else if (contra_login.length > 50) {
+        swal.fire({
+            title: "Error",
+            text: "La contraseña no puede ser más larga de 50 caracteres",
+            icon: "error",
+        });
+        return false;
+    } else if (mail_login.length > 100) {
+        swal.fire({
+            title: "Error",
+            text: "El email no puede ser más largo de 100 caracteres",
+            icon: "error",
+        });
+        return false;
+    }
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('_method', 'POST');
@@ -275,39 +304,6 @@ function loginP() {
                 });
                 return false
             }
-        }
-
-        //VALIDACIONES LOGIN
-        if (mail_login == '' || contra_login == '') {
-            swal.fire({
-                title: "Error",
-                text: "Tienes que rellenar todos los datos",
-                icon: "error",
-            });
-            return false;
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail_login)) {
-            swal.fire({
-                title: "Error",
-                text: "Introduce un email correcto",
-                icon: "error",
-            });
-            return false;
-        } else if (contra_login.length > 50) {
-            swal.fire({
-                title: "Error",
-                text: "La contraseña no puede ser más larga de 50 caracteres",
-                icon: "error",
-            });
-            return false;
-        } else if (mail_login.length > 100) {
-            swal.fire({
-                title: "Error",
-                text: "El email no puede ser más largo de 100 caracteres",
-                icon: "error",
-            });
-            return false;
-        } else {
-            return true;
         }
     }
     ajax.send(formData)
