@@ -37,17 +37,18 @@ Si quieres obtener nuestro proyecto sigue estos pasos:
 ## Autores ✒️
 
     Laura Fernández Bernardos   -   Estudiante DAW2
-    Juan Carlos Gundín Ríos   -   Estudiante DAW2
-    David Ortega Colomo   -   Estudiante DAW2
-    Juan    -   Estudiante DAW2
-
-## Agradecimientos 🍺
-
-    Gracias a los profesores por ayudarnos a desarrollar la tarea cuando estábamos colapsados.
+    Juan Carlos Gundín Ríos     -   Estudiante DAW2
+    David Ortega Colomo         -   Estudiante DAW2
+    Diego Soledispa Campozano   -   Estudiante DAW2
+    Pol García Moreno           -   Estudiante DAW2
+    Arnau Balart Correa         -   Estudiante DAW2
 
 ## Contacto 📧     
   ```  
-                                                                                            Gerard Gómez Monterroso   -   100007217.joan23@fje.edu
-    Si te ha quedado alguna duda sobre el proyecto no dudes en contactarnos por correo ->   David Ortega Colomo   -   100006394.joan23@fje.edu
-                                                                                            David Álvarez Rodríguez   -   6694.joan23@fje.edu
+                                                                                            Laura Fernández Bernardos   -   1000068.joan23@fje.edu
+                                                                                            Juan Carlos Gundín Ríos     -   100005882.joan23@fje.edu
+    Si te ha quedado alguna duda sobre el proyecto no dudes en contactarnos por correo ->   David Ortega Colomo         -   100006394.joan23@fje.edu
+                                                                                            Diego Soledispa Campozano   -   31966.joan23@fje.edu
+                                                                                            Pol García Moreno           -   6244.joan23@fje.edu
+                                                                                            Pol García Moreno           -   34016.joan23@fje.edu
   ```  
