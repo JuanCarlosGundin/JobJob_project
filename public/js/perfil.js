@@ -717,7 +717,7 @@ function modaleliminar(id, id_perfil) {
     recarga += '<h2 class="modal-title">¿Seguro que quieres eliminar la cuenta?</h2>';
     recarga += '<div class="eliminar-user-butons">';
     recarga += '<button class="cancelar-eliminar" onclick="cerrarmodal();return false;">Cancelar</button>';
-    recarga += '<button class="aceptar-eliminar" onclick="eliminarJS(\'' + id + '\',\'' + id_perfil + '\');return false;">Eliminar</button>';
+    recarga += '<button class="aceptar-eliminar" onclick="estadouserJS(\'' + id + '\');return false;">Eliminar</button>';
     recarga += '</div>';
     modal_content.innerHTML = recarga;
     modal.style.display = "block";
@@ -730,21 +730,19 @@ function cerrarmodal() {
     modal.style.display = "none";
 }
 
-function eliminarJS(id, id_perfil) {
+function estadouserJS(id) {
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
-    formData.append('_method', 'delete');
+    formData.append('_method', 'PUT');
 
     /* Inicializar un objeto AJAX */
     var ajax = objetoAjax();
-    ajax.open("POST", "eliminaruser/" + id + "/" + id_perfil, true);
+    ajax.open("POST", "estadouser/" + id, true);
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
             if (respuesta.resultado == "OK") {
                 window.location.href = 'logout';
-            } else {
-                message.innerHTML = 'No se ha podido eliminar la cuenta';
             }
         }
     }
