@@ -1,9 +1,4 @@
-@if (!Session::get('id_user'))
-    <?php
-        //Si la sesion no esta definida te redirige al login.
-        return redirect()->to('/')->send();
-    ?>
-@endif
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +36,7 @@
         <h1 class="curriculum-title">COMING SOON...</h1>
     </div> --}} -->
   </div>
-    <div class="region-content row">
+    <div class="region-content row"><br>
         {{-- EMPIEZA TINDER --}}
         <div class="swiper">
             <div class="swiper--status">
@@ -117,11 +112,6 @@
             </div>
         </div>
     </div>
-    <form action="{{url('logout')}}" method="GET">
-            <div class="form-group">
-                <span><i class="fas fa-sign-out-alt"></i></span>
-                <button type="submit" value="logout" class="botoncPanel">LOGOUT</button><br><br>
-            </div>
     <script src="js/swiper.js"></script>
 </body>
 

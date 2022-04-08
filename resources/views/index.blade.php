@@ -22,7 +22,5 @@
     <section>
   <svg id="wave" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 358.67"><path class="cls-1" d="M0,200s300-140,683,-10,683,0,683,0V400H0Z" transform="translate(0 -41.33)"/></svg>
 </section>
-<section id="content">
-</section>
 </body>
 </html>
