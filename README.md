@@ -36,9 +36,10 @@ Si quieres obtener nuestro proyecto sigue estos pasos:
 
 ## Autores ✒️
 
-    Gerard Gómez Monterroso   -   Estudiante DAW2
+    Laura Fernández Bernardos   -   Estudiante DAW2
+    Juan Carlos Gundín Ríos   -   Estudiante DAW2
     David Ortega Colomo   -   Estudiante DAW2
-    David Álvarez Rodríguez   -   Estudiante DAW2
+    Juan    -   Estudiante DAW2
 
 ## Agradecimientos 🍺
 
