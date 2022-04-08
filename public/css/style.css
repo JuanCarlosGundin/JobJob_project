@@ -829,6 +829,50 @@ body .user-edit .user-input .user-input-idioma .inputs-idioma .input-idioma {
     border-color: #92AFD7;
 }
 
+body .user-edit .user-input .user-input-desactivar {
+    width: 89vw;
+    border-radius: 2vw;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+body .user-edit .user-input .user-input-desactivar .user-icon-desactivar {
+    width: 80%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    float: left;
+    margin-left: 1vw;
+    color: black;
+    font-weight: bolder;
+}
+
+body .user-edit .user-input .user-input-desactivar .inputs-desactivar {
+    float: left;
+    width: 20%;
+}
+
+body .user-edit .user-input .user-input-desactivar .inputs-desactivar .input-desactivar {
+    margin-left: 1vw;
+    width: 100%;
+    height: 5vh;
+    border-radius: 2vw;
+}
+
 body .user-edit .user-input .user-input-desc {
     width: 90vw;
     border-radius: 2vw;
@@ -944,94 +988,6 @@ body .user-edit .user-icon-more .user-icon-more-button {
     background-color: none;
     border-width: 0px;
     cursor: pointer;
-}
-
-body .empresa-edit .empresa-input {
-    margin-top: 2vh;
-    width: 100%;
-}
-
-body .empresa-edit .empresa-input .user-input-name {
-    width: 89vw;
-    border-radius: 2vw;
-    background-color: #92AFD7;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-bottom: 2vh;
-}
-
-body .empresa-edit .empresa-input .user-input-name .user-icon-name {
-    width: 10%;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    float: left;
-    margin-left: 1vw;
-}
-
-body .empresa-edit .empresa-input .user-input-name .inputs-name {
-    float: left;
-    width: 90%;
-}
-
-body .empresa-edit .empresa-input .user-input-name .inputs-name .input-name {
-    margin-left: 1vw;
-    width: 35%;
-    height: 5vh;
-    border-radius: 2vw;
-    border-color: #92AFD7;
-}
-
-body .empresa-edit .empresa-input .user-input-name .inputs-name .input-surname {
-    width: 35%;
-    margin-left: 1vw;
-    height: 5vh;
-    border-radius: 2vw;
-    border-color: #92AFD7;
-}
-
-body .empresa-edit .empresa-input .user-input-name .inputs-name .input-age {
-    width: 18%;
-    height: 5vh;
-    border-radius: 2vw;
-    border-color: #92AFD7;
-    float: right;
-}
-
-body .empresa-edit .eliminar-empresa-edit {
-    bottom: 0;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
-body .empresa-edit .eliminar-empresa-edit .eliminar-empresa-btn {
-    padding: 0;
-    border-width: 0px;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-    color: #970000;
-    background-color: transparent;
 }
 
 body .modal-eliminar-user {
@@ -1330,6 +1286,375 @@ body .empresa-vista .empresa-ver .empresa-div-desc .divs-desc .p-desc {
     width: 100%;
     height: 5vh;
     border-radius: 2vw;
+}
+
+body .empresa-edit {
+    width: 100;
+    padding: 2vh;
+}
+
+body .empresa-edit .empresa-input {
+    margin-top: 2vh;
+    width: 100%;
+}
+
+body .empresa-edit .empresa-input .empresa-input-name {
+    width: 89vw;
+    border-radius: 2vw;
+    background-color: #92AFD7;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+body .empresa-edit .empresa-input .empresa-input-name .empresa-icon-name {
+    width: 10%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    float: left;
+    margin-left: 1vw;
+}
+
+body .empresa-edit .empresa-input .empresa-input-name .inputs-name {
+    float: left;
+    width: 90%;
+}
+
+body .empresa-edit .empresa-input .empresa-input-name .inputs-name .input-name {
+    margin-left: 1vw;
+    width: 100%;
+    height: 5vh;
+    border-radius: 2vw;
+    border-color: #92AFD7;
+}
+
+body .empresa-edit .empresa-input .empresa-input-sede {
+    width: 89vw;
+    border-radius: 2vw;
+    background-color: #92AFD7;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+body .empresa-edit .empresa-input .empresa-input-sede .empresa-icon-sede {
+    width: 10%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    float: left;
+    margin-left: 1vw;
+}
+
+body .empresa-edit .empresa-input .empresa-input-sede .inputs-sede {
+    float: left;
+    width: 90%;
+}
+
+body .empresa-edit .empresa-input .empresa-input-sede .inputs-sede .input-sede {
+    margin-left: 1vw;
+    width: 100%;
+    height: 5vh;
+    border-radius: 2vw;
+    border-color: #92AFD7;
+}
+
+body .empresa-edit .empresa-input .empresa-input-campo {
+    width: 89vw;
+    border-radius: 2vw;
+    background-color: #92AFD7;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+body .empresa-edit .empresa-input .empresa-input-campo .empresa-icon-campo {
+    width: 10%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    float: left;
+    margin-left: 1vw;
+}
+
+body .empresa-edit .empresa-input .empresa-input-campo .inputs-campo {
+    float: left;
+    width: 90%;
+}
+
+body .empresa-edit .empresa-input .empresa-input-campo .inputs-campo .input-campo {
+    margin-left: 1vw;
+    width: 100%;
+    height: 5vh;
+    border-radius: 2vw;
+    border-color: #92AFD7;
+}
+
+body .empresa-edit .empresa-input .empresa-input-buscando {
+    width: 89vw;
+    border-radius: 2vw;
+    background-color: #92AFD7;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+body .empresa-edit .empresa-input .empresa-input-buscando .empresa-icon-buscando {
+    width: 10%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    float: left;
+    margin-left: 1vw;
+}
+
+body .empresa-edit .empresa-input .empresa-input-buscando .inputs-buscando {
+    float: left;
+    width: 90%;
+}
+
+body .empresa-edit .empresa-input .empresa-input-buscando .inputs-buscando .input-buscando {
+    margin-left: 1vw;
+    width: 100%;
+    height: 5vh;
+    border-radius: 2vw;
+    border-color: #92AFD7;
+}
+
+body .empresa-edit .empresa-input .empresa-input-vacante {
+    width: 89vw;
+    border-radius: 2vw;
+    background-color: #92AFD7;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+body .empresa-edit .empresa-input .empresa-input-vacante .empresa-icon-vacante {
+    width: 10%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    float: left;
+    margin-left: 1vw;
+}
+
+body .empresa-edit .empresa-input .empresa-input-vacante .inputs-vacante {
+    float: left;
+    width: 90%;
+}
+
+body .empresa-edit .empresa-input .empresa-input-vacante .inputs-vacante .input-vacante {
+    margin-left: 1vw;
+    width: 100%;
+    height: 5vh;
+    border-radius: 2vw;
+    border-color: #92AFD7;
+}
+
+body .empresa-edit .empresa-input .empresa-input-desactivar {
+    width: 89vw;
+    border-radius: 2vw;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+body .empresa-edit .empresa-input .empresa-input-desactivar .empresa-icon-desactivar {
+    width: 80%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    float: left;
+    margin-left: 1vw;
+    color: black;
+    font-weight: bolder;
+}
+
+body .empresa-edit .empresa-input .empresa-input-desactivar .inputs-desactivar {
+    float: left;
+    width: 20%;
+}
+
+body .empresa-edit .empresa-input .empresa-input-desactivar .inputs-desactivar .input-desactivar {
+    margin-left: 1vw;
+    width: 100%;
+    height: 5vh;
+    border-radius: 2vw;
+}
+
+body .empresa-edit .empresa-input .empresa-input-desc {
+    width: 90vw;
+    border-radius: 2vw;
+    background-color: #92AFD7;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+body .empresa-edit .empresa-input .empresa-input-desc .empresa-icon-desc {
+    width: 30%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    float: left;
+    margin-left: 1vw;
+    color: white;
+    font-weight: bolder;
+}
+
+body .empresa-edit .empresa-input .empresa-input-desc .inputs-desc {
+    float: left;
+    width: 90%;
+}
+
+body .empresa-edit .empresa-input .empresa-input-desc .inputs-desc .input-desc {
+    float: left;
+    margin-left: 1vw;
+    width: 100%;
+    height: 10vh;
+    border-radius: 2vw;
+    border-color: #92AFD7;
+}
+
+body .empresa-edit .eliminar-empresa-edit {
+    bottom: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+body .empresa-edit .eliminar-empresa-edit .eliminar-empresa-btn {
+    padding: 0;
+    border-width: 0px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    color: #970000;
+    background-color: transparent;
+}
+
+body .empresa-edit .aceptar-empresa-edit {
+    bottom: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+body .empresa-edit .aceptar-empresa-edit .aceptar-empresa-btn {
+    border-radius: 5vh;
+    width: 50%;
+    padding: 0;
+    border-width: 0px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    color: white;
+    background-color: #278a00;
 }
 
 
