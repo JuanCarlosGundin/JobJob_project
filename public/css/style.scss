@@ -20,6 +20,91 @@ body {
     background-color: #E5E5E5;
 }
 
+//////////////////////////////////////////////////////MAIN///////////////////////////////////////
+.body-index {
+    margin: 0;
+    background-color: $first-color;
+    text-align: center;
+    .menu-index {
+        text-align: right;
+        ///botón inicio de sesión///
+        .btn-register {
+            border-radius: 15px;
+            background-color: white;
+            border: white solid 1.5px;
+            box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+            color: #090216b0;
+            font-weight: bold;
+            width: 11%;
+            height: 6vh;
+            margin-right: 3vh;
+            margin-top: 2.5vh;
+            margin-bottom: 4vh;
+        }
+    }
+    h1 {
+        text-align: center;
+        color: white;
+        font-weight: bold;
+    }
+    h2 {
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        margin-top: 10vh;
+    }
+    ///boton registro
+    .btn-index {
+        border-radius: 15px;
+        background-color: white;
+        border: white solid 1.5px;
+        box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+        color: #090216b0;
+        font-weight: bold;
+        width: 15%;
+        height: 6vh;
+        margin-right: 3vh;
+        margin-top: 5.5vh;
+        margin-bottom: 4vh;
+    }
+    ///CSS DE LA OLA////
+    section {
+        width: 0%;
+        background: white;
+    }
+    #wave {
+        bottom: 0;
+        position: absolute;
+        width: 100%;
+    }
+    #wave path {
+        fill: $second-color;
+    }
+    section#content {
+        background: pink;
+    }
+}
+
+///RESPONSIVE TABLET
+@media only screen and (max-width: $tablet) {}
+
+///RESPONSIVE MOVIL
+@media only screen and (max-width: $movil) {
+    .body-index {
+        .menu-index {
+            .btn-register {
+                width: 40%;
+            }
+        }
+        h1 {
+            font-size: 5vh;
+        }
+        .btn-index {
+            width: 70%;
+        }
+    }
+}
+
 ///////////////////////////////NAVBAR//////////////////////////////////////
 // .region-navbar {
 //     height: 10vh;
@@ -1011,88 +1096,6 @@ body {
             }
         }
     }
-    //////////////////////////////////////////////////////LANDING-PAGE///////////////////////////////////////
-    .body-index {
-        margin: 0;
-        background-color: $first-color;
-        text-align: center;
-        .menu-index {
-            text-align: right;
-            ///botón inicio de sesión///
-            .btn-register {
-                border-radius: 15px;
-                background-color: white;
-                border: white solid 1.5px;
-                box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-                color: #090216b0;
-                font-weight: bold;
-                width: 11%;
-                height: 6vh;
-                margin-right: 3vh;
-                margin-top: 2.5vh;
-                margin-bottom: 4vh;
-            }
-        }
-        h1 {
-            text-align: center;
-            color: white;
-            font-weight: bold;
-        }
-        h2 {
-            text-align: center;
-            color: white;
-            font-weight: bold;
-            margin-top: 10vh;
-        }
-        ///boton registro
-        .btn-index {
-            border-radius: 15px;
-            background-color: white;
-            border: white solid 1.5px;
-            box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-            color: #090216b0;
-            font-weight: bold;
-            width: 15%;
-            height: 6vh;
-            margin-right: 3vh;
-            margin-top: 5.5vh;
-            margin-bottom: 4vh;
-        }
-        ///CSS DE LA OLA////
-        section {
-            width: 0%;
-            background: white;
-        }
-        #wave {
-            bottom: 0;
-            position: absolute;
-            width: 100%;
-        }
-        #wave path {
-            fill: $second-color;
-        }
-        section#content {
-            background: pink;
-        }
-    }
-    ///RESPONSIVE TABLET
-    @media only screen and (max-width: $tablet) {}
-    ///RESPONSIVE MOVIL
-    @media only screen and (max-width: $movil) {
-        .body-index {
-            .menu-index {
-                .btn-register {
-                    width: 40%;
-                }
-            }
-            h1 {
-                font-size: 5vh;
-            }
-            .btn-index {
-                width: 70%;
-            }
-        }
-    }
     ///////////////////////////////////////////////////////LOGIN///////////////////////////////////////
     .body-login {
         background-color: $first-color;
@@ -1488,110 +1491,6 @@ body {
             width: 70% !important;
             font-size: 2.1vh;
             height: 5vh !important;
-        }
-    }
-}
-
-/////////////////////////////////MIXINS-IMPORTS////////////////////////////////
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-$first-color:#92AFD7;
-$second-color: #C5D1EB;
-$third-color:#5A7684;
-$fourth-color:#0F084B;
-$fifth-color: #0D0221;
-$movil:700px;
-$tablet:1200px;
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-}
-
-//////////////////////////////////////////////////////MAIN///////////////////////////////////////
-.body-index {
-    margin: 0;
-    background-color: $first-color;
-    text-align: center;
-    .menu-index {
-        text-align: right;
-        ///botón inicio de sesión///
-        .btn-register {
-            border-radius: 15px;
-            background-color: white;
-            border: white solid 1.5px;
-            box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-            color: #090216b0;
-            font-weight: bold;
-            width: 11%;
-            height: 6vh;
-            margin-right: 3vh;
-            margin-top: 2.5vh;
-            margin-bottom: 4vh;
-        }
-    }
-    h1 {
-        text-align: center;
-        color: white;
-        font-weight: bold;
-    }
-    h2 {
-        text-align: center;
-        color: white;
-        font-weight: bold;
-        margin-top: 10vh;
-    }
-    ///boton registro
-    .btn-index {
-        border-radius: 15px;
-        background-color: white;
-        border: white solid 1.5px;
-        box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-        color: #090216b0;
-        font-weight: bold;
-        width: 15%;
-        height: 6vh;
-        margin-right: 3vh;
-        margin-top: 5.5vh;
-        margin-bottom: 4vh;
-    }
-    ///CSS DE LA OLA////
-    section {
-        width: 0%;
-        background: white;
-    }
-    #wave {
-        bottom: 0;
-        position: absolute;
-        width: 100%;
-    }
-    #wave path {
-        fill: $second-color;
-    }
-    section#content {
-        background: pink;
-    }
-}
-
-///RESPONSIVE TABLET
-@media only screen and (max-width: $tablet) {}
-
-///RESPONSIVE MOVIL
-@media only screen and (max-width: $movil) {
-    .body-index {
-        .menu-index {
-            .btn-register {
-                width: 40%;
-            }
-        }
-        h1 {
-            font-size: 5vh;
-        }
-        .btn-index {
-            width: 70%;
         }
     }
 }

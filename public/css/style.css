@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 *,
 *:before,
 *:after {
@@ -13,6 +12,90 @@ body {
   position: relative;
   font-family: 'Inter', sans-serif;
   background-color: #E5E5E5;
+}
+
+.body-index {
+  margin: 0;
+  background-color: #92AFD7;
+  text-align: center;
+}
+
+.body-index .menu-index {
+  text-align: right;
+}
+
+.body-index .menu-index .btn-register {
+  border-radius: 15px;
+  background-color: white;
+  border: white solid 1.5px;
+  -webkit-box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+          box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+  color: #090216b0;
+  font-weight: bold;
+  width: 11%;
+  height: 6vh;
+  margin-right: 3vh;
+  margin-top: 2.5vh;
+  margin-bottom: 4vh;
+}
+
+.body-index h1 {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.body-index h2 {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  margin-top: 10vh;
+}
+
+.body-index .btn-index {
+  border-radius: 15px;
+  background-color: white;
+  border: white solid 1.5px;
+  -webkit-box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+          box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
+  color: #090216b0;
+  font-weight: bold;
+  width: 15%;
+  height: 6vh;
+  margin-right: 3vh;
+  margin-top: 5.5vh;
+  margin-bottom: 4vh;
+}
+
+.body-index section {
+  width: 0%;
+  background: white;
+}
+
+.body-index #wave {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.body-index #wave path {
+  fill: #C5D1EB;
+}
+
+.body-index section#content {
+  background: pink;
+}
+
+@media only screen and (max-width: 768px) {
+  .body-index .menu-index .btn-register {
+    width: 40%;
+  }
+  .body-index h1 {
+    font-size: 5vh;
+  }
+  .body-index .btn-index {
+    width: 70%;
+  }
 }
 
 .page-home .swal-footer {
@@ -1277,90 +1360,6 @@ body {
   }
 }
 
-.modal-content .body-index {
-  margin: 0;
-  background-color: #92AFD7;
-  text-align: center;
-}
-
-.modal-content .body-index .menu-index {
-  text-align: right;
-}
-
-.modal-content .body-index .menu-index .btn-register {
-  border-radius: 15px;
-  background-color: white;
-  border: white solid 1.5px;
-  -webkit-box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-          box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-  color: #090216b0;
-  font-weight: bold;
-  width: 11%;
-  height: 6vh;
-  margin-right: 3vh;
-  margin-top: 2.5vh;
-  margin-bottom: 4vh;
-}
-
-.modal-content .body-index h1 {
-  text-align: center;
-  color: white;
-  font-weight: bold;
-}
-
-.modal-content .body-index h2 {
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  margin-top: 10vh;
-}
-
-.modal-content .body-index .btn-index {
-  border-radius: 15px;
-  background-color: white;
-  border: white solid 1.5px;
-  -webkit-box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-          box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-  color: #090216b0;
-  font-weight: bold;
-  width: 15%;
-  height: 6vh;
-  margin-right: 3vh;
-  margin-top: 5.5vh;
-  margin-bottom: 4vh;
-}
-
-.modal-content .body-index section {
-  width: 0%;
-  background: white;
-}
-
-.modal-content .body-index #wave {
-  bottom: 0;
-  position: absolute;
-  width: 100%;
-}
-
-.modal-content .body-index #wave path {
-  fill: #C5D1EB;
-}
-
-.modal-content .body-index section#content {
-  background: pink;
-}
-
-@media only screen and (max-width: 768px) {
-  .modal-content .body-index .menu-index .btn-register {
-    width: 40%;
-  }
-  .modal-content .body-index h1 {
-    font-size: 5vh;
-  }
-  .modal-content .body-index .btn-index {
-    width: 70%;
-  }
-}
-
 .modal-content .body-login {
   background-color: #92AFD7;
 }
@@ -1815,101 +1814,6 @@ body {
   }
 }
 
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-}
-
-.body-index {
-  margin: 0;
-  background-color: #92AFD7;
-  text-align: center;
-}
-
-.body-index .menu-index {
-  text-align: right;
-}
-
-.body-index .menu-index .btn-register {
-  border-radius: 15px;
-  background-color: white;
-  border: white solid 1.5px;
-  -webkit-box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-          box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-  color: #090216b0;
-  font-weight: bold;
-  width: 11%;
-  height: 6vh;
-  margin-right: 3vh;
-  margin-top: 2.5vh;
-  margin-bottom: 4vh;
-}
-
-.body-index h1 {
-  text-align: center;
-  color: white;
-  font-weight: bold;
-}
-
-.body-index h2 {
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  margin-top: 10vh;
-}
-
-.body-index .btn-index {
-  border-radius: 15px;
-  background-color: white;
-  border: white solid 1.5px;
-  -webkit-box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-          box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
-  color: #090216b0;
-  font-weight: bold;
-  width: 15%;
-  height: 6vh;
-  margin-right: 3vh;
-  margin-top: 5.5vh;
-  margin-bottom: 4vh;
-}
-
-.body-index section {
-  width: 0%;
-  background: white;
-}
-
-.body-index #wave {
-  bottom: 0;
-  position: absolute;
-  width: 100%;
-}
-
-.body-index #wave path {
-  fill: #C5D1EB;
-}
-
-.body-index section#content {
-  background: pink;
-}
-
-@media only screen and (max-width: 700px) {
-  .body-index .menu-index .btn-register {
-    width: 40%;
-  }
-  .body-index h1 {
-    font-size: 5vh;
-  }
-  .body-index .btn-index {
-    width: 70%;
-  }
-}
-
 .body-login {
   background-color: #92AFD7;
 }
@@ -2078,7 +1982,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
   .body-login .logo {
     display: block !important;
     height: 18vh;
@@ -2219,7 +2123,7 @@ body {
   font-size: 3.2vh;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
   .body-login {
     height: 60vh;
   }
@@ -2336,7 +2240,7 @@ body {
   margin-bottom: 20px;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
   .body-login .modal-content-register {
     height: 75vh;
   }
