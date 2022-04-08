@@ -499,6 +499,28 @@
                         </div>
                     </div>
                 </div>
+                {{-- email --}}
+                <div class="contenedor">
+                    <div class="empresa-input-email">
+                        <div class="empresa-icon-email">
+                            <i class="fa-solid fa-at"></i>
+                        </div>
+                        <div class="inputs-email">
+                            <input class="input-email" type="text">
+                        </div>
+                    </div>
+                </div>
+                {{-- Contraseña --}}
+                <div class="contenedor">
+                    <div class="empresa-input-passwd">
+                        <div class="empresa-icon-passwd">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                        <div class="inputs-passwd">
+                            <input class="input-passwd" type="text">
+                        </div>
+                    </div>
+                </div>
                 {{-- Descripcion --}}
                 <div class="empresa-input-desc">
                     <div class="empresa-icon-desc">

@@ -347,7 +347,7 @@ body .user-vista .user-ver-foto .user-profilefoto {
 body .user-vista .user-ver-foto .user-edit-div {
   float: left;
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
 }
 
@@ -901,8 +901,33 @@ body .user-edit .user-input .user-input-desactivar .inputs-desactivar {
 body .user-edit .user-input .user-input-desactivar .inputs-desactivar .input-desactivar {
   margin-left: 1vw;
   width: 100%;
-  height: 5vh;
+  height: 2vh;
   border-radius: 2vw;
+}
+
+body .user-edit .user-input .aceptar-cuenta-edit {
+  bottom: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .user-edit .user-input .aceptar-cuenta-edit .aceptar-cuenta-btn {
+  border-radius: 5vh;
+  width: 50%;
+  padding: 0;
+  border-width: 0px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  color: white;
+  background-color: #278a00;
 }
 
 body .user-edit .user-input .user-input-desc {
@@ -1190,7 +1215,7 @@ body .empresa-vista .empresa-ver-foto .empresa-profilefoto {
 body .empresa-vista .empresa-ver-foto .empresa-edit-div {
   float: left;
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
 }
 
@@ -1582,6 +1607,94 @@ body .empresa-edit .empresa-input .empresa-input-vacante .inputs-vacante .input-
   border-color: #92AFD7;
 }
 
+body .empresa-edit .empresa-input .empresa-input-email {
+  width: 89vw;
+  border-radius: 2vw;
+  background-color: #92AFD7;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2vh;
+}
+
+body .empresa-edit .empresa-input .empresa-input-email .empresa-icon-email {
+  width: 10%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: left;
+  margin-left: 1vw;
+}
+
+body .empresa-edit .empresa-input .empresa-input-email .inputs-email {
+  float: left;
+  width: 90%;
+}
+
+body .empresa-edit .empresa-input .empresa-input-email .inputs-email .input-email {
+  margin-left: 1vw;
+  width: 100%;
+  height: 5vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
+}
+
+body .empresa-edit .empresa-input .empresa-input-passwd {
+  width: 89vw;
+  border-radius: 2vw;
+  background-color: #92AFD7;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2vh;
+}
+
+body .empresa-edit .empresa-input .empresa-input-passwd .empresa-icon-passwd {
+  width: 10%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: left;
+  margin-left: 1vw;
+}
+
+body .empresa-edit .empresa-input .empresa-input-passwd .inputs-passwd {
+  float: left;
+  width: 90%;
+}
+
+body .empresa-edit .empresa-input .empresa-input-passwd .inputs-passwd .input-passwd {
+  margin-left: 1vw;
+  width: 100%;
+  height: 5vh;
+  border-radius: 2vw;
+  border-color: #92AFD7;
+}
+
 body .empresa-edit .empresa-input .empresa-input-desactivar {
   width: 89vw;
   border-radius: 2vw;
@@ -1622,7 +1735,7 @@ body .empresa-edit .empresa-input .empresa-input-desactivar .inputs-desactivar {
 body .empresa-edit .empresa-input .empresa-input-desactivar .inputs-desactivar .input-desactivar {
   margin-left: 1vw;
   width: 100%;
-  height: 5vh;
+  height: 2vh;
   border-radius: 2vw;
 }
 
@@ -1719,5 +1832,54 @@ body .empresa-edit .aceptar-empresa-edit .aceptar-empresa-btn {
   margin: 0;
   color: white;
   background-color: #278a00;
+}
+
+body .div-enviar-mensaje {
+  width: 100%;
+  padding: 3vh;
+}
+
+body .div-enviar-mensaje .input-enviar .input-icon-mensaje {
+  width: 20%;
+  background-color: #92AFD7;
+}
+
+body .div-enviar-mensaje .input-enviar .input-enviar-mensaje {
+  width: 80%;
+}
+
+body .div-enviar-mensaje .input-enviar .input-enviar-mensaje .input-mensaje {
+  border-width: 0px;
+  width: 90%;
+  height: 3vh;
+}
+
+body .div-enviar-mensaje .input-enviar-boton {
+  width: 100%;
+  margin-top: 1vh;
+}
+
+body .div-enviar-mensaje .input-enviar-boton .input-enviar {
+  width: 90%;
+  background-color: #92AFD7;
+  color: white;
+  font-weight: bolder;
+  height: 3vh;
+}
+
+body .div-enviar-mensaje .input-enviar-boton .input-enviar:hover {
+  background-color: #a3c3f1;
+}
+
+.flex {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=style.css.map */
