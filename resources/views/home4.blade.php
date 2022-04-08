@@ -30,7 +30,7 @@
     </div>
 
     {{------------------------------------------------- VER USUARIO --------------------------------------------}}
-
+    
     <div class="user-vista">
         {{-- Foto --}}
         <div class="user-ver-foto">
@@ -320,6 +320,17 @@
                         <input class="input-desc" type="text">
                     </div>
                 </div>
+                {{-- activar/desactivar --}}
+                <div class="contenedor">
+                    <div class="user-input-desactivar">
+                        <div class="user-icon-desactivar">
+                            <p>Desactivar/Activar cuenta: <p>
+                        </div>
+                        <div class="inputs-desactivar">
+                            <input class="input-desactivar" type="checkbox">
+                        </div>
+                    </div>
+                </div> 
             </div>
         </form>
         {{-- Realizar cambios --}}
@@ -413,6 +424,109 @@
                 </div>
             </div>
         </div> 
+    </div>
+
+    {{------------------------------------------------- EDITAR EMPRES --------------------------------------------}}
+
+    <div class="empresa-edit">    
+        <form>
+            {{-- Inputs para editar la empresa --}}
+            <div class="empresa-input">
+                {{-- Nombre --}}
+                <div class="empresa-input-name">
+                    <div class="empresa-icon-name">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div class="inputs-name">
+                        <input class="input-name" type="text">
+                    </div>
+                </div>
+                {{-- Sede --}}
+                <div class="empresa-input-sede">
+                    <div class="empresa-icon-sede">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div class="inputs-sede">
+                        <input class="input-sede" type="text">
+                    </div>
+                </div>
+                {{-- Campo --}}
+                <div class="contenedor">
+                    <div class="empresa-input-campo">
+                        <div class="empresa-icon-campo">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <div class="inputs-campo">
+                            <input class="input-campo" type="text">
+                        </div>
+                    </div>
+                </div>
+                {{-- Buscamos --}}
+                <div class="contenedor">
+                    <div class="empresa-input-buscando">
+                        <div class="empresa-icon-buscando">
+                            <i class="fa-solid fa-file-signature"></i>
+                        </div>
+                        <div class="inputs-buscando">
+                            <input class="input-buscando" type="text">
+                        </div>
+                    </div>
+                </div>
+                {{-- Vacante --}}
+                <div class="contenedor">
+                    <div class="empresa-input-vacante">
+                        <div class="empresa-icon-vacante">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <div class="inputs-vacante">
+                            <input class="input-vacante" type="text">
+                        </div>
+                    </div>
+                </div>
+                {{-- Descripcion --}}
+                <div class="empresa-input-desc">
+                    <div class="empresa-icon-desc">
+                        <span class="sobre-mi">Información</span>
+                    </div>
+                    <div class="inputs-desc">
+                        <input class="input-desc" type="text">
+                    </div>
+                </div>
+                {{-- activar/desactivar --}}
+                <div class="contenedor">
+                    <div class="empresa-input-desactivar">
+                        <div class="empresa-icon-desactivar">
+                            <p>Desactivar/Activar cuenta: <p>
+                        </div>
+                        <div class="inputs-desactivar">
+                            <input class="input-desactivar" type="checkbox">
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </form>
+        {{-- Realizar cambios --}}
+        <div class="aceptar-empresa-edit">
+            <button class="aceptar-empresa-btn">
+                <p class="button"><i class="fa-solid fa-check"></i> Realizar cambios</p>
+            </button>
+        </div>
+        {{-- Eliminar cuenta --}}
+        <div class="eliminar-empresa-edit">
+            <button class="eliminar-empresa-btn">
+                <p class="button"><i class="fa-solid fa-trash-can"></i> Eliminar cuenta</p>
+            </button>
+        </div>
+    </div>
+    {{-- Eliminar cuenta modalbox --}}
+    <div id="modal-eliminar-empresa" class="modal-eliminar-empresa">
+        <div class="modal-content">
+            <h2 class="modal-title">¿Seguro que quieres eliminar la cuenta?</h2>
+            <div class="eliminar-empresa-butons">
+                <button class="cancelar-eliminar">Cancelar</button>
+                <button class="aceptar-eliminar">Eliminar</button>
+            </div>
+        </div>
     </div>
 
 </body>
