@@ -82,8 +82,8 @@ function mostrarperfilJS() {
                 recarga += '<i class="fa-solid fa-user"></i>';
                 recarga += '</div>';
                 recarga += '<div class="divs-name">';
-                recarga += '<span class="p-name">' + trabajador.nombre + '</span>';
-                recarga += '<span class="p-surname">' + trabajador.apellido + '</span>';
+                recarga += '<span class="p-name">  ' + trabajador.nombre + '  </span>';
+                recarga += '<span class="p-surname">  ' + trabajador.apellido + '  </span>';
                 recarga += '<i class="fa-solid fa-cake-candles"></i>';
                 recarga += '<span class="p-age"> ' + trabajador.edad + '</span>';
                 recarga += '</div>';

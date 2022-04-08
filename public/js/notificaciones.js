@@ -379,7 +379,12 @@ function enviar(id_receptor) {
             var respuesta = JSON.parse(this.responseText);
             console.log(respuesta)
             if (respuesta == "OK") {
-                alert("Mail enviado con exito")
+                swal.fire({
+                    title: "Correcto",
+                    text: "Mail enviado con exito!.",
+                    showConfirmButton: false,
+                    icon: "success",
+                });
             } else {
                 alert("Error al enviar el mail")
             }
