@@ -287,11 +287,18 @@ function loginP() {
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
-            console.log(respuesta.resultado)
             if (respuesta.resultado == "no") {
                 swal.fire({
                     title: "Error",
                     text: 'No estas verificado porfavor ve a tu correo y comprueba la bandeja de entrada',
+                    icon: "error",
+                });
+                return false
+            }
+            if (respuesta.resultado == "baneado") {
+                swal.fire({
+                    title: "Error",
+                    text: 'Cuenta inhabilitada',
                     icon: "error",
                 });
                 return false

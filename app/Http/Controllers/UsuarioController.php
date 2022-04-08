@@ -14,10 +14,14 @@ class UsuarioController extends Controller
 /*----------------------------------------LOGIN Y LOGOUT------------------------------------------------------------------------*/
     public function loginP(Request $request){
         $datos= $request->except('_token','_method');
+            
         try{
         $user=DB::table("tbl_perfiles")->join('tbl_usuarios', 'tbl_perfiles.id', '=', 'tbl_usuarios.id_perfil')->where('mail','=',$datos['mail'])->where('contra','=',md5($datos['contra']))->first();
         if($user->verificado=='0'){
             return response()->json(array('resultado'=> 'no'));
+        }
+        if($user->estado=='0'){
+            return response()->json(array('resultado'=> 'baneado'));
         }
         if($user->nom_perfil=='Admin'){
            $request->session()->put('nombre_admin',$request->mail);
