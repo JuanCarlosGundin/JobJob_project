@@ -147,6 +147,79 @@ function mostrarperfilJS() {
                 recarga += '</div>';
                 recarga += '</div>';
             }
+            if (id_perfil == 3) {
+                var empresa = respuesta.empresa[0];
+                recarga += '<div class="empresa-vista">';
+                /* Logo */
+                recarga += '<div class="empresa-ver-foto">';
+                if (empresa.logo_emp != null) {
+                    recarga += '<img class="empresa-profilefoto" src="storage/' + empresa.logo_emp + '">';
+                } else {
+                    recarga += '<img class="empresa-profilefoto" src="storage/img/usuario.png">';
+                }
+                recarga += '<div class="empresa-edit-div">';
+                /* boton que cambia la vista a editar */
+                recarga += '<button class="empresa-edit-btn" onclick="leermodperfilJS(); return false;"><i class="fa-solid fa-pen"></i></button>';
+                recarga += '</div>';
+                recarga += '</div>';
+                /* Ver empresa */
+                recarga += '<div class="empresa-ver">';
+                /* Nombre */
+                recarga += '<div class="empresa-div-name">';
+                recarga += '<div class="divs-name">';
+                recarga += '<span class="p-name">' + empresa.nom_emp + '</span>';
+                recarga += '</div>';
+                recarga += '</div>';
+                /* Sede */
+                recarga += '<hr>';
+                recarga += '<div class="empresa-div-house">';
+                recarga += '<div class="empresa-icon-name">';
+                recarga += '<i class="fa-solid fa-building"></i>';
+                recarga += '</div>';
+                recarga += '<div class="divs-house">';
+                recarga += '<span class="p-house">' + empresa.loc_emp + '</span>';
+                recarga += '</div>';
+                recarga += '</div>';
+                /* Campo */
+                recarga += '<div class="empresa-div-house">';
+                recarga += '<div class="empresa-icon-name">';
+                recarga += '<i class="fa-solid fa-briefcase"></i>';
+                recarga += '</div>';
+                recarga += '<div class="divs-house">';
+                recarga += '<span class="p-house">' + empresa.campo_emp + '</span>';
+                recarga += '</div>';
+                recarga += '</div>';
+                /* Que busca */
+                recarga += '<div class="empresa-div-house">';
+                recarga += '<div class="empresa-icon-name">';
+                recarga += '<i class="fa-solid fa-file-signature"></i>';
+                recarga += '</div>';
+                recarga += '<div class="divs-house">';
+                recarga += '<span class="p-house">' + empresa.searching + '</span>';
+                recarga += '</div>';
+                recarga += '</div>';
+                /* Vacante */
+                recarga += '<div class="empresa-div-house">';
+                recarga += '<div class="empresa-icon-name">';
+                recarga += '<i class="fa-solid fa-handshake"></i>';
+                recarga += '</div>';
+                recarga += '<div class="divs-house">';
+                recarga += '<span class="p-house">' + empresa.vacante + '</span>';
+                recarga += '</div>';
+                recarga += '</div>';
+                recarga += '<hr>';
+                /* Descripcion */
+                recarga += '<div class="empresa-div-desc">';
+                recarga += '<div class="empresa-icon-desc">';
+                recarga += '<span class="sobre-mi-desc">Acerca de:</span>';
+                recarga += '</div>';
+                recarga += '<div class="divs-desc">';
+                recarga += '<span class="p-desc">' + empresa.about_emp + '</span>';
+                recarga += '</div>';
+                recarga += '</div>';
+                recarga += '</div>';
+                recarga += '</div>';
+            }
             contenidoajax.innerHTML = recarga;
         }
     }
@@ -375,49 +448,149 @@ function leermodperfilJS() {
             }
             if (id_perfil == 3) {
                 var empresa = respuesta.empresa[0];
+                recarga += '<div class="empresa-edit">';
                 recarga += '<form method="POST" onsubmit="editarperfilJS(\'' + empresa.id + '\',\'' + id_perfil + '\'); return false;" id="formeditar" enctype="multipart/form-data">';
-                recarga += '<div class="form-group">';
-                recarga += '<label class="col-sm-2 col-form-label">Correo:</label>';
-                recarga += '<input type="email" class="form-control" id="mail" name="mail" value="' + empresa.mail + '">';
+                /* Inputs para editar la empresa */
+                recarga += '<div class="empresa-input">';
+                /* Nombre */
+                recarga += '<div class="empresa-input-name">';
+                recarga += '<div class="empresa-icon-name">';
+                recarga += '<i class="fa-solid fa-user-tie"></i>';
                 recarga += '</div>';
-                recarga += '<div class="form-group">';
-                recarga += '<label class="col-sm-2 col-form-label">Contraseña:</label>';
-                recarga += '<input type="password" class="form-control" id="contra" name="contra" value="' + empresa.contra + '">';
+                recarga += '<div class="inputs-name">';
+                recarga += '<input type="text" class="input-name" id="nom_emp" name="nom_emp" value="' + empresa.nom_emp + '">';
                 recarga += '</div>';
-                recarga += '<div class="form-group">';
-                recarga += '<label class="col-sm-2 col-form-label">Nombre:</label>';
-                recarga += '<input type="text" class="form-control" id="nom_emp" name="nom_emp" value="' + empresa.nom_emp + '">';
                 recarga += '</div>';
-                recarga += '<div class="form-group">';
-                recarga += '<label class="col-sm-2 col-form-label">Localizacion:</label>';
-                recarga += '<input type="text" class="form-control" id="loc_emp" name="loc_emp" value="' + empresa.loc_emp + '">';
+                /* Sede */
+                recarga += '<div class="empresa-input-sede">';
+                recarga += '<div class="empresa-icon-sede">';
+                recarga += '<i class="fa-solid fa-building"></i>';
                 recarga += '</div>';
-                recarga += '<div class="form-group">';
-                recarga += '<label class="col-sm-2 col-form-label">Sobre nosotros:</label>';
-                recarga += '<input type="text" class="form-control" id="about_emp" name="about_emp" value="' + empresa.about_emp + '">';
+                recarga += '<div class="inputs-sede">';
+                recarga += '<input type="text" class="input-sede" id="loc_emp" name="loc_emp" value="' + empresa.loc_emp + '">';
                 recarga += '</div>';
-                recarga += '<div class="form-group">';
-                recarga += '<label class="col-sm-2 col-form-label">Sector:</label>';
-                recarga += '<input type="text" class="form-control" id="campo_emp" name="campo_emp" value="' + empresa.campo_emp + '">';
                 recarga += '</div>';
-                recarga += '<div class="form-group">';
-                recarga += '<label class="col-sm-2 col-form-label">Que buscas:</label>';
-                recarga += '<input type="text" class="form-control" id="searching" name="searching" value="' + empresa.searching + '">';
+                /* Campo */
+                recarga += '<div class="contenedor">';
+                recarga += '<div class="empresa-input-campo">';
+                recarga += '<div class="empresa-icon-campo">';
+                recarga += '<i class="fa-solid fa-briefcase"></i>';
                 recarga += '</div>';
-                recarga += '<div class="form-group">';
-                recarga += '<label class="col-sm-2 col-form-label">Vacante:</label>';
-                recarga += '<input type="text" class="form-control" id="vacante" name="vacante" value="' + empresa.vacante + '">';
+                recarga += '<div class="inputs-campo">';
+                recarga += '<input type="text" class="input-campo" id="campo_emp" name="campo_emp" value="' + empresa.campo_emp + '">';
                 recarga += '</div>';
-                recarga += '<div class="form-group">';
-                recarga += '<label class="col-sm-2 col-form-label">Mostrado:</label>';
-                recarga += '<input type="number" class="form-control" id="mostrado" name="mostrado" value="' + empresa.mostrado + '">';
                 recarga += '</div>';
-                recarga += '<div class="form-group">';
-                recarga += '<label class="col-sm-2 col-form-label">Logo:</label>';
-                recarga += '<input type="file" class="form-control" id="logo_emp" name="logo_emp">';
                 recarga += '</div>';
-                recarga += '<button type="submit" class="btn btn-primary">Modificar</button>';
+                /* Buscamos */
+                recarga += '<div class="contenedor">';
+                recarga += '<div class="empresa-input-buscando">';
+                recarga += '<div class="empresa-icon-buscando">';
+                recarga += '<i class="fa-solid fa-file-signature"></i>';
+                recarga += '</div>';
+                recarga += '<div class="inputs-buscando">';
+                recarga += '<input type="text" class="input-buscando" id="searching" name="searching" value="' + empresa.searching + '">';
+                recarga += '</div>';
+                recarga += '</div>';
+                recarga += '</div>';
+                /* Vacante */
+                recarga += '<div class="contenedor">';
+                recarga += '<div class="empresa-input-vacante">';
+                recarga += '<div class="empresa-icon-vacante">';
+                recarga += '<i class="fa-solid fa-handshake"></i>';
+                recarga += '</div>';
+                recarga += '<div class="inputs-vacante">';
+                recarga += '<input type="text" class="input-vacante" id="vacante" name="vacante" value="' + empresa.vacante + '">';
+                recarga += '</div>';
+                recarga += '</div>';
+                recarga += '</div>';
+                /* Descripcion */
+                recarga += '<div class="empresa-input-desc">';
+                recarga += '<div class="empresa-icon-desc">';
+                recarga += '<span class="sobre-mi">Información</span>';
+                recarga += '</div>';
+                recarga += '<div class="inputs-desc">';
+                recarga += '<input type="text" class="input-desc" id="about_emp" name="about_emp" value="' + empresa.about_emp + '">';
+                recarga += '</div>';
+                recarga += '</div>';
+                /* Correo uso css trabajador*/
+                recarga += '<div class="contenedor">';
+                recarga += '<div class="user-input-idioma">';
+                recarga += '<div class="user-icon-idioma">';
+                recarga += '<i class="fa-solid fa-at"></i>';
+                recarga += '</div>';
+                recarga += '<div class="inputs-idioma">';
+                recarga += '<input type="email" class="input-idioma" id="mail" name="mail" value="' + empresa.mail + '">';
+                recarga += '</div>';
+                recarga += '</div>';
+                recarga += '<div class="user-icon-more">';
+                recarga += '<button class="user-icon-more-button">';
+                recarga += '<i class="fa-solid fa-plus"></i>';
+                recarga += '</button>';
+                recarga += '</div>';
+                recarga += '</div>';
+                /* Foto */
+                recarga += '<div class="contenedor">';
+                recarga += '<div class="user-input-idioma">';
+                recarga += '<div class="user-icon-idioma">';
+                recarga += '<i class="fa-solid fa-image"></i>';
+                recarga += '</div>';
+                recarga += '<div class="inputs-idioma">';
+                recarga += '<input type="file" class="input-idioma" id="logo_emp" name="logo_emp">';
+                recarga += '</div>';
+                recarga += '</div>';
+                recarga += '<div class="user-icon-more">';
+                recarga += '<button class="user-icon-more-button">';
+                recarga += '<i class="fa-solid fa-plus"></i>';
+                recarga += '</button>';
+                recarga += '</div>';
+                recarga += '</div>';
+                /* Password uso css trabajador*/
+                recarga += '<div class="contenedor">';
+                recarga += '<div class="user-input-idioma">';
+                recarga += '<div class="user-icon-idioma">';
+                recarga += '<i class="fa-solid fa-key"></i>';
+                recarga += '</div>';
+                recarga += '<div class="inputs-idioma">';
+                recarga += '<input type="password" class="input-idioma" id="contra" name="contra" value="' + empresa.contra + '">';
+                recarga += '</div>';
+                recarga += '</div>';
+                recarga += '<div class="user-icon-more">';
+                recarga += '<button class="user-icon-more-button">';
+                recarga += '<i class="fa-solid fa-plus"></i>';
+                recarga += '</button>';
+                recarga += '</div>';
+                recarga += '</div>';
+                /* activar/desactivar */
+                recarga += '<div class="contenedor">';
+                recarga += '<div class="empresa-input-desactivar">';
+                recarga += '<div class="empresa-icon-desactivar">';
+                recarga += '<p>Desactivar/Activar cuenta: <p>';
+                recarga += '</div>';
+                recarga += '<div class="inputs-desactivar">';
+                recarga += '<input type="number" class="input-desactivar" id="mostrado" name="mostrado" value="' + empresa.mostrado + '">';
+                recarga += '</div>';
+                recarga += '</div>';
+                recarga += '</div>';
+                recarga += '</div>';
                 recarga += '</form>';
+                /* Realizar cambios */
+                recarga += '<div class="aceptar-empresa-edit">';
+                recarga += '<button class="aceptar-empresa-btn" onclick="editarperfilJS(\'' + empresa.id + '\',\'' + id_perfil + '\'); return false;">';
+                recarga += '<p class="button"><i class="fa-solid fa-check"></i> Realizar cambios</p>';
+                recarga += '</button>';
+                recarga += '</div>';
+                /* Volver a la vista anterior */
+                recarga += '<div class="aceptar-empresa-edit">';
+                recarga += '<button class="aceptar-empresa-btn" onclick="mostrarperfilJS(); return false;">';
+                recarga += '<p class="button"><i class="fa-solid fa-check"></i> Volver</p>';
+                recarga += '</button>';
+                recarga += '</div>';
+                /* Eliminar cuenta */
+                recarga += '<div class="eliminar-empresa-edit">';
+                recarga += '<button class="eliminar-empresa-btn">';
+                recarga += '<p class="button"><i class="fa-solid fa-trash-can"></i> Eliminar cuenta</p>';
+                recarga += '</button>';
+                recarga += '</div>';
                 recarga += '</div>';
             }
             contenidoajax.innerHTML = recarga;
