@@ -83,7 +83,7 @@ body {
   background: pink;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 700px) {
   .body-index .menu-index .btn-register {
     width: 40%;
   }
@@ -140,7 +140,7 @@ body {
 }
 
 .body-login .modal-login .modal-content h2 {
-  margin-top: 8vh;
+  margin-top: 11vh;
   margin-bottom: 7vh;
   text-align: center;
   font-weight: bold;
@@ -156,7 +156,7 @@ body {
 
 .body-login .modal-login .modal-content .contraseña {
   font-weight: bold;
-  font-size: 2.5vh;
+  font-size: 2vh;
   color: #C5D1EB !important;
   text-align: center;
   padding-top: 10px;
@@ -233,12 +233,12 @@ body {
   margin-right: 4px;
 }
 
-@media only screen and (max-width: 1200px) and (min-width: 769px) {
+@media only screen and (max-width: 1200px) {
   .body-login .modal-login {
     margin-top: 10vh;
     padding-bottom: 0.2vh;
-    margin-left: 20vh;
-    margin-right: 20vh;
+    margin-left: 3vh;
+    margin-right: 3vh;
   }
   .body-login .modal-login .botones {
     text-align: center;
@@ -250,18 +250,27 @@ body {
   .body-login .modal-login .botones .btn-register {
     width: 100%;
   }
+  .body-login .modal-login .botones .modal-content {
+    width: 100%;
+  }
+  .body-login .modal-login .botones .modal-content .contraseña {
+    font-size: 1vh;
+    text-align: left;
+  }
+  .body-login .modal-login .botones .modal-content .inputlogin {
+    width: 90% !important;
+    height: 2vh !important;
+  }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 700px) {
   .body-login .logo {
     display: block !important;
-    height: 25vh;
+    height: 18vh;
   }
   .body-login .logo img {
-    width: 30%;
-    margin-top: 15%;
-    margin-bottom: 10%;
-    border-radius: 20px;
+    width: 25%;
+    margin-top: 20%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -281,10 +290,10 @@ body {
   }
   .body-login .modal-login .modal-content {
     width: 80%;
-    height: 66vh;
+    height: 65vh;
   }
   .body-login .modal-login .modal-content h2 {
-    margin-top: 0vh;
+    margin-top: 4vh;
     margin-bottom: 0vh;
     font-weight: bold;
     padding-top: 6vh;
@@ -300,10 +309,10 @@ body {
     height: 40px;
     margin-bottom: 3px;
   }
-  .body-login .modal-login .modal-content p {
+  .body-login .modal-login .modal-content .contraseña {
     padding-top: 3px;
-    text-align: left;
     font-size: 1.7vh;
+    text-align: left;
   }
   .body-login .modal-login .modal-content .linea {
     max-width: 100%;
@@ -354,8 +363,8 @@ body {
 
 .body-login .modal-content-register-cuadrados h3 {
   font-weight: bold;
-  padding-top: 8vh;
-  padding-bottom: 8vh;
+  padding-top: 11vh;
+  padding-bottom: 7vh;
   font-size: 3.5vh;
 }
 
@@ -375,8 +384,8 @@ body {
 }
 
 .body-login .modal-content-register-cuadrados .cuadrado {
-  width: 34vh;
-  height: 34vh;
+  width: 30vh;
+  height: 30vh;
   background: #C5D1EB;
   border: #C5D1EB solid 1.5px;
   -webkit-box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
@@ -395,7 +404,7 @@ body {
   font-size: 3.2vh;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 700px) {
   .body-login {
     height: 60vh;
   }
@@ -404,6 +413,7 @@ body {
     margin-bottom: 4vh;
     padding-top: 5vh;
     padding-bottom: 0vh;
+    margin-top: 1vh;
   }
   .body-login .modal-content-register-cuadrados .cuadrados {
     width: 100%;
@@ -511,7 +521,10 @@ body {
   margin-bottom: 20px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 700px) {
+  .body-login .modal-content-register {
+    height: 75vh;
+  }
   .body-login .modal-content-register h3 {
     font-size: 3vh;
     padding-bottom: 4vh;

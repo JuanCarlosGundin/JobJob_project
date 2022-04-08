@@ -35,8 +35,6 @@ function login() {
     recarga += '<input class="inputlogin" type="password" name="contra" id="contra_login" placeholder="Introduce tu contraseña"><br>'
     recarga += '<button class= "botonlogin" type="submit" value="register">Iniciar Sesión</button>'
     recarga += '<p class="contraseña">¿contraseña olvidada?</p>'
-    recarga += '<div class="linea"></div>'
-    recarga += '<button class="google-login"><img class="google-img" src="storage/uploads/google.png">Conéctate con Google</button>'
     recarga += '</form>'
     recarga += '</div>'
     tabla.innerHTML = recarga

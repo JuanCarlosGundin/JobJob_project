@@ -5,7 +5,7 @@
     $third-color:#5A7684;
     $fourth-color:#0F084B;
     $fifth-color: #0D0221;
-    $movil:768px;
+    $movil:700px;
     $tablet:1200px;
     *,
     *:before,
@@ -134,7 +134,7 @@
                 margin-right: 10%;
                 height: 70vh;
                 h2 {
-                    margin-top: 8vh;
+                    margin-top: 11vh;
                     margin-bottom: 7vh;
                     text-align: center;
                     font-weight: bold;
@@ -148,7 +148,7 @@
                 }
                 .contraseña {
                     font-weight: bold;
-                    font-size: 2.5vh;
+                    font-size: 2vh;
                     color: $second-color !important;
                     text-align: center;
                     padding-top: 10px;
@@ -205,13 +205,13 @@
     }
 
     // RESPONSIVE TABLET
-    @media only screen and (max-width: $tablet) and (min-width: 769px) {
+    @media only screen and (max-width: $tablet) {
         .body-login {
             .modal-login {
                 margin-top: 10vh;
                 padding-bottom: 0.2vh;
-                margin-left: 20vh;
-                margin-right: 20vh;
+                margin-left: 3vh;
+                margin-right: 3vh;
                 .botones {
                     text-align: center;
                     height: 9vh;
@@ -221,6 +221,17 @@
                     .btn-register {
                         width: 100%;
                     }
+                    .modal-content {
+                        width: 100%;
+                         .contraseña {
+                             font-size: 1vh;
+                             text-align: left;
+                         }
+                         .inputlogin {
+                            width: 90% !important;
+                            height: 2vh !important;
+                        }
+                     }
                 }
             }
         }
@@ -231,13 +242,11 @@
         .body-login {
             .logo {
                 display: block !important;
-                height: 25vh;
+                height: 18vh;
             }
             .logo img {
-                width: 30%;
-                margin-top: 15%;
-                margin-bottom: 10%;
-                border-radius: 20px;
+                width: 25%;
+                margin-top: 20%;
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
@@ -258,9 +267,9 @@
                 ///contenido del modal
                 .modal-content {
                     width: 80%;
-                    height: 66vh;
+                    height: 65vh;
                     h2 {
-                        margin-top: 0vh;
+                        margin-top: 4vh;
                         margin-bottom: 0vh;
                         font-weight: bold;
                         padding-top: 6vh;
@@ -276,11 +285,11 @@
                         height: 40px;
                         margin-bottom: 3px;
                     }
-                    p {
+                    .contraseña {
                         padding-top: 3px;
-                        text-align: left;
                         font-size: 1.7vh;
-                    }
+                        text-align: left;
+                        }
                     .linea {
                         max-width: 100%;
                         padding: 0;
@@ -336,8 +345,8 @@
             height: 72vh;
             h3 {
                 font-weight: bold;
-                padding-top: 8vh;
-                padding-bottom: 8vh;
+                padding-top: 11vh;
+                padding-bottom: 7vh;
                 font-size: 3.5vh;
             }
             ///colocación y tamaño de los dos cuadrados (empresa y usuario)
@@ -350,8 +359,8 @@
                 align-items: center;
             }
             .cuadrado {
-                width: 34vh;
-                height: 34vh;
+                width: 30vh;
+                height: 30vh;
                 background: $second-color;
                 border: $second-color solid 1.5px;
                 box-shadow: 6px 4px 4px rgba(206, 203, 203, 0.993);
@@ -380,6 +389,7 @@
                     margin-bottom: 4vh;
                     padding-top: 5vh;
                     padding-bottom: 0vh;
+                    margin-top: 1vh;
                 }
                 .cuadrados {
                     width: 100%;
@@ -474,6 +484,7 @@
     @media only screen and (max-width: $movil) {
         .body-login {
             .modal-content-register {
+                height: 75vh;
                 h3 {
                     font-size: 3vh;
                     padding-bottom: 4vh;
