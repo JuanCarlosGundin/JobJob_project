@@ -12,11 +12,11 @@
     *:after {
         box-sizing: border-box;
     }
-
+    
     body {
         font-family: 'Inter', sans-serif;
     }
-
+    
     //////////////////////////////////////////////////////MAIN///////////////////////////////////////
     .body-index {
         margin: 0;
@@ -81,10 +81,10 @@
             background: pink;
         }
     }
-
+    
     ///RESPONSIVE TABLET
     @media only screen and (max-width: $tablet) {}
-
+    
     ///RESPONSIVE MOVIL
     @media only screen and (max-width: $movil) {
         .body-index {
@@ -101,7 +101,7 @@
             }
         }
     }
-
+    
     ///////////////////////////////////////////////////////LOGIN///////////////////////////////////////
     .body-login {
         background-color: $first-color;
@@ -203,7 +203,7 @@
             }
         }
     }
-
+    
     // RESPONSIVE TABLET
     @media only screen and (max-width: $tablet) and (min-width: 769px) {
         .body-login {
@@ -225,7 +225,7 @@
             }
         }
     }
-
+    
     // RESPONSIVE MÓVIL
     @media only screen and (max-width: $movil) {
         .body-login {
@@ -300,7 +300,7 @@
             }
         }
     }
-
+    
     //////////////////////////////////////////////////////////REGISTRAR//////////////////////////////////////
     //////////////////////////////////////////////////PÁGINA TRABAJADOR-EMPRESA//////////////////////////////
     .body-login {
@@ -369,7 +369,7 @@
             }
         }
     }
-
+    
     /// RESPONSIVE MÓVIL
     @media only screen and (max-width: $movil) {
         .body-login {
@@ -396,7 +396,7 @@
             }
         }
     }
-
+    
     ///////////////////////////////FORNULARIO REGISTRAR TRABAJADOR-EMPRESA////////////////////////////
     .body-login {
         //barra de scroll del modal
@@ -469,7 +469,7 @@
             }
         }
     }
-
+    
     //RESPONSIVE MOVIL
     @media only screen and (max-width: $movil) {
         .body-login {
