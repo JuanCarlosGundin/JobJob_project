@@ -16,7 +16,7 @@ Si quieres obtener nuestro proyecto sigue estos pasos:
 2. Una vez clonado dentro de la aplicación ejecutamos en el terminal *composer install*
 3. Luego el env.example lo renombramos a .env 
 4. Seguidamente ejecutamos en el terminal *php artisan key:generate*
-5. Dentro del .env donde pone **DB_DATABASE** ponemos el nombre de la base de datos.
+5. Dentro del .env donde pone **BASE_DE_DATOS** ponemos el nombre de la base de datos.
 6. Insertar la base de datos al phpmyadmin o workbench con las credenciales correctas en tu caso.
 (LA BASE DE DATOS ESTÁ EN EL DIRECTORIO DATABASE)
 
