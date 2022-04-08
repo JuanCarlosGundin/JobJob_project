@@ -31,8 +31,8 @@ Si quieres obtener nuestro proyecto sigue estos pasos:
     AJAX
     JAVASCRIPT
     MYSQL
-    CSS
-    LEAFLET
+    SCSS
+    BOOTSTRAP
 
 ## Autores ✒️
 
