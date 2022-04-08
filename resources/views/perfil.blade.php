@@ -1,3 +1,9 @@
+@if (!Session::get('id_user'))
+    <?php
+        //Si la sesion no esta definida te redirige al login.
+        return redirect()->to('/')->send();
+    ?>
+@endif
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,5 +42,6 @@
         </div>
     </div>
     <script src="js/perfil.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

@@ -707,6 +707,12 @@ function editarperfilJS(id, id_perfil) {
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
+            swal.fire({
+                title: "Correcto",
+                text: "Perfil modificado.",
+                showConfirmButton: false,
+                icon: "success",
+            });
             leermodperfilJS();
         }
     }
