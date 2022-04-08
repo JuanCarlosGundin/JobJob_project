@@ -117,11 +117,6 @@
             </div>
         </div>
     </div>
-    <form action="{{url('logout')}}" method="GET">
-            <div class="form-group">
-                <span><i class="fas fa-sign-out-alt"></i></span>
-                <button type="submit" value="logout" class="botoncPanel">LOGOUT</button><br><br>
-            </div>
     <script src="js/swiper.js"></script>
 </body>
 

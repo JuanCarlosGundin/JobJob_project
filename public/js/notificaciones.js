@@ -130,7 +130,33 @@ function leernotificacionesJS() {
 
 function chat(id_receptor) {
     var zonaalerts = document.getElementById("zonaalerts");
-    zonaalerts.innerHTML = '<input type="text" id="mensajecorreo"><button onclick="enviar(' + id_receptor + '); return false;">Enviar mail</button><button onclick="leernotificacionesJS(); return false;">Volver</button>';
+    var recarga = "";
+    recarga += '<div class="div-enviar-title">';
+    recarga += '<div class="return">';
+    recarga += '<button class="return-btn" onclick="leernotificacionesJS(); return false;">';
+    recarga += '<i class="fa-solid fa-angle-left"></i>';
+    recarga += '</button>';
+    recarga += '</div>';
+    recarga += '<div class="enviar-a">';
+    recarga += '<h1 class="enviar-a-title">Enviar mensaje</a>';
+    recarga += '</div>';
+    recarga += '</div>';
+    recarga += '<div class="div-enviar-mensaje">';
+    recarga += '<form>';
+    recarga += '<div class="input-enviar flex">';
+    recarga += '<div class="input-icon-mensaje flex">';
+    recarga += '<i class="fa-solid fa-envelope"></i>';
+    recarga += '</div>';
+    recarga += '<div class="input-enviar-mensaje"> ';
+    recarga += '<input class="input-mensaje" type="text" id="mensajecorreo">';
+    recarga += '</div>';
+    recarga += '</div>';
+    recarga += '<div class="input-enviar-boton flex">';
+    recarga += '<input class="input-enviar" type="submit" value="Enviar" onclick="enviar(' + id_receptor + '); return false;">';
+    recarga += '</div>';
+    recarga += '</form>';
+    recarga += '</div>';
+    zonaalerts.innerHTML = recarga;
 }
 
 function enviar(id_receptor) {

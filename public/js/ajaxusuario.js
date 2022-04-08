@@ -292,6 +292,14 @@ function loginP() {
                 });
                 return false
             }
+            if (respuesta.resultado == "baneado") {
+                swal.fire({
+                    title: "Error",
+                    text: 'Cuenta inhabilitada',
+                    icon: "error",
+                });
+                return false
+            }
             if (respuesta.resultado == "admin") {
                 window.location.href = 'cPanelAdmin';
             } else if (respuesta.resultado == "trabajador") {

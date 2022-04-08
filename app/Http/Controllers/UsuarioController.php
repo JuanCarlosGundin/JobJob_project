@@ -19,6 +19,9 @@ class UsuarioController extends Controller
         if($user->verificado=='0'){
             return response()->json(array('resultado'=> 'no'));
         }
+        if($user->estado=='0'){
+            return response()->json(array('resultado'=> 'baneado'));
+        }
         if($user->nom_perfil=='Admin'){
            $request->session()->put('nombre_admin',$request->mail);
         //    return redirect('cPanelAdmin');
