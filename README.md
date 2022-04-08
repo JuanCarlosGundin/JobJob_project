@@ -1,6 +1,6 @@
 # PROYECTO 5 - JobJob
 
-**Esta aplicación trata sobre una especie de "Tinder" pero para empresas y trabajadores. La lógica de esta aplicación es poder hacer que las empresas y trabajadores interactúen entre ellos para así poder encontrar a tu empresa ideal, o por lo contrario a tu trabajador ideal. Cuando la empresa inicie sesión verá a los trabajadores y podrá decir si le gustan o no para el puesto que proponen. En el otro caso, cuando el trabajador inicie sesión podrá ver a las empresas y hacer match con ellas.**
+**Esta aplicación trata sobre una especie de "Tinder" pero para empresas y trabajadores. La principal funcionalidad de esta aplicación es poder hacer que las empresas y trabajadores interactúen entre ellos para así poder encontrar a tu empresa ideal, o por lo contrario a tu trabajador ideal. Cuando la empresa inicie sesión verá a los trabajadores y podrá decir si le gustan o no para el puesto que proponen. En el otro caso, cuando el trabajador inicie sesión podrá ver a las empresas y hacer match con ellas.**
 
 
 ## Pre-requisitos 📋
