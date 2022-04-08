@@ -1071,6 +1071,9 @@ body {
         #wave path {
             fill: $second-color;
         }
+        section#content {
+            background: pink;
+        }
     }
     ///RESPONSIVE TABLET
     @media only screen and (max-width: $tablet) {}

@@ -1345,6 +1345,10 @@ body {
   fill: #C5D1EB;
 }
 
+.modal-content .body-index section#content {
+  background: pink;
+}
+
 @media only screen and (max-width: 768px) {
   .modal-content .body-index .menu-index .btn-register {
     width: 40%;
