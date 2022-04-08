@@ -38,6 +38,9 @@
             <div class="user-edit-div">
                 <button class="user-edit-btn"><i class="fa-solid fa-pen"></i></button>
             </div>
+            <div class="logout">
+                <button class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
         </div>
         {{-- Inputs para editar el usuario --}}
         <div class="user-ver">
@@ -138,7 +141,12 @@
 
     {{------------------------------------------------- EDITAR USUARIO --------------------------------------------}}
 
-    <div class="user-edit">    
+    <div class="user-edit">
+        <div class="return">
+            <button class="return-btn">
+                <i class="fa-solid fa-angle-left"></i>
+            </button>
+        </div>  
         <form>
             {{-- Inputs para editar el usuario --}}
             <div class="user-input">
@@ -367,6 +375,9 @@
             <div class="empresa-edit-div">
                 <button class="empresa-edit-btn"><i class="fa-solid fa-pen"></i></button>
             </div>
+            <div class="logout">
+                <button class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
         </div>
         {{-- Ver empresa --}}
         <div class="empresa-ver">
@@ -428,7 +439,12 @@
 
     {{------------------------------------------------- EDITAR EMPRES --------------------------------------------}}
 
-    <div class="empresa-edit">    
+    <div class="empresa-edit">
+        <div class="return">
+            <button class="return-btn">
+                <i class="fa-solid fa-angle-left"></i>
+            </button>
+        </div>    
         <form>
             {{-- Inputs para editar la empresa --}}
             <div class="empresa-input">

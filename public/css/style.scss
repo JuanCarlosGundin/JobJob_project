@@ -304,8 +304,8 @@ body {
             .user-edit-div {
                 float: left;
                 position: absolute;
-                bottom: 0;
-                right: 0;
+                top: 0;
+                left: 0;
                 .user-edit-btn {
                     height: 5vh;
                     width: 5vh;
@@ -317,6 +317,25 @@ body {
                     border-radius: 60px;
                     color: white;
                     background-color: $third-color;
+                    font-size: 2vh;
+                }
+            }
+            .logout {
+                float: left;
+                position: absolute;
+                top: 0;
+                right: 0;
+                .logout-btn {
+                    height: 5vh;
+                    width: 5vh;
+                    padding: 0;
+                    border-width: 0px;
+                    cursor: pointer;
+                    padding: 0;
+                    margin: 0;
+                    border-radius: 60px;
+                    color: white;
+                    background-color: $fourth-color;
                     font-size: 2vh;
                 }
             }
@@ -412,6 +431,15 @@ body {
     .user-edit {
         width: 100;
         padding: 2vh;
+        .return {
+            margin-bottom: 2vh;
+            .return-btn {
+                border-width: 0px;
+                font-size: 3vh;
+                background-color: transparent;
+                cursor: pointer;
+            }
+        }
         .user-edit-foto {
             width: 100%;
             justify-content: center;
@@ -880,8 +908,8 @@ body {
             .empresa-edit-div {
                 float: left;
                 position: absolute;
-                bottom: 0;
-                right: 0;
+                top: 0;
+                left: 0;
                 .empresa-edit-btn {
                     height: 5vh;
                     width: 5vh;
@@ -893,6 +921,25 @@ body {
                     border-radius: 60px;
                     color: white;
                     background-color: $third-color;
+                    font-size: 2vh;
+                }
+            }
+            .logout {
+                float: left;
+                position: absolute;
+                top: 0;
+                right: 0;
+                .logout-btn {
+                    height: 5vh;
+                    width: 5vh;
+                    padding: 0;
+                    border-width: 0px;
+                    cursor: pointer;
+                    padding: 0;
+                    margin: 0;
+                    border-radius: 60px;
+                    color: white;
+                    background-color: $fourth-color;
                     font-size: 2vh;
                 }
             }
@@ -977,6 +1024,15 @@ body {
     .empresa-edit {
         width: 100;
         padding: 2vh;
+        .return {
+            margin-bottom: 2vh;
+            .return-btn {
+                border-width: 0px;
+                font-size: 3vh;
+                background-color: transparent;
+                cursor: pointer;
+            }
+        }
         .empresa-input {
             margin-top: 2vh;
             width: 100%;

@@ -347,8 +347,8 @@ body .user-vista .user-ver-foto .user-profilefoto {
 body .user-vista .user-ver-foto .user-edit-div {
   float: left;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  top: 0;
+  left: 0;
 }
 
 body .user-vista .user-ver-foto .user-edit-div .user-edit-btn {
@@ -362,6 +362,27 @@ body .user-vista .user-ver-foto .user-edit-div .user-edit-btn {
   border-radius: 60px;
   color: white;
   background-color: #5A7684;
+  font-size: 2vh;
+}
+
+body .user-vista .user-ver-foto .logout {
+  float: left;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+body .user-vista .user-ver-foto .logout .logout-btn {
+  height: 5vh;
+  width: 5vh;
+  padding: 0;
+  border-width: 0px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border-radius: 60px;
+  color: white;
+  background-color: #0F084B;
   font-size: 2vh;
 }
 
@@ -493,6 +514,17 @@ body .user-vista .user-ver .user-div-desc .divs-desc .p-desc {
 body .user-edit {
   width: 100;
   padding: 2vh;
+}
+
+body .user-edit .return {
+  margin-bottom: 2vh;
+}
+
+body .user-edit .return .return-btn {
+  border-width: 0px;
+  font-size: 3vh;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 body .user-edit .user-edit-foto {
@@ -1158,8 +1190,8 @@ body .empresa-vista .empresa-ver-foto .empresa-profilefoto {
 body .empresa-vista .empresa-ver-foto .empresa-edit-div {
   float: left;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  top: 0;
+  left: 0;
 }
 
 body .empresa-vista .empresa-ver-foto .empresa-edit-div .empresa-edit-btn {
@@ -1173,6 +1205,27 @@ body .empresa-vista .empresa-ver-foto .empresa-edit-div .empresa-edit-btn {
   border-radius: 60px;
   color: white;
   background-color: #5A7684;
+  font-size: 2vh;
+}
+
+body .empresa-vista .empresa-ver-foto .logout {
+  float: left;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+body .empresa-vista .empresa-ver-foto .logout .logout-btn {
+  height: 5vh;
+  width: 5vh;
+  padding: 0;
+  border-width: 0px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border-radius: 60px;
+  color: white;
+  background-color: #0F084B;
   font-size: 2vh;
 }
 
@@ -1291,6 +1344,17 @@ body .empresa-vista .empresa-ver .empresa-div-desc .divs-desc .p-desc {
 body .empresa-edit {
   width: 100;
   padding: 2vh;
+}
+
+body .empresa-edit .return {
+  margin-bottom: 2vh;
+}
+
+body .empresa-edit .return .return-btn {
+  border-width: 0px;
+  font-size: 3vh;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 body .empresa-edit .empresa-input {
