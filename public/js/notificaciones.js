@@ -1,6 +1,20 @@
 window.onload = function() {
     leernotificacionesJS();
 }
+////////////////////////////REDIRECCIONES/////////////////////////////////
+var navbarProfile = document.getElementById("navbar-profile-icon");
+var navbarMain = document.getElementById("navbar-main-icon");
+var navbarAlerts = document.getElementById("navbar-alerts-icon");
+
+navbarProfile.onclick = function() {
+    window.location.href = "./perfil";
+}
+navbarAlerts.onclick = function() {
+    window.location.href = "./notificaciones";
+}
+navbarMain.onclick = function() {
+    window.location.href = "./home";
+}
 
 function objetoAjax() {
     var xmlhttp = false;

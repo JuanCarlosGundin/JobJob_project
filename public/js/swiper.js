@@ -13,13 +13,13 @@ var navbarMain = document.getElementById("navbar-main-icon");
 var navbarAlerts = document.getElementById("navbar-alerts-icon");
 
 navbarProfile.onclick = function() {
-    window.location.href = "./profile";
+    window.location.href = "./perfil";
 }
 navbarAlerts.onclick = function() {
-    window.location.href = "./alerts";
+    window.location.href = "./notificaciones";
 }
 navbarMain.onclick = function() {
-    window.location.href = "./";
+    window.location.href = "./home";
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -227,7 +227,7 @@ function mostrar() {
                     // alert('primero entra empresa')
                     recarga += `
                     <input type="hidden" id="userID" value="${respuesta[0].id_usuario}">
-                    <img src="https://www.enter.co/wp-content/uploads/2012/08/logoms_660.jpg">
+                    <img src="./storage/${respuesta[0].logo_emp}">
                     <div class="content--card content--empresa">
                       <div class="misc--card">
                         <h2 class="vacante--empresa">${respuesta[0].vacante}</h2>
@@ -248,7 +248,7 @@ function mostrar() {
                     <input type="hidden" id="userID" value="${respuesta[0].id_usuario}">
                     <div class="content--card content--trabajador">
                         <div class="img--card">
-                            <img class="img--trabajador" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+                            <img class="img--trabajador" src="./storage/${respuesta[0].foto_perfil}">
                         </div>
                         <div class="cv--card">
                             <div class="objetivo--card">
@@ -314,7 +314,7 @@ function yes() {
                         switch (value) {
 
                             case "chat":
-                                window.location.href = "./alerts";
+                                window.location.href = "./notificaciones";
                                 break;
 
                             default:

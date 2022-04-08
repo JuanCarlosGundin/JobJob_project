@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\MailController;
 
 Route::get('/', function () {
     return view('login');
@@ -103,3 +104,5 @@ Route::post('leerperfil',[UsuarioController::class, 'leerperfiledit']);
 // editarperfil
 Route::put('editarperfil/{id}/{id_perfil}',[UsuarioController::class, 'editarperfil']);
 /*FIN EDITAR PERFIL*/
+///mandar correo chat
+Route::post('mandar', [MailController::class, 'sending']);
