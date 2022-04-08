@@ -207,6 +207,12 @@ function creartrabajadorJS() {
                     icon: "success",
                 });
                 setTimeout(() => { window.location.href = 'login'; }, 2000);
+            } else if (respuesta.resultado == "mal") {
+                swal.fire({
+                    title: "Error",
+                    text: "Este correo ya está registrado",
+                    icon: "error",
+                });
             } else {
                 alert("error")
             }
@@ -338,9 +344,14 @@ function crearempresaJS() {
                 });
                 setTimeout(() => { window.location.href = 'login'; }, 2000);
 
+            } else if (respuesta.resultado == "mal") {
+                swal.fire({
+                    title: "Error",
+                    text: "Este correo ya está registrado",
+                    icon: "error",
+                });
             } else {
-                alert("tonto")
-                    // message.innerHTML = 'Ha habido un error: ' + respuesta.resultado;
+                alert("error")
             }
         }
     }
