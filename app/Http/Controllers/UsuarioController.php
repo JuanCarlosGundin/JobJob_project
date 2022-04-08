@@ -62,15 +62,19 @@ class UsuarioController extends Controller
 // {
 //     return view('registrar');//este es el de prueba luego se tendrá que cambiar a registrar
 // }
-
 public function registroPost(Request $request){
     $datos = $request->except('_token');
+    
     try{
+        $comprobarmail=DB::select('select mail from tbl_usuarios where mail=? ',[$datos['mail']]);
+        if (count($comprobarmail)>0){
+            return response()->json(array('resultado'=> 'mal'));
+        }else{
         //añadir foto trabajador
         $path=$request->file('foto_perfil')->store('uploads','public');
         /*insertar datos en la base de datos*/
         $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil'],"verificado"=>'0',"estado"=>'1']);
-        DB::table('tbl_trabajador')->insert(["id_usuario"=>$metertablausuario,"nombre"=>$datos['nombre'],"apellido"=>$datos['apellido'],"foto_perfil"=>$path,"campo_user"=>$datos['campo_user'],"experiencia"=>$datos['experiencia'],"estudios"=>$datos['estudios'],"idiomas"=>$datos['idiomas'],"disponibilidad"=>$datos['disponibilidad'],"about_user"=>$datos['about_user'],"mostrado"=>$datos['mostrado'],"loc_trabajador"=>$datos['loc_trabajador'],"edad"=>$datos['edad']]);
+            DB::table('tbl_trabajador')->insert(["id_usuario"=>$metertablausuario,"nombre"=>$datos['nombre'],"apellido"=>$datos['apellido'],"foto_perfil"=>$path,"campo_user"=>$datos['campo_user'],"experiencia"=>$datos['experiencia'],"estudios"=>$datos['estudios'],"idiomas"=>$datos['idiomas'],"disponibilidad"=>$datos['disponibilidad'],"about_user"=>$datos['about_user'],"mostrado"=>$datos['mostrado'],"loc_trabajador"=>$datos['loc_trabajador'],"edad"=>$datos['edad']]);
         Mail::raw('Entra a este link para validar tu cuenta de Job Job y acceder a nuestro servicio : (verificar)', function ($message) use($metertablausuario) {
             $id2=$metertablausuario;
             $usuario=DB::select('select * from tbl_usuarios 
@@ -80,12 +84,36 @@ public function registroPost(Request $request){
               ->subject('Link Para validar tu cuenta de Job Job');
           });
         return response()->json(array('resultado'=> 'OK'));
-        //return redirect('login');
-
+    
+        }
+    
     }catch(\Exception $e){
         return response()->json($e->getMessage());
     }
 }
+// public function registroPost(Request $request){
+//     $datos = $request->except('_token');
+//     try{
+//         //añadir foto trabajador
+//         $path=$request->file('foto_perfil')->store('uploads','public');
+//         /*insertar datos en la base de datos*/
+//         $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil'],"verificado"=>'0',"estado"=>'1']);
+//         DB::table('tbl_trabajador')->insert(["id_usuario"=>$metertablausuario,"nombre"=>$datos['nombre'],"apellido"=>$datos['apellido'],"foto_perfil"=>$path,"campo_user"=>$datos['campo_user'],"experiencia"=>$datos['experiencia'],"estudios"=>$datos['estudios'],"idiomas"=>$datos['idiomas'],"disponibilidad"=>$datos['disponibilidad'],"about_user"=>$datos['about_user'],"mostrado"=>$datos['mostrado'],"loc_trabajador"=>$datos['loc_trabajador'],"edad"=>$datos['edad']]);
+//         Mail::raw('Entra a este link para validar tu cuenta de Job Job y acceder a nuestro servicio : (verificar)', function ($message) use($metertablausuario) {
+//             $id2=$metertablausuario;
+//             $usuario=DB::select('select * from tbl_usuarios 
+//             inner join tbl_trabajador on tbl_usuarios.id=tbl_trabajador.id_usuario
+//             where tbl_usuarios.id=? ',[$id2]);
+//             $message->to($usuario[0]->{'mail'})
+//               ->subject('Link Para validar tu cuenta de Job Job');
+//           });
+//         return response()->json(array('resultado'=> 'OK'));
+//         //return redirect('login');
+
+//     }catch(\Exception $e){
+//         return response()->json($e->getMessage());
+//     }
+// }
 /*----------------------------------------FIN REGISTRAR TRABAJADOR---------------------------------------------------------------------------------*/
 
 
@@ -94,16 +122,17 @@ public function registroPost(Request $request){
 // {
 //     return view('pruebaregistrarempresa');//este es el de prueba luego se tendrá que cambiar a registrar
 // }
-
 public function registroEmpresaPost(Request $request){
     $datos = $request->except('_token');
     try{
+        $comprobarmail=DB::select('select mail from tbl_usuarios where mail=? ',[$datos['mail']]);
+        if (count($comprobarmail)>0){
+            return response()->json(array('resultado'=> 'mal'));
+        }else{
         //añadir foto empresa
-        $path=$request->file('logo_emp')->store('logo','public');
+        $path=$request->file('logo_emp')->store('uploads','public');
         /*insertar datos en la base de datos*/
         $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil'],"verificado"=>'0',"estado"=>'1']);
-        // $selectidusuario = DB::table('tbl_usuarios')->select('id')->where('id','=',$metertablausuario)->first();
-        // $selectidusuario=$selectidusuario->id;
         $metertablaempresa=DB::table('tbl_empresa')->insert(["id_usuario"=>$metertablausuario,"nom_emp"=>$datos['nom_emp'],"loc_emp"=>$datos['loc_emp'],"about_emp"=>$datos['about_emp'],"campo_emp"=>$datos['campo_emp'],"searching"=>$datos['searching'],"mostrado"=>$datos['mostrado'],"vacante"=>$datos['vacante'],"logo_emp"=>$path]);
         Mail::raw('Entra a este link para validar tu cuenta de Job Job y acceder a nuestro servicio : (verificar)', function ($message) use($metertablausuario) {
             $id2=$metertablausuario;
@@ -114,11 +143,36 @@ public function registroEmpresaPost(Request $request){
               ->subject('Link Para validar tu cuenta de Job Job');
           });
         return response()->json(array('resultado'=> 'OK'));
+        }
         // return redirect('login');
     }catch(\Exception $e){
         return response()->json($e->getMessage());
     }
 }
+// public function registroEmpresaPost(Request $request){
+//     $datos = $request->except('_token');
+//     try{
+//         //añadir foto empresa
+//         $path=$request->file('logo_emp')->store('logo','public');
+//         /*insertar datos en la base de datos*/
+//         $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil'],"verificado"=>'0',"estado"=>'1']);
+//         // $selectidusuario = DB::table('tbl_usuarios')->select('id')->where('id','=',$metertablausuario)->first();
+//         // $selectidusuario=$selectidusuario->id;
+//         $metertablaempresa=DB::table('tbl_empresa')->insert(["id_usuario"=>$metertablausuario,"nom_emp"=>$datos['nom_emp'],"loc_emp"=>$datos['loc_emp'],"about_emp"=>$datos['about_emp'],"campo_emp"=>$datos['campo_emp'],"searching"=>$datos['searching'],"mostrado"=>$datos['mostrado'],"vacante"=>$datos['vacante'],"logo_emp"=>$path]);
+//         Mail::raw('Entra a este link para validar tu cuenta de Job Job y acceder a nuestro servicio : (verificar)', function ($message) use($metertablausuario) {
+//             $id2=$metertablausuario;
+//             $usuario=DB::select('select * from tbl_usuarios 
+//             inner join tbl_empresa on tbl_usuarios.id=tbl_empresa.id_usuario
+//             where tbl_usuarios.id=? ',[$id2]);
+//             $message->to($usuario[0]->{'mail'})
+//               ->subject('Link Para validar tu cuenta de Job Job');
+//           });
+//         return response()->json(array('resultado'=> 'OK'));
+//         // return redirect('login');
+//     }catch(\Exception $e){
+//         return response()->json($e->getMessage());
+//     }
+// }
 /*----------------------------------------FIN REGISTRAR EMPRESA---------------------------------------------------------------------------------*/
 /*----------------------------------------LEER TRABAJADOR--------------------------------------------------------------------------*/
 public function leertrabajadorController(Request $request){

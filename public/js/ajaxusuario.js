@@ -227,8 +227,14 @@ function creartrabajadorJS() {
                     icon: "success",
                 });
                 setTimeout(() => { window.location.href = 'login'; }, 2000);
+            } else if (respuesta.resultado == "mal") {
+                swal.fire({
+                    title: "Error",
+                    text: "Este correo ya está en uso",
+                    icon: "error",
+                });
             } else {
-                console.log("error")
+                alert("error")
             }
         }
     }
@@ -334,9 +340,14 @@ function crearempresaJS() {
                 });
                 setTimeout(() => { window.location.href = 'login'; }, 2000);
 
+            }  else if (respuesta.resultado == "mal") {
+                swal.fire({
+                    title: "Error",
+                    text: "Este correo ya está en uso",
+                    icon: "error",
+                });
             } else {
-                console.log(respuesta)
-                    // message.innerHTML = 'Ha habido un error: ' + respuesta.resultado;
+                alert("error")
             }
         }
     }
