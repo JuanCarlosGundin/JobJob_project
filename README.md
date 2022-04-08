@@ -22,7 +22,7 @@ Si quieres obtener nuestro proyecto sigue estos pasos:
 
 ### Acceso login
 
-**Lo primero que tienes que hacer es registrarte, ya sea como empresa o como trabajador. Una vez te registres te llegará un mail de confirmación para verificar tu usuario, pero como está en localhost deberás utilizar esta URL-> http://localhost/JobJob_project/public/verificar. Una vez verificado ya puedes iniciar sesión.**
+**Lo primero que tienes que hacer es registrarte, ya sea como empresa o como trabajador. Una vez te registres te llegará un mail de confirmación para verificar tu usuario, pero como está en localhost debes entrar con esta URL-> http://localhost/JobJob_project/public/verificar. Una vez verificado ya puedes iniciar sesión.**
 
 ## Construido con 🛠️
 
