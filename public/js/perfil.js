@@ -38,7 +38,6 @@ function mostrarperfilJS() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
             var id_perfil = respuesta.id_perfil;
-            console.log(respuesta);
             var recarga = '';
             if (id_perfil == 2) {
                 var trabajador = respuesta.trabajador[0];
@@ -51,9 +50,13 @@ function mostrarperfilJS() {
                 } else {
                     recarga += '<img class="user-profilefoto" src="storage/img/usuario.png">';
                 }
-                recarga += '<div class="user-edit-div">';
                 /* boton que cambia la vista a editar */
+                recarga += '<div class="user-edit-div">';
                 recarga += '<button class="user-edit-btn" onclick="leermodperfilJS(); return false;"><i class="fa-solid fa-pen"></i></button>';
+                recarga += '</div>';
+                //logout
+                recarga += '<div class="logout">';
+                recarga += '<button class="logout-btn" onClick="window.location.href=`logout`;"><i class="fa-solid fa-right-from-bracket"></i></button>';
                 recarga += '</div>';
                 recarga += '</div>';
                 recarga += '</div>';
@@ -71,6 +74,7 @@ function mostrarperfilJS() {
                 recarga += '<span class="p-age"> ' + trabajador.edad + '</span>';
                 recarga += '</div>';
                 recarga += '</div>';
+                recarga += '<hr>';
                 /* Correo */
                 recarga += '<div class="user-div-house">';
                 recarga += '<div class="user-icon-name">';
@@ -135,6 +139,7 @@ function mostrarperfilJS() {
                 recarga += '</div>';
                 recarga += '</div>';
                 /* Descripcion */
+                recarga += '<hr>';
                 recarga += '<div class="user-div-desc">';
                 recarga += '<div class="user-icon-desc">';
                 recarga += '<span class="sobre-mi-desc">Sobre mi:</span>';
@@ -156,9 +161,13 @@ function mostrarperfilJS() {
                 } else {
                     recarga += '<img class="empresa-profilefoto" src="storage/img/usuario.png">';
                 }
-                recarga += '<div class="empresa-edit-div">';
                 /* boton que cambia la vista a editar */
+                recarga += '<div class="empresa-edit-div">';
                 recarga += '<button class="empresa-edit-btn" onclick="leermodperfilJS(); return false;"><i class="fa-solid fa-pen"></i></button>';
+                recarga += '</div>';
+                //logout
+                recarga += '<div class="logout">';
+                recarga += '<button class="logout-btn" onClick="window.location.href=`logout`;"><i class="fa-solid fa-right-from-bracket"></i></button>';
                 recarga += '</div>';
                 recarga += '</div>';
                 /* Ver empresa */
@@ -206,8 +215,8 @@ function mostrarperfilJS() {
                 recarga += '<span class="p-house">' + empresa.vacante + '</span>';
                 recarga += '</div>';
                 recarga += '</div>';
-                recarga += '<hr>';
                 /* Descripcion */
+                recarga += '<hr>';
                 recarga += '<div class="empresa-div-desc">';
                 recarga += '<div class="empresa-icon-desc">';
                 recarga += '<span class="sobre-mi-desc">Acerca de:</span>';
@@ -236,11 +245,15 @@ function leermodperfilJS() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(this.responseText);
             var id_perfil = respuesta.id_perfil;
-            console.log(respuesta);
             var recarga = '';
             if (id_perfil == 2) {
                 var trabajador = respuesta.trabajador[0];
                 recarga += '<div class="user-edit">';
+                recarga += '<div class="return">';
+                recarga += '<button class="return-btn" onclick="mostrarperfilJS(); return false;">';
+                recarga += '<i class="fa-solid fa-angle-left"></i>';
+                recarga += '</button>';
+                recarga += '</div>';
                 recarga += '<form method="POST" id="formeditar" enctype="multipart/form-data">';
                 /* Inputs para editar el usuario */
                 recarga += '<div class="user-input">';
@@ -413,12 +426,12 @@ function leermodperfilJS() {
                 recarga += '<div class="user-input-desactivar">';
                 recarga += '<div class="user-icon-desactivar">';
                 if (trabajador.mostrado == 1) {
-                    recarga += '<p>Desactivar cuenta: <p>';
+                    recarga += '<p>Mostrarse: <p>';
                     recarga += '</div>';
                     recarga += '<div class="inputs-desactivar">';
                     recarga += '<input type="checkbox" class="input-desactivar" id="mostrado" name="mostrado" value="' + trabajador.mostrado + '" checked>';
                 } else {
-                    recarga += '<p>Activar cuenta: <p>';
+                    recarga += '<p>Mostrarse: <p>';
                     recarga += '</div>';
                     recarga += '<div class="inputs-desactivar">';
                     recarga += '<input type="checkbox" class="input-desactivar" id="mostrado" name="mostrado" value="' + trabajador.mostrado + '">';
@@ -432,12 +445,6 @@ function leermodperfilJS() {
                 recarga += '<p class="button"><i class="fa-solid fa-check"></i> Realizar cambios</p>';
                 recarga += '</button>';
                 recarga += '</div>';
-                /* Volver a la vista anterior */
-                recarga += '<div class="aceptar-cuenta-edit">';
-                recarga += '<button class="aceptar-cuenta-btn" onclick="mostrarperfilJS(); return false;">';
-                recarga += '<p class="button"><i class="fa-solid fa-check"></i> Volver</p>';
-                recarga += '</button>';
-                recarga += '</div>';
                 /* Eliminar cuenta */
                 recarga += '<div class="eliminar-cuenta-edit">';
                 recarga += '<button class="eliminar-cuenta-btn" onclick="modaleliminar(\'' + trabajador.id + '\',\'' + id_perfil + '\'); return false;">';
@@ -448,6 +455,11 @@ function leermodperfilJS() {
             if (id_perfil == 3) {
                 var empresa = respuesta.empresa[0];
                 recarga += '<div class="empresa-edit">';
+                recarga += '<div class="return">';
+                recarga += '<button class="return-btn" onclick="mostrarperfilJS(); return false;">';
+                recarga += '<i class="fa-solid fa-angle-left"></i>';
+                recarga += '</button>';
+                recarga += '</div>';
                 recarga += '<form method="POST" onsubmit="editarperfilJS(\'' + empresa.id + '\',\'' + id_perfil + '\'); return false;" id="formeditar" enctype="multipart/form-data">';
                 /* Inputs para editar la empresa */
                 recarga += '<div class="empresa-input">';
@@ -502,31 +514,6 @@ function leermodperfilJS() {
                 recarga += '</div>';
                 recarga += '</div>';
                 recarga += '</div>';
-                /* Descripcion */
-                recarga += '<div class="empresa-input-desc">';
-                recarga += '<div class="empresa-icon-desc">';
-                recarga += '<span class="sobre-mi">Información</span>';
-                recarga += '</div>';
-                recarga += '<div class="inputs-desc">';
-                recarga += '<input type="text" class="input-desc" id="about_emp" name="about_emp" value="' + empresa.about_emp + '">';
-                recarga += '</div>';
-                recarga += '</div>';
-                /* Correo uso css trabajador*/
-                recarga += '<div class="contenedor">';
-                recarga += '<div class="user-input-idioma">';
-                recarga += '<div class="user-icon-idioma">';
-                recarga += '<i class="fa-solid fa-at"></i>';
-                recarga += '</div>';
-                recarga += '<div class="inputs-idioma">';
-                recarga += '<input type="email" class="input-idioma" id="mail" name="mail" value="' + empresa.mail + '">';
-                recarga += '</div>';
-                recarga += '</div>';
-                recarga += '<div class="user-icon-more">';
-                recarga += '<button class="user-icon-more-button">';
-                recarga += '<i class="fa-solid fa-plus"></i>';
-                recarga += '</button>';
-                recarga += '</div>';
-                recarga += '</div>';
                 /* Foto */
                 recarga += '<div class="contenedor">';
                 recarga += '<div class="user-input-idioma">';
@@ -543,20 +530,36 @@ function leermodperfilJS() {
                 recarga += '</button>';
                 recarga += '</div>';
                 recarga += '</div>';
-                /* Password uso css trabajador*/
+                /* email */
                 recarga += '<div class="contenedor">';
-                recarga += '<div class="user-input-idioma">';
-                recarga += '<div class="user-icon-idioma">';
+                recarga += '<div class="empresa-input-email">';
+                recarga += '<div class="empresa-icon-email">';
+                recarga += '<i class="fa-solid fa-at"></i>';
+                recarga += '</div>';
+                recarga += '<div class="inputs-email">';
+                recarga += '<input class="input-email" type="text">';
+                recarga += '<input type="email" class="input-email" id="mail" name="mail" value="' + empresa.mail + '">';
+                recarga += '</div>';
+                recarga += '</div>';
+                recarga += '</div>';
+                /* Contraseña */
+                recarga += '<div class="contenedor">';
+                recarga += '<div class="empresa-input-passwd">';
+                recarga += '<div class="empresa-icon-passwd">';
                 recarga += '<i class="fa-solid fa-key"></i>';
                 recarga += '</div>';
-                recarga += '<div class="inputs-idioma">';
-                recarga += '<input type="password" class="input-idioma" id="contra" name="contra" value="' + empresa.contra + '">';
+                recarga += '<div class="inputs-passwd">';
+                recarga += '<input type="password" class="input-passwd" id="contra" name="contra" value="' + empresa.contra + '">';
                 recarga += '</div>';
                 recarga += '</div>';
-                recarga += '<div class="user-icon-more">';
-                recarga += '<button class="user-icon-more-button">';
-                recarga += '<i class="fa-solid fa-plus"></i>';
-                recarga += '</button>';
+                recarga += '</div>';
+                /* Descripcion */
+                recarga += '<div class="empresa-input-desc">';
+                recarga += '<div class="empresa-icon-desc">';
+                recarga += '<span class="sobre-mi">Información</span>';
+                recarga += '</div>';
+                recarga += '<div class="inputs-desc">';
+                recarga += '<input type="text" class="input-desc" id="about_emp" name="about_emp" value="' + empresa.about_emp + '">';
                 recarga += '</div>';
                 recarga += '</div>';
                 /* activar/desactivar */
@@ -564,12 +567,12 @@ function leermodperfilJS() {
                 recarga += '<div class="empresa-input-desactivar">';
                 recarga += '<div class="empresa-icon-desactivar">';
                 if (empresa.mostrado == 1) {
-                    recarga += '<p>Desactivar cuenta: <p>';
+                    recarga += '<p>Mostrarse: <p>';
                     recarga += '</div>';
                     recarga += '<div class="inputs-desactivar">';
                     recarga += '<input type="checkbox" class="input-desactivar" id="mostrado" name="mostrado" value="' + empresa.mostrado + '" checked>';
                 } else {
-                    recarga += '<p>Activar cuenta: <p>';
+                    recarga += '<p>Mostrarse: <p>';
                     recarga += '</div>';
                     recarga += '<div class="inputs-desactivar">';
                     recarga += '<input type="checkbox" class="input-desactivar" id="mostrado" name="mostrado" value="' + empresa.mostrado + '">';
@@ -583,12 +586,6 @@ function leermodperfilJS() {
                 recarga += '<div class="aceptar-empresa-edit">';
                 recarga += '<button class="aceptar-empresa-btn" onclick="editarperfilJS(\'' + empresa.id + '\',\'' + id_perfil + '\'); return false;">';
                 recarga += '<p class="button"><i class="fa-solid fa-check"></i> Realizar cambios</p>';
-                recarga += '</button>';
-                recarga += '</div>';
-                /* Volver a la vista anterior */
-                recarga += '<div class="aceptar-empresa-edit">';
-                recarga += '<button class="aceptar-empresa-btn" onclick="mostrarperfilJS(); return false;">';
-                recarga += '<p class="button"><i class="fa-solid fa-check"></i> Volver</p>';
                 recarga += '</button>';
                 recarga += '</div>';
                 /* Eliminar cuenta */
