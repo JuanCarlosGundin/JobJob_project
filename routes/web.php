@@ -5,14 +5,10 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\AppController;
 
 Route::get('/', function () {
-    return view('login');
+    return view('index');
 });
 Route::get('/home', function () {
     return view('home');
-});
-
-Route::get('/index', function () {
-    return view('index');
 });
 
 Route::get('verificar', function () {
