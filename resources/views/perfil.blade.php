@@ -31,13 +31,8 @@
         {{-- contenido ajax --}}
     </div>
     {{-- Eliminar cuenta modalbox --}}
-    <div id="modal-eliminar-user" class="modal-eliminar-user">
-        <div class="modal-content">
-            <h2 class="modal-title">¿Seguro que quieres eliminar el usuario?</h2>
-            <div class="eliminar-user-butons">
-                <button class="cancelar-eliminar">Cancelar</button>
-                <button class="aceptar-eliminar">Eliminar</button>
-            </div>
+    <div id="modal-eliminar" class="modal-eliminar-user">
+        <div class="modal-content" id="modal_content">
         </div>
     </div>
     <script src="js/perfil.js"></script>
