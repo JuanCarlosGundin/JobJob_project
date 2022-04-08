@@ -499,6 +499,17 @@
                         </div>
                     </div>
                 </div>
+                {{-- Imagen --}}
+                <div class="contenedor">
+                    <div class="empresa-input-logo">
+                        <div class="empresa-icon-logo">
+                            <i class="fa-solid fa-image"></i>
+                        </div>
+                        <div class="inputs-logo">
+                            <input class="input-logo" type="file">
+                        </div>
+                    </div>
+                </div>
                 {{-- email --}}
                 <div class="contenedor">
                     <div class="empresa-input-email">

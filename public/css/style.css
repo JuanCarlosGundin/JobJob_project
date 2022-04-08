@@ -1607,6 +1607,50 @@ body .empresa-edit .empresa-input .empresa-input-vacante .inputs-vacante .input-
     border-color: #92AFD7;
 }
 
+body .empresa-edit .empresa-input .empresa-input-logo {
+    width: 89vw;
+    border-radius: 2vw;
+    background-color: #92AFD7;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+body .empresa-edit .empresa-input .empresa-input-logo .empresa-icon-logo {
+    width: 10%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    float: left;
+    margin-left: 1vw;
+}
+
+body .empresa-edit .empresa-input .empresa-input-logo .inputs-logo {
+    float: left;
+    width: 90%;
+}
+
+body .empresa-edit .empresa-input .empresa-input-logo .inputs-logo .input-logo {
+    margin-left: 1vw;
+    width: 100%;
+    height: 5vh;
+    border-radius: 2vw;
+    border-color: #92AFD7;
+}
+
 body .empresa-edit .empresa-input .empresa-input-email {
     width: 89vw;
     border-radius: 2vw;
@@ -1834,41 +1878,92 @@ body .empresa-edit .aceptar-empresa-edit .aceptar-empresa-btn {
     background-color: #278a00;
 }
 
-body .div-enviar-mensaje {
+body .div-enviar-title {
     width: 100%;
-    padding: 3vh;
+    padding-top: 3vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
 }
 
-body .div-enviar-mensaje .input-enviar .input-icon-mensaje {
-    width: 20%;
-    background-color: #92AFD7;
+body .div-enviar-title .return {
+    width: 10%;
 }
 
-body .div-enviar-mensaje .input-enviar .input-enviar-mensaje {
-    width: 80%;
-}
-
-body .div-enviar-mensaje .input-enviar .input-enviar-mensaje .input-mensaje {
+body .div-enviar-title .return .return-btn {
+    width: 100%;
     border-width: 0px;
-    width: 90%;
-    height: 3vh;
+    font-size: 3vh;
+    background-color: transparent;
+    cursor: pointer;
 }
 
-body .div-enviar-mensaje .input-enviar-boton {
+body .div-enviar-title .enviar-a {
+    width: 90%;
+}
+
+body .div-enviar-title .enviar-a .enviar-a-title {
     width: 100%;
-    margin-top: 1vh;
+    font-size: 2vh;
 }
 
-body .div-enviar-mensaje .input-enviar-boton .input-enviar {
-    width: 90%;
+body .input-enviar-boton {
+    width: 100%;
+}
+
+body .input-enviar-boton .input-enviar {
+    width: 100%;
     background-color: #92AFD7;
     color: white;
     font-weight: bolder;
     height: 3vh;
 }
 
-body .div-enviar-mensaje .input-enviar-boton .input-enviar:hover {
-    background-color: #a3c3f1;
+body .input-enviar-boton .input-enviar:hover {
+    background-color: #C5D1EB;
+}
+
+.div-enviar-mensaje {
+    width: 100%;
+    padding-bottom: 3vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+}
+
+.div-enviar-mensaje .input-enviar .input-icon-mensaje {
+    width: 20%;
+    background-color: #C5D1EB;
+    height: 10vh;
+    color: white;
+    font-size: x-large;
+}
+
+.div-enviar-mensaje .input-enviar .input-enviar-mensaje {
+    width: 100%;
+}
+
+.div-enviar-mensaje .input-enviar .input-enviar-mensaje .input-mensaje {
+    border-width: 1px 1px 1px 0px;
+    border-color: #C5D1EB;
+    width: 100%;
+    height: 10vh;
+}
+
+.div-enviar-mensaje .input-enviar-boton {
+    width: 100%;
+    margin-top: 1vh;
+}
+
+.div-enviar-mensaje .input-enviar-boton .input-enviar {
+    width: 100%;
+    background-color: #92AFD7;
+    color: white;
+    font-weight: bolder;
+    height: 3vh;
+    cursor: pointer;
+}
+
+.div-enviar-mensaje .input-enviar-boton .input-enviar:hover {
+    background-color: #C5D1EB;
 }
 
 .flex {
