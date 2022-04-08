@@ -1,3 +1,11 @@
+@if(session()->has('nombre_trabajador') or session()->has('nombre_empresa'))
+   
+@else 
+<?php
+//Si la session no esta definida te redirige al login.
+return redirect()->to('/')->send();
+?>
+@endif
 <!DOCTYPE html>
 <html lang="en">
 

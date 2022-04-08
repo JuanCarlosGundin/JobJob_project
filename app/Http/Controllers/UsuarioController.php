@@ -245,6 +245,19 @@ class UsuarioController extends Controller
         }
     }
 
+    public function leerperfiloneuser($id, $id_perfil) {
+        if ($id_perfil == 2){
+            $trabajador = DB::select('select * from tbl_usuarios
+            INNER JOIN tbl_trabajador on tbl_trabajador.id_usuario=tbl_usuarios.id where id=?',[$id]);
+            return response()->json(array('trabajador' => $trabajador, 'id_perfil' =>$id_perfil));
+        }
+        if ($id_perfil == 3) {
+            $empresa = DB::select('select * from tbl_usuarios
+            INNER JOIN tbl_empresa on tbl_empresa.id_usuario=tbl_usuarios.id where id=?',[$id]);
+            return response()->json(array('empresa' => $empresa, 'id_perfil' =>$id_perfil));
+        }
+    }
+
     ///ZONA NOTIFICACIONES
     ///ZONA PERFIL
 

@@ -303,8 +303,6 @@ function leermodperfilJS() {
                 recarga += '</div>';
                 recarga += '<div class="inputs-experience">';
                 recarga += '<input type="text" class="input-experience" id="experiencia" name="experiencia" value="' + trabajador.experiencia + '">';
-                recarga += '<span class="p-tiempo">Tiempo:</span>';
-                recarga += '<input class="input-years" type="number">';
                 recarga += '</div>';
                 recarga += '</div>';
                 recarga += '<div class="user-icon-more">';
@@ -514,20 +512,15 @@ function leermodperfilJS() {
                 recarga += '</div>';
                 recarga += '</div>';
                 recarga += '</div>';
-                /* Foto */
+                /* Imagen */
                 recarga += '<div class="contenedor">';
-                recarga += '<div class="user-input-idioma">';
-                recarga += '<div class="user-icon-idioma">';
+                recarga += '<div class="empresa-input-logo">';
+                recarga += '<div class="empresa-icon-logo">';
                 recarga += '<i class="fa-solid fa-image"></i>';
                 recarga += '</div>';
-                recarga += '<div class="inputs-idioma">';
-                recarga += '<input type="file" class="input-idioma" id="logo_emp" name="logo_emp">';
+                recarga += '<div class="inputs-logo">';
+                recarga += '<input type="file" class="input-logo" id="logo_emp" name="logo_emp">';
                 recarga += '</div>';
-                recarga += '</div>';
-                recarga += '<div class="user-icon-more">';
-                recarga += '<button class="user-icon-more-button">';
-                recarga += '<i class="fa-solid fa-plus"></i>';
-                recarga += '</button>';
                 recarga += '</div>';
                 recarga += '</div>';
                 /* email */
@@ -537,7 +530,6 @@ function leermodperfilJS() {
                 recarga += '<i class="fa-solid fa-at"></i>';
                 recarga += '</div>';
                 recarga += '<div class="inputs-email">';
-                recarga += '<input class="input-email" type="text">';
                 recarga += '<input type="email" class="input-email" id="mail" name="mail" value="' + empresa.mail + '">';
                 recarga += '</div>';
                 recarga += '</div>';

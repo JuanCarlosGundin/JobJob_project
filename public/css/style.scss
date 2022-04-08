@@ -580,13 +580,13 @@ body {
                     align-items: center;
                     .input-experience {
                         margin-left: 1vw;
-                        width: 50%;
+                        width: 100%;
                         height: 5vh;
                         border-radius: 2vw;
                         border-color: #92AFD7;
                         float: left;
                     }
-                    .p-tiempo {
+                    /* .p-tiempo {
                         margin-left: 1vw;
                         width: 30%;
                         color: white;
@@ -598,7 +598,7 @@ body {
                         border-radius: 2vw;
                         border-color: #92AFD7;
                         float: right;
-                    }
+                    } */
                 }
             }
             .user-input-conocimientos {
