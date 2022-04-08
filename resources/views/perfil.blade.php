@@ -35,6 +35,7 @@
         <div class="modal-content" id="modal_content">
         </div>
     </div>
+    {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
     <script src="js/perfil.js"></script>
 </body>
 </html>

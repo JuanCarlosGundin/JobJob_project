@@ -609,6 +609,57 @@ function leermodperfilJS() {
 
 //EDITAR
 function editarperfilJS(id, id_perfil) {
+    /* if (id_perfil == 2) {
+        let contra = document.getElementById('contra').value;
+        let mail = document.getElementById('mail').value;
+        let nombre = document.getElementById('nombre').value;
+        let apellido = document.getElementById('apellido').value;
+        let campo_user = document.getElementById('campo_user').value;
+        let loc_trabajador = document.getElementById('loc_trabajador').value;
+        let experiencia = document.getElementById('experiencia').value;
+        let edad = document.getElementById('edad').value;
+        let estudios = document.getElementById('estudios').value;
+        let idiomas = document.getElementById('idiomas').value;
+        let disponibilidad = document.getElementById('disponibilidad').value;
+        let about_user = document.getElementById('about_user').value;
+        let foto_perfil = document.getElementById('foto_perfil').value;
+        if (mail == '' || contra == '' || nombre == '' || apellido == '' || campo_user == '' || experiencia == '' || estudios == '' || idiomas == '' || disponibilidad == '' || about_user == '' || foto_perfil == '' || loc_trabajador == '' || edad == '') {
+            swal.fire({
+                title: "Error",
+                text: "Tienes que rellenar todos los datos",
+                icon: "error",
+            });
+            return false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
+            swal.fire({
+                title: "Error",
+                text: "Introduce un email correcto",
+                icon: "error",
+            });
+            return false;
+        } else if (contra.length > 50) {
+            swal.fire({
+                title: "Error",
+                text: "La contraseña no puede ser más larga de 50 caracteres",
+                icon: "error",
+            });
+            return false;
+        } else if (contra.length < 8) {
+            swal.fire({
+                title: "Error",
+                text: "La contraseña debe tener mas de 8 caracteres",
+                icon: "error",
+            });
+            return false;
+        } else if (mail.length > 100) {
+            swal.fire({
+                title: "Error",
+                text: "El email no puede ser más largo de 100 caracteres",
+                icon: "error",
+            });
+            return false;
+        }
+    } */
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('_method', 'PUT');

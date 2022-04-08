@@ -39,6 +39,31 @@ Route::post('leernotificaciones',[UsuarioController::class, 'leernotificaciones'
 
 ///ZONA NOTIFICACIONES
 
+/*EDITAR PERFIL*/
+//Vista perfil
+Route::get('perfil',[UsuarioController::class, 'vistaPerfil']);
+// mostrarperfil.
+Route::post('leerperfil',[UsuarioController::class, 'leerperfiledit']);
+// editarperfil
+Route::put('editarperfil/{id}/{id_perfil}',[UsuarioController::class, 'editarperfil']);
+/*FIN EDITAR PERFIL*/
+
+///mandar correo chat
+Route::post('mandar', [MailController::class, 'sending']);
+
+
+
+
+
+//ir a contenido principal
+Route::get('principal',[AppController::class, 'vistaPrincipal']);
+//LEER EL CONTENIDO
+Route::post('mostrar',[AppController::class, 'mostrar']);
+//Positivo
+Route::post('si',[AppController::class, 'si']);
+//negativo
+Route::post('no',[AppController::class, 'no']);
+
 ////////
 Route::get('/', function () {
     return view('index');
@@ -92,26 +117,4 @@ Route::post('registroPost',[UsuarioController::class, 'registroPost']);
 // Route::get('registroEmpresa',[UsuarioController::class, 'registroEmpresa']);
 Route::post('registroEmpresaPost',[UsuarioController::class, 'registroEmpresaPost']);
 
-/*EDITAR PERFIL*/
-//Vista perfil
-Route::get('perfil',[UsuarioController::class, 'vistaPerfil']);
-// mostrarperfil.
-Route::post('leerperfil',[UsuarioController::class, 'leerperfiledit']);
-// editarperfil
-Route::put('editarperfil/{id}/{id_perfil}',[UsuarioController::class, 'editarperfil']);
-/*FIN EDITAR PERFIL*/
 
-
-
-///mandar correo
-Route::post('mandar', [MailController::class, 'sending']);
-
-
-//ir a contenido principal
-Route::get('principal',[AppController::class, 'vistaPrincipal']);
-//LEER EL CONTENIDO
-Route::post('mostrar',[AppController::class, 'mostrar']);
-//Positivo
-Route::post('si',[AppController::class, 'si']);
-//negativo
-Route::post('no',[AppController::class, 'no']);
