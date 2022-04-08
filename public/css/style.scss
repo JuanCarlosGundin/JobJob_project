@@ -1193,6 +1193,34 @@ body {
                     }
                 }
             }
+            .empresa-input-logo {
+                width: 89vw;
+                border-radius: 2vw;
+                background-color: #92AFD7;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                margin-bottom: 2vh;
+                .empresa-icon-logo {
+                    width: 10%;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    float: left;
+                    margin-left: 1vw;
+                }
+                .inputs-logo {
+                    float: left;
+                    width: 90%;
+                    .input-logo {
+                        margin-left: 1vw;
+                        width: 100%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                    }
+                }
+            }
             .empresa-input-email {
                 width: 89vw;
                 border-radius: 2vw;
@@ -1343,35 +1371,79 @@ body {
         }
     }
     /////////////////////////////////ENVIAR-MENSAJE////////////////////////////////////
-    .div-enviar-mensaje {
+    .div-enviar-title {
         width: 100%;
-        padding: 3vh;
-        .input-enviar {
-            .input-icon-mensaje {
-                width: 20%;
-                background-color: #92AFD7;
-            }
-            .input-enviar-mensaje {
-                width: 80%;
-                .input-mensaje {
-                    border-width: 0px;
-                    width: 90%;
-                    height: 3vh;
-                }
+        padding-top: 3vh;
+        padding-left: 3vh;
+        padding-right: 3vh;
+        .return {
+            width: 10%;
+            .return-btn {
+                width: 100%;
+                border-width: 0px;
+                font-size: 3vh;
+                background-color: transparent;
+                cursor: pointer;
             }
         }
-        .input-enviar-boton {
+        .enviar-a {
+            width: 90%;
+            .enviar-a-title {
+                width: 100%;
+                font-size: 2vh;
+            }
+        }
+    }
+    .input-enviar-boton {
+        width: 100%;
+        .input-enviar {
             width: 100%;
-            margin-top: 1vh;
-            .input-enviar {
-                width: 90%;
-                background-color: #92AFD7;
-                color: white;
-                font-weight: bolder;
-                height: 3vh;
-                &:hover {
-                    background-color: #a3c3f1;
-                }
+            background-color: #92AFD7;
+            color: white;
+            font-weight: bolder;
+            height: 3vh;
+            &:hover {
+                background-color: #C5D1EB;
+            }
+        }
+    }
+}
+
+.div-enviar-mensaje {
+    width: 100%;
+    padding-bottom: 3vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    .input-enviar {
+        .input-icon-mensaje {
+            width: 20%;
+            background-color: #C5D1EB;
+            height: 10vh;
+            color: white;
+            font-size: x-large;
+        }
+        .input-enviar-mensaje {
+            width: 100%;
+            .input-mensaje {
+                border-width: 1px 1px 1px 0px;
+                border-color: #C5D1EB;
+                width: 100%;
+                height: 10vh;
+            }
+        }
+    }
+    .input-enviar-boton {
+        width: 100%;
+        margin-top: 1vh;
+        .input-enviar {
+            width: 100%;
+            background-color: #92AFD7;
+            color: white;
+            font-weight: bolder;
+            height: 3vh;
+            cursor: pointer;
+            &:hover {
+                background-color: #C5D1EB;
             }
         }
     }
