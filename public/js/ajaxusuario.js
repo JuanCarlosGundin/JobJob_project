@@ -320,6 +320,51 @@ function loginP() {
 }
 
 function crearempresaJS() {
+    let mail = document.getElementById('mail').value;
+    let contra = document.getElementById('contra').value;
+    let nom_emp = document.getElementById('nom_emp').value;
+    let loc_emp = document.getElementById('loc_emp').value;
+    let campo_emp = document.getElementById('campo_emp').value;
+    let mostrado = document.getElementById('mostrado').value;
+    let about_emp = document.getElementById('about_emp').value;
+    let logo_emp = document.getElementById('logo_emp').value;
+        //VALIDACIONES EMPRESA
+        if (mail == '' || contra == '' || nom_emp == '' || loc_emp == '' || campo_emp == '' || mostrado == '' || about_emp == '' || logo_emp == '') {
+            swal.fire({
+                title: "Error",
+                text: "Tienes que rellenar todos los datos",
+                icon: "error",
+            });
+            return false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
+            swal.fire({
+                title: "Error",
+                text: "Introduce un email correcto",
+                icon: "error",
+            });
+            return false;
+        } else if (mail.length > 100) {
+            swal.fire({
+                title: "Error",
+                text: "El email no puede ser más largo de 100 caracteres",
+                icon: "error",
+            });
+            return false;
+        } else if (contra.length < 8) {
+            swal.fire({
+                title: "Error",
+                text: "La contraseña debe tener mas de 8 caracteres",
+                icon: "error",
+            });
+            return false;
+        } else if (contra.length > 100) {
+            swal.fire({
+                title: "Error",
+                text: "La contraseña debe tener menos de 100 caracteres",
+                icon: "error",
+            });
+            return false;
+        }
     var formData = new FormData();
     formData.append('_token', document.getElementById('token').getAttribute("content"));
     formData.append('_method', 'POST');
