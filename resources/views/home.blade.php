@@ -1,3 +1,4 @@
+
 @if (!Session::get('id_user'))
     <?php
         //Si la sesion no esta definida te redirige al login.
@@ -6,6 +7,7 @@
 @endif
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -119,5 +121,6 @@
     </div>
     <script src="js/swiper.js"></script>
 </body>
+
 
 </html>

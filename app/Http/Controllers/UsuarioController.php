@@ -50,6 +50,7 @@ class UsuarioController extends Controller
     }catch(\Exception $e){
         return response()->json(array('resultado'=> 'mal'));
     }   
+
     }
     public function logout(Request $request){
         $request->session()->forget('Admin');
@@ -548,5 +549,6 @@ public function ActivateACC(Request $request)
 
     ////////Diego
 }
+
 
 

@@ -25,15 +25,18 @@ Route::get('paginaempresa', function () {
 Route::get('paginatrabajador', function () {
     return view('paginatrabajador');
 });
+
 Route::get('registrar', function () {
     return view('registrar');
 });
 Route::get('editarperfil', function () {
     return view('editarperfil');
+
 });
 /*--------------RUTAS DAVID--------------*/
 /*LOGIN Y LOGOUT*/
 Route::post('login', [UsuarioController::class, 'loginP']);
+
 
 
 Route::get('logout', [UsuarioController::class, 'logout']);
@@ -108,3 +111,4 @@ Route::put('editarperfil/{id}/{id_perfil}',[UsuarioController::class, 'editarper
 /*FIN EDITAR PERFIL*/
 ///mandar correo chat
 Route::post('mandar', [MailController::class, 'sending']);
+
