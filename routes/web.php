@@ -24,9 +24,6 @@ Route::get('paginaempresa', function () {
 Route::get('paginatrabajador', function () {
     return view('paginatrabajador');
 });
-Route::get('cPanelAdmin', function () {
-    return view('cPanelAdmin');
-});
 Route::get('registrar', function () {
     return view('registrar');
 });
@@ -48,15 +45,6 @@ Route::post('loginP',[UsuarioController::class, 'loginP']);
 // Route::get('registroEmpresa',[UsuarioController::class, 'registroEmpresa']);
 Route::post('registroEmpresaPost',[UsuarioController::class, 'registroEmpresaPost']);
 
-/*EDITAR PERFIL*/
-// ruta para modificar perfil trabajador.
-Route::post('leertrabajador',[UsuarioController::class, 'leertrabajadorController']);
-// ruta para modificar trabajador.
-Route::put('modificartrabajador',[UsuarioController::class, 'modificartrabajadorController']);
-// ruta para eliminar trabajador.
-Route::delete('eliminartrabajador/{id}', [UsuarioController::class, 'eliminartrabajadorController']);
-/*FIN EDITAR PERFIL*/
-
 //Verificar//
 
 
@@ -70,3 +58,48 @@ Route::post('mostrar',[AppController::class, 'mostrar']);
 Route::post('si',[AppController::class, 'si']);
 //negativo
 Route::post('no',[AppController::class, 'no']);
+
+////Diego_branch
+///ZONA ADMINISTRADOR
+//Acceder a vista Admin
+Route::get('cPanelAdmin',[UsuarioController::class, 'vistaAdmin']);
+
+//leerJS
+Route::post('leer',[UsuarioController::class,'leer']);
+
+//perfilesJS
+Route::post('perfiles',[UsuarioController::class,'perfiles']);
+
+//crearJS
+Route::post('crearuser',[UsuarioController::class,'crearuser']);
+
+//estadouserJS
+Route::put('estadouser/{id}',[UsuarioController::class,'estadouser']);
+
+//mostrarmodaluserJS
+Route::post('mostrarmodaluser/{id}/{id_perfil}',[UsuarioController::class,'mostrarmodaluser']);
+
+//modificaruserJS
+Route::put('modificaruser/{id}/{id_perfil}',[UsuarioController::class,'modificaruser']);
+
+//eliminaruserJS
+Route::delete('eliminaruser/{id}/{id_perfil}',[UsuarioController::class,'eliminaruser']);
+///ZONA ADMINISTRADOR
+
+///ZONA NOTIFICACIONES
+//Acceder a vista Notificaciones
+Route::get('notificaciones',[UsuarioController::class, 'vistaNotificaciones']);
+
+//leernotificacionesJS
+Route::post('leernotificaciones',[UsuarioController::class, 'leernotificaciones']);
+
+///ZONA NOTIFICACIONES
+
+/*EDITAR PERFIL*/
+//Vista perfil
+Route::get('perfil',[UsuarioController::class, 'vistaPerfil']);
+// mostrarperfil.
+Route::post('leerperfil',[UsuarioController::class, 'leerperfiledit']);
+// editarperfil
+Route::put('editarperfil/{id}/{id_perfil}',[UsuarioController::class, 'editarperfil']);
+/*FIN EDITAR PERFIL*/
