@@ -2,12 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\AppController;
 
 Route::get('/', function () {
-    return view('index');
+    return view('login');
+});
+Route::get('/home', function () {
+    return view('home');
 });
 
-Route::get('verificacion', function () {
+Route::get('verificar', function () {
     return view('verificacion');
 });
 
@@ -32,11 +36,13 @@ Route::get('editarperfil', function () {
 /*--------------RUTAS DAVID--------------*/
 /*LOGIN Y LOGOUT*/
 Route::post('login', [UsuarioController::class, 'loginP']);
+
+
 Route::get('logout', [UsuarioController::class, 'logout']);
 //Ruta para el registro de trabajadores
+Route::post('registroPost',[UsuarioController::class, 'registroPost']);
 // Route::get('registro',[UsuarioController::class, 'registro']);
 Route::post('registrar',[UsuarioController::class, 'registrar']);
-Route::post('registroPost',[UsuarioController::class, 'registroPost']);
 Route::post('loginP',[UsuarioController::class, 'loginP']);
 //Ruta para el registro de empresas
 // Route::get('registroEmpresa',[UsuarioController::class, 'registroEmpresa']);
@@ -51,3 +57,16 @@ Route::put('modificartrabajador',[UsuarioController::class, 'modificartrabajador
 Route::delete('eliminartrabajador/{id}', [UsuarioController::class, 'eliminartrabajadorController']);
 /*FIN EDITAR PERFIL*/
 
+//Verificar//
+
+
+Route::post('verificarController', [UsuarioController::class, 'ActivateACC']);
+
+///////////////////////MAIN/////////////////////
+
+//LEER EL CONTENIDO
+Route::post('mostrar',[AppController::class, 'mostrar']);
+//Positivo
+Route::post('si',[AppController::class, 'si']);
+//negativo
+Route::post('no',[AppController::class, 'no']);

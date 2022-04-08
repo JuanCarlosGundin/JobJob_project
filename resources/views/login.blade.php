@@ -15,14 +15,8 @@
             <img src="storage/uploads/jobjob_logo.png">
         </div>
         <div id="main" class="modal-login">
-            {{-- <div class="botones-registrar">
-                <button class="btn-signin" onclick="login()">Sign In</button>
-                <button class="btn-register" onclick="registrar()">Register</button>
-            </div>
-                <div id="main" class="modal-content">
-                </div>--}}
+            
         </div>
         <script src="js/ajaxusuario.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 </html>
