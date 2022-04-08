@@ -98,16 +98,6 @@ function mostrarperfilJS() {
                 recarga += '<span class="p-house">' + trabajador.experiencia + '</span>';
                 recarga += '</div>';
                 recarga += '</div>';
-                /* Conocimientos */
-                /* Aqui voy a poner si el usuario se muestra en principal o no */
-                recarga += '<div class="user-div-house">';
-                recarga += '<div class="user-icon-name">';
-                recarga += '<i class="fa-solid fa-brain"></i>';
-                recarga += '</div>';
-                recarga += '<div class="divs-house">';
-                recarga += '<span class="p-house">' + trabajador.mostrado + '</span>';
-                recarga += '</div>';
-                recarga += '</div>';
                 /* Idioma */
                 recarga += '<div class="user-div-house">';
                 recarga += '<div class="user-icon-name">';
@@ -302,24 +292,6 @@ function leermodperfilJS() {
                 recarga += '</div>';
                 recarga += '</div>';
                 /* Modal añadir mas experiencia */
-                /* Conocimientos */
-                /* Aqui pongo temporalmente si la persona quiere ser mostrada en la pagina principal */
-                recarga += '<div class="contenedor">';
-                recarga += '<div class="user-input-conocimientos">';
-                recarga += '<div class="user-icon-conocimientos">';
-                recarga += '<i class="fa-solid fa-brain"></i>';
-                recarga += '</div>';
-                recarga += '<div class="inputs-conocimientos">';
-                recarga += '<input type="number" class="input-conocimientos" id="mostrado" name="mostrado" value="' + trabajador.mostrado + '">';
-                recarga += '</div>';
-                recarga += '</div>';
-                recarga += '<div class="user-icon-more">';
-                recarga += '<button class="user-icon-more-button">';
-                recarga += '<i class="fa-solid fa-plus"></i>';
-                recarga += '</button>';
-                recarga += '</div>';
-                recarga += '</div>';
-                /* Aqui pongo temporalmente si la persona quiere ser mostrada en la pagina principal */
                 /* Idioma */
                 recarga += '<div class="contenedor">';
                 recarga += '<div class="user-input-idioma">';
@@ -427,6 +399,24 @@ function leermodperfilJS() {
                 recarga += '</div>';
                 recarga += '</div>';
                 recarga += '</form>';
+                /* activar/desactivar */
+                recarga += '<div class="contenedor">';
+                recarga += '<div class="user-input-desactivar">';
+                recarga += '<div class="user-icon-desactivar">';
+                if (trabajador.mostrado == 1) {
+                    recarga += '<p>Desactivar cuenta: <p>';
+                    recarga += '</div>';
+                    recarga += '<div class="inputs-desactivar">';
+                    recarga += '<input type="checkbox" class="input-desactivar" id="mostrado" name="mostrado" value="' + trabajador.mostrado + '" checked>';
+                } else {
+                    recarga += '<p>Activar cuenta: <p>';
+                    recarga += '</div>';
+                    recarga += '<div class="inputs-desactivar">';
+                    recarga += '<input type="checkbox" class="input-desactivar" id="mostrado" name="mostrado" value="' + trabajador.mostrado + '">';
+                }
+                recarga += '</div>';
+                recarga += '</div>';
+                recarga += '</div> ';
                 /* Realizar cambios */
                 recarga += '<div class="aceptar-cuenta-edit">';
                 recarga += '<button class="aceptar-cuenta-btn" onclick="editarperfilJS(\'' + trabajador.id + '\',\'' + id_perfil + '\'); return false;">';
@@ -564,10 +554,17 @@ function leermodperfilJS() {
                 recarga += '<div class="contenedor">';
                 recarga += '<div class="empresa-input-desactivar">';
                 recarga += '<div class="empresa-icon-desactivar">';
-                recarga += '<p>Desactivar/Activar cuenta: <p>';
-                recarga += '</div>';
-                recarga += '<div class="inputs-desactivar">';
-                recarga += '<input type="number" class="input-desactivar" id="mostrado" name="mostrado" value="' + empresa.mostrado + '">';
+                if (empresa.mostrado == 1) {
+                    recarga += '<p>Desactivar cuenta: <p>';
+                    recarga += '</div>';
+                    recarga += '<div class="inputs-desactivar">';
+                    recarga += '<input type="checkbox" class="input-desactivar" id="mostrado" name="mostrado" value="' + empresa.mostrado + '" checked>';
+                } else {
+                    recarga += '<p>Activar cuenta: <p>';
+                    recarga += '</div>';
+                    recarga += '<div class="inputs-desactivar">';
+                    recarga += '<input type="checkbox" class="input-desactivar" id="mostrado" name="mostrado" value="' + empresa.mostrado + '">';
+                }
                 recarga += '</div>';
                 recarga += '</div>';
                 recarga += '</div>';
@@ -621,7 +618,11 @@ function editarperfilJS(id, id_perfil) {
         formData.append('disponibilidad', document.getElementById('disponibilidad').value);
         formData.append('about_user', document.getElementById('about_user').value);
         formData.append('foto_perfil', document.getElementById('foto_perfil').files[0]);
-        formData.append('mostrado', document.getElementById('mostrado').value);
+        if (document.getElementById('mostrado').checked == true) {
+            formData.append('mostrado', '1');
+        } else {
+            formData.append('mostrado', '0');
+        }
     }
     /* modificar empresa */
     if (id_perfil == 3) {
@@ -632,7 +633,11 @@ function editarperfilJS(id, id_perfil) {
         formData.append('searching', document.getElementById('searching').value);
         formData.append('vacante', document.getElementById('vacante').value);
         formData.append('logo_emp', document.getElementById('logo_emp').files[0]);
-        formData.append('mostrado', document.getElementById('mostrado').value);
+        if (document.getElementById('mostrado').checked == true) {
+            formData.append('mostrado', '1');
+        } else {
+            formData.append('mostrado', '0');
+        }
     }
     var ajax = objetoAjax();
     ajax.open("POST", "editarperfil/" + id + "/" + id_perfil, true);
