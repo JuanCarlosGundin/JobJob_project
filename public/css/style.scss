@@ -305,7 +305,7 @@ body {
                 float: left;
                 position: absolute;
                 bottom: 0;
-                right: 0;
+                left: 0;
                 .user-edit-btn {
                     height: 5vh;
                     width: 5vh;
@@ -317,6 +317,25 @@ body {
                     border-radius: 60px;
                     color: white;
                     background-color: $third-color;
+                    font-size: 2vh;
+                }
+            }
+            .logout {
+                float: left;
+                position: absolute;
+                top: 0;
+                right: 0;
+                .logout-btn {
+                    height: 5vh;
+                    width: 5vh;
+                    padding: 0;
+                    border-width: 0px;
+                    cursor: pointer;
+                    padding: 0;
+                    margin: 0;
+                    border-radius: 60px;
+                    color: white;
+                    background-color: $fourth-color;
                     font-size: 2vh;
                 }
             }
@@ -412,6 +431,15 @@ body {
     .user-edit {
         width: 100;
         padding: 2vh;
+        .return {
+            margin-bottom: 2vh;
+            .return-btn {
+                border-width: 0px;
+                font-size: 3vh;
+                background-color: transparent;
+                cursor: pointer;
+            }
+        }
         .user-edit-foto {
             width: 100%;
             justify-content: center;
@@ -652,9 +680,26 @@ body {
                     .input-desactivar {
                         margin-left: 1vw;
                         width: 100%;
-                        height: 5vh;
+                        height: 2vh;
                         border-radius: 2vw;
                     }
+                }
+            }
+            .aceptar-cuenta-edit {
+                bottom: 0;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                .aceptar-cuenta-btn {
+                    border-radius: 5vh;
+                    width: 50%;
+                    padding: 0;
+                    border-width: 0px;
+                    cursor: pointer;
+                    padding: 0;
+                    margin: 0;
+                    color: rgb(255, 255, 255);
+                    background-color: rgb(39, 138, 0);
                 }
             }
             .user-input-desc {
@@ -881,7 +926,7 @@ body {
                 float: left;
                 position: absolute;
                 bottom: 0;
-                right: 0;
+                left: 0;
                 .empresa-edit-btn {
                     height: 5vh;
                     width: 5vh;
@@ -893,6 +938,25 @@ body {
                     border-radius: 60px;
                     color: white;
                     background-color: $third-color;
+                    font-size: 2vh;
+                }
+            }
+            .logout {
+                float: left;
+                position: absolute;
+                top: 0;
+                right: 0;
+                .logout-btn {
+                    height: 5vh;
+                    width: 5vh;
+                    padding: 0;
+                    border-width: 0px;
+                    cursor: pointer;
+                    padding: 0;
+                    margin: 0;
+                    border-radius: 60px;
+                    color: white;
+                    background-color: $fourth-color;
                     font-size: 2vh;
                 }
             }
@@ -977,6 +1041,15 @@ body {
     .empresa-edit {
         width: 100;
         padding: 2vh;
+        .return {
+            margin-bottom: 2vh;
+            .return-btn {
+                border-width: 0px;
+                font-size: 3vh;
+                background-color: transparent;
+                cursor: pointer;
+            }
+        }
         .empresa-input {
             margin-top: 2vh;
             width: 100%;
@@ -1120,6 +1193,62 @@ body {
                     }
                 }
             }
+            .empresa-input-email {
+                width: 89vw;
+                border-radius: 2vw;
+                background-color: #92AFD7;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                margin-bottom: 2vh;
+                .empresa-icon-email {
+                    width: 10%;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    float: left;
+                    margin-left: 1vw;
+                }
+                .inputs-email {
+                    float: left;
+                    width: 90%;
+                    .input-email {
+                        margin-left: 1vw;
+                        width: 100%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                    }
+                }
+            }
+            .empresa-input-passwd {
+                width: 89vw;
+                border-radius: 2vw;
+                background-color: #92AFD7;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                margin-bottom: 2vh;
+                .empresa-icon-passwd {
+                    width: 10%;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    float: left;
+                    margin-left: 1vw;
+                }
+                .inputs-passwd {
+                    float: left;
+                    width: 90%;
+                    .input-passwd {
+                        margin-left: 1vw;
+                        width: 100%;
+                        height: 5vh;
+                        border-radius: 2vw;
+                        border-color: #92AFD7;
+                    }
+                }
+            }
             .empresa-input-desactivar {
                 width: 89vw;
                 border-radius: 2vw;
@@ -1143,7 +1272,7 @@ body {
                     .input-desactivar {
                         margin-left: 1vw;
                         width: 100%;
-                        height: 5vh;
+                        height: 2vh;
                         border-radius: 2vw;
                     }
                 }
@@ -1213,4 +1342,43 @@ body {
             }
         }
     }
+    /////////////////////////////////ENVIAR-MENSAJE////////////////////////////////////
+    .div-enviar-mensaje {
+        width: 100%;
+        padding: 3vh;
+        .input-enviar {
+            .input-icon-mensaje {
+                width: 20%;
+                background-color: #92AFD7;
+            }
+            .input-enviar-mensaje {
+                width: 80%;
+                .input-mensaje {
+                    border-width: 0px;
+                    width: 90%;
+                    height: 3vh;
+                }
+            }
+        }
+        .input-enviar-boton {
+            width: 100%;
+            margin-top: 1vh;
+            .input-enviar {
+                width: 90%;
+                background-color: #92AFD7;
+                color: white;
+                font-weight: bolder;
+                height: 3vh;
+                &:hover {
+                    background-color: #a3c3f1;
+                }
+            }
+        }
+    }
+}
+
+.flex {
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }

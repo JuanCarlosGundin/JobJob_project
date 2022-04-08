@@ -31,6 +31,21 @@
     {{-- <div class="curriculum">
         <h1 class="curriculum-title">COMMING SOON...</h1>
     </div> --}}
+    <div class="div-enviar-mensaje">
+        <form>
+            <div class="input-enviar flex">
+                <div class="input-icon-mensaje flex">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="input-enviar-mensaje flex"> 
+                    <input class="input-mensaje" type="text">
+                </div>
+            </div>
+            <div class="input-enviar-boton flex">
+                <input class="input-enviar" type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
