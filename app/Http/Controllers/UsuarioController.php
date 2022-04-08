@@ -6,7 +6,6 @@ use App\Models\Usuario;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\storage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class UsuarioController extends Controller
 {
@@ -14,11 +13,13 @@ class UsuarioController extends Controller
 /*----------------------------------------LOGIN Y LOGOUT------------------------------------------------------------------------*/
     public function loginP(Request $request){
         $datos= $request->except('_token','_method');
-        try{
         $user=DB::table("tbl_perfiles")->join('tbl_usuarios', 'tbl_perfiles.id', '=', 'tbl_usuarios.id_perfil')->where('mail','=',$datos['mail'])->where('contra','=',md5($datos['contra']))->first();
-        if($user->verificado=='0'){
-            return response()->json(array('resultado'=> 'no'));
-        }
+        $request->validate([
+            'mail'=>'required|unique:tbl_usuarios,email|string|max:100',
+            'contra'=>'required|string|min:8|max:100',
+            // 'passwordvalidar'=>'required|same:password'
+        ]);
+
         if($user->nom_perfil=='Admin'){
            $request->session()->put('nombre_admin',$request->mail);
         //    return redirect('cPanelAdmin');
@@ -43,10 +44,7 @@ class UsuarioController extends Controller
             // return redirect('paginaempresa');
             return response()->json(array('resultado'=> 'empresa'));
         }
-        return response()->json(array('resultado'=> 'mal'));
-    }catch(\Exception $e){
-        return response()->json(array('resultado'=> 'mal'));
-    }   
+        return redirect('login');
     }
     public function logout(Request $request){
         $request->session()->forget('Admin');
@@ -66,24 +64,22 @@ class UsuarioController extends Controller
 public function registroPost(Request $request){
     $datos = $request->except('_token');
     try{
+        DB::beginTransaction();
         //añadir foto trabajador
         $path=$request->file('foto_perfil')->store('uploads','public');
         /*insertar datos en la base de datos*/
-        $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil'],"verificado"=>'0',"estado"=>'1']);
-        DB::table('tbl_trabajador')->insert(["id_usuario"=>$metertablausuario,"nombre"=>$datos['nombre'],"apellido"=>$datos['apellido'],"foto_perfil"=>$path,"campo_user"=>$datos['campo_user'],"experiencia"=>$datos['experiencia'],"estudios"=>$datos['estudios'],"idiomas"=>$datos['idiomas'],"disponibilidad"=>$datos['disponibilidad'],"about_user"=>$datos['about_user'],"mostrado"=>$datos['mostrado'],"loc_trabajador"=>$datos['loc_trabajador'],"edad"=>$datos['edad']]);
-        Mail::raw('Entra a este link para validar tu cuenta de Job Job y acceder a nuestro servicio : (verificar)', function ($message) use($metertablausuario) {
-            $id2=$metertablausuario;
-            $usuario=DB::select('select * from tbl_usuarios 
-            inner join tbl_trabajador on tbl_usuarios.id=tbl_trabajador.id_usuario
-            where tbl_usuarios.id=? ',[$id2]);
-            $message->to($usuario[0]->{'mail'})
-              ->subject('Link Para validar tu cuenta de Job Job');
-          });
+        $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil']]);
+        // $selectidusuario = DB::table('tbl_usuarios')->select('id')->where('id','=',$metertablausuario)->first();
+        // $selectidusuario=$selectidusuario->id;
+        $metertablatrabajador=DB::table('tbl_trabajador')->insert(["id_usuario"=>$metertablausuario,"nombre"=>$datos['nombre'],"apellido"=>$datos['apellido'],"foto_perfil"=>$path,"campo_user"=>$datos['campo_user'],"experiencia"=>$datos['experiencia'],"estudios"=>$datos['estudios'],"idiomas"=>$datos['idiomas'],"disponibilidad"=>$datos['disponibilidad'],"about_user"=>$datos['about_user'],"mostrado"=>$datos['mostrado']]);
+
+        DB::commit();
         return response()->json(array('resultado'=> 'OK'));
-        //return redirect('login');
+        // return redirect('login');
 
     }catch(\Exception $e){
-        return response()->json($e->getMessage());
+        DB::rollBack();
+        return $e->getMessage();
     }
 }
 /*----------------------------------------FIN REGISTRAR TRABAJADOR---------------------------------------------------------------------------------*/
@@ -98,25 +94,20 @@ public function registroPost(Request $request){
 public function registroEmpresaPost(Request $request){
     $datos = $request->except('_token');
     try{
+        DB::beginTransaction();
         //añadir foto empresa
         $path=$request->file('logo_emp')->store('uploads','public');
         /*insertar datos en la base de datos*/
-        $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil'],"verificado"=>'0',"estado"=>'1']);
+        $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil']]);
         // $selectidusuario = DB::table('tbl_usuarios')->select('id')->where('id','=',$metertablausuario)->first();
         // $selectidusuario=$selectidusuario->id;
-        $metertablaempresa=DB::table('tbl_empresa')->insert(["id_usuario"=>$metertablausuario,"nom_emp"=>$datos['nom_emp'],"loc_emp"=>$datos['loc_emp'],"about_emp"=>$datos['about_emp'],"campo_emp"=>$datos['campo_emp'],"searching"=>$datos['searching'],"mostrado"=>$datos['mostrado'],"vacante"=>$datos['vacante'],"logo_emp"=>$path]);
-        Mail::raw('Entra a este link para validar tu cuenta de Job Job y acceder a nuestro servicio : (verificar)', function ($message) use($metertablausuario) {
-            $id2=$metertablausuario;
-            $usuario=DB::select('select * from tbl_usuarios 
-            inner join tbl_empresa on tbl_usuarios.id=tbl_empresa.id_usuario
-            where tbl_usuarios.id=? ',[$id2]);
-            $message->to($usuario[0]->{'mail'})
-              ->subject('Link Para validar tu cuenta de Job Job');
-          });
+        $metertablaempresa=DB::table('tbl_empresa')->insert(["id_usuario"=>$metertablausuario,"nom_emp"=>$datos['nom_emp'],"loc_emp"=>$datos['loc_emp'],"about_emp"=>$datos['about_emp'],"campo_emp"=>$datos['campo_emp'],"searching"=>$datos['searching'],"mostrado"=>$datos['mostrado'],"logo_emp"=>$path]);
+        DB::commit();
         return response()->json(array('resultado'=> 'OK'));
         // return redirect('login');
     }catch(\Exception $e){
-        return response()->json($e->getMessage());
+        DB::rollBack();
+        return response()->json(array('resultado'=> 'NO'));
     }
 }
 /*----------------------------------------FIN REGISTRAR EMPRESA---------------------------------------------------------------------------------*/
@@ -151,22 +142,6 @@ public function modificartrabajadorController(Request $request){
     }
 }
 /*----------------------------------------FIN MODIFICAR TRABAJADOR---------------------------------------------------------------------*/
-/*----------------------------------------ACTIVAR CUENTA DE USUARIO--------------------------------------------------------------------*/
-public function ActivateACC(Request $request)
-    {   
-        $usuario = $request->input('user');
-        $contra = $request->input('contra');
-        try{
-            $user=DB::table("tbl_usuarios")->where('mail','=',$usuario)->where('contra','=',md5($contra))->first();
-            //return response()->json($user->id);
-            //AQUI VA LA FUNCIÓN DEL LOGIN PARA COMPROBAR CONTRASEÑA
-            //si la contraseña es correcta ejecuta esta función de abajo y nos indica que estamos verificados
-            DB::update('update tbl_usuarios set verificado = 1 where id=?',[$user->id]);
-              return response()->json("OK");
-        }catch(\Throwable $th){
-            return response()->json(array('resultado'=> 'NOK: '.$th->getMessage()));
-        }
-    }
-/*-------------------------------------FIN ACTIVAR CUENTA DE USUARIO--------------------------------------------------------------------*/
+
 
 }
