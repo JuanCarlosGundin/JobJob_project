@@ -45,7 +45,7 @@ Si quieres obtener nuestro proyecto sigue estos pasos:
 
 ## Contacto 📧     
   ```  
-                                                                                            Laura Fernández Bernardos   -   1000068.joan23@fje.edu
+                                                                                            Laura Fernández Bernardos   -   10000068.joan23@fje.edu
                                                                                             Juan Carlos Gundín Ríos     -   100005882.joan23@fje.edu
     Si te ha quedado alguna duda sobre el proyecto no dudes en contactarnos por correo ->   David Ortega Colomo         -   100006394.joan23@fje.edu
                                                                                             Diego Soledispa Campozano   -   31966.joan23@fje.edu
