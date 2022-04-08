@@ -69,6 +69,9 @@ public function registroPost(Request $request){
         //añadir foto trabajador
         $path=$request->file('foto_perfil')->store('uploads','public');
         /*insertar datos en la base de datos*/
+        $comprobarduplicado = DB::table('tbl_usuarios')->select('id')->where('mail','=',$datos['mail'])->first();
+        $comprobarduplicado=$comprobarduplicado->id_usuario;
+        return $comprobarduplicado;
         $metertablausuario=DB::table('tbl_usuarios')->insertGetId(["mail"=>$datos['mail'],"contra"=>md5($datos['contra']),"id_perfil"=>$datos['id_perfil'],"verificado"=>'0',"estado"=>'1']);
         DB::table('tbl_trabajador')->insert(["id_usuario"=>$metertablausuario,"nombre"=>$datos['nombre'],"apellido"=>$datos['apellido'],"foto_perfil"=>$path,"campo_user"=>$datos['campo_user'],"experiencia"=>$datos['experiencia'],"estudios"=>$datos['estudios'],"idiomas"=>$datos['idiomas'],"disponibilidad"=>$datos['disponibilidad'],"about_user"=>$datos['about_user'],"mostrado"=>$datos['mostrado'],"loc_trabajador"=>$datos['loc_trabajador'],"edad"=>$datos['edad']]);
         Mail::raw('Entra a este link para validar tu cuenta de Job Job y acceder a nuestro servicio : (verificar)', function ($message) use($metertablausuario) {
