@@ -36,7 +36,7 @@ Si quieres obtener nuestro proyecto sigue estos pasos:
 
 ## Autores ✒️
 
-    Laura Fernández Bernardos   -   Estudiante DAW2
+    Laura Fernández Bernardes   -   Estudiante DAW2
     Juan Carlos Gundín Ríos     -   Estudiante DAW2
     David Ortega Colomo         -   Estudiante DAW2
     Diego Soledispa Campozano   -   Estudiante DAW2
