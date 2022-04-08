@@ -93,6 +93,8 @@ Route::get('notificaciones',[UsuarioController::class, 'vistaNotificaciones']);
 
 //leernotificacionesJS
 Route::post('leernotificaciones',[UsuarioController::class, 'leernotificaciones']);
+//leerperfiloneuser
+Route::post('leerperfiluser/{id}/{id_perfil}',[UsuarioController::class, 'leerperfiloneuser']);
 
 ///ZONA NOTIFICACIONES
 

@@ -43,10 +43,17 @@ class AppController extends Controller
         where id_iniciador=? and id_interactuado=?',[$idClient,$id]);
         try{
         if($datos[0]->{'count(*)'}==1){
-            DB::update('update tbl_interaccion set coincidencia = 1 where id_iniciador=? and id_interactuado=?',
-           [$idClient,$id]);
-           DB::insert('insert into tbl_interaccion (id_iniciador,id_interactuado,tipo_interaccion,estado_interaccion,coincidencia) 
-           values (?,?,1,1,1)',[$id,$idClient]);
+            $datos=DB::select('select * from tbl_interaccion
+            where id_iniciador=? and id_interactuado=?',[$idClient,$id]);
+            if($datos[0]->{'tipo_interaccion'}==1){
+                DB::update('update tbl_interaccion set coincidencia = 1 where id_iniciador=? and id_interactuado=?',
+                [$idClient,$id]);
+                DB::insert('insert into tbl_interaccion (id_iniciador,id_interactuado,tipo_interaccion,estado_interaccion,coincidencia) 
+                values (?,?,1,1,1)',[$id,$idClient]);
+                }else{DB::insert('insert into tbl_interaccion (id_iniciador,id_interactuado,tipo_interaccion,estado_interaccion,coincidencia) 
+                    values (?,?,1,1,0)',[$id,$idClient]);
+                    return response()->json(2);
+                }
            return response()->json(1); 
         }else{
             DB::insert('insert into tbl_interaccion (id_iniciador,id_interactuado,tipo_interaccion,estado_interaccion,coincidencia) 
@@ -61,18 +68,10 @@ class AppController extends Controller
     function no(Request $request){
         $id=session()->get('id_user');
         $idClient = $request->input('idClient');
-        $datos=DB::select('select count(*) from tbl_interaccion
-        where id_iniciador=? and id_interactuado=?',[$idClient,$id]);
         try{
-        if($datos[0]->{'count(*)'}==1){
-            DB::update('update tbl_interaccion set tipo_interaccion = 2 where id_iniciador=? and id_interactuado=?',
-           [$idClient,$id]);
-           return response()->json(1); 
-        }else{
             DB::insert('insert into tbl_interaccion (id_iniciador,id_interactuado,tipo_interaccion,estado_interaccion,coincidencia) 
             values (?,?,2,1,0)',[$id,$idClient]);
             return response()->json(2);  
-        }
     }catch (\Throwable $th) {
         return response()->json(array('resultado'=> 'NOK: '.$th->getMessage()));
     }
